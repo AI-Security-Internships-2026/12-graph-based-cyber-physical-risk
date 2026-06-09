@@ -1,0 +1,9 @@
+torch
+torch-geometric
+networkx
+neo4j
+pandas
+numpy
+matplotlib
+streamlit
+scikit-learn
