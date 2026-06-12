@@ -16,7 +16,7 @@ Be honest — problems and blockers are normal and help your supervisor support 
 ## Week 1
 
 **Branch:** `misbahshaheen-week-01`  
-**PR link:** _[Add link after opening PR]_
+**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/1
 
 ### Completed this week
 - [✔] Read README and project proposal  
