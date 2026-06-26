@@ -59,3 +59,43 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 - Start mapping ICS-Flow's network flow + process variable logs onto the planned dual-layer graph structure
 - Draft the system architecture section of `docs/proposal.md` (Week 3 deliverable)
 - Begin exploratory data loading/preprocessing of ICS-Flow and Cyber4OT
+
+---
+
+## Week 3
+**Branch:** `misbahshaheen-week-03`     
+**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/4
+
+### Completed this week
+- [✔] Drafted and finalised `docs/proposal.md` — research questions, methodology,
+      dataset roles, evaluation metrics, risk table, and weekly deliverable plan
+- [✔] Identified flow paths in ICS-Flow attack graph using `nx.all_simple_paths`
+      on a directed MultiDiGraph built from attack-labelled flows; 13 unique attack
+      paths enumerated from source devices to the primary target node (.41)
+- [✔] Constructed attack flow graph (ICS-Flow) — directed, colour-coded by attack
+      type (port-scan → MITM → replay → DDoS); saved as `week3_attack_flow_graph.png`
+- [✔] Built attack timeline showing temporal sequencing of attack types:
+      port-scan (12:15) → MITM (12:17) → replay (12:22) → DDoS (12:34)
+- [✔] Ran graph construction on BATADAL (real ICS physical-layer dataset,
+      dataset04.csv, 4177 timesteps, 43 sensors/actuators) — built sensor
+      correlation graphs for normal and attack periods using Pearson correlation
+      thresholding; saved visualisation as `week3_batadal_graph.png`
+- [✔] Identified 4 anomalous sensors in BATADAL deviating >2σ from normal during
+      attack periods — flagged as candidate high-risk nodes for GNN training (Week 6)
+- [✔] Compared normal graph (43 nodes, 37 edges) vs attack graph (43 nodes,
+      30 edges) in BATADAL — 11 edges lost and 4 new edges appeared during attacks,
+      indicating structural disruption of sensor correlations under attack conditions
+
+### Problems / Blockers
+- No problem
+
+### Next week plan
+- Integrate ICS-Flow PLC snapshot files (`snapshots_PLC1.csv`, `snapshots_PLC2.csv`)
+  with the cyber communication graph to form the dual-layer knowledge graph
+- Assign node roles (PLC, HMI, Gateway, Sensor, Actuator) and build `controls`
+  and `monitors` edges for the physical process layer
+- Engineer the node feature matrix: per-device flow statistics (cyber layer) and
+  per-sensor mean/std/deviation ratio (physical layer)
+- Export the completed dual-layer graph to NetworkX and begin Neo4j schema design
+
+---
