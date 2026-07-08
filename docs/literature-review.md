@@ -1,7 +1,7 @@
 # Literature Review: Graph-Based Risk Assessment for Cyber-Physical Systems
 
 **Student:** Misbah Shaheen
-**Updated:** 2026-06-19
+**Updated:** 2026-07-03
 
 ---
 
@@ -175,7 +175,71 @@ Use Google Scholar, IEEE Xplore, ACM DL, arXiv, or USENIX Security.
 > ICS components that were once isolated now routinely interface with enterprise IT systems and cloud-based platforms — this gradual integration expands the attack surface and weakens the traditional OT air-gap security model, motivating the need for unified KG-based threat analytics.
 
 ---
+---
+ 
+### Paper 9 — ExCyTIn-Bench: Evaluating LLM Agents on Cyber Threat Investigation
+ 
 
+ 
+| Field | Content |
+|---|---|
+| **Full title** | ExCyTIn-Bench: Evaluating LLM Agents on Cyber Threat Investigation |
+| **Authors** | Wu, Y., Velazco, M., Zhao, A., Meléndez Luján, M. R., Movva, S., Roy, Y. K., Nguyen, Q., Rodriguez, R., Wu, Q., Albada, M., Kiseleva, J., & Mudgerikar, A. (Microsoft) |
+| **Year** | 2025 (v1: July 2025) / updated May 2026 (v3) |
+| **Venue** | arXiv:2507.14201 [cs.CR] — open access, CC BY 4.0 |
+| **URL / DOI** | https://arxiv.org/abs/2507.14201 |
+| **Method** | Constructs bipartite alert–entity investigation graphs from 8 real multi-stage attack chains across 59 Azure security log tables; generates multi-hop Q&A pairs from graph paths mapped to MITRE ATT&CK tactics; evaluates LLM agents on traversing these graphs to investigate and classify threats |
+| **Dataset** | Microsoft Azure tenant security logs — 8 real attack chains including ransomware, lateral movement, and credential theft; 59 distinct log table types |
+| **Key result** | Average reward across tested models ≈ 0.249 (best model o4-mini ≈ 0.368) in the original benchmark; later updates report GPT-5 high-reasoning variants outperforming lower-reasoning configurations, though task performance remains far from saturated — demonstrating that LLM agents traversing multi-hop attack graphs without structured pre-processing perform poorly, even at frontier model scale. |
+| **Limitation** | Enterprise IT only (Azure cloud tenant) — no ICS, SCADA, PLC, or OT protocol context. LLM queries a SQL database directly, not a GNN output — the GNN+LLM fusion our project proposes is not evaluated here. Benchmark paper only, not a deployed production system. |
+| **Relevance to our project** | The low recall result (3.82%) directly motivates our project's GNN pre-processing layer: a GNN that compresses multi-hop ICS attack paths into structured embeddings before LLM reasoning would address ExCyTIn's core finding. The bipartite alert–entity graph structure maps onto our KG node types (Asset, Alert, Technique). The ICS adaptation — replacing Azure cloud entities with PLC/HMI/SCADA nodes — is the architectural gap our GNN+LLM pipeline is designed to fill. Directly supports the LLM layer added to project scope by supervisor. |
+ 
+**Notes / Quotes:**
+> "Real-world security analysts must sift through a large number of heterogeneous alert signals and security logs, follow multi-hop chains of evidence, and compile an incident report" — the exact analyst workflow our LLM layer is intended to automate for ICS operators.
+ 
+---
+ 
+### Paper 10 — Spatio-Temporal Attention GNN: Explaining Causalities with Attention (STA-GNN)
+ 
+
+ 
+| Field | Content |
+|---|---|
+| **Full title** | Spatio-Temporal Attention Graph Neural Network: Explaining Causalities with Attention |
+| **Authors** | Koistinen, K., Hellsten, K., Kaski, K. K., & Herttuainen, J. (Aalto University, Finland) |
+| **Year** | 2026 |
+| **Venue** | arXiv:2603.10676 [cs.CR] — open access |
+| **URL / DOI** | https://arxiv.org/abs/2603.10676 |
+| **Method** | Unsupervised GNN combining temporal self-attention (Transformer-style) with dynamic spatial graph attention for multi-modal ICS anomaly detection; ICS sensors, PLCs, and actuators are represented as graph nodes; learns inter-device dependency structure dynamically rather than from a fixed topology; produces explainable attention graphs showing which device relationships caused a detected anomaly; tested on physical SCADA data, NetFlow, and CIP payload simultaneously |
+| **Dataset** | SWaT 2015, 2017, 2019 datasets (physical-level SCADA sensor data + NetFlow + CIP payload from a real water-treatment ICS testbed) |
+| **Key result** | F1 = 0.77 on SWaT 2015 physical-level data; conformal prediction thresholding reduces false-positive rate to FPR ≈ 0.001; attention graphs correctly identify causal propagation paths in 60–75% of detected attacks |
+| **Limitation** | Evaluated exclusively on SWaT water-treatment benchmark — not tested on Modbus/DNP3 or manufacturing ICS protocols. No knowledge graph or CVE/ATT&CK integration. Detects and explains anomalies but does not predict where an attack will propagate next. Authors acknowledge significant concept drift between SWaT dataset versions, limiting long-term deployment without periodic retraining. |
+| **Relevance to our project** | Directly addresses two of our core objectives: GNN-based detection on real ICS data (PLCs, SCADA, sensors as graph nodes) and explainability of which device relationships caused an alert. The attention graph output — causal pathways between ICS components — is structurally the same as the propagation edges in our knowledge graph. The SWaT F1 = 0.77 result provides a concrete baseline for comparing our own GNN results in Week 7. Crucially, the paper's future work explicitly proposes integrating LLM reasoning over attention graphs for non-expert users — exactly the LLM layer our supervisor has added to project scope. |
+ 
+**Notes / Quotes:**
+> "As future work, we aim to integrate the learned attention structures with large language models (LLMs) to further enhance explainability, particularly for non-expert users." — This is precisely the three-layer architecture (KG → GNN → LLM) our project is now implementing for ICS.
+ 
+---
+ 
+### Paper 11 — MITRE ATT&CK for ICS (Living Framework, Current Version v19)
+ 
+
+ 
+| Field | Content |
+|---|---|
+| **Full title** | MITRE ATT&CK for ICS — Tactics, Techniques, and Procedures for Industrial Control Systems |
+| **Authors** | MITRE Corporation |
+| **Year** | Continuously updated — current version v19 (April 2026); ICS matrix first released 2020 |
+| **Venue** | MITRE ATT&CK (official framework, not a peer-reviewed paper) |
+| **URL** | https://attack.mitre.org/matrices/ics/ |
+| **Method** | Structured taxonomy of adversary TTPs specific to ICS/OT environments organised into 12 tactics. v19 (April 2026) added ICS sub-techniques for the first time (18 sub-techniques across 79 techniques). Machine-readable STIX data available via GitHub (`mitre-attack/attack-stix-data`). Ingested in Python via the `mitreattack-python` library. Evidence base is real-world ICS incidents including TRITON, Industroyer, and the 2015/2016 Ukraine power grid attacks |
+| **Dataset** | Real-world ICS incidents used as evidence base; 14 tracked threat groups (e.g., Sandworm, XENOTIME); 8 documented campaigns |
+| **Key result** | Authoritative, community-validated ICS attack taxonomy: 12 tactics, 79 techniques, 18 sub-techniques (v19), 52 mitigations, 18 assets, 14 groups. Sub-techniques were added in v19 — a significant structural change from v16 (October 2024) which had 83 techniques and 0 sub-techniques |
+| **Limitation** | Descriptive taxonomy only — no risk scoring, no graph structure, no learned model. Coverage is limited to publicly disclosed incidents; novel or undisclosed attack techniques are not represented until after public disclosure. Not a detection system. |
+| **Relevance to our project** | Primary source for Technique nodes and tactic-level edge labels in the project's Neo4j knowledge graph. Every ATT&CK for ICS technique (T0800-series) maps directly to a Technique node; tactic sequences (e.g., Reconnaissance → Lateral Movement → Impair Process Control → Impact) become directed edges encoding known attack progressions. The STIX-format machine-readable data is ingested via the `mitreattack-python` library. Also used as the ground-truth label source for mapping detected GNN anomalies to named ICS techniques, which the LLM layer then translates into natural-language analyst reports. |
+
+ ---
+ 
 ## Reference Table (Quick Overview)
 
 | # | Title (short) | Authors | Year | Method | Dataset | Relevance |
@@ -188,11 +252,14 @@ Use Google Scholar, IEEE Xplore, ACM DL, arXiv, or USENIX Security.
 | 6 | Automated KG Risk Assessment (Spyderisk) | Phillips et al. | 2024 | Ontology/knowledge-graph-driven risk assessment aligned with ISO 27005 | German steel mill cyberattack case study (Spyderisk) | Structural blueprint for our Neo4j knowledge graph schema (Assets, Relations, Threats, Controls, Consequences) |
 | 7 | Physics-Informed GNN (PIGNN) | François et al. | 2025 | Physics-informed constraints + GNN for full attack-path prediction | 1,033 synthetic Active Directory environment graphs | Most advanced attack-path architecture reviewed; open-source code adapted for our physical-process-aware propagation model |
 | 8 | BRIDG-ICS Knowledge Graph | Nandiya et al. | 2025/2026 | AI-grounded knowledge graph fusing CVE/CWE/CAPEC/ATT&CK for ICS + OT telemetry | CVE/CWE/CAPEC/ATT&CK for ICS feeds + synthetic OPC UA testbed telemetry | Most complete prior work; our project adds the GNN learning layer this KG-only approach lacks |
-
+| 9 | ExCyTIn-Bench — LLM Agents on Threat Investigation | Wu et al. (Microsoft) | 2025/2026 |LLM agents traversing bipartite alert–entity graphs for multi-hop threat investigation; attack stages are labeled with MITRE ATT&CK techniques | Motivates GNN pre-processing before LLM reasoning; bipartite alert–entity graph maps onto our KG node types; directly supports LLM layer |
+| 10 | STA-GNN — ICS Explainable Anomaly Detection | Koistinen et al. (Aalto) | 2026 | Unsupervised spatio-temporal GNN with attention-based explainability on real ICS data (PLCs, SCADA sensors) | SWaT 2015/2017/2019 (physical SCADA + NetFlow + CIP payload) | ICS-specific GNN on real SCADA/PLC data with causal propagation graphs; F1=0.77 baseline; future work explicitly proposes GNN+LLM integration |
+| 11 | MITRE ATT&CK for ICS (v19) | MITRE Corporation | 2026 | Living ICS attack taxonomy — 12 tactics, 79 techniques, 18 sub-techniques; machine-readable STIX | Real-world ICS incidents (TRITON, Ukraine grid, Industroyer) | Primary source for Technique nodes and tactic-sequence edge labels in the Neo4j KG; ground-truth label source for LLM-generated analyst reports |
+ 
 ---
-
-*None of the papers reviewed combine a GNN, a formal ICS-specific knowledge graph, attack-path/propagation prediction, and physical-process impact modeling in one system. This points to a gap among the sources surveyed, though it is not an exhaustive claim across the literature.*
-
+ 
+*None of the papers reviewed combine a GNN, a formal ICS-specific knowledge graph, attack-path/propagation prediction, and an LLM reasoning layer in one system. This points to a gap among the sources surveyed, though it is not an exhaustive claim across the literature.*
+ 
 ---
 
 ## Tools and Datasets Identified

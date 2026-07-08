@@ -99,3 +99,33 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 - Export the completed dual-layer graph to NetworkX and begin Neo4j schema design
 
 ---
+
+## Week 4
+**Branch:** `misbahshaheen-week-04`  
+**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/8
+
+### Completed this week
+- [✔] Built a cybersecurity Knowledge Graph (KG) from the ICS-Flow dataset using NetworkX
+- [✔] Added Asset, Attacker, MITRE ATT&CK Technique, CVE, and Alert nodes
+- [✔] Implemented relationships: `COMMUNICATES_WITH`, `USES_TECHNIQUE`, `TARGETS`, `VULNERABLE_TO`, `ENABLES`, and `TRIGGERED_ON`
+- [✔] Integrated MITRE ATT&CK ICS techniques and CVE information into the graph
+- [✔] Computed node risk scores based on attack activity, communication volume, and CVSS severity
+- [✔] Created knowledge graph visualizations and exported graph data for Neo4j (`week4_kg_nodes.csv`, `week4_kg_edges.csv`)
+- [✔] Converted the graph into a PyTorch Geometric (PyG) format
+- [✔] Implemented GraphSAGE-based node embeddings, node classification, and flow-level classification
+- [✔] Evaluated the flow-level classifier using Accuracy, Precision, Recall, and F1-score
+- [✔] Added BATADAL evaluation hook for Week 5
+- [✔] Updated literature review and added 3 recent papers (2025–2026)
+
+### Problems / Blockers
+- Limited number of devices in ICS-Flow makes node-level evaluation difficult.
+- Used flow-level classification to obtain a more meaningful evaluation.
+
+### Next week plan
+- Import the knowledge graph into Neo4j
+- Design Cypher queries for graph analysis
+- Preprocess BATADAL using the same graph feature schema
+- Evaluate GraphSAGE on BATADAL
+- Begin cross-dataset comparison and risk analysis
+
+---
