@@ -129,3 +129,23 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 - Begin cross-dataset comparison and risk analysis
 
 ---
+
+## Week 5
+**Branch:** `misbahshaheen-week-05`     
+**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/9
+
+### Completed this week
+- [✔] Ran GraphSAGE edge-level classifier on ICS-Flow (44,156 flows, 80/20 split, inverse-frequency class weighting) — reported test accuracy, precision, recall, F1 as the held-out generalization metric             
+- [✔] Identified and corrected a methodology issue in the initial BATADAL cross-dataset validation: a single static correlation graph produced only 41 total labelled edges (4 anomalous), giving a degenerate 8-edge test split
+- [✔] Rebuilt BATADAL validation using sliding 24-hour windows (6-hour stride) → 693 graph instances (56 positive, ~8%), fixed topology from the Week 3 normal-period correlation graph, per-window node features (mean/std/z-score deviation from baseline)
+- [✔] Trained a graph-level GraphSAGE classifier (SAGEConv + global mean pooling) with stratified 5-fold cross-validation on BATADAL — accuracy 0.974 ± 0.017, precision 0.790 ± 0.116, recall 0.965 ± 0.043, F1 0.862 ± 0.054
+- [✔] Loaded the Week 4 knowledge graph (`week4_kg_nodes.csv`, `week4_kg_edges.csv`) into Neo4j via the Python driver; validated with the ranked attack-path Cypher query from Issue #7's acceptance criteria
+
+### Problems / Blockers
+- ICS-Flow and BATADAL report at different units of prediction (edge-level vs. window/graph-level) — flagging this explicitly rather than presenting them as directly comparable
+
+### Next week plan
+- Extend cross-dataset validation further using the SCADANet dataset (Kaggle: `ealgul/scada-dataset-v01`) — a virtual Modbus/TCP SCADA testbed with 14 classes (1 normal + 13 attack types), which gives a third, flow-level dataset alongside ICS-Flow and BATADAL for validating the GraphSAGE pipeline
+- Begin RQ3 scoping: physical process impact integration
+
+---
