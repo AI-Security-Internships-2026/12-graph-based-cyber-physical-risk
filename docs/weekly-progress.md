@@ -149,3 +149,32 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 - Begin RQ3 scoping: physical process impact integration
 
 ---
+
+## Week 6
+
+**Branch:** `misbahshaheen-week-06`
+**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/10
+
+### Completed this week
+- [✔] Downloaded and profiled the SCADANet dataset (`ealgul/scada-dataset-v01`) — 534,841 packets, 60 columns; confirmed traffic split (451,099 attack / 83,742 normal) and top attack types (`udp_flood`, `vuln_scan`, `http_flood`, `icmp_flood`, plus 9 smaller classes)
+- [✔] Confirmed complete IP-level class separability in SCADANet (every source/destination IP is 100% attack or 100% normal) — designed an IP-held-out train/test split so no IP appears in both sets, avoiding trivial identity memorization
+- [✔] Trained a baseline GraphSAGE edge classifier (topology + 2-dim in/out-degree node features only) — test accuracy 0.9985, precision 0.9876, recall 1.0000, F1 0.9938
+- [✔] Performed a full column-by-column audit of all 60 raw SCADANet columns, classifying each as dead/constant, label-leak, identifier/free-text/fingerprint, high-cardinality (deliberately held out), or genuine per-flow signal — 10 numeric + 13 categorical columns (224 dims after one-hot encoding) retained as edge features
+- [✔] Built an enriched GraphSAGE variant (`EdgeClassifierWithAttr`) that projects the 224-dim edge feature vector and concatenates it with the node-embedding pair before the classification head
+- [✔] Ran a set of diagnostics (weight-norm inspection, edge-feature ablation via shuffling/zeroing, logit-margin analysis) to determine whether the enriched model's edge features were actually influencing predictions — confirmed they are correctly wired and do move the logits, but never by enough to flip a prediction once trained, because node-identity alone already separates the dominant high-volume traffic (e.g. `udp_flood`, 338,656/534,841 flows) with a large, fixed margin
+- [✔] Benchmarked model size and inference latency for all four trained models (ICS-Flow, BATADAL, SCADANet baseline, SCADANet enriched)
+- [✔] Exported all Week 6 metrics, the column audit, and benchmark results to `week6_metrics.json`
+
+### Problems / Blockers
+- **Found and fixed a reproducibility bug:** the SCADANet training functions seeded only the train/test IP split (`torch.Generator().manual_seed(seed)`), not PyTorch's global RNG. This left model weight initialization and dropout unseeded, so re-running the same code produced different results on different kernel restarts — I observed the enriched model swing from 0.9982 accuracy on one run to 0.6563 on another, with identical code. Added `torch.manual_seed(seed)` at the start of both training functions to fix this.
+- After seeding, the enriched model still reproducibly collapses to accuracy 0.6563 / precision 0.2535 / recall 1.0000 / F1 0.4045 under seed=42 — consistently, on repeated reruns. This is not yet resolved: I don't know whether seed=42 specifically triggers a bad initialization for the 224-dim edge-feature architecture, or whether this instability is systematic across seeds. A multi-seed sweep is queued to determine which.
+- Because of the above, I'm treating the enriched-model comparison as provisional rather than final pending the seed sweep, even though the baseline model and the diagnostic findings (edge features are real but currently redundant on the high-volume majority of flows) are solid and reproducible.
+
+### Next week plan
+- Run the enriched SCADANet model across multiple seeds (e.g. 1–7) to determine whether the accuracy collapse is seed-specific or a systematic instability of the 224-dim one-hot edge-feature architecture
+- If systematic: investigate whether dimensionality reduction on the categorical one-hot block (e.g. embedding layers instead of raw one-hot, or dropping near-constant presence-flag columns) stabilizes training
+- Add a stratified evaluation slice (low-frequency IP pairs vs. high-volume flood pairs) to check whether the enriched features provide value specifically on traffic the topology-based node embeddings can't already separate by identity alone
+- Finalize and write up the SCADANet baseline-vs-enriched comparison with honest variance reporting (mean ± std across seeds, matching the BATADAL 5-fold protocol from Week 5) rather than a single run
+- Update `week6_metrics.json` once the seeded, multi-run results are finalized
+
+---
