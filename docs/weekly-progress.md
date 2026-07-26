@@ -178,3 +178,29 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 - Update `week6_metrics.json` once the seeded, multi-run results are finalized
 
 ---
+
+## Week 7
+
+**Branch:** `misbahshaheen-week-07`
+**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/11
+
+### Completed this week
+- [✔] Traced Week 6's recall = 1.0000 result to an IP-identity artifact, not real detection: 10 of 14 attack types share one fixed attacker IP each, and the other two (`tcp_syn_flood`, `udp_flood`) use spoofed IPs appearing only 1-2 times — trivially separable by raw node degree alone
+- [✔] Confirmed this empirically: enriched 224-dim edge features left recall unchanged (`fn=0`), proving the shortcut lives in the shared node-degree encoder, not the content features
+- [✔] Split evaluation into two honestly-scoped tracks: **Track A** (IP-held-out, `tcp_syn_flood`/`udp_flood` only) and **Track B** (flow-level, subtype-balanced, covers the 12 single-IP attack types + normal)
+- [✔] Results — Track A: acc 0.9983, precision 0.9853, recall 1.0000 (n=10,940). Track B: acc 0.9563, precision 0.9508, recall 0.9997 (n=105,711)
+- [✔] Flagged Track B's 27.2% normal-traffic false-positive rate as an open, unresolved limitation
+- [✔] Added per-attack-type breakdowns, an interpretation writeup, and `track_a`/`track_b` blocks in `week7_metrics.json`
+
+### Problems / Blockers
+- Week 6's queued multi-seed sweep not done — likely tied to the same degree-shortcut issue, so deferred to Week 8 to re-run against Track A/B instead of the old blended split
+- Track B's 27.2% FPR not yet root-caused
+
+### Next week plan
+- Root-cause Track B's normal-traffic FPR
+- Re-run enriched model to full 400 epochs
+- Run the deferred multi-seed sweep against Track A/B
+- Test dropping raw IP-degree from node features on Track A
+- Update `week7_metrics.json`; begin RQ3 scoping if time permits
+
+---
