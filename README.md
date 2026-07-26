@@ -99,6 +99,24 @@ python src/main.py
 
 ---
 
+## Roadmap to September 8, 2026
+
+**Current state:** furthest ahead in the cohort — GraphSAGE pipeline validated on SCADANet/BATADAL, and a genuinely rigorous catch already made (the IP-topology leakage / shortcut-learning finding in PR #11). No forward schedule existed until now.
+
+**Novel contribution target:** build on the leakage finding rather than move past it — formally explain *why* the model relies on topology features (via GNN explainability), then push into dynamic/streaming graphs, since almost all comparable GNN-based cyber-physical IDS work assumes a static graph snapshot.
+
+| Date | Milestone |
+|---|---|
+| Aug 2 | Investigate the remaining Track B false-positive source flagged as a known limitation in PR #11 |
+| Aug 9 | Apply a GNN explainability method (GNNExplainer/PGExplainer) to formally characterize which topology features drive predictions |
+| Aug 16 | Extend to temporal/streaming graph updates (nodes/edges arriving over time) instead of a static snapshot |
+| Aug 23 | Benchmark static vs. temporal approach on SCADANet/BATADAL |
+| Aug 30 | Full write-up combining the leakage analysis, explainability, and temporal extension |
+| Sep 6 | Paper draft |
+| **Sep 8** | **Final submission** |
+
+---
+
 ## Supervisor Note
 
 This repository is managed by **CNIT/PNTLab Pisa, TECIP, Scuola Superiore Sant'Anna**.
