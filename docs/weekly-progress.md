@@ -204,3 +204,27 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 - Update `week7_metrics.json`; begin RQ3 scoping if time permits
 
 ---
+
+## Week 8
+
+**Branch:** `misbahshaheen-week-08`
+**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/12
+
+### Completed this week
+- [✔] Root-caused Track B's 27.2% normal-traffic false-positive rate flagged in Week 7
+- [✔] Ruled out topology/degree leakage as the cause: ablated the node-embedding pathway directly and confirmed embeddings carry no meaningful signal (std = 0.056 across all nodes, not identical but negligible) — this is not the same shortcut-learning mechanism found in Week 6/7
+- [✔] Identified the actual cause: ~95% of false positives concentrate on two high-volume hosts (`192.168.119.140`, `192.168.119.141`) that are also the dataset's dominant attack sources; their genuinely-normal traffic differs systematically from other hosts' normal traffic on content features (`Tcp_flags_reset_Set`: 44.1% in false positives vs. 0.1% in true negatives; `ip_ttl`/`frame_len` both shift substantially) — consistent with congestion artifacts from these hosts' concurrent attack activity bleeding into their normal traffic
+- [✔] Applied a decision-threshold recalibration as a mitigation: selected threshold (0.832) on a 15% validation split carved from Track B's training set, never touching the test set, then applied once to test
+- [✔] Result: precision 0.9508 → 0.9722, recall 0.9997 → 0.9967, FPR on normal traffic 27.2% → 15.0%
+- [✔] Documented this explicitly as a mitigation, not a root-cause fix — the underlying host-level content similarity is unchanged; only the model's decision boundary is more conservative
+- [✔] Extended `week7_metrics.json` → `week8_metrics.json` carrying `ics_flow`/`batadal`/`scadanet` forward unchanged
+
+### Problems / Blockers
+- The deeper fix for the FPR issue (per-host feature normalization, so a busy host's normal traffic is judged against its own baseline rather than the global distribution) is proposed but not yet implemented — threshold recalibration was the fast, validated mitigation for this week
+
+### Next week plan
+- Apply GNNExplainer/PGExplainer to formally confirm which features drive predictions on the two high-volume hosts specifically (per the roadmap's Aug 9 milestone)
+- Implement per-host feature normalization as the deeper fix for Track B's remaining 15.0% FPR, and compare against the threshold-calibration mitigation
+- Run the deferred multi-seed sweep against Track A/B
+
+---
