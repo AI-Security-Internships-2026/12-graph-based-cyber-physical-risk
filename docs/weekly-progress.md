@@ -228,3 +228,28 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 - Run the deferred multi-seed sweep against Track A/B
 
 ---
+
+## Week 9
+
+**Branch:** `misbahshaheen-week-09`  
+**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/15
+
+### Completed this week
+- [✔] Applied **GNNExplainer**, **PGExplainer**, and **Captum Integrated Gradients** to formally explain Track B false-positive predictions on the two high-volume hosts (`192.168.119.140`, `192.168.119.141`).
+- [✔] Implemented **FlowExplainWrapper** to adapt the custom `EdgeClassifierWithAttr` interface for compatibility with the PyG Explainer API.
+- [✔] Addressed PyG PGExplainer API limitations by treating each flow as a graph-level prediction and using the model's predicted class as the explanation target.
+- [✔] Applied **Integrated Gradients** to attribute predictions to the 23 raw `edge_attr` features, complementing the topology explainers.
+- [✔] Evaluated explainability on **40 sampled false-positive flows** (from 4,374 false positives across the two hosts).
+- [✔] Confirmed that **Protocol_TCP (0.273)**, **Tcp_flags_reset_Set (0.154)**, and **frame_len (0.098)** are the dominant packet-content features, quantitatively validating the Week 8 qualitative root-cause analysis.
+- [✔] GNNExplainer (**edge mask = 0.2922**, std = **0.0023**) and PGExplainer (**edge mask = 0.1250**, std = **0.0426**) consistently assigned low importance to graph topology, while the low saturation fraction (**0.0113**) confirmed successful GNNExplainer convergence.
+- [✔] Improved result reporting by replacing the non-interpretable `node_mask.sum()` metric with **node-mask mean** and **saturation fraction**, and separated topology and Integrated Gradients plots to avoid comparing different explanation scales.
+- [✔] Added the explainability discussion, generated `week9_explainability.png`, and extended `week8_metrics.json` into `week9_metrics.json` with the Week 9 explainability results.
+
+### Problems / Blockers
+- PGExplainer explanations exhibited higher variance than GNNExplainer because a separate explainer network is trained for each flow; therefore, GNNExplainer is reported as the primary topology estimate and PGExplainer as supporting evidence.
+- Per-flow explanation is computationally expensive, so the analysis was limited to **40 sampled flows** instead of the full false-positive set.
+
+### Next week plan
+- Extend the analysis to **temporal/streaming graph updates**, where nodes and edges arrive over time instead of using a static graph snapshot.
+
+---
