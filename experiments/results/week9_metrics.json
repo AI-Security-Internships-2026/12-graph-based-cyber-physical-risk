@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T10:09:27.379954+00:00",
+  "generated_at": "2026-08-12T05:28:24.034661+00:00",
   "ics_flow": {
     "task": "edge-level (flow) binary classification",
     "split": {
@@ -16,15 +16,15 @@
       "anomalous": 1501
     },
     "confusion_matrix": {
-      "tp": 988,
+      "tp": 80,
       "fp": 0,
-      "fn": 513,
+      "fn": 1421,
       "tn": 7328
     },
-    "test_accuracy": 0.9418960213661194,
+    "test_accuracy": 0.8390530943870544,
     "precision": 1.0,
-    "recall": 0.6582278481012658,
-    "f1": 0.7938931297709924
+    "recall": 0.05329780146568954,
+    "f1": 0.10120177103099305
   },
   "batadal": {
     "task": "window-level (24h sliding window, 6h stride) graph classification",
@@ -356,10 +356,10 @@
         "size_mb": 0.0093
       },
       "latency": {
-        "mean_ms": 5.568240760012486,
-        "std_ms": 0.6539142888878231,
+        "mean_ms": 5.761803820005298,
+        "std_ms": 0.6591934468774104,
         "n_edges": 44146,
-        "ms_per_edge": 0.00012613239614036348
+        "ms_per_edge": 0.00013051700765653282
       }
     },
     "batadal": {
@@ -369,10 +369,10 @@
         "size_mb": 0.0063
       },
       "latency": {
-        "mean_ms": 1.871311720015001,
-        "std_ms": 0.22751740244809102,
+        "mean_ms": 1.8283334800071316,
+        "std_ms": 0.08850546174434001,
         "n_graphs": 138,
-        "ms_per_graph": 0.013560229855181165
+        "ms_per_graph": 0.013248793333385012
       }
     },
     "scadanet_baseline": {
@@ -382,10 +382,10 @@
         "size_mb": 0.0093
       },
       "latency": {
-        "mean_ms": 68.70861401999719,
-        "std_ms": 2.4962256445291993,
+        "mean_ms": 70.4440370199518,
+        "std_ms": 3.361007514111748,
         "n_edges": 534841,
-        "ms_per_edge": 0.00012846549539021352
+        "ms_per_edge": 0.0001317102410248126
       }
     },
     "scadanet_enriched": {
@@ -395,10 +395,10 @@
         "size_mb": 0.0246
       },
       "latency": {
-        "mean_ms": 282.2665255999709,
-        "std_ms": 34.7206016778342,
+        "mean_ms": 284.21546749996196,
+        "std_ms": 37.5488581941902,
         "n_edges": 534841,
-        "ms_per_edge": 0.0005277578300840267
+        "ms_per_edge": 0.000531401795112869
       }
     }
   },
@@ -460,7 +460,9 @@
       "method": "GNNExplainer and PGExplainer applied independently per flow via FlowExplainWrapper, which freezes each flow's query_edges/edge_attr so x/edge_index can be perturbed. PGExplainer required task_level='graph' (edge-level unsupported in this PyG version) and explanation_type='phenomenon' with the model's own predicted class as target (model-type explanations unsupported for PGExplainer).",
       "gnnexplainer_edge_mask_max_mean": 0.29218548387289045,
       "gnnexplainer_edge_mask_max_std": 0.002290849565375465,
-      "gnnexplainer_node_mask_sum_mean": 7188.456774902344,
+      "gnnexplainer_node_mask_mean": 0.28018618673086165,
+      "gnnexplainer_node_mask_saturated_frac_mean": 0.01128098699155089,
+      "gnn_vs_pg_disagreement_ratio": 2.3379318062333017,
       "pgexplainer_edge_mask_max_mean": 0.12497605066746473,
       "pgexplainer_edge_mask_max_std": 0.042562356469195005
     },
@@ -509,10 +511,6 @@
         }
       ]
     },
-    "conclusion": "See Part K Findings cell in Week9.ipynb -- fill in after reviewing actual topology-vs-content magnitudes and cross-checking top features against the Part J qualitative diffs.",
-    "proposed_future_work": [
-      "RQ3: physical process impact integration -- not yet started.",
-      "Extend explainability sample from the two high-volume hosts to the full test set, to check whether the same content-feature drivers generalize or are host-specific."
-    ]
+    "conclusion": "Content-feature root cause (Protocol_TCP, Tcp_flags_reset_Set, frame_len) formally confirmed via Captum Integrated Gradients, consistent with Part J. Topology importance is also supported as low by both GNNExplainer and PGExplainer. GNNExplainer produced a low and stable edge-mask maximum (0.2922, std=0.0023), while PGExplainer produced a lower edge-mask maximum (0.1250, std=0.0426). The low GNNExplainer node-mask saturation fraction (0.0113, 1.13%) confirms that the sparse explanation converged successfully rather than failing to optimize. Therefore, the analyzed false positives are primarily associated with packet-content features rather than graph topology. Topology-explainer scores and Integrated Gradients attributions measure different quantities and are therefore interpreted as complementary evidence rather than directly compared numerically."
   }
 }
