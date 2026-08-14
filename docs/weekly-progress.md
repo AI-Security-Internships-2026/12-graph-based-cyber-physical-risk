@@ -253,3 +253,29 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 - Extend the analysis to **temporal/streaming graph updates**, where nodes and edges arrive over time instead of using a static graph snapshot.
 
 ---
+
+## Week 10
+
+**Branch:** `misbahshaheen-week-10`  
+**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/16
+
+### Completed this week
+- [✔] Extended SCADANet evaluation to a **chronological temporal split** using 20 approximately equal-count windows.
+- [✔] Used windows **0–13 for training** and **14–19 for testing**, giving 374,389 training flows and 160,452 test flows.
+- [✔] Analyzed temporal changes in attack distribution and graph topology; cumulative topology grew from **8 to 6,535 edges**, with **5,715 new IP-pair edges** appearing during the test period.
+- [✔] Confirmed a strong distribution shift: training attack rate **98.2%** vs. test attack rate **51.9%**.
+- [✔] Evaluated the GNN on future traffic: **accuracy = 0.6965, precision = 0.8654, recall = 0.4923, F1 = 0.6276**.
+- [✔] Performed per-attack-type analysis and found that `vuln_scan` was the main source of false negatives (**recall = 0.0075**), while several other attacks maintained high recall.
+- [✔] Confirmed that all test attack types were already seen during training, so the degradation is **not caused by unseen attack classes**.
+- [✔] Documented limitations of equal-count temporal windows, edge-only arrival evaluation, and the lack of true online/incremental learning.
+
+### Problems / Blockers
+- Equal-count windows have highly different wall-clock durations because the network traffic is bursty.
+- The current experiment does not evaluate true unseen-node cold-start or flow-by-flow online learning.
+
+### Next week plan
+- Investigate why `vuln_scan` and other affected attack types degrade under temporal evaluation.
+- Compare training vs. test feature distributions to investigate possible temporal feature drift.
+- Explore duration-aware temporal windowing and incremental/streaming graph evaluation.
+
+---
