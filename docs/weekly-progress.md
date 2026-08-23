@@ -279,3 +279,30 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 - Explore duration-aware temporal windowing and incremental/streaming graph evaluation.
 
 ---
+
+## Week 11
+
+**Branch:** `misbahshaheen-week-11`  
+**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/17
+
+### Completed this week
+- [✔] Extended BATADAL evaluation to a **chronological 70/30 temporal split** using the existing 24-hour sliding windows with a 6-hour stride.
+- [✔] Used the first **70% of BATADAL windows for training** and the remaining **30% for testing**, while preserving chronological ordering.
+- [✔] Checked the train/test boundary for **raw-row overlap** caused by the 24-hour window size and 6-hour stride; documented this as a known limitation of the temporal split.
+- [✔] Investigated the observed **recall = 1.0000** on the BATADAL temporal test set rather than interpreting it as perfect classification.
+- [✔] Performed a **label permutation test** across 5 seeds; F1 dropped from **0.778 to 0.038** after shuffling labels, indicating that the original result depends on the real sensor/label relationship rather than random label assignments.
+- [✔] Performed a temporal split sensitivity analysis using **60/40, 70/30, and 80/20** chronological boundaries; recall remained **1.0000** across all three splits.
+- [✔] Added **precision-recall and decision-threshold analysis** to investigate why the default threshold produces perfect recall but also generates false positives.
+- [✔] Compared the default threshold (**0.5**) with higher operating points. The default threshold achieved **precision = 0.636, recall = 1.000, F1 = 0.778**, while the maximum-F1 threshold achieved **precision = 0.864, recall = 0.905, F1 = 0.884**.
+- [✔] Demonstrated a **10.6-point F1 improvement** through threshold calibration, reducing false positives from **12 to 3** while still detecting **19 of 21** anomalous windows.
+- [✔] Exported the Week 11 evaluation results to `week11_metrics.json`.
+
+### Problems / Blockers
+- The BATADAL temporal windows overlap by **18 hours** because of the 24-hour window size and 6-hour stride. A small number of windows around the train/test boundary therefore share raw observations across the two sets.
+- The calibrated threshold was selected using the **test set rather than a separate validation set**. Therefore, the improved F1 is treated as a threshold-calibration demonstration rather than a fully out-of-sample final performance estimate.
+
+### Next week plan
+- Investigate whether the threshold-calibration result can be validated using a separate validation split.
+- Further compare temporal performance across BATADAL and SCADANet.
+
+---
