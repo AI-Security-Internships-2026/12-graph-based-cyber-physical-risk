@@ -15,7 +15,7 @@ Be honest — problems and blockers are normal and help your supervisor support 
 
 ## Week 1
 
-**Branch:** `misbahshaheen-week-01`  
+**Branch:** `misbahshaheen-week-01`              
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/1
 
 ### Completed this week
@@ -40,7 +40,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 ---
 
 ## Week 2
-**Branch:** `misbahshaheen-week-02`      
+**Branch:** `misbahshaheen-week-02`                  
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/3
 
 ### Completed this week
@@ -63,7 +63,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 ---
 
 ## Week 3
-**Branch:** `misbahshaheen-week-03`     
+**Branch:** `misbahshaheen-week-03`                       
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/4
 
 ### Completed this week
@@ -101,7 +101,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 ---
 
 ## Week 4
-**Branch:** `misbahshaheen-week-04`  
+**Branch:** `misbahshaheen-week-04`                    
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/8
 
 ### Completed this week
@@ -131,7 +131,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 ---
 
 ## Week 5
-**Branch:** `misbahshaheen-week-05`     
+**Branch:** `misbahshaheen-week-05`                       
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/9
 
 ### Completed this week
@@ -152,7 +152,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 
 ## Week 6
 
-**Branch:** `misbahshaheen-week-06`
+**Branch:** `misbahshaheen-week-06`                  
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/10
 
 ### Completed this week
@@ -181,7 +181,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 
 ## Week 7
 
-**Branch:** `misbahshaheen-week-07`
+**Branch:** `misbahshaheen-week-07`            
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/11
 
 ### Completed this week
@@ -207,7 +207,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 
 ## Week 8
 
-**Branch:** `misbahshaheen-week-08`
+**Branch:** `misbahshaheen-week-08`            
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/12
 
 ### Completed this week
@@ -231,7 +231,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 
 ## Week 9
 
-**Branch:** `misbahshaheen-week-09`  
+**Branch:** `misbahshaheen-week-09`              
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/15
 
 ### Completed this week
@@ -256,7 +256,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 
 ## Week 10
 
-**Branch:** `misbahshaheen-week-10`  
+**Branch:** `misbahshaheen-week-10`                    
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/16
 
 ### Completed this week
@@ -277,5 +277,62 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 - Investigate why `vuln_scan` and other affected attack types degrade under temporal evaluation.
 - Compare training vs. test feature distributions to investigate possible temporal feature drift.
 - Explore duration-aware temporal windowing and incremental/streaming graph evaluation.
+
+---
+
+## Week 11
+
+**Branch:** `misbahshaheen-week-11`              
+**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/17
+
+### Completed this week
+- [✔] Extended BATADAL evaluation to a **chronological 70/30 temporal split** using the existing 24-hour sliding windows with a 6-hour stride.
+- [✔] Used the first **70% of BATADAL windows for training** and the remaining **30% for testing**, while preserving chronological ordering.
+- [✔] Checked the train/test boundary for **raw-row overlap** caused by the 24-hour window size and 6-hour stride; documented this as a known limitation of the temporal split.
+- [✔] Investigated the observed **recall = 1.0000** on the BATADAL temporal test set rather than interpreting it as perfect classification.
+- [✔] Performed a **label permutation test** across 5 seeds; F1 dropped from **0.778 to 0.038** after shuffling labels, indicating that the original result depends on the real sensor/label relationship rather than random label assignments.
+- [✔] Performed a temporal split sensitivity analysis using **60/40, 70/30, and 80/20** chronological boundaries; recall remained **1.0000** across all three splits.
+- [✔] Added **precision-recall and decision-threshold analysis** to investigate why the default threshold produces perfect recall but also generates false positives.
+- [✔] Compared the default threshold (**0.5**) with higher operating points. The default threshold achieved **precision = 0.636, recall = 1.000, F1 = 0.778**, while the maximum-F1 threshold achieved **precision = 0.864, recall = 0.905, F1 = 0.884**.
+- [✔] Demonstrated a **10.6-point F1 improvement** through threshold calibration, reducing false positives from **12 to 3** while still detecting **19 of 21** anomalous windows.
+- [✔] Exported the Week 11 evaluation results to `week11_metrics.json`.
+
+### Problems / Blockers
+- The BATADAL temporal windows overlap by **18 hours** because of the 24-hour window size and 6-hour stride. A small number of windows around the train/test boundary therefore share raw observations across the two sets.
+- The calibrated threshold was selected using the **test set rather than a separate validation set**. Therefore, the improved F1 is treated as a threshold-calibration demonstration rather than a fully out-of-sample final performance estimate.
+
+### Next week plan
+- Investigate whether the threshold-calibration result can be validated using a separate validation split.
+- Further compare temporal performance across BATADAL and SCADANet.
+
+---
+
+## Week 12
+
+**Branch:** `misbahshaheen-week-12`            
+**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/19
+
+### Completed this week
+
+- [✔] Investigated the `vuln_scan` performance degradation identified in the Week 10 temporal evaluation by quantifying its prevalence in the training and test periods.
+- [✔] Confirmed a substantial `vuln_scan` base-rate shift: **0.83% in the training period (3,093 / 374,389 flows) vs. 23.54% in the test period (37,777 / 160,452 flows)**, representing a **28.50× increase**.
+- [✔] Performed a **5-seed stability evaluation** of the SCADANet temporal split to determine whether the Week 10 degradation was sensitive to random initialization.
+- [✔] Confirmed stable temporal performance across seeds: recall ranged from **0.4948–0.5326** with mean **0.5097 ± 0.0181**, while the Week 10 unseeded recall of **0.4923** remained consistent with the seeded results.
+- [✔] Compared the training and test distributions of the three strongest content features identified through Week 9 Integrated Gradients: `Protocol_TCP`, `Tcp_flags_reset_Set`, and `frame_len`.
+- [✔] Found no practically meaningful drift in the three top IG features. `Protocol_TCP` showed only a **0.6 percentage-point** difference despite statistical significance, while `Tcp_flags_reset_Set` and `frame_len` showed no meaningful distributional change.
+- [✔] Consolidated the base-rate, seed-stability, and feature-drift analyses into the final **Part Z — Findings (Parts W–Y)** and completed the final RQ2 conclusion.
+- [✔] Exported the final Week 12 results to `week12_metrics.json`.
+- [✔] Completed the planned implementation, validation, explainability, temporal evaluation, and final findings for the project.
+- [✔] **Started work on the research paper**, transitioning the project from experimental development to research-paper preparation.
+
+### Problems / Blockers
+
+- No blocking issues. The final analysis established the temporal degradation and its stability across seeds, while the three strongest previously identified IG features showed no practically meaningful drift.
+
+### Next week plan
+
+- Continue working on the **research paper**, consolidating the project's methodology, datasets, knowledge graph construction, GraphSAGE experiments, explainability analysis, temporal evaluation, results, limitations, and conclusions into a formal research manuscript.
+- Organize and refine the final experimental results and figures for inclusion in the paper.
+- Begin drafting and refining the methodology and results sections based on the completed project work.
 
 ---
