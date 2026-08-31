@@ -282,7 +282,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 
 ## Week 11
 
-**Branch:** `misbahshaheen-week-11`              
+**Branch:** `misbahshaheen-week-11`  
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/17
 
 ### Completed this week
@@ -304,35 +304,5 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 ### Next week plan
 - Investigate whether the threshold-calibration result can be validated using a separate validation split.
 - Further compare temporal performance across BATADAL and SCADANet.
-
----
-
-## Week 12
-
-**Branch:** `misbahshaheen-week-12`            
-**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/19
-
-### Completed this week
-
-- [✔] Investigated the `vuln_scan` performance degradation identified in the Week 10 temporal evaluation by quantifying its prevalence in the training and test periods.
-- [✔] Confirmed a substantial `vuln_scan` base-rate shift: **0.83% in the training period (3,093 / 374,389 flows) vs. 23.54% in the test period (37,777 / 160,452 flows)**, representing a **28.50× increase**.
-- [✔] Performed a **5-seed stability evaluation** of the SCADANet temporal split to determine whether the Week 10 degradation was sensitive to random initialization.
-- [✔] Confirmed stable temporal performance across seeds: recall ranged from **0.4948–0.5326** with mean **0.5097 ± 0.0181**, while the Week 10 unseeded recall of **0.4923** remained consistent with the seeded results.
-- [✔] Compared the training and test distributions of the three strongest content features identified through Week 9 Integrated Gradients: `Protocol_TCP`, `Tcp_flags_reset_Set`, and `frame_len`.
-- [✔] Found no practically meaningful drift in the three top IG features. `Protocol_TCP` showed only a **0.6 percentage-point** difference despite statistical significance, while `Tcp_flags_reset_Set` and `frame_len` showed no meaningful distributional change.
-- [✔] Consolidated the base-rate, seed-stability, and feature-drift analyses into the final **Part Z — Findings (Parts W–Y)** and completed the final RQ2 conclusion.
-- [✔] Exported the final Week 12 results to `week12_metrics.json`.
-- [✔] Completed the planned implementation, validation, explainability, temporal evaluation, and final findings for the project.
-- [✔] **Started work on the research paper**, transitioning the project from experimental development to research-paper preparation.
-
-### Problems / Blockers
-
-- No blocking issues. The final analysis established the temporal degradation and its stability across seeds, while the three strongest previously identified IG features showed no practically meaningful drift.
-
-### Next week plan
-
-- Continue working on the **research paper**, consolidating the project's methodology, datasets, knowledge graph construction, GraphSAGE experiments, explainability analysis, temporal evaluation, results, limitations, and conclusions into a formal research manuscript.
-- Organize and refine the final experimental results and figures for inclusion in the paper.
-- Begin drafting and refining the methodology and results sections based on the completed project work.
 
 ---
