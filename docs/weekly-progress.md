@@ -15,7 +15,7 @@ Be honest — problems and blockers are normal and help your supervisor support 
 
 ## Week 1
 
-**Branch:** `misbahshaheen-week-01`  
+**Branch:** `misbahshaheen-week-01`              
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/1
 
 ### Completed this week
@@ -40,7 +40,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 ---
 
 ## Week 2
-**Branch:** `misbahshaheen-week-02`      
+**Branch:** `misbahshaheen-week-02`                  
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/3
 
 ### Completed this week
@@ -63,7 +63,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 ---
 
 ## Week 3
-**Branch:** `misbahshaheen-week-03`     
+**Branch:** `misbahshaheen-week-03`                       
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/4
 
 ### Completed this week
@@ -101,7 +101,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 ---
 
 ## Week 4
-**Branch:** `misbahshaheen-week-04`  
+**Branch:** `misbahshaheen-week-04`                    
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/8
 
 ### Completed this week
@@ -131,7 +131,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 ---
 
 ## Week 5
-**Branch:** `misbahshaheen-week-05`     
+**Branch:** `misbahshaheen-week-05`                       
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/9
 
 ### Completed this week
@@ -152,7 +152,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 
 ## Week 6
 
-**Branch:** `misbahshaheen-week-06`
+**Branch:** `misbahshaheen-week-06`                  
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/10
 
 ### Completed this week
@@ -181,7 +181,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 
 ## Week 7
 
-**Branch:** `misbahshaheen-week-07`
+**Branch:** `misbahshaheen-week-07`            
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/11
 
 ### Completed this week
@@ -207,7 +207,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 
 ## Week 8
 
-**Branch:** `misbahshaheen-week-08`
+**Branch:** `misbahshaheen-week-08`            
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/12
 
 ### Completed this week
@@ -231,7 +231,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 
 ## Week 9
 
-**Branch:** `misbahshaheen-week-09`  
+**Branch:** `misbahshaheen-week-09`              
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/15
 
 ### Completed this week
@@ -256,7 +256,7 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 
 ## Week 10
 
-**Branch:** `misbahshaheen-week-10`  
+**Branch:** `misbahshaheen-week-10`                    
 **PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/16
 
 ### Completed this week

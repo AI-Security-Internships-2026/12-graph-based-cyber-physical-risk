@@ -1,0 +1,1304 @@
+{
+  "generated_at": "2026-08-31T08:55:49.708991+00:00",
+  "ics_flow": {
+    "task": "edge-level (flow) binary classification",
+    "split": {
+      "test_ratio": 0.2,
+      "n_train_edges": 35317,
+      "n_test_edges": 8829
+    },
+    "train_class_counts": {
+      "normal": 29149,
+      "anomalous": 6168
+    },
+    "test_class_counts": {
+      "normal": 7328,
+      "anomalous": 1501
+    },
+    "confusion_matrix": {
+      "tp": 617,
+      "fp": 41,
+      "fn": 884,
+      "tn": 7287
+    },
+    "test_accuracy": 0.8952316045761108,
+    "precision": 0.9376899696048632,
+    "recall": 0.4110592938041306,
+    "f1": 0.5715609078276981
+  },
+  "batadal": {
+    "task": "window-level (24h sliding window, 6h stride) graph classification",
+    "n_windows_total": 693,
+    "n_positive_windows": 56,
+    "n_folds": 5,
+    "folds": [
+      {
+        "fold": 1,
+        "confusion_matrix": {
+          "tp": 10,
+          "fp": 0,
+          "fn": 1,
+          "tn": 128
+        },
+        "test_class_counts": {
+          "normal": 128,
+          "anomalous": 11
+        },
+        "accuracy": 0.9928057789802551,
+        "precision": 1.0,
+        "recall": 0.9090909090909091,
+        "f1": 0.9523809523809523
+      },
+      {
+        "fold": 2,
+        "confusion_matrix": {
+          "tp": 11,
+          "fp": 6,
+          "fn": 0,
+          "tn": 122
+        },
+        "test_class_counts": {
+          "normal": 128,
+          "anomalous": 11
+        },
+        "accuracy": 0.9568345546722412,
+        "precision": 0.6470588235294118,
+        "recall": 1.0,
+        "f1": 0.7857142857142858
+      },
+      {
+        "fold": 3,
+        "confusion_matrix": {
+          "tp": 11,
+          "fp": 3,
+          "fn": 1,
+          "tn": 124
+        },
+        "test_class_counts": {
+          "normal": 127,
+          "anomalous": 12
+        },
+        "accuracy": 0.971222996711731,
+        "precision": 0.7857142857142857,
+        "recall": 0.9166666666666666,
+        "f1": 0.8461538461538461
+      },
+      {
+        "fold": 4,
+        "confusion_matrix": {
+          "tp": 11,
+          "fp": 4,
+          "fn": 0,
+          "tn": 123
+        },
+        "test_class_counts": {
+          "normal": 127,
+          "anomalous": 11
+        },
+        "accuracy": 0.9710144996643066,
+        "precision": 0.7333333333333333,
+        "recall": 1.0,
+        "f1": 0.846153846153846
+      },
+      {
+        "fold": 5,
+        "confusion_matrix": {
+          "tp": 11,
+          "fp": 3,
+          "fn": 0,
+          "tn": 124
+        },
+        "test_class_counts": {
+          "normal": 127,
+          "anomalous": 11
+        },
+        "accuracy": 0.97826087474823,
+        "precision": 0.7857142857142857,
+        "recall": 1.0,
+        "f1": 0.88
+      }
+    ],
+    "summary": {
+      "accuracy_mean": 0.9740277409553528,
+      "accuracy_std": 0.011688336080803361,
+      "precision_mean": 0.7903641456582633,
+      "precision_std": 0.11642968927681836,
+      "recall_mean": 0.9651515151515152,
+      "recall_std": 0.04274768478686633,
+      "f1_mean": 0.8620805860805861,
+      "f1_std": 0.054432335004516615
+    }
+  },
+  "scadanet": {
+    "column_audit": {
+      "total_raw_columns": 60,
+      "dead_or_constant_dropped": 9,
+      "leak_columns_dropped": 2,
+      "id_or_free_text_dropped": 24,
+      "high_cardinality_held_out": [
+        "Http_request_uri",
+        "Http_file_data"
+      ],
+      "numeric_features_used": [
+        "ip_ttl",
+        "frame_len",
+        "ip_len",
+        "Tcp_window_size",
+        "Udp_length",
+        "Tcp_len",
+        "Tcp_hdr_len",
+        "Http_content_length",
+        "Http_time",
+        "Frame_time_delta"
+      ],
+      "categorical_features_used": [
+        "Protocol",
+        "Http_request_method",
+        "Http_response_code",
+        "Tcp_flags_reset",
+        "http_accept",
+        "Icmp_type",
+        "Icmp_code",
+        "Http_user_agent",
+        "Tls_record",
+        "tls_handshake",
+        "Http_request_uri_query",
+        "Time_response",
+        "Tcp_analysis_flags"
+      ]
+    },
+    "baseline": {
+      "task": "edge-level (flow) binary classification, IP-held-out split",
+      "raw_columns_used": [
+        "Source",
+        "Destination",
+        "Attack_Type"
+      ],
+      "n_feature_dims": 4,
+      "split": {
+        "n_train_edges": 523901,
+        "n_test_edges": 10940,
+        "n_test_ips": 1282,
+        "n_total_ips": 6414
+      },
+      "test_class_counts": {
+        "normal": 9663,
+        "attack": 1277
+      },
+      "confusion_matrix": {
+        "tp": 1277,
+        "fp": 20,
+        "fn": 0,
+        "tn": 9643
+      },
+      "test_accuracy": 0.998171865940094,
+      "precision": 0.9845797995373939,
+      "recall": 1.0,
+      "f1": 0.9922299922299922
+    },
+    "enriched": {
+      "task": "edge-level (flow) binary classification, IP-held-out split",
+      "n_raw_columns_used": 23,
+      "n_feature_dims_after_encoding": 224,
+      "split": {
+        "n_train_edges": 523901,
+        "n_test_edges": 10940,
+        "n_test_ips": 1282,
+        "n_total_ips": 6414
+      },
+      "test_class_counts": {
+        "normal": 9663,
+        "attack": 1277
+      },
+      "confusion_matrix": {
+        "tp": 1277,
+        "fp": 19,
+        "fn": 0,
+        "tn": 9644
+      },
+      "test_accuracy": 0.9982632398605347,
+      "precision": 0.9853395061728395,
+      "recall": 1.0,
+      "f1": 0.9926156237854645
+    },
+    "track_a": {
+      "description": "IP-held-out split; tests generalization to unseen attacker infrastructure. Only valid for multi-IP attack types.",
+      "attack_types_covered": [
+        "tcp_syn_flood"
+      ],
+      "n_feature_dims": 224,
+      "n_test_edges": 10940,
+      "test_class_counts": {
+        "normal": 9663,
+        "attack": 1277
+      },
+      "confusion_matrix": {
+        "tp": 1277,
+        "fp": 19,
+        "fn": 0,
+        "tn": 9644
+      },
+      "test_accuracy": 0.9982632398605347,
+      "precision": 0.9853395061728395,
+      "recall": 1.0,
+      "f1": 0.9926156237854645,
+      "per_attack_type": {
+        "udp_flood": {
+          "n": 14,
+          "recall": 1.0
+        },
+        "tcp_syn_flood": {
+          "n": 1263,
+          "recall": 1.0
+        },
+        "normal_traffic": {
+          "n": 9663,
+          "fpr": 0.0019662630653006314
+        }
+      },
+      "caveat": "udp_flood test n=14; recall largely reflects IP-degree separability of spoofed sources, not content-feature learning."
+    },
+    "track_b": {
+      "description": "Flow-level, subtype-balanced split; tests recognition of known attacker behavior. Same attacker IP may appear in both train and test by design -- not a generalization test.",
+      "attack_types_covered": [
+        "vuln_scan",
+        "insider_threat",
+        "icmp_flood",
+        "sql_injection",
+        "os_scan",
+        "tcp_ack_flood",
+        "modbus_fdi",
+        "udp_flood",
+        "http_flood",
+        "port_scan",
+        "modbus_abuse",
+        "apt_exfil"
+      ],
+      "n_feature_dims": 224,
+      "n_test_edges": 105711,
+      "test_class_counts": {
+        "normal": 16872,
+        "attack": 88839
+      },
+      "confusion_matrix": {
+        "tp": 88815,
+        "fp": 4594,
+        "fn": 24,
+        "tn": 12278
+      },
+      "test_accuracy": 0.9563148617744446,
+      "precision": 0.9508184436189232,
+      "recall": 0.9997298483774019,
+      "f1": 0.9746609016285501,
+      "per_attack_type": {
+        "udp_flood": {
+          "n": 67700,
+          "recall": 1.0
+        },
+        "http_flood": {
+          "n": 5736,
+          "recall": 1.0
+        },
+        "normal_traffic": {
+          "n": 16872,
+          "fpr": 0.2722854433380749
+        },
+        "vuln_scan": {
+          "n": 8122,
+          "recall": 0.9972913075597144
+        },
+        "apt_exfil": {
+          "n": 481,
+          "recall": 1.0
+        },
+        "icmp_flood": {
+          "n": 3768,
+          "recall": 1.0
+        },
+        "os_scan": {
+          "n": 409,
+          "recall": 0.9975550122249389
+        },
+        "modbus_fdi": {
+          "n": 584,
+          "recall": 1.0
+        },
+        "tcp_ack_flood": {
+          "n": 1230,
+          "recall": 1.0
+        },
+        "insider_threat": {
+          "n": 286,
+          "recall": 0.9965034965034965
+        },
+        "modbus_abuse": {
+          "n": 125,
+          "recall": 1.0
+        },
+        "sql_injection": {
+          "n": 87,
+          "recall": 1.0
+        },
+        "port_scan": {
+          "n": 311,
+          "recall": 1.0
+        }
+      },
+      "known_limitation": "27.2% false-positive rate on held-out normal traffic (precision 0.9508) -- not yet root-caused."
+    }
+  },
+  "model_benchmarks": {
+    "device": "cuda",
+    "ics_flow": {
+      "model_stats": {
+        "n_params": 1298,
+        "n_trainable_params": 1298,
+        "size_mb": 0.0093
+      },
+      "latency": {
+        "mean_ms": 5.703883160040277,
+        "std_ms": 0.35654472328271203,
+        "n_edges": 44146,
+        "ms_per_edge": 0.00012920498255878851
+      }
+    },
+    "batadal": {
+      "model_stats": {
+        "n_params": 706,
+        "n_trainable_params": 706,
+        "size_mb": 0.0063
+      },
+      "latency": {
+        "mean_ms": 1.9734974400216743,
+        "std_ms": 0.18382824460115268,
+        "n_graphs": 138,
+        "ms_per_graph": 0.014300706087113582
+      }
+    },
+    "scadanet_baseline": {
+      "model_stats": {
+        "n_params": 1234,
+        "n_trainable_params": 1234,
+        "size_mb": 0.0093
+      },
+      "latency": {
+        "mean_ms": 77.36912930000472,
+        "std_ms": 10.3240924075771,
+        "n_edges": 534841,
+        "ms_per_edge": 0.00014465818682562616
+      }
+    },
+    "scadanet_enriched": {
+      "model_stats": {
+        "n_params": 5090,
+        "n_trainable_params": 5090,
+        "size_mb": 0.0246
+      },
+      "latency": {
+        "mean_ms": 289.33328771998276,
+        "std_ms": 36.4328364661273,
+        "n_edges": 534841,
+        "ms_per_edge": 0.0005409706580460039
+      }
+    }
+  },
+  "week8_track_b_diagnostic": {
+    "motivation": "Week 7 flagged Track B's 27.2% false-positive rate on held-out normal traffic as a known limitation, not yet root-caused. This investigates the source and applies a validated mitigation.",
+    "topology_leakage_ruled_out": {
+      "method": "Ablated the node-embedding pathway (embedder output) directly.",
+      "node_embedding_std_across_nodes": 0.05629092827439308,
+      "embeddings_identical_across_nodes": false,
+      "conclusion": "Node embeddings carry effectively no topology/degree signal (constant input features + mean-aggregation SAGEConv). FPs are not caused by implicit degree leakage through message passing."
+    },
+    "root_cause": {
+      "finding": "~95% of false positives concentrate on two high-volume hosts (192.168.119.140, 192.168.119.141) that are also the dataset's dominant attack sources. Their genuinely-normal traffic differs systematically from other hosts' normal traffic in content features (Tcp_flags_reset_Set: 44.1% in FPs vs 0.1% in TNs; ip_ttl and frame_len both shift substantially), consistent with congestion artifacts from concurrent attack activity on the same host.",
+      "fp_source_ip_breakdown": {
+        "192.168.119.140": 2347,
+        "192.168.119.141": 2027,
+        "192.168.119.142": 115,
+        "192.168.119.143": 99
+      },
+      "fp_ip_attack_overlap": "3/6 top FP source IPs also appear in attack flows elsewhere in the dataset"
+    },
+    "mitigation_applied": {
+      "method": "Decision-threshold recalibration only -- the model itself (scadanet_model_trackb) is NOT retrained. Threshold chosen on a 15% validation split carved from train_idx_b (never touching test_idx_b labels), then applied once to the ORIGINAL model's existing test-set probabilities. Keeping the model fixed isolates the threshold's effect from any change that would come from retraining on a different split (fixed per review on PR #12).",
+      "chosen_threshold": 0.790316104888916,
+      "before_default_threshold_0_5": {
+        "precision": 0.9508184436189232,
+        "recall": 0.9997298483774019,
+        "fpr_normal": 0.272
+      },
+      "after_calibrated_threshold": {
+        "precision": 0.9719525705573289,
+        "recall": 0.997422303267709,
+        "f1": 0.9845227381309511,
+        "fpr_normal": 0.1515528686581318,
+        "confusion_matrix": {
+          "tp": 88610,
+          "fp": 2557,
+          "fn": 229,
+          "tn": 14315
+        }
+      },
+      "status": "Mitigation, not root-cause fix. FPR reduced from 27.2% to 15.2% with negligible recall cost (0.9997 -> 0.9974). Underlying cause (host-level traffic similarity between attack and normal traffic on busy hosts) remains unaddressed."
+    },
+    "proposed_future_work": [
+      "Per-host feature normalization (z-score numeric features against each source IP's own baseline instead of the global distribution) to directly target the congestion-artifact hypothesis.",
+      "GNNExplainer/PGExplainer (Week 8/9 roadmap item) to formally confirm which features drive predictions on the two high-volume hosts specifically."
+    ]
+  },
+  "week9_explainability": {
+    "motivation": "Week 8 root-caused Track B's FPs to content-feature similarity on two high-volume hosts via a qualitative feature-mean comparison. This formally characterizes that finding using GNNExplainer, PGExplainer, and Captum Integrated Gradients.",
+    "hosts_analyzed": [
+      "192.168.119.140",
+      "192.168.119.141"
+    ],
+    "total_fps_on_hosts": 4374,
+    "flows_sampled": 40,
+    "sample_seed": 42,
+    "topology_importance": {
+      "method": "GNNExplainer and PGExplainer applied independently per flow via FlowExplainWrapper, which freezes each flow's query_edges/edge_attr so x/edge_index can be perturbed. PGExplainer required task_level='graph' (edge-level unsupported in this PyG version) and explanation_type='phenomenon' with the model's own predicted class as target (model-type explanations unsupported for PGExplainer).",
+      "gnnexplainer_edge_mask_max_mean": 0.29218548387289045,
+      "gnnexplainer_edge_mask_max_std": 0.002290849565375465,
+      "gnnexplainer_node_mask_mean": 0.28018618673086165,
+      "gnnexplainer_node_mask_saturated_frac_mean": 0.01128098699155089,
+      "gnn_vs_pg_disagreement_ratio": 2.3379318062333017,
+      "pgexplainer_edge_mask_max_mean": 0.12497605066746473,
+      "pgexplainer_edge_mask_max_std": 0.042562356469195005
+    },
+    "content_feature_importance": {
+      "method": "Captum Integrated Gradients on edge_attr, batched across sampled flows, P(attack) as target output.",
+      "top_10_features": [
+        {
+          "feature": "Protocol_TCP",
+          "mean_abs_attribution": 0.272997111082077
+        },
+        {
+          "feature": "Tcp_flags_reset_Set",
+          "mean_abs_attribution": 0.15403446555137634
+        },
+        {
+          "feature": "frame_len",
+          "mean_abs_attribution": 0.09794387966394424
+        },
+        {
+          "feature": "Tcp_analysis_flags_missing",
+          "mean_abs_attribution": 0.08544647693634033
+        },
+        {
+          "feature": "Tcp_hdr_len",
+          "mean_abs_attribution": 0.07627402245998383
+        },
+        {
+          "feature": "Tls_record_missing",
+          "mean_abs_attribution": 0.07557757198810577
+        },
+        {
+          "feature": "tls_handshake_missing",
+          "mean_abs_attribution": 0.07406719028949738
+        },
+        {
+          "feature": "ip_len",
+          "mean_abs_attribution": 0.0722687840461731
+        },
+        {
+          "feature": "Http_response_code_missing",
+          "mean_abs_attribution": 0.06655590981245041
+        },
+        {
+          "feature": "Http_request_uri_query_missing",
+          "mean_abs_attribution": 0.06601323932409286
+        }
+      ]
+    },
+    "conclusion": "Content-feature root cause (Protocol_TCP, Tcp_flags_reset_Set, frame_len) formally confirmed via Captum Integrated Gradients, consistent with Part J. Topology importance is also supported as low by both GNNExplainer and PGExplainer. GNNExplainer produced a low and stable edge-mask maximum (0.2922, std=0.0023), while PGExplainer produced a lower edge-mask maximum (0.1250, std=0.0426). The low GNNExplainer node-mask saturation fraction (0.0113, 1.13%) confirms that the sparse explanation converged successfully rather than failing to optimize. Therefore, the analyzed false positives are primarily associated with packet-content features rather than graph topology. Topology-explainer scores and Integrated Gradients attributions measure different quantities and are therefore interpreted as complementary evidence rather than directly compared numerically."
+  },
+  "week10_temporal_streaming": {
+    "motivation": "Weeks 2-9 evaluate SCADANet using a graph constructed from the full dataset before training. Week 10 introduces a discrete-time temporal evaluation by ordering flows chronologically, dividing them into equal-flow-count windows, tracking cumulative IP-pair edge arrival, and using an early-vs-late train/test split. The result is contrasted against the Week 6-9 IP-held-out protocol.",
+    "n_windows": 20,
+    "split_window": 14,
+    "n_train_flows": 374389,
+    "n_test_flows": 160452,
+    "train_window_duration_s": 49.954227601,
+    "test_window_duration_s": 1998.5295565979998,
+    "duration_split_ratio_test_over_train": 40.007215656718365,
+    "unseen_attack_types_in_test": [],
+    "new_ip_pairs_observed_during_test": 5715,
+    "temporal_split_metrics": {
+      "test_accuracy": 0.6976104974746704,
+      "precision": 0.8682345974069923,
+      "recall": 0.49257259419246463,
+      "f1": 0.6285513049203422,
+      "n_train_flows": 374389,
+      "n_test_flows": 160452,
+      "confusion_matrix": {
+        "tp": 41051,
+        "fp": 6230,
+        "fn": 42289,
+        "tn": 70882
+      }
+    },
+    "ip_held_out_metrics_week7": {
+      "test_accuracy": 0.9982632398605347,
+      "precision": 0.9853395061728395,
+      "recall": 1.0,
+      "f1": 0.9926156237854645
+    },
+    "per_attack_type_breakdown": {
+      "vuln_scan": {
+        "n": 37777,
+        "recall": 0.00844429150011912,
+        "fn": 37458,
+        "unseen_in_train": false
+      },
+      "icmp_flood": {
+        "n": 16755,
+        "recall": 1.0,
+        "fn": 0,
+        "unseen_in_train": false
+      },
+      "http_flood": {
+        "n": 9348,
+        "recall": 1.0,
+        "fn": 0,
+        "unseen_in_train": false
+      },
+      "tcp_syn_flood": {
+        "n": 5502,
+        "recall": 0.9672846237731734,
+        "fn": 180,
+        "unseen_in_train": false
+      },
+      "modbus_fdi": {
+        "n": 2636,
+        "recall": 0.0,
+        "fn": 2636,
+        "unseen_in_train": false
+      },
+      "tcp_ack_flood": {
+        "n": 5210,
+        "recall": 1.0,
+        "fn": 0,
+        "unseen_in_train": false
+      },
+      "port_scan": {
+        "n": 1387,
+        "recall": 0.9488103821196827,
+        "fn": 71,
+        "unseen_in_train": false
+      },
+      "sql_injection": {
+        "n": 360,
+        "recall": 1.0,
+        "fn": 0,
+        "unseen_in_train": false
+      },
+      "normal_traffic": {
+        "n": 77112,
+        "fpr": 0.08079157588961511
+      },
+      "modbus_abuse": {
+        "n": 498,
+        "recall": 0.0,
+        "fn": 498,
+        "unseen_in_train": false
+      },
+      "insider_threat": {
+        "n": 1446,
+        "recall": 0.0,
+        "fn": 1446,
+        "unseen_in_train": false
+      },
+      "apt_exfil": {
+        "n": 2421,
+        "recall": 1.0,
+        "fn": 0,
+        "unseen_in_train": false
+      }
+    },
+    "dominant_false_negative_source": {
+      "attack_type": "vuln_scan",
+      "share_of_total_fn": 0.8857622549599187
+    },
+    "limitations": [
+      "Node ID space fixed from the full dataset up front -- streams edge arrival, not node arrival; true cold-start nodes not exercised.",
+      "Discretized batch windows, not true online/incremental learning (model is trained once on the complete chronological training portion and is not updated per-flow or at each test-window boundary).",
+      "Final cumulative topology is used during test-period evaluation. Therefore, the evaluation is not strict flow-by-flow online inference, because later test-period edges can be available to earlier test examples. A strict online evaluation would use only topology accumulated up to each test window.",
+      "Equal-count windows fix the class-imbalance problem equal-width time bins caused, but do not guarantee comparable train/test durations -- see duration_split_ratio_test_over_train above.",
+      "Week 10 does not directly measure content-feature distributions across time windows. Therefore, feature drift is a hypothesis motivated by the Week 9 explainability results, not a demonstrated causal explanation for the temporal performance degradation."
+    ],
+    "conclusion": "Temporal split: accuracy=0.6976, precision=0.8682, recall=0.4926, f1=0.6286 -- a clear drop from the Week 7 IP-held-out protocol (see ip_held_out_metrics_week7 for exact figures). The degradation is concentrated rather than uniform: vuln_scan alone accounts for 88.6% of all false negatives (recall=0.0084 on n=37777), while several other attack types remain highly detectable. unseen_attack_types_in_test is empty, so the degradation is not caused by completely unseen attack classes; it occurs within attack classes that were already present during training. The training window spans only 50.0s of wall-clock time versus 1998.5s for the test window (approximately 40x longer by duration), despite the approximately 70/30 split by flow count. The model is therefore trained on a short initial burst and evaluated across almost the entire remainder of the capture. Week 9 established that per-flow content features such as Protocol_TCP, Tcp_flags_reset_Set, and frame_len were important prediction drivers. The Week 10 results therefore motivate the hypothesis that content-feature distributions may also change over time for the affected attack classes. However, Week 10 does not directly measure feature distributions across windows and does not independently isolate feature drift from topology evolution. This should therefore be treated as a hypothesis for future analysis, not as a demonstrated causal explanation."
+  },
+  "week11_static_vs_temporal_benchmark": {
+    "generated_at": "2026-08-31T09:46:17.115428+00:00",
+    "scadanet": {
+      "static_ip_held_out": {
+        "test_accuracy": 0.9982632398605347,
+        "precision": 0.9853395061728395,
+        "recall": 1.0,
+        "f1": 0.9926156237854645,
+        "n_train_edges": 523901,
+        "n_test_edges": 10940,
+        "n_test_ips": 1282,
+        "n_total_ips": 6414,
+        "n_raw_columns_used": 23,
+        "n_features_used": 224,
+        "final_train_loss": 0.09543115645647049,
+        "confusion_matrix": {
+          "tp": 1277,
+          "fp": 19,
+          "fn": 0,
+          "tn": 9644
+        },
+        "test_class_counts": {
+          "normal": 9663,
+          "attack": 1277
+        },
+        "epoch_history": [
+          {
+            "epoch": 1,
+            "loss": 0.7277290225028992,
+            "train": {
+              "acc": 0.8586335778236389,
+              "precision": 0.8586303785967069,
+              "recall": 0.9999977768984176,
+              "f1": 0.9239378702357184
+            },
+            "test": {
+              "acc": 0.116910420358181,
+              "precision": 0.11674894861949169,
+              "recall": 1.0,
+              "f1": 0.2090871878837495
+            }
+          },
+          {
+            "epoch": 20,
+            "loss": 0.48101577162742615,
+            "train": {
+              "acc": 0.938511312007904,
+              "precision": 0.968851605022544,
+              "recall": 0.9592238707755513,
+              "f1": 0.964013700129807
+            },
+            "test": {
+              "acc": 0.8827239274978638,
+              "precision": 0.4117647058823529,
+              "recall": 0.01096319498825372,
+              "f1": 0.02135774218154081
+            }
+          },
+          {
+            "epoch": 40,
+            "loss": 0.1768655925989151,
+            "train": {
+              "acc": 0.9352606534957886,
+              "precision": 0.9807894609072813,
+              "recall": 0.9430708146778058,
+              "f1": 0.9615603873768198
+            },
+            "test": {
+              "acc": 0.8827239274978638,
+              "precision": 0.4117647058823529,
+              "recall": 0.01096319498825372,
+              "f1": 0.02135774218154081
+            }
+          },
+          {
+            "epoch": 60,
+            "loss": 0.14551731944084167,
+            "train": {
+              "acc": 0.937671422958374,
+              "precision": 0.9835452193507108,
+              "recall": 0.9431864159600909,
+              "f1": 0.9629431243800968
+            },
+            "test": {
+              "acc": 0.8956124186515808,
+              "precision": 0.8857142857142857,
+              "recall": 0.12137823022709475,
+              "f1": 0.21349862258953167
+            }
+          },
+          {
+            "epoch": 80,
+            "loss": 0.12441959977149963,
+            "train": {
+              "acc": 0.9332793951034546,
+              "precision": 0.9889843074116069,
+              "recall": 0.932680037881651,
+              "f1": 0.9600073223612328
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 100,
+            "loss": 0.1130092665553093,
+            "train": {
+              "acc": 0.9211626052856445,
+              "precision": 0.9957141227663566,
+              "recall": 0.9121052327365047,
+              "f1": 0.9520776262860073
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 120,
+            "loss": 0.10738622397184372,
+            "train": {
+              "acc": 0.9342490434646606,
+              "precision": 0.9914668458802566,
+              "recall": 0.9314373240970872,
+              "f1": 0.9605150795097254
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 140,
+            "loss": 0.10749587416648865,
+            "train": {
+              "acc": 0.9297500848770142,
+              "precision": 0.9935589185675227,
+              "recall": 0.924172228125792,
+              "f1": 0.9576103106319754
+            },
+            "test": {
+              "acc": 0.998171865940094,
+              "precision": 0.9845797995373939,
+              "recall": 1.0,
+              "f1": 0.9922299922299922
+            }
+          },
+          {
+            "epoch": 160,
+            "loss": 0.10316209495067596,
+            "train": {
+              "acc": 0.9253045916557312,
+              "precision": 0.9955906097122432,
+              "recall": 0.9170649723668474,
+              "f1": 0.9547158239456585
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 180,
+            "loss": 0.10095175355672836,
+            "train": {
+              "acc": 0.9216760396957397,
+              "precision": 0.9973501457541499,
+              "recall": 0.911198207290884,
+              "f1": 0.9523297257861403
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 200,
+            "loss": 0.09897802025079727,
+            "train": {
+              "acc": 0.919792115688324,
+              "precision": 0.9982357756356217,
+              "recall": 0.9081881277483094,
+              "f1": 0.9510853053370693
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 220,
+            "loss": 0.09930223226547241,
+            "train": {
+              "acc": 0.9175989627838135,
+              "precision": 0.9991162868336557,
+              "recall": 0.9048290212572974,
+              "f1": 0.9496380049323724
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 240,
+            "loss": 0.09829220175743103,
+            "train": {
+              "acc": 0.9230236411094666,
+              "precision": 0.9969780379820575,
+              "recall": 0.913114520854916,
+              "f1": 0.9532052457281569
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 260,
+            "loss": 0.0973997712135315,
+            "train": {
+              "acc": 0.9175111055374146,
+              "precision": 0.9993883626788241,
+              "recall": 0.90447999430886,
+              "f1": 0.9495685741826017
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 280,
+            "loss": 0.09742726385593414,
+            "train": {
+              "acc": 0.9178241491317749,
+              "precision": 0.9992243533414171,
+              "recall": 0.9049935307743953,
+              "f1": 0.9497774210708053
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 300,
+            "loss": 0.09721524268388748,
+            "train": {
+              "acc": 0.9184406995773315,
+              "precision": 0.9989361728204411,
+              "recall": 0.9059739185722352,
+              "f1": 0.9501867022312169
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 320,
+            "loss": 0.09649327397346497,
+            "train": {
+              "acc": 0.917614221572876,
+              "precision": 0.999324672773262,
+              "recall": 0.9046578424354522,
+              "f1": 0.9496378198246973
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 340,
+            "loss": 0.09594638645648956,
+            "train": {
+              "acc": 0.9177249073982239,
+              "precision": 0.9994057003649295,
+              "recall": 0.9047134199750123,
+              "f1": 0.9497050257635726
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 360,
+            "loss": 0.09654466062784195,
+            "train": {
+              "acc": 0.918455958366394,
+              "precision": 0.9989337477418738,
+              "recall": 0.9059939264864769,
+              "f1": 0.9501966092052512
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 380,
+            "loss": 0.09606300294399261,
+            "train": {
+              "acc": 0.9174290299415588,
+              "precision": 0.9994987357821564,
+              "recall": 0.9042843613696084,
+              "f1": 0.9495105585596522
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          },
+          {
+            "epoch": 400,
+            "loss": 0.09543115645647049,
+            "train": {
+              "acc": 0.9173889756202698,
+              "precision": 0.9995281697409357,
+              "recall": 0.9042109990173891,
+              "f1": 0.9494833953507915
+            },
+            "test": {
+              "acc": 0.9982632398605347,
+              "precision": 0.9853395061728395,
+              "recall": 1.0,
+              "f1": 0.9926156237854645
+            }
+          }
+        ],
+        "test_idx": "tensor([ 67817,  76742,  86396,  ..., 532633, 532634, 532651])"
+      },
+      "temporal": {
+        "test_accuracy": 0.6976104974746704,
+        "precision": 0.8682345974069923,
+        "recall": 0.49257259419246463,
+        "f1": 0.6285513049203422,
+        "n_train_flows": 374389,
+        "n_test_flows": 160452,
+        "confusion_matrix": {
+          "tp": 41051,
+          "fp": 6230,
+          "fn": 42289,
+          "tn": 70882
+        }
+      }
+    },
+    "batadal": {
+      "static_5fold_cv": {
+        "accuracy_mean": 0.9740277409553528,
+        "accuracy_std": 0.011688336080803361,
+        "precision_mean": 0.7903641456582633,
+        "precision_std": 0.11642968927681836,
+        "recall_mean": 0.9651515151515152,
+        "recall_std": 0.04274768478686633,
+        "f1_mean": 0.8620805860805861,
+        "f1_std": 0.054432335004516615,
+        "n_windows": 693,
+        "n_positive_windows": 56,
+        "n_folds": 5
+      },
+      "temporal_70_30_split": {
+        "precision": 0.6363636363636364,
+        "recall": 1.0,
+        "f1": 0.7777777777777778,
+        "accuracy": 0.942307710647583,
+        "confusion_matrix": {
+          "tp": 21,
+          "fp": 12,
+          "fn": 0,
+          "tn": 175
+        },
+        "n_train_windows": 485,
+        "n_test_windows": 208,
+        "boundary_overlap_windows": 3
+      }
+    }
+  },
+  "week11_batadal_temporal_diagnostics": {
+    "generated_at": "2026-08-31T09:46:34.016921+00:00",
+    "permutation_test": {
+      "n_permutations": 5,
+      "real_metrics": {
+        "precision": 0.6363636363636364,
+        "recall": 1.0,
+        "f1": 0.7777777777777778
+      },
+      "shuffled_metrics_mean_std": {
+        "precision_mean": 0.03719806763285024,
+        "precision_std": 0.051344271519174575,
+        "recall_mean": 0.04,
+        "recall_std": 0.058309518948453,
+        "f1_mean": 0.03843329253365973,
+        "f1_std": 0.05450592078410797
+      },
+      "conclusion": "real F1 is ~20x shuffled-label F1 across 5 seeds -- consistent with a real, learnable signal, not leakage"
+    },
+    "split_sensitivity": {
+      "fractions_tested": [
+        0.6,
+        0.7,
+        0.8
+      ],
+      "results": [
+        {
+          "split_frac": 0.6,
+          "n_test": 278,
+          "n_test_positive": 31,
+          "precision": 0.5636363636363636,
+          "recall": 1.0,
+          "f1": 0.7209302325581396
+        },
+        {
+          "split_frac": 0.7,
+          "n_test": 208,
+          "n_test_positive": 21,
+          "precision": 0.6363636363636364,
+          "recall": 1.0,
+          "f1": 0.7777777777777778
+        },
+        {
+          "split_frac": 0.8,
+          "n_test": 139,
+          "n_test_positive": 21,
+          "precision": 0.65625,
+          "recall": 1.0,
+          "f1": 0.7924528301886793
+        }
+      ],
+      "conclusion": "recall stays >=0.95 across 60/40, 70/30, 80/20 splits -- not a lucky boundary"
+    },
+    "precision_recall_curve": {
+      "average_precision": 0.8813849197307844,
+      "n_test_examples": 208,
+      "n_test_positive": 21
+    },
+    "threshold_calibration": {
+      "default": {
+        "threshold": 0.5,
+        "precision": 0.6363636363636364,
+        "recall": 1.0,
+        "f1": 0.7777777777777778,
+        "confusion_matrix": {
+          "tp": 21,
+          "fp": 12,
+          "fn": 0,
+          "tn": 175
+        }
+      },
+      "max_f1": {
+        "threshold": 0.9677640795707703,
+        "precision": 0.6774193548387096,
+        "recall": 1.0,
+        "f1": 0.8076923076923077,
+        "confusion_matrix": {
+          "tp": 21,
+          "fp": 10,
+          "fn": 0,
+          "tn": 177
+        }
+      },
+      "precision_floor_0.8": {
+        "threshold": 0.6672676801681519,
+        "precision": 0.6363636363636364,
+        "recall": 1.0,
+        "f1": 0.7777777777777778,
+        "confusion_matrix": {
+          "tp": 21,
+          "fp": 12,
+          "fn": 0,
+          "tn": 175
+        }
+      },
+      "recommended_operating_point": "max_f1",
+      "selection_method": "5-fold leave-one-fold-out cross-validation on train_graphs_temporal only (Part U.1); threshold applied once to the fixed T.1 test-set predictions (Part U.2) -- no test label used during selection",
+      "oof_calibration": {
+        "n_folds": 5,
+        "n_train_windows": 485,
+        "n_train_positive": 35,
+        "best_f1_threshold_oof": 0.9677640795707703,
+        "floor_threshold_oof": 0.6672676801681519
+      }
+    }
+  },
+  "week12_scadanet_temporal_stability_and_drift": {
+    "generated_at": "2026-08-31T11:03:48.984866+00:00",
+    "motivation": "Week 10 reported SCADANet temporal-split results from a single, unseeded run (accuracy=0.6965, precision=0.8654, recall=0.4923, f1=0.6276). This checks whether that result is seed-stable, and whether the vuln_scan-driven recall drop is associated with a base-rate shift and/or drift on the model's top-3 IG features.",
+    "vuln_scan_base_rate": {
+      "train_period": {
+        "n_vuln_scan": 3093,
+        "n_total": 374389,
+        "rate": 0.00826146067325696
+      },
+      "test_period": {
+        "n_vuln_scan": 37777,
+        "n_total": 160452,
+        "rate": 0.23544112881110862
+      }
+    },
+    "multi_seed_sweep": {
+      "seeds": [
+        42,
+        0,
+        1,
+        7,
+        123
+      ],
+      "per_seed": [
+        {
+          "seed": 42,
+          "test_accuracy": 0.7174357175827026,
+          "precision": 0.8760340391846427,
+          "recall": 0.5311495080393569,
+          "f1": 0.6613281541794278,
+          "confusion_matrix": {
+            "tp": 44266,
+            "fp": 6264,
+            "fn": 39074,
+            "tn": 70848
+          }
+        },
+        {
+          "seed": 0,
+          "test_accuracy": 0.7175229787826538,
+          "precision": 0.8744975963432895,
+          "recall": 0.5325893928485721,
+          "f1": 0.6620033408901086,
+          "confusion_matrix": {
+            "tp": 44386,
+            "fp": 6370,
+            "fn": 38954,
+            "tn": 70742
+          }
+        },
+        {
+          "seed": 1,
+          "test_accuracy": 0.6971617937088013,
+          "precision": 0.864054478784704,
+          "recall": 0.49480441564674826,
+          "f1": 0.6292602906954565,
+          "confusion_matrix": {
+            "tp": 41237,
+            "fp": 6488,
+            "fn": 42103,
+            "tn": 70624
+          }
+        },
+        {
+          "seed": 7,
+          "test_accuracy": 0.6989691853523254,
+          "precision": 0.8690879979775423,
+          "recall": 0.494996400287977,
+          "f1": 0.6307460609906198,
+          "confusion_matrix": {
+            "tp": 41253,
+            "fp": 6214,
+            "fn": 42087,
+            "tn": 70898
+          }
+        },
+        {
+          "seed": 123,
+          "test_accuracy": 0.696781575679779,
+          "precision": 0.8626782652335745,
+          "recall": 0.49502039836813055,
+          "f1": 0.6290693950991904,
+          "confusion_matrix": {
+            "tp": 41255,
+            "fp": 6567,
+            "fn": 42085,
+            "tn": 70545
+          }
+        }
+      ],
+      "accuracy": {
+        "mean": 0.7055742502212524,
+        "std": 0.009748578914792526,
+        "min": 0.696781575679779,
+        "max": 0.7175229787826538
+      },
+      "precision": {
+        "mean": 0.8692704755047505,
+        "std": 0.005362196229223926,
+        "min": 0.8626782652335745,
+        "max": 0.8760340391846427
+      },
+      "recall": {
+        "mean": 0.509712023038157,
+        "std": 0.01809734764613916,
+        "min": 0.49480441564674826,
+        "max": 0.5325893928485721
+      },
+      "f1": {
+        "mean": 0.6424814483709607,
+        "std": 0.015676122655631928,
+        "min": 0.6290693950991904,
+        "max": 0.6620033408901086
+      },
+      "week10_reported_unseeded": {
+        "test_accuracy": 0.6965,
+        "precision": 0.8654,
+        "recall": 0.4923,
+        "f1": 0.6276
+      }
+    },
+    "feature_drift_vuln_scan_only": {
+      "n_train_vuln_scan": 3093,
+      "n_test_vuln_scan": 37777,
+      "binary_features": {
+        "Protocol_TCP": {
+          "train_rate": 0.9818946007112835,
+          "test_rate": 0.9881409323133123,
+          "n_train": 3093,
+          "n_test": 37777,
+          "z": -3.026271736912193,
+          "p_value": 0.002475896833165958
+        },
+        "Tcp_flags_reset_Set": {
+          "train_rate": 0.0012932428063368898,
+          "test_rate": 0.0014559123276067449,
+          "n_train": 3093,
+          "n_test": 37777,
+          "z": -0.22908548686107458,
+          "p_value": 0.8188024733505461
+        }
+      },
+      "frame_len": {
+        "ks_statistic": 0.0062463316020288095,
+        "ks_p_value": 0.9998572150464062,
+        "psi": NaN,
+        "train_mean": 63.35143873262205,
+        "test_mean": 62.244275617439186,
+        "train_median": 60.0,
+        "test_median": 60.0,
+        "n_train": 3093,
+        "n_test": 37777
+      }
+    }
+  }
+}
