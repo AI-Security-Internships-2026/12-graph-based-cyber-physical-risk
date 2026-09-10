@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T08:55:49.708991+00:00",
+  "generated_at": "2026-09-09T07:52:01.853728+00:00",
   "ics_flow": {
     "task": "edge-level (flow) binary classification",
     "split": {
@@ -356,10 +356,10 @@
         "size_mb": 0.0093
       },
       "latency": {
-        "mean_ms": 5.703883160040277,
-        "std_ms": 0.35654472328271203,
+        "mean_ms": 8.064132220024476,
+        "std_ms": 0.7765777555102816,
         "n_edges": 44146,
-        "ms_per_edge": 0.00012920498255878851
+        "ms_per_edge": 0.0001826696013234376
       }
     },
     "batadal": {
@@ -369,10 +369,10 @@
         "size_mb": 0.0063
       },
       "latency": {
-        "mean_ms": 1.9734974400216743,
-        "std_ms": 0.18382824460115268,
+        "mean_ms": 2.6871024800311716,
+        "std_ms": 0.3124404961689244,
         "n_graphs": 138,
-        "ms_per_graph": 0.014300706087113582
+        "ms_per_graph": 0.019471757101675157
       }
     },
     "scadanet_baseline": {
@@ -382,10 +382,10 @@
         "size_mb": 0.0093
       },
       "latency": {
-        "mean_ms": 77.36912930000472,
-        "std_ms": 10.3240924075771,
+        "mean_ms": 76.75192682002489,
+        "std_ms": 11.466790743964149,
         "n_edges": 534841,
-        "ms_per_edge": 0.00014465818682562616
+        "ms_per_edge": 0.00014350419436809237
       }
     },
     "scadanet_enriched": {
@@ -395,10 +395,10 @@
         "size_mb": 0.0246
       },
       "latency": {
-        "mean_ms": 289.33328771998276,
-        "std_ms": 36.4328364661273,
+        "mean_ms": 278.82042612002806,
+        "std_ms": 33.248716093231046,
         "n_edges": 534841,
-        "ms_per_edge": 0.0005409706580460039
+        "ms_per_edge": 0.0005213146077432884
       }
     }
   },
@@ -525,17 +525,17 @@
     "unseen_attack_types_in_test": [],
     "new_ip_pairs_observed_during_test": 5715,
     "temporal_split_metrics": {
-      "test_accuracy": 0.6976104974746704,
-      "precision": 0.8682345974069923,
-      "recall": 0.49257259419246463,
-      "f1": 0.6285513049203422,
+      "test_accuracy": 0.6975793242454529,
+      "precision": 0.8680027059022493,
+      "recall": 0.49268058555315575,
+      "f1": 0.6285784268699672,
       "n_train_flows": 374389,
       "n_test_flows": 160452,
       "confusion_matrix": {
-        "tp": 41051,
-        "fp": 6230,
-        "fn": 42289,
-        "tn": 70882
+        "tp": 41060,
+        "fp": 6244,
+        "fn": 42280,
+        "tn": 70868
       }
     },
     "ip_held_out_metrics_week7": {
@@ -565,8 +565,8 @@
       },
       "tcp_syn_flood": {
         "n": 5502,
-        "recall": 0.9672846237731734,
-        "fn": 180,
+        "recall": 0.9687386404943656,
+        "fn": 172,
         "unseen_in_train": false
       },
       "modbus_fdi": {
@@ -583,8 +583,8 @@
       },
       "port_scan": {
         "n": 1387,
-        "recall": 0.9488103821196827,
-        "fn": 71,
+        "recall": 0.9495313626532084,
+        "fn": 70,
         "unseen_in_train": false
       },
       "sql_injection": {
@@ -595,7 +595,7 @@
       },
       "normal_traffic": {
         "n": 77112,
-        "fpr": 0.08079157588961511
+        "fpr": 0.08097312999273784
       },
       "modbus_abuse": {
         "n": 498,
@@ -618,7 +618,7 @@
     },
     "dominant_false_negative_source": {
       "attack_type": "vuln_scan",
-      "share_of_total_fn": 0.8857622549599187
+      "share_of_total_fn": 0.8859508041627246
     },
     "limitations": [
       "Node ID space fixed from the full dataset up front -- streams edge arrival, not node arrival; true cold-start nodes not exercised.",
@@ -627,10 +627,10 @@
       "Equal-count windows fix the class-imbalance problem equal-width time bins caused, but do not guarantee comparable train/test durations -- see duration_split_ratio_test_over_train above.",
       "Week 10 does not directly measure content-feature distributions across time windows. Therefore, feature drift is a hypothesis motivated by the Week 9 explainability results, not a demonstrated causal explanation for the temporal performance degradation."
     ],
-    "conclusion": "Temporal split: accuracy=0.6976, precision=0.8682, recall=0.4926, f1=0.6286 -- a clear drop from the Week 7 IP-held-out protocol (see ip_held_out_metrics_week7 for exact figures). The degradation is concentrated rather than uniform: vuln_scan alone accounts for 88.6% of all false negatives (recall=0.0084 on n=37777), while several other attack types remain highly detectable. unseen_attack_types_in_test is empty, so the degradation is not caused by completely unseen attack classes; it occurs within attack classes that were already present during training. The training window spans only 50.0s of wall-clock time versus 1998.5s for the test window (approximately 40x longer by duration), despite the approximately 70/30 split by flow count. The model is therefore trained on a short initial burst and evaluated across almost the entire remainder of the capture. Week 9 established that per-flow content features such as Protocol_TCP, Tcp_flags_reset_Set, and frame_len were important prediction drivers. The Week 10 results therefore motivate the hypothesis that content-feature distributions may also change over time for the affected attack classes. However, Week 10 does not directly measure feature distributions across windows and does not independently isolate feature drift from topology evolution. This should therefore be treated as a hypothesis for future analysis, not as a demonstrated causal explanation."
+    "conclusion": "Temporal split: accuracy=0.6976, precision=0.8680, recall=0.4927, f1=0.6286 -- a clear drop from the Week 7 IP-held-out protocol (see ip_held_out_metrics_week7 for exact figures). The degradation is concentrated rather than uniform: vuln_scan alone accounts for 88.6% of all false negatives (recall=0.0084 on n=37777), while several other attack types remain highly detectable. unseen_attack_types_in_test is empty, so the degradation is not caused by completely unseen attack classes; it occurs within attack classes that were already present during training. The training window spans only 50.0s of wall-clock time versus 1998.5s for the test window (approximately 40x longer by duration), despite the approximately 70/30 split by flow count. The model is therefore trained on a short initial burst and evaluated across almost the entire remainder of the capture. Week 9 established that per-flow content features such as Protocol_TCP, Tcp_flags_reset_Set, and frame_len were important prediction drivers. The Week 10 results therefore motivate the hypothesis that content-feature distributions may also change over time for the affected attack classes. However, Week 10 does not directly measure feature distributions across windows and does not independently isolate feature drift from topology evolution. This should therefore be treated as a hypothesis for future analysis, not as a demonstrated causal explanation."
   },
   "week11_static_vs_temporal_benchmark": {
-    "generated_at": "2026-08-31T09:46:17.115428+00:00",
+    "generated_at": "2026-09-09T07:52:16.345119+00:00",
     "scadanet": {
       "static_ip_held_out": {
         "test_accuracy": 0.9982632398605347,
@@ -995,17 +995,17 @@
         "test_idx": "tensor([ 67817,  76742,  86396,  ..., 532633, 532634, 532651])"
       },
       "temporal": {
-        "test_accuracy": 0.6976104974746704,
-        "precision": 0.8682345974069923,
-        "recall": 0.49257259419246463,
-        "f1": 0.6285513049203422,
+        "test_accuracy": 0.6975793242454529,
+        "precision": 0.8680027059022493,
+        "recall": 0.49268058555315575,
+        "f1": 0.6285784268699672,
         "n_train_flows": 374389,
         "n_test_flows": 160452,
         "confusion_matrix": {
-          "tp": 41051,
-          "fp": 6230,
-          "fn": 42289,
-          "tn": 70882
+          "tp": 41060,
+          "fp": 6244,
+          "fn": 42280,
+          "tn": 70868
         }
       }
     },
@@ -1041,7 +1041,7 @@
     }
   },
   "week11_batadal_temporal_diagnostics": {
-    "generated_at": "2026-08-31T09:46:34.016921+00:00",
+    "generated_at": "2026-09-09T07:55:15.811599+00:00",
     "permutation_test": {
       "n_permutations": 5,
       "real_metrics": {
@@ -1147,7 +1147,7 @@
     }
   },
   "week12_scadanet_temporal_stability_and_drift": {
-    "generated_at": "2026-08-31T11:03:48.984866+00:00",
+    "generated_at": "2026-09-09T08:26:37.665720+00:00",
     "motivation": "Week 10 reported SCADANet temporal-split results from a single, unseeded run (accuracy=0.6965, precision=0.8654, recall=0.4923, f1=0.6276). This checks whether that result is seed-stable, and whether the vuln_scan-driven recall drop is associated with a base-rate shift and/or drift on the model's top-3 IG features.",
     "vuln_scan_base_rate": {
       "train_period": {
@@ -1172,54 +1172,54 @@
       "per_seed": [
         {
           "seed": 42,
-          "test_accuracy": 0.7174357175827026,
-          "precision": 0.8760340391846427,
-          "recall": 0.5311495080393569,
-          "f1": 0.6613281541794278,
+          "test_accuracy": 0.7174731492996216,
+          "precision": 0.8760636403213677,
+          "recall": 0.5312095032397408,
+          "f1": 0.6613830915637092,
           "confusion_matrix": {
-            "tp": 44266,
-            "fp": 6264,
-            "fn": 39074,
-            "tn": 70848
+            "tp": 44271,
+            "fp": 6263,
+            "fn": 39069,
+            "tn": 70849
           }
         },
         {
           "seed": 0,
-          "test_accuracy": 0.7175229787826538,
-          "precision": 0.8744975963432895,
-          "recall": 0.5325893928485721,
-          "f1": 0.6620033408901086,
+          "test_accuracy": 0.717491865158081,
+          "precision": 0.8743967062624353,
+          "recall": 0.5326013918886489,
+          "f1": 0.6619836990969628,
           "confusion_matrix": {
-            "tp": 44386,
-            "fp": 6370,
-            "fn": 38954,
-            "tn": 70742
+            "tp": 44387,
+            "fp": 6376,
+            "fn": 38953,
+            "tn": 70736
           }
         },
         {
           "seed": 1,
-          "test_accuracy": 0.6971617937088013,
-          "precision": 0.864054478784704,
-          "recall": 0.49480441564674826,
-          "f1": 0.6292602906954565,
+          "test_accuracy": 0.6971742510795593,
+          "precision": 0.8641212095810893,
+          "recall": 0.4947804175665947,
+          "f1": 0.6292585781976057,
           "confusion_matrix": {
-            "tp": 41237,
-            "fp": 6488,
-            "fn": 42103,
-            "tn": 70624
+            "tp": 41235,
+            "fp": 6484,
+            "fn": 42105,
+            "tn": 70628
           }
         },
         {
           "seed": 7,
-          "test_accuracy": 0.6989691853523254,
-          "precision": 0.8690879979775423,
-          "recall": 0.494996400287977,
-          "f1": 0.6307460609906198,
+          "test_accuracy": 0.7173048853874207,
+          "precision": 0.876713415722759,
+          "recall": 0.5303095752339813,
+          "f1": 0.6608698252723344,
           "confusion_matrix": {
-            "tp": 41253,
-            "fp": 6214,
-            "fn": 42087,
-            "tn": 70898
+            "tp": 44196,
+            "fp": 6215,
+            "fn": 39144,
+            "tn": 70897
           }
         },
         {
@@ -1237,28 +1237,28 @@
         }
       ],
       "accuracy": {
-        "mean": 0.7055742502212524,
-        "std": 0.009748578914792526,
+        "mean": 0.7092451453208923,
+        "std": 0.010017134355407192,
         "min": 0.696781575679779,
-        "max": 0.7175229787826538
+        "max": 0.717491865158081
       },
       "precision": {
-        "mean": 0.8692704755047505,
-        "std": 0.005362196229223926,
+        "mean": 0.8707946474242452,
+        "std": 0.006102120364376705,
         "min": 0.8626782652335745,
-        "max": 0.8760340391846427
+        "max": 0.876713415722759
       },
       "recall": {
-        "mean": 0.509712023038157,
-        "std": 0.01809734764613916,
-        "min": 0.49480441564674826,
-        "max": 0.5325893928485721
+        "mean": 0.5167842572594192,
+        "std": 0.017883166446982568,
+        "min": 0.4947804175665947,
+        "max": 0.5326013918886489
       },
       "f1": {
-        "mean": 0.6424814483709607,
-        "std": 0.015676122655631928,
+        "mean": 0.6485129178459605,
+        "std": 0.015802383695377956,
         "min": 0.6290693950991904,
-        "max": 0.6620033408901086
+        "max": 0.6619836990969628
       },
       "week10_reported_unseeded": {
         "test_accuracy": 0.6965,
@@ -1291,7 +1291,7 @@
       "frame_len": {
         "ks_statistic": 0.0062463316020288095,
         "ks_p_value": 0.9998572150464062,
-        "psi": NaN,
+        "psi": 0.0,
         "train_mean": 63.35143873262205,
         "test_mean": 62.244275617439186,
         "train_median": 60.0,
