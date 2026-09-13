@@ -1,4 +1,3 @@
-
 # Weekly Progress Log: Graph-Based Risk Assessment for Cyber-Physical Systems
 
 **Student:** Misbah Shaheen  
@@ -49,7 +48,6 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 - [✔] Replaced outdated datasets (SWaT 2015, CIC-IDS-2017) with three 2023–2026 ICS/OT datasets: ICS-Flow (2023), Cyber4OT (2025), ICS-ADD (2024)
 - [✔] Identified and added 4 active GitHub repositories (sepses/ics-sec-kg, zhenlus/GNN-IDS, mbdlrocks/PhD_Replication_Package, lorenzo9uerra/GraphIDS) relevant to GNN-based ICS security
 - [✔] Fact-checked all paper citations, DOIs, and dataset statistics against original sources to confirm accuracy before submission
-
 
 ### Problems / Blockers
 - No problem
@@ -304,5 +302,60 @@ I am a 3rd-year Data Science student at NUST with hands-on experience in Graph N
 ### Next week plan
 - Investigate whether the threshold-calibration result can be validated using a separate validation split.
 - Further compare temporal performance across BATADAL and SCADANet.
+
+---
+
+## Week 12
+
+**Branch:** `misbahshaheen-week-12`                     
+**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/19
+
+### Completed this week
+- [✔] Investigated the `vuln_scan` performance degradation identified in the Week 10 temporal evaluation by quantifying its prevalence in the training and test periods.
+- [✔] Confirmed a substantial `vuln_scan` base-rate shift: **0.83% in the training period (3,093 / 374,389 flows) vs. 23.54% in the test period (37,777 / 160,452 flows)**, representing a **28.50× increase**.
+- [✔] Performed a **5-seed stability evaluation** of the SCADANet temporal split to determine whether the Week 10 degradation was sensitive to random initialization.
+- [✔] Confirmed stable temporal performance across seeds: recall ranged from **0.4948–0.5326** with mean **0.5097 ± 0.0181**, while the Week 10 unseeded recall of **0.4923** remained consistent with the seeded results.
+- [✔] Compared the training and test distributions of the three strongest content features identified through Week 9 Integrated Gradients: `Protocol_TCP`, `Tcp_flags_reset_Set`, and `frame_len`.
+- [✔] Found no practically meaningful drift in the three top IG features. `Protocol_TCP` showed only a **0.6 percentage-point** difference despite statistical significance, while `Tcp_flags_reset_Set` and `frame_len` showed no meaningful distributional change.
+- [✔] Consolidated the base-rate, seed-stability, and feature-drift analyses into the final **Part Z — Findings (Parts W–Y)** and completed the final RQ2 conclusion.
+- [✔] Exported the final Week 12 results to `week12_metrics.json`.
+- [✔] Completed the planned implementation, validation, explainability, temporal evaluation, and final findings for the project.
+- [✔] **Started work on the research paper**, transitioning the project from experimental development to research-paper preparation.
+
+### Problems / Blockers
+- No blocking issues. The final analysis established the temporal degradation and its stability across seeds, while the three strongest previously identified IG features showed no practically meaningful drift.
+
+### Next week plan
+- Continue working on the **research paper**, consolidating the project's methodology, datasets, knowledge graph construction, GraphSAGE experiments, explainability analysis, temporal evaluation, results, limitations, and conclusions into a formal research manuscript.
+- Organize and refine the final experimental results and figures for inclusion in the paper.
+- Begin drafting and refining the methodology and results sections based on the completed project work.
+
+---
+
+## Week 13
+
+**Branch:** `misbahshaheen-final-submission`   
+**PR link:** https://github.com/AI-Security-Internships-2026/12-graph-based-cyber-physical-risk/pull/21
+
+### Completed this week
+- [✔] Finalized and submitted the research paper, consolidating all methodology, datasets, knowledge graph construction, GraphSAGE experiments, evaluation protocols, explainability analysis, temporal evaluation, and findings from Weeks 1–12 into a single manuscript.
+- [✔] **Re-ran BATADAL threshold calibration using a leakage-safe 5-fold leave-one-fold-out (OOF) procedure on training windows only**, replacing the Week 11 approach (which had selected the threshold directly on the test set and was explicitly flagged there as a limitation). Out-of-fold probabilities were used to select both a max-F1 threshold and a precision-floor (≥0.80) threshold, with neither ever touching test labels.
+  - Max-F1 OOF threshold = **0.968** → F1 improves **0.778 → 0.808** (+3.0 points), precision **0.636 → 0.677**, recall unchanged at **1.000**.
+  - Precision-floor OOF threshold = **0.667** → produces the same outcome as the default threshold (precision 0.636, recall 1.000, F1 0.778), indicating no test-set prediction falls between the two thresholds.
+  - This resolves the exact limitation raised in Week 11's "Problems/Blockers" and "Next week plan" (need for a separate validation split rather than test-set threshold selection).
+- [✔] **Re-ran SCADANet Track B decision-threshold calibration** on the 15% training-derived calibration split to confirm the final reported operating point for the manuscript: threshold **0.79**, precision **0.972**, recall **0.9974**, FPR on normal traffic **27.2% → 15.2%**. This supersedes the provisional Week 8 figures (threshold 0.832, recall 0.9967, FPR 15.0%); the small differences are due to re-running the calibration-split draw during paper preparation, not a change in methodology.
+- [✔] **Re-ran the SCADANet 5-seed temporal stability sweep** (seeds 42, 0, 1, 7, 123) to confirm the final reported figures: recall range **0.495–0.533**, mean **0.517 ± 0.018**; F1 range **0.629–0.662**, mean **0.649 ± 0.016**. This supersedes the provisional Week 12 figures (mean recall 0.5097 ± 0.0181); the Week 10 unseeded run (recall 0.492, F1 0.628) falls just below this final 5-seed range, consistent with it being the lowest of the 6 total runs rather than an outlier.
+- [✔] Compiled the BATADAL label-permutation test (5 seeds) for the final manuscript: real-label F1 (0.778) is approximately **20× the mean shuffled-label F1 (0.038 ± 0.055)**, arguing against memorization of a label-independent split artifact.
+- [✔] Compiled the BATADAL rolling split-boundary sensitivity check (60/40, 70/30, 80/20 chronological splits) for the final manuscript: recall remains **1.00** across all three boundaries (F1 ranging **0.721–0.793**), arguing against the 70/30 boundary having been a lucky cut.
+- [✔] Compiled the `vuln_scan` content-feature drift analysis for the final manuscript: `Protocol_TCP` shifts significantly but negligibly (z = -3.03, p = 0.0025; 0.982 → 0.988, a 0.6-point change); `Tcp_flags_reset_Set` shows no significant shift (z = -0.23, p = 0.82); `frame_len` shows no meaningful shift by either KS test (statistic 0.006, p = 0.9999) or by comparing means (63.4 vs. 62.2) and medians (60.0, identical). Documented this as an open question rather than a settled explanation for the `vuln_scan` recall collapse.
+- [✔] Added the `apt_exfil` (n_train=4, recall=1.000) vs. `vuln_scan` (n_train=3,093, recall=0.008) contrast, and the `modbus_fdi`/`modbus_abuse`/`insider_threat` counter-examples, as an explicit argument against a training-sample-scarcity explanation for SCADANet's temporal recall collapse.
+- [✔] Reconciled all discrepancies between the Week 1–12 experimental logs and the final paper's reported numbers (BATADAL calibration method, SCADANet calibration threshold, SCADANet 5-seed mean) by documenting the reruns above, so the log and the manuscript are fully traceable to each other.  
+- [✔] Submitted the final paper: "Shortcut Learning and Its Mitigation in Graph Neural Networks for Cyber-Physical Risk Assessment: A Cross-Dataset Study on ICS/SCADA Attack-Path Detection."
+
+### Problems / Blockers
+- No blocking issues. All previously flagged limitations (BATADAL's test-set-selected threshold from Week 11; the provisional, unseeded SCADANet calibration and stability figures from Week 8/Week 12) were resolved and superseded by the leakage-safe reruns documented above before final submission.
+
+### Next week plan
+- None. This is the final week of the internship. All planned implementation, validation, explainability analysis, temporal evaluation, mitigation, and manuscript preparation are complete, and the paper has been submitted. No further work is planned.
 
 ---
