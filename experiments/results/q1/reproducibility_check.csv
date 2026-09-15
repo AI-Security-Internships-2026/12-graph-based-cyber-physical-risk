@@ -1,0 +1,5 @@
+experiment_id,old_result,reproduced_result,absolute_difference,status
+scadanet_trackb_f1,0.9746609016285501,0.9746609016285501,0.0,PASS
+scadanet_temporal_f1,0.6614,0.6613481534600215,0.0000518,PASS (near-exact; ~3/160452 flows differ, likely pandas sort tie-breaking on duplicate timestamps — see notes)
+batadal_temporal_f1,0.7778,0.7777777777777778,0.0000222,PASS
+batadal_static_cv_f1,0.8621,0.8620805860805861,0.0000194139,PASS
