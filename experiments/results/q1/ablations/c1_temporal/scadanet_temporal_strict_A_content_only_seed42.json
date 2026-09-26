@@ -1,0 +1,130 @@
+{
+  "dataset": "scadanet",
+  "model": "mlp",
+  "model_family": "mlp",
+  "seed": 42,
+  "train_size": 318231,
+  "validation_size": 56158,
+  "test_size": 160452,
+  "feature_set": "enriched_edge_attr_content_only",
+  "graph_mode": "n/a_non_graph",
+  "threshold": 0.1,
+  "runtime": 2057.8535236179996,
+  "n_trainable_params": 18690,
+  "inference_latency_ms": {
+    "mean_ms": 134.9259794998943,
+    "std_ms": 4.717487359452666,
+    "n_repeats": 10
+  },
+  "per_attack_recall": {
+    "apt_exfil": 1.0,
+    "http_flood": 1.0,
+    "icmp_flood": 1.0,
+    "insider_threat": 0.9626556016597511,
+    "modbus_abuse": 0.0,
+    "modbus_fdi": 0.9707890743550834,
+    "port_scan": 0.9978370583994232,
+    "sql_injection": 1.0,
+    "tcp_ack_flood": 1.0,
+    "tcp_syn_flood": 0.9976372228280626,
+    "vuln_scan": 0.011303173888874182
+  },
+  "best_hyperparams": {
+    "hidden_dim": 64,
+    "lr": 0.005,
+    "dropout": 0.0
+  },
+  "hyperparam_search_log": [
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.1,
+      "val_f1": 0.9931094906498982
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.05,
+      "val_f1": 0.9928338643272506
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.15000000000000002,
+      "val_f1": 0.9931554354968242
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.1,
+      "val_f1": 0.9931738122615854
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.2,
+      "val_f1": 0.9931644992014602
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.1,
+      "val_f1": 0.9931646239630579
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.1,
+      "val_f1": 0.9931831248117832
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.1,
+      "val_f1": 0.9931738122615854
+    }
+  ],
+  "notes": {
+    "loss_weighting": "binary_class_weighted",
+    "reason_no_topology": "non-GNN model; receives same per-flow content features as the GraphSAGE edge classifier (Issue #3 section 3), no graph structure.",
+    "input_dim": 224,
+    "mlp_epochs": 300,
+    "condition_definition": "MLP, real content features, no graph structure at all.",
+    "n_windows": 20,
+    "split_window": 14,
+    "conv_type": "graphsage"
+  },
+  "accuracy": 0.7080684304237366,
+  "precision": 0.8367625620490488,
+  "recall": 0.5440964722822175,
+  "f1": 0.659414968261701,
+  "auprc": 0.7814908954473668,
+  "auroc": 0.7953742440878617,
+  "fpr": 0.11471625687311962,
+  "confusion_matrix": {
+    "tp": 45345,
+    "fp": 8846,
+    "fn": 37995,
+    "tn": 68266
+  },
+  "condition": "A_content_only",
+  "split_protocol": "temporal_strict",
+  "git_commit": null,
+  "library_versions": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "sklearn": "1.6.1",
+    "networkx": "3.6.1"
+  }
+}

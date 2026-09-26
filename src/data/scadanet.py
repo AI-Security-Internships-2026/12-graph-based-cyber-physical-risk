@@ -68,6 +68,10 @@ class GraphTensors:
     ip_index: Dict[str, int]
     all_ips: List[str]
     data: Data                        # PyG Data(x, edge_index) for convenience
+    feature_names: List[str] = None   # column names for edge_attr, in order
+                                       # (added for Issue #4's feature-permutation
+                                       # counterfactuals; previously computed by
+                                       # _build_edge_attr and silently discarded)
 
 
 def _normalize_mixed_type_categorical(series: pd.Series) -> pd.Series:
@@ -122,12 +126,12 @@ def build_graph_tensors(df: pd.DataFrame) -> GraphTensors:
     query_edges = torch.stack([q_src, q_dst])
     y = torch.tensor(df["is_attack"].to_numpy(), dtype=torch.long)
 
-    edge_attr, _feature_names = _build_edge_attr(df, NUMERIC_FEATURE_COLS, CATEGORICAL_FEATURE_COLS)
+    edge_attr, feature_names = _build_edge_attr(df, NUMERIC_FEATURE_COLS, CATEGORICAL_FEATURE_COLS)
 
     data = Data(x=x, edge_index=edge_index)
     return GraphTensors(x=x, edge_index=edge_index, query_edges=query_edges,
                          edge_attr=edge_attr, y=y, ip_index=ip_index,
-                         all_ips=all_ips, data=data)
+                         all_ips=all_ips, data=data, feature_names=feature_names)
 
 
 def add_temporal_windows(df: pd.DataFrame, ip_index: Dict[str, int],

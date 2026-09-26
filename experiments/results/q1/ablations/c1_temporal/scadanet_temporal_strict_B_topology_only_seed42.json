@@ -1,0 +1,131 @@
+{
+  "dataset": "scadanet",
+  "model": "graphsage_edge_attr",
+  "model_family": "graphsage",
+  "seed": 42,
+  "train_size": 318231,
+  "validation_size": 56158,
+  "test_size": 160452,
+  "feature_set": "none_constant_dummy",
+  "graph_mode": "static",
+  "threshold": 0.05,
+  "runtime": 713.3266863850004,
+  "n_trainable_params": 5602,
+  "inference_latency_ms": {
+    "mean_ms": 6.5302149996568915,
+    "std_ms": 0.37590966368825407,
+    "n_repeats": 10
+  },
+  "per_attack_recall": {
+    "apt_exfil": 1.0,
+    "http_flood": 1.0,
+    "icmp_flood": 1.0,
+    "insider_threat": 0.0,
+    "modbus_abuse": 0.0,
+    "modbus_fdi": 0.0,
+    "port_scan": 1.0,
+    "sql_injection": 1.0,
+    "tcp_ack_flood": 1.0,
+    "tcp_syn_flood": 1.0,
+    "vuln_scan": 0.9977764248087461
+  },
+  "best_hyperparams": {
+    "hidden_dim": 32,
+    "lr": 0.001,
+    "dropout": 0.0
+  },
+  "hyperparam_search_log": [
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.05,
+      "val_f1": 0.9934709084661156
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.05,
+      "val_f1": 0.9934709084661156
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.05,
+      "val_f1": 0.9934709084661156
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.05,
+      "val_f1": 0.9934709084661156
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.05,
+      "val_f1": 0.9934709084661156
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.05,
+      "val_f1": 0.9934709084661156
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.05,
+      "val_f1": 0.9934709084661156
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.05,
+      "val_f1": 0.9934709084661156
+    }
+  ],
+  "notes": {
+    "loss_weighting": "binary_class_weighted",
+    "node_feature_dim": 4,
+    "edge_attr_dim": 1,
+    "epochs_per_combo": 300,
+    "test_eval_mode": "strict_causal_temporal (Issue #5 T2, via scadanet_window_eval)",
+    "condition_definition": "True graph + true node features (already constant/non-identifying by construction, per src/data/scadanet.py) + a CONSTANT dummy edge_attr (all ones, 1 column) in place of real content features. Any signal here comes only from graph structure/degree via message passing, not from packet/flow content.",
+    "n_windows": 20,
+    "split_window": 14,
+    "conv_type": "graphsage"
+  },
+  "accuracy": 0.6283748149871826,
+  "precision": 0.588715953307393,
+  "recall": 0.9440364770818335,
+  "f1": 0.7251912618674533,
+  "auprc": 0.8978137499085697,
+  "auroc": 0.9102652647576553,
+  "fpr": 0.7127814088598402,
+  "confusion_matrix": {
+    "tp": 78676,
+    "fp": 54964,
+    "fn": 4664,
+    "tn": 22148
+  },
+  "condition": "B_topology_only",
+  "split_protocol": "temporal_strict",
+  "git_commit": null,
+  "library_versions": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "sklearn": "1.6.1",
+    "networkx": "3.6.1"
+  }
+}

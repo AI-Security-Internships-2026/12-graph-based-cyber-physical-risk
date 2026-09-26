@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-07-15T11:57:47.631809+00:00",
+  "node_count": 7685,
+  "edge_count": 7722,
+  "sample_query": "MATCH path = (start:Asset)-[:VULNERABLE_TO]->(:CVE)-[:ENABLES]->(:Technique)-[:TARGETS]->(target:Asset)\n    RETURN start.label AS source_asset,\n           target.label AS target_asset,\n           [n IN nodes(path) | n.label] AS path_nodes,\n           target.risk_score AS target_risk\n    ORDER BY target_risk DESC\n    LIMIT 10",
+  "sample_query_results": [
+    {
+      "source_asset": "PLC1",
+      "target_asset": "PLC2",
+      "path_nodes": [
+        "PLC1",
+        "CVE-2019-13945",
+        "T0830",
+        "PLC2"
+      ],
+      "target_risk": 0.977
+    },
+    {
+      "source_asset": "PLC2",
+      "target_asset": "PLC2",
+      "path_nodes": [
+        "PLC2",
+        "CVE-2019-13945",
+        "T0830",
+        "PLC2"
+      ],
+      "target_risk": 0.977
+    },
+    {
+      "source_asset": "PLC1",
+      "target_asset": "PLC2",
+      "path_nodes": [
+        "PLC1",
+        "CVE-2019-13945",
+        "T0843",
+        "PLC2"
+      ],
+      "target_risk": 0.977
+    },
+    {
+      "source_asset": "PLC2",
+      "target_asset": "PLC2",
+      "path_nodes": [
+        "PLC2",
+        "CVE-2019-13945",
+        "T0843",
+        "PLC2"
+      ],
+      "target_risk": 0.977
+    },
+    {
+      "source_asset": "PLC1",
+      "target_asset": "PLC2",
+      "path_nodes": [
+        "PLC1",
+        "CVE-2020-15782",
+        "T0843",
+        "PLC2"
+      ],
+      "target_risk": 0.977
+    },
+    {
+      "source_asset": "PLC2",
+      "target_asset": "PLC2",
+      "path_nodes": [
+        "PLC2",
+        "CVE-2020-15782",
+        "T0843",
+        "PLC2"
+      ],
+      "target_risk": 0.977
+    },
+    {
+      "source_asset": "PLC1",
+      "target_asset": "PLC2",
+      "path_nodes": [
+        "PLC1",
+        "CVE-2015-5374",
+        "T0830",
+        "PLC2"
+      ],
+      "target_risk": 0.977
+    },
+    {
+      "source_asset": "PLC2",
+      "target_asset": "PLC2",
+      "path_nodes": [
+        "PLC2",
+        "CVE-2015-5374",
+        "T0830",
+        "PLC2"
+      ],
+      "target_risk": 0.977
+    },
+    {
+      "source_asset": "HMI1",
+      "target_asset": "PLC2",
+      "path_nodes": [
+        "HMI1",
+        "CVE-2015-5374",
+        "T0830",
+        "PLC2"
+      ],
+      "target_risk": 0.977
+    },
+    {
+      "source_asset": "HMI3",
+      "target_asset": "PLC2",
+      "path_nodes": [
+        "HMI3",
+        "CVE-2015-5374",
+        "T0830",
+        "PLC2"
+      ],
+      "target_risk": 0.977
+    }
+  ],
+  "loading_script": []
+}

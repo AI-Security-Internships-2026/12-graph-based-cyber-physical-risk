@@ -1,0 +1,57 @@
+[
+  {
+    "dataset": "scadanet",
+    "split_protocol": "track_b",
+    "condition": "D_random_topology",
+    "seed": 1,
+    "conv_type": "graphsage",
+    "method": "random_rewire",
+    "original": {
+      "n_nodes": 6414,
+      "n_edges": 6535,
+      "mean_degree": 2.037729965700031,
+      "degree_std": 78.59317365803521,
+      "degree_min": 1,
+      "degree_max": 6293,
+      "connected_components": 6
+    },
+    "rewired": {
+      "n_nodes": 6414,
+      "n_edges": 6535,
+      "mean_degree": 2.037729965700031,
+      "degree_std": 1.4137101717425231,
+      "degree_min": 0,
+      "degree_max": 10,
+      "connected_components": 982
+    }
+  },
+  {
+    "dataset": "scadanet",
+    "split_protocol": "track_b",
+    "condition": "E_degree_preserving_rewiring",
+    "seed": 1,
+    "conv_type": "graphsage",
+    "method": "degree_preserving_rewire (undirected double-edge-swap)",
+    "n_swap_requested": 64160,
+    "swap_status": "ok",
+    "original": {
+      "n_nodes": 6414,
+      "n_edges": 6416,
+      "mean_degree": 2.000623635796695,
+      "degree_std": 78.51665020124902,
+      "degree_min": 1,
+      "degree_max": 6289,
+      "connected_components": 6
+    },
+    "rewired": {
+      "n_nodes": 6414,
+      "n_edges": 6416,
+      "mean_degree": 2.000623635796695,
+      "degree_std": 78.51665020124902,
+      "degree_min": 1,
+      "degree_max": 6289,
+      "connected_components": 10
+    },
+    "note": "both 'original' and 'rewired' here describe the SAME representation (the deduplicated, self-loop-free undirected graph the swap actually operates on, re-emitted as a directed edge_index with one arbitrary direction per undirected edge) \u2014 NOT the raw multi/duplicate directed edge_index from build_graph_tensors, so the two degree sequences are an apples-to-apples comparison and (barring an incomplete swap_status) should match exactly."
+  }
+]

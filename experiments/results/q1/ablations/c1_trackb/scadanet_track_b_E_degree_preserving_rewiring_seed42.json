@@ -1,0 +1,176 @@
+{
+  "dataset": "scadanet",
+  "model": "graphsage_edge_attr",
+  "model_family": "graphsage",
+  "seed": 42,
+  "train_size": 359418,
+  "validation_size": 63426,
+  "test_size": 105711,
+  "feature_set": "enriched_edge_attr",
+  "graph_mode": "static",
+  "threshold": 0.8500000000000001,
+  "runtime": 760.9931025420001,
+  "n_trainable_params": 12738,
+  "inference_latency_ms": {
+    "mean_ms": 570.7885682999404,
+    "std_ms": 7.884732936414618,
+    "n_repeats": 10
+  },
+  "per_attack_recall": {
+    "apt_exfil": 1.0,
+    "http_flood": 1.0,
+    "icmp_flood": 1.0,
+    "insider_threat": 0.9965034965034965,
+    "modbus_abuse": 1.0,
+    "modbus_fdi": 1.0,
+    "os_scan": 0.4938875305623472,
+    "port_scan": 1.0,
+    "sql_injection": 1.0,
+    "tcp_ack_flood": 1.0,
+    "udp_flood": 0.9998966026587888,
+    "vuln_scan": 0.9651563654272347
+  },
+  "best_hyperparams": {
+    "hidden_dim": 32,
+    "lr": 0.005,
+    "dropout": 0.0
+  },
+  "hyperparam_search_log": [
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9858017067667079
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.9000000000000001,
+      "val_f1": 0.9845982660299504
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9859662484094772
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9858127054279401
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9859034600598036
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.985803288734552
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.9000000000000001,
+      "val_f1": 0.9859374709739741
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.9000000000000001,
+      "val_f1": 0.9859285747457391
+    }
+  ],
+  "notes": {
+    "loss_weighting": "per_sample_subtype_balanced",
+    "node_feature_dim": 4,
+    "edge_attr_dim": 224,
+    "epochs_per_combo": 300,
+    "test_eval_mode": "fixed_topology",
+    "condition_definition": "Same as Condition D, but the rewired graph preserves the true topology's (undirected) degree sequence exactly (src/graph/rewiring.py degree_preserving_rewire) \u2014 isolates degree/topological-statistics effects from genuine specific-relationship effects.",
+    "rewiring_metadata": {
+      "method": "degree_preserving_rewire (undirected double-edge-swap)",
+      "seed": 42,
+      "n_swap_requested": 64160,
+      "swap_status": "ok",
+      "original": {
+        "n_nodes": 6414,
+        "n_edges": 6416,
+        "mean_degree": 2.000623635796695,
+        "degree_std": 78.51665020124902,
+        "degree_min": 1,
+        "degree_max": 6289,
+        "connected_components": 6
+      },
+      "rewired": {
+        "n_nodes": 6414,
+        "n_edges": 6416,
+        "mean_degree": 2.000623635796695,
+        "degree_std": 78.51665020124902,
+        "degree_min": 1,
+        "degree_max": 6289,
+        "connected_components": 8
+      },
+      "note": "both 'original' and 'rewired' here describe the SAME representation (the deduplicated, self-loop-free undirected graph the swap actually operates on, re-emitted as a directed edge_index with one arbitrary direction per undirected edge) \u2014 NOT the raw multi/duplicate directed edge_index from build_graph_tensors, so the two degree sequences are an apples-to-apples comparison and (barring an incomplete swap_status) should match exactly."
+    },
+    "split_meta": {
+      "protocol": "track_b",
+      "single_ip_attack_types": [
+        "vuln_scan",
+        "insider_threat",
+        "icmp_flood",
+        "sql_injection",
+        "os_scan",
+        "tcp_ack_flood",
+        "modbus_fdi",
+        "udp_flood",
+        "http_flood",
+        "port_scan",
+        "modbus_abuse",
+        "apt_exfil"
+      ],
+      "multi_ip_attack_types_excluded": [
+        "tcp_syn_flood"
+      ],
+      "test_ratio": 0.2
+    },
+    "conv_type": "graphsage"
+  },
+  "accuracy": 0.974997878074646,
+  "precision": 0.9762946754194018,
+  "recall": 0.9943943538310877,
+  "f1": 0.9852613969050606,
+  "auprc": 0.9986012063695325,
+  "auroc": 0.9928059984841812,
+  "fpr": 0.12713371266002846,
+  "confusion_matrix": {
+    "tp": 88341,
+    "fp": 2145,
+    "fn": 498,
+    "tn": 14727
+  },
+  "condition": "E_degree_preserving_rewiring",
+  "split_protocol": "track_b",
+  "git_commit": null,
+  "library_versions": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "sklearn": "1.6.1",
+    "networkx": "3.6.1"
+  }
+}

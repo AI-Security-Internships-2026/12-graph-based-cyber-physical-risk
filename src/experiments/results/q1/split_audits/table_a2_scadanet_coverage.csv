@@ -1,0 +1,15 @@
+attack_type,unique_source_ips,train_track_a,test_track_a,train_track_b,test_track_b,train_temporal,test_temporal
+apt_exfil,1,2425,0,1944,481,4,2421
+http_flood,1,29091,0,23355,5736,19743,9348
+icmp_flood,1,18585,0,14817,3768,1830,16755
+insider_threat,1,1502,0,1216,286,56,1446
+modbus_abuse,1,596,0,471,125,98,498
+modbus_fdi,1,2934,0,2350,584,298,2636
+normal_traffic,114,74079,9663,66870,16872,6630,77112
+os_scan,2,2044,0,1635,409,2044,0
+port_scan,1,1561,0,1250,311,174,1387
+sql_injection,1,383,0,296,87,23,360
+tcp_ack_flood,1,6166,0,4936,1230,956,5210
+tcp_syn_flood,6286,5023,1263,0,0,784,5502
+udp_flood,6,338642,14,270956,67700,338656,0
+vuln_scan,1,40870,0,32748,8122,3093,37777
