@@ -1,0 +1,99 @@
+{
+  "dataset": "scadanet",
+  "model": "logistic_regression",
+  "model_family": "logistic_regression",
+  "seed": 7,
+  "train_size": 359418,
+  "validation_size": 63426,
+  "test_size": 105711,
+  "feature_set": "enriched_edge_attr_content_only",
+  "graph_mode": "n/a_non_graph",
+  "threshold": 0.45,
+  "runtime": 74.15119025400003,
+  "n_trainable_params": 225,
+  "inference_latency_ms": {
+    "mean_ms": 134.61620030000176,
+    "std_ms": 21.969555031383738,
+    "n_repeats": 10
+  },
+  "per_attack_recall": {
+    "apt_exfil": 1.0,
+    "http_flood": 1.0,
+    "icmp_flood": 1.0,
+    "insider_threat": 1.0,
+    "modbus_abuse": 1.0,
+    "modbus_fdi": 1.0,
+    "os_scan": 0.4177215189873418,
+    "port_scan": 0.8918032786885246,
+    "sql_injection": 1.0,
+    "tcp_ack_flood": 1.0,
+    "udp_flood": 0.9999704888521639,
+    "vuln_scan": 0.8367546432062561
+  },
+  "best_hyperparams": {
+    "C": 1.0
+  },
+  "hyperparam_search_log": [
+    {
+      "C": 0.1,
+      "threshold": 0.45,
+      "val_f1": 0.977475539258788
+    },
+    {
+      "C": 1.0,
+      "threshold": 0.45,
+      "val_f1": 0.9791795159330904
+    }
+  ],
+  "notes": {
+    "loss_weighting": "per_sample_subtype_balanced",
+    "reason_no_topology": "non-GNN model; receives same per-flow content features as the GraphSAGE edge classifier (Issue #3 section 3), no graph structure.",
+    "input_dim": 224,
+    "mlp_epochs": null,
+    "split_meta": {
+      "protocol": "track_b",
+      "single_ip_attack_types": [
+        "vuln_scan",
+        "insider_threat",
+        "icmp_flood",
+        "sql_injection",
+        "os_scan",
+        "tcp_ack_flood",
+        "modbus_fdi",
+        "udp_flood",
+        "http_flood",
+        "port_scan",
+        "modbus_abuse",
+        "apt_exfil"
+      ],
+      "multi_ip_attack_types_excluded": [
+        "tcp_syn_flood"
+      ],
+      "test_ratio": 0.2
+    }
+  },
+  "accuracy": 0.9647813439369202,
+  "precision": 0.9762738016704496,
+  "recall": 0.9819942417562644,
+  "f1": 0.9791256665152814,
+  "auprc": 0.9933940030798659,
+  "auroc": 0.9863032576641975,
+  "fpr": 0.12634712712116702,
+  "confusion_matrix": {
+    "tp": 87315,
+    "fp": 2122,
+    "fn": 1601,
+    "tn": 14673
+  },
+  "split_protocol": "track_b",
+  "git_commit": null,
+  "library_versions": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "sklearn": "1.6.1",
+    "networkx": "3.6.1"
+  }
+}

@@ -85,9 +85,7 @@ def audit_batadal(csv_path: str) -> dict:
     window_df = _batadal_window_df(window_labels, extra)
     results = {}
 
-    # --- Static 5-fold CV: audit fold 0 as representative (issue asks for
-    # "the" static setup, not every fold — a per-fold audit is cheap to
-    # add later if a reviewer wants it, see notes field) ---
+    # --- Static 5-fold CV: audit fold 0 as representative ---
     folds = batadal_static_cv_folds(window_labels, n_folds=5, seed=42)
     train_idx0, test_idx0 = folds[0]
     train_df = window_df.iloc[train_idx0]

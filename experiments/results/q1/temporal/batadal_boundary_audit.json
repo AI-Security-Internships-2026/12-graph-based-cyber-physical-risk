@@ -1,0 +1,150 @@
+{
+  "T4_overlapping_temporal": {
+    "protocol_name": "T4_overlapping_temporal",
+    "train_size": 485,
+    "test_size": 208,
+    "identity_topology_overlap": {
+      "applicable": false,
+      "reason": "no per-record host identity in this split granularity (e.g. BATADAL's topology is a single fixed sensor correlation graph shared by every window, not per-window host identity)",
+      "node_overlap": 1.0
+    },
+    "attack_coverage": {
+      "applicable": false,
+      "reason": "no label column provided"
+    },
+    "temporal_leakage_flow": {
+      "applicable": false,
+      "reason": "no time column provided (non-temporal split)"
+    },
+    "temporal_leakage_windows": {
+      "applicable": true,
+      "n_test_windows": 208,
+      "n_test_windows_sharing_raw_rows_with_train": 3,
+      "pct_test_windows_overlapping_train": 0.014423076923076924
+    },
+    "distribution_shift": {
+      "applicable": false,
+      "reason": "no label column provided"
+    },
+    "warnings": [
+      "WARNING: 1% of test sliding windows share raw observations with a train window under 'T4_overlapping_temporal'."
+    ]
+  },
+  "T6_purged_60_40": {
+    "protocol_name": "T6_purged_60_40",
+    "train_size": 414,
+    "test_size": 275,
+    "identity_topology_overlap": {
+      "applicable": false,
+      "reason": "no per-record host identity in this split granularity (e.g. BATADAL's topology is a single fixed sensor correlation graph shared by every window, not per-window host identity)",
+      "node_overlap": 1.0
+    },
+    "attack_coverage": {
+      "applicable": false,
+      "reason": "no label column provided"
+    },
+    "temporal_leakage_flow": {
+      "applicable": false,
+      "reason": "no time column provided (non-temporal split)"
+    },
+    "temporal_leakage_windows": {
+      "applicable": true,
+      "n_test_windows": 275,
+      "n_test_windows_sharing_raw_rows_with_train": 0,
+      "pct_test_windows_overlapping_train": 0.0
+    },
+    "distribution_shift": {
+      "applicable": false,
+      "reason": "no label column provided"
+    },
+    "warnings": [],
+    "purge_meta": {
+      "protocol": "purged_60_40",
+      "split_frac": 0.6,
+      "n_rows": 4177,
+      "train_end_row": 2506,
+      "window_size": 24,
+      "n_train_windows": 414,
+      "n_test_windows": 275,
+      "n_purged_windows": 4
+    }
+  },
+  "T5_purged_70_30": {
+    "protocol_name": "T5_purged_70_30",
+    "train_size": 484,
+    "test_size": 205,
+    "identity_topology_overlap": {
+      "applicable": false,
+      "reason": "no per-record host identity in this split granularity (e.g. BATADAL's topology is a single fixed sensor correlation graph shared by every window, not per-window host identity)",
+      "node_overlap": 1.0
+    },
+    "attack_coverage": {
+      "applicable": false,
+      "reason": "no label column provided"
+    },
+    "temporal_leakage_flow": {
+      "applicable": false,
+      "reason": "no time column provided (non-temporal split)"
+    },
+    "temporal_leakage_windows": {
+      "applicable": true,
+      "n_test_windows": 205,
+      "n_test_windows_sharing_raw_rows_with_train": 0,
+      "pct_test_windows_overlapping_train": 0.0
+    },
+    "distribution_shift": {
+      "applicable": false,
+      "reason": "no label column provided"
+    },
+    "warnings": [],
+    "purge_meta": {
+      "protocol": "purged_70_30",
+      "split_frac": 0.7,
+      "n_rows": 4177,
+      "train_end_row": 2923,
+      "window_size": 24,
+      "n_train_windows": 484,
+      "n_test_windows": 205,
+      "n_purged_windows": 4
+    }
+  },
+  "T6_purged_80_20": {
+    "protocol_name": "T6_purged_80_20",
+    "train_size": 553,
+    "test_size": 136,
+    "identity_topology_overlap": {
+      "applicable": false,
+      "reason": "no per-record host identity in this split granularity (e.g. BATADAL's topology is a single fixed sensor correlation graph shared by every window, not per-window host identity)",
+      "node_overlap": 1.0
+    },
+    "attack_coverage": {
+      "applicable": false,
+      "reason": "no label column provided"
+    },
+    "temporal_leakage_flow": {
+      "applicable": false,
+      "reason": "no time column provided (non-temporal split)"
+    },
+    "temporal_leakage_windows": {
+      "applicable": true,
+      "n_test_windows": 136,
+      "n_test_windows_sharing_raw_rows_with_train": 0,
+      "pct_test_windows_overlapping_train": 0.0
+    },
+    "distribution_shift": {
+      "applicable": false,
+      "reason": "no label column provided"
+    },
+    "warnings": [],
+    "purge_meta": {
+      "protocol": "purged_80_20",
+      "split_frac": 0.8,
+      "n_rows": 4177,
+      "train_end_row": 3341,
+      "window_size": 24,
+      "n_train_windows": 553,
+      "n_test_windows": 136,
+      "n_purged_windows": 4
+    }
+  }
+}

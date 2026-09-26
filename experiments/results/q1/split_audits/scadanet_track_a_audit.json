@@ -146,26 +146,6 @@
         "test_rate": 0.11544789762340037,
         "relative_change": 11.041263988213633
       },
-      "sql_injection": {
-        "train_rate": 0.0007310541495435207,
-        "test_rate": 0.0,
-        "relative_change": -1.0
-      },
-      "modbus_abuse": {
-        "train_rate": 0.0011376195120833899,
-        "test_rate": 0.0,
-        "relative_change": -1.0
-      },
-      "icmp_flood": {
-        "train_rate": 0.03547425944978154,
-        "test_rate": 0.0,
-        "relative_change": -1.0
-      },
-      "http_flood": {
-        "train_rate": 0.0555276664866072,
-        "test_rate": 0.0,
-        "relative_change": -1.0
-      },
       "vuln_scan": {
         "train_rate": 0.07801092191081903,
         "test_rate": 0.0,
@@ -176,13 +156,18 @@
         "test_rate": 0.88327239488117,
         "relative_change": 5.246673024077538
       },
-      "apt_exfil": {
-        "train_rate": 0.004628737108728557,
+      "tcp_ack_flood": {
+        "train_rate": 0.0117693991803795,
         "test_rate": 0.0,
         "relative_change": -1.0
       },
-      "tcp_ack_flood": {
-        "train_rate": 0.0117693991803795,
+      "port_scan": {
+        "train_rate": 0.002979570567721764,
+        "test_rate": 0.0,
+        "relative_change": -1.0
+      },
+      "apt_exfil": {
+        "train_rate": 0.004628737108728557,
         "test_rate": 0.0,
         "relative_change": -1.0
       },
@@ -201,13 +186,28 @@
         "test_rate": 0.0,
         "relative_change": -1.0
       },
+      "modbus_abuse": {
+        "train_rate": 0.0011376195120833899,
+        "test_rate": 0.0,
+        "relative_change": -1.0
+      },
+      "sql_injection": {
+        "train_rate": 0.0007310541495435207,
+        "test_rate": 0.0,
+        "relative_change": -1.0
+      },
       "udp_flood": {
         "train_rate": 0.6463854812264149,
         "test_rate": 0.001279707495429616,
         "relative_change": -0.9980202100254456
       },
-      "port_scan": {
-        "train_rate": 0.002979570567721764,
+      "icmp_flood": {
+        "train_rate": 0.03547425944978154,
+        "test_rate": 0.0,
+        "relative_change": -1.0
+      },
+      "http_flood": {
+        "train_rate": 0.0555276664866072,
         "test_rate": 0.0,
         "relative_change": -1.0
       }

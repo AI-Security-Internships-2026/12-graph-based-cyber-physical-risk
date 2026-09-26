@@ -1,0 +1,123 @@
+{
+  "dataset": "batadal",
+  "model": "graphsage_window_classifier",
+  "model_family": "graphsage",
+  "split_protocol": "temporal_purged",
+  "seed": 7,
+  "train_size": 412,
+  "validation_size": 72,
+  "test_size": 205,
+  "feature_set": "sensor_window_stats",
+  "graph_mode": "windowed",
+  "threshold": 0.55,
+  "runtime": 113.98733854999955,
+  "n_trainable_params": 2434,
+  "inference_latency_ms": {
+    "mean_ms": 22.732915499909723,
+    "std_ms": 0.7818749208535312,
+    "n_repeats": 10
+  },
+  "per_attack_recall": {
+    "n/a": null
+  },
+  "best_hyperparams": {
+    "hidden_dim": 32,
+    "lr": 0.001,
+    "dropout": 0.0
+  },
+  "hyperparam_search_log": [
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.55,
+      "val_f1": 1.0
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.5,
+      "val_f1": 1.0
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.2,
+      "val_f1": 1.0
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.15000000000000002,
+      "val_f1": 1.0
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.7000000000000001,
+      "val_f1": 1.0
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.7000000000000001,
+      "val_f1": 1.0
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.3,
+      "val_f1": 1.0
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.25,
+      "val_f1": 1.0
+    }
+  ],
+  "notes": {
+    "window_size": 24,
+    "stride": 6,
+    "purge_meta": {
+      "protocol": "purged_70_30",
+      "split_frac": 0.7,
+      "n_rows": 4177,
+      "train_end_row": 2923,
+      "window_size": 24,
+      "n_train_windows": 484,
+      "n_test_windows": 205,
+      "n_purged_windows": 4
+    }
+  },
+  "accuracy": 0.9512194991111755,
+  "precision": 0.6774193548387096,
+  "recall": 1.0,
+  "f1": 0.8076923076923077,
+  "auprc": 0.9648098853067797,
+  "auroc": 0.9953416149068323,
+  "fpr": 0.05434782608695652,
+  "confusion_matrix": {
+    "tp": 21,
+    "fp": 10,
+    "fn": 0,
+    "tn": 174
+  },
+  "git_commit": null,
+  "library_versions": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "sklearn": "1.6.1",
+    "networkx": "3.6.1"
+  }
+}

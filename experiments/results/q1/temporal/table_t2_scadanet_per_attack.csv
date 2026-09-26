@@ -1,0 +1,12 @@
+Attack type,Train count,Test count,Static/Track-B recall,Strict temporal recall,Delta recall
+apt_exfil,4,2421,,1.0,
+http_flood,19743,9348,,1.0,
+icmp_flood,1830,16755,,1.0,
+insider_threat,56,1446,,0.0,
+modbus_abuse,98,498,,0.0,
+modbus_fdi,298,2636,,0.0,
+port_scan,174,1387,,0.95746214852199,
+sql_injection,23,360,,1.0,
+tcp_ack_flood,956,5210,,1.0,
+tcp_syn_flood,784,5502,,0.999818247909851,
+vuln_scan,3093,37777,,0.0084972337665775,

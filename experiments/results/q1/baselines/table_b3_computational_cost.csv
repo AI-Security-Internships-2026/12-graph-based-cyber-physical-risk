@@ -1,0 +1,14 @@
+Protocol,Dataset,Model,Parameters,Train time (s),Inference time (ms)
+BATADAL temporal,batadal,gcn_window_classifier,1282.0,116.68836330299928,34.538865000104124
+BATADAL temporal,batadal,graphsage_window_classifier,2434.0,114.58359162899978,25.33363860020472
+BATADAL temporal,batadal,mlp_flattened_window,6658.0,2.410932433000198,0.3510139000354684
+SCADANet Track B,scadanet,gat_edge_attr,45442.0,789.6203722179998,646.7385848000959
+SCADANet Track B,scadanet,gcn_edge_attr,31362.0,780.7380923400001,615.470507399823
+SCADANet Track B,scadanet,graphsage_edge_attr,35714.0,775.8850507289999,632.7118024001265
+SCADANet Track B,scadanet,logistic_regression,225.0,69.85114091399998,143.52202610002678
+SCADANet Track B,scadanet,mlp,18690.0,2454.159788549,70.10865570000533
+SCADANet Track B,scadanet,tree_xgboost,,89.211698995,267.37188659999447
+SCADANet temporal,scadanet,gcn_edge_attr,11586.0,725.5313472340003,145.12731980012177
+SCADANet temporal,scadanet,graphsage_edge_attr,12738.0,719.3597958600003,136.6854121997676
+SCADANet temporal,scadanet,mlp,18690.0,2128.6285644280006,109.65652949998912
+SCADANet temporal,scadanet,tree_xgboost,,95.1095522709993,831.2543655999434

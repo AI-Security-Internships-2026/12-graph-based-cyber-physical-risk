@@ -141,6 +141,36 @@ def temporal_window_split(
     )
 
 
+def carve_validation(
+    train_idx: torch.Tensor, val_fraction: float = 0.15, seed: int = 42,
+) -> Tuple[torch.Tensor, torch.Tensor]:
+    """Issue #3 section 5 requires validation-only hyperparameter/threshold
+    selection, but none of Issue #1's four split functions produce a
+    validation split (train/test only) — every original notebook
+    experiment picked its threshold from the test PR curve, which is
+    exactly the leakage findings.md documents as caught and fixed twice
+    (Week 8 SCADANet Track B, Week 11 BATADAL temporal). This carves a
+    validation slice OUT of an existing train split (never touches test),
+    seeded independently of the outer split's own seeded_generator call
+    so carving validation doesn't perturb the train/test boundary itself
+    — call this AFTER the split function, on its returned train_idx.
+
+    For temporal protocols, `train_idx` here should already be
+    chronologically restricted (e.g. temporal_window_split's train_idx);
+    this function itself splits by a *seeded random* subset of that
+    training slice, not by an additional chronological cut — Issue #3
+    doesn't require the validation slice to itself be strictly the most
+    recent training data, only that it never touches the test set.
+    """
+    g = seeded_generator(seed)
+    n = train_idx.shape[0]
+    perm = torch.randperm(n, generator=g)
+    n_val = max(1, int(n * val_fraction))
+    val_pos = perm[:n_val]
+    fit_pos = perm[n_val:]
+    return train_idx[fit_pos], train_idx[val_pos]
+
+
 def batadal_static_cv_folds(
     window_labels, n_folds: int = 5, seed: int = 42
 ) -> List[Tuple[np.ndarray, np.ndarray]]:

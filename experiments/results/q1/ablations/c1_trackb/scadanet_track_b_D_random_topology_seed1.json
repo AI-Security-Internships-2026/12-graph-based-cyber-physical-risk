@@ -1,0 +1,173 @@
+{
+  "dataset": "scadanet",
+  "model": "graphsage_edge_attr",
+  "model_family": "graphsage",
+  "seed": 1,
+  "train_size": 359418,
+  "validation_size": 63426,
+  "test_size": 105711,
+  "feature_set": "enriched_edge_attr",
+  "graph_mode": "static",
+  "threshold": 0.9000000000000001,
+  "runtime": 758.660870816002,
+  "n_trainable_params": 12738,
+  "inference_latency_ms": {
+    "mean_ms": 595.1816708002298,
+    "std_ms": 4.72994338382067,
+    "n_repeats": 10
+  },
+  "per_attack_recall": {
+    "apt_exfil": 1.0,
+    "http_flood": 1.0,
+    "icmp_flood": 1.0,
+    "insider_threat": 0.9929328621908127,
+    "modbus_abuse": 1.0,
+    "modbus_fdi": 1.0,
+    "os_scan": 0.512,
+    "port_scan": 0.9834437086092715,
+    "sql_injection": 1.0,
+    "tcp_ack_flood": 1.0,
+    "udp_flood": 0.9998231262436436,
+    "vuln_scan": 0.9638730081498601
+  },
+  "best_hyperparams": {
+    "hidden_dim": 32,
+    "lr": 0.005,
+    "dropout": 0.0
+  },
+  "hyperparam_search_log": [
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.8,
+      "val_f1": 0.9844216539010776
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.8,
+      "val_f1": 0.976598917641321
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.9000000000000001,
+      "val_f1": 0.9847016970248657
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.8,
+      "val_f1": 0.9842895984707181
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.9000000000000001,
+      "val_f1": 0.9847014128203461
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.8,
+      "val_f1": 0.9843252624056871
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.9000000000000001,
+      "val_f1": 0.9846150987569445
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.9000000000000001,
+      "val_f1": 0.9844619256810097
+    }
+  ],
+  "notes": {
+    "loss_weighting": "per_sample_subtype_balanced",
+    "node_feature_dim": 4,
+    "edge_attr_dim": 224,
+    "epochs_per_combo": 300,
+    "test_eval_mode": "fixed_topology",
+    "condition_definition": "Same samples/content features/query edges as Condition C, but message passing runs over a FULLY RANDOM graph of the same size (src/graph/rewiring.py random_rewire).",
+    "rewiring_metadata": {
+      "method": "random_rewire",
+      "seed": 1,
+      "original": {
+        "n_nodes": 6414,
+        "n_edges": 6535,
+        "mean_degree": 2.037729965700031,
+        "degree_std": 78.59317365803521,
+        "degree_min": 1,
+        "degree_max": 6293,
+        "connected_components": 6
+      },
+      "rewired": {
+        "n_nodes": 6414,
+        "n_edges": 6535,
+        "mean_degree": 2.037729965700031,
+        "degree_std": 1.4137101717425231,
+        "degree_min": 0,
+        "degree_max": 10,
+        "connected_components": 982
+      }
+    },
+    "split_meta": {
+      "protocol": "track_b",
+      "single_ip_attack_types": [
+        "vuln_scan",
+        "insider_threat",
+        "icmp_flood",
+        "sql_injection",
+        "os_scan",
+        "tcp_ack_flood",
+        "modbus_fdi",
+        "udp_flood",
+        "http_flood",
+        "port_scan",
+        "modbus_abuse",
+        "apt_exfil"
+      ],
+      "multi_ip_attack_types_excluded": [
+        "tcp_syn_flood"
+      ],
+      "test_ratio": 0.2
+    },
+    "conv_type": "graphsage"
+  },
+  "accuracy": 0.9746005535125732,
+  "precision": 0.9759123765867419,
+  "recall": 0.9943973502498176,
+  "f1": 0.9850681526218321,
+  "auprc": 0.9981570894651428,
+  "auroc": 0.9919321703705725,
+  "fpr": 0.13132284032199928,
+  "confusion_matrix": {
+    "tp": 88566,
+    "fp": 2186,
+    "fn": 499,
+    "tn": 14460
+  },
+  "condition": "D_random_topology",
+  "split_protocol": "track_b",
+  "git_commit": null,
+  "library_versions": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "sklearn": "1.6.1",
+    "networkx": "3.6.1"
+  }
+}
