@@ -34,6 +34,7 @@ from src.data.scadanet import (
     load_scadanet_df, build_graph_tensors, add_temporal_windows,
     temporal_split_positions, LABEL_COL,
 )
+from src.evaluation.temporal_protocol import batadal_purged_split, scadanet_window_eval
 from src.evaluation.metrics import (
     compute_metrics, per_attack_recall, count_trainable_params,
     measure_inference_latency,
@@ -238,7 +239,6 @@ def gnn_edge_family(
                         "dropout": dropout, "threshold": t, "val_f1": val_f1}
 
     if strict_temporal_test is not None:
-        from src.evaluation.temporal_protocol import scadanet_window_eval
         # scadanet_window_eval does no device placement of its own (it
         # assumes everything passed in already matches `model`'s device,
         # which is true for temporal_runner.py's own CPU-only callers but
@@ -509,7 +509,6 @@ def run_experiment_b2(seed: int = 42, csv_path: str = None, n_windows: int = 20,
     experiment's own "strict" name. MLP/tree don't consume topology at
     all, so they were never affected by this bug — only the GNN rows
     needed the fix. See README_ISSUE3.md's "Fix applied on review"."""
-    from src.evaluation.temporal_protocol import scadanet_window_eval  # noqa: F401
     set_seed(seed)
     device = device or _resolve_device()
     all_b2_families = ["mlp", "tree", "graphsage", best_alt_gnn]
@@ -590,7 +589,6 @@ def run_experiment_b3(seed: int = 42, csv_path: str = "BATADAL_dataset04.csv",
     so the old leaky split affected it identically. Fixed during a
     full-requirements re-audit against Issue #3's text, not part of the
     original build — see README_ISSUE3.md's "Fix applied on review"."""
-    from src.evaluation.temporal_protocol import batadal_purged_split
     device = device or _resolve_device()
     families = families or ["mlp", "graphsage", alt_gnn]
     df = load_batadal_df(csv_path)

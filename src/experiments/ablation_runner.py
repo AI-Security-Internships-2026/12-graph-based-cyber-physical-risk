@@ -298,7 +298,6 @@ def run_condition_matrix_temporal(
     protocol, update this function... " as a to-do that was never done
     even after Issue #5 shipped in this same repo. See
     README_ISSUE4.md's "Fix applied on review"."""
-    from src.evaluation.temporal_protocol import scadanet_window_eval  # noqa: F401
     set_seed(seed)
     device = device or _resolve_device()
     df = load_scadanet_df(csv_path)
