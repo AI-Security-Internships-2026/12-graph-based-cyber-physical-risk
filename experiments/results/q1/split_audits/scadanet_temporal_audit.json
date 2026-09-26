@@ -151,35 +151,30 @@
     "test_base_rate": 0.5194076733228629,
     "relative_base_rate_change": -0.47122838759167474,
     "per_label_base_rates": {
-      "sql_injection": {
-        "train_rate": 6.143342886676692e-05,
-        "test_rate": 0.002243661655822302,
-        "relative_change": 35.521836680941554
-      },
-      "modbus_abuse": {
-        "train_rate": 0.0002617598273453547,
-        "test_rate": 0.003103731957220851,
-        "relative_change": 10.857174527877113
-      },
-      "apt_exfil": {
-        "train_rate": 1.0684074585524681e-05,
-        "test_rate": 0.01508862463540498,
-        "relative_change": 1411.253772156159
+      "vuln_scan": {
+        "train_rate": 0.00826146067325696,
+        "test_rate": 0.23544112881110862,
+        "relative_change": 27.49872899271327
       },
       "tcp_ack_flood": {
         "train_rate": 0.002553493825940399,
         "test_rate": 0.032470770074539426,
         "relative_change": 11.716212486858515
       },
-      "os_scan": {
-        "train_rate": 0.005459562113203112,
-        "test_rate": 0.0,
-        "relative_change": -1.0
-      },
       "insider_threat": {
         "train_rate": 0.00014957704419734554,
         "test_rate": 0.00901204098421958,
         "relative_change": 59.25016092930329
+      },
+      "sql_injection": {
+        "train_rate": 6.143342886676692e-05,
+        "test_rate": 0.002243661655822302,
+        "relative_change": 35.521836680941554
+      },
+      "normal_traffic": {
+        "train_rate": 0.01770885362550716,
+        "test_rate": 0.4805923266771371,
+        "relative_change": 26.138534025991955
       },
       "http_flood": {
         "train_rate": 0.052733921135503445,
@@ -191,35 +186,40 @@
         "test_rate": 0.03429062897315085,
         "relative_change": 15.37504373804716
       },
-      "icmp_flood": {
-        "train_rate": 0.004887964122877542,
-        "test_rate": 0.10442375289806297,
-        "relative_change": 20.36344504030213
+      "port_scan": {
+        "train_rate": 0.00046475724447032365,
+        "test_rate": 0.008644329768404258,
+        "relative_change": 17.599666538293686
       },
-      "vuln_scan": {
-        "train_rate": 0.00826146067325696,
-        "test_rate": 0.23544112881110862,
-        "relative_change": 27.49872899271327
-      },
-      "normal_traffic": {
-        "train_rate": 0.01770885362550716,
-        "test_rate": 0.4805923266771371,
-        "relative_change": 26.138534025991955
+      "os_scan": {
+        "train_rate": 0.005459562113203112,
+        "test_rate": 0.0,
+        "relative_change": -1.0
       },
       "modbus_fdi": {
         "train_rate": 0.0007959635566215888,
         "test_rate": 0.016428589235409966,
         "relative_change": 19.63987615857685
       },
+      "modbus_abuse": {
+        "train_rate": 0.0002617598273453547,
+        "test_rate": 0.003103731957220851,
+        "relative_change": 10.857174527877113
+      },
+      "apt_exfil": {
+        "train_rate": 1.0684074585524681e-05,
+        "test_rate": 0.01508862463540498,
+        "relative_change": 1411.253772156159
+      },
       "udp_flood": {
         "train_rate": 0.9045564907088617,
         "test_rate": 0.0,
         "relative_change": -1.0
       },
-      "port_scan": {
-        "train_rate": 0.00046475724447032365,
-        "test_rate": 0.008644329768404258,
-        "relative_change": 17.599666538293686
+      "icmp_flood": {
+        "train_rate": 0.004887964122877542,
+        "test_rate": 0.10442375289806297,
+        "relative_change": 20.36344504030213
       }
     }
   },

@@ -1,0 +1,151 @@
+{
+  "dataset": "scadanet",
+  "model": "endpoint_only_edge_attr",
+  "model_family": "endpoint_only",
+  "seed": 42,
+  "train_size": 359418,
+  "validation_size": 63426,
+  "test_size": 105711,
+  "feature_set": "enriched_edge_attr",
+  "graph_mode": "static",
+  "threshold": 0.8,
+  "runtime": 762.3651020650013,
+  "n_trainable_params": 437378,
+  "inference_latency_ms": {
+    "mean_ms": 624.8827333001827,
+    "std_ms": 40.305084899765035,
+    "n_repeats": 10
+  },
+  "per_attack_recall": {
+    "apt_exfil": 1.0,
+    "http_flood": 1.0,
+    "icmp_flood": 1.0,
+    "insider_threat": 0.9965034965034965,
+    "modbus_abuse": 1.0,
+    "modbus_fdi": 1.0,
+    "os_scan": 0.4938875305623472,
+    "port_scan": 1.0,
+    "sql_injection": 1.0,
+    "tcp_ack_flood": 1.0,
+    "udp_flood": 0.9998966026587888,
+    "vuln_scan": 0.9751292785028318
+  },
+  "best_hyperparams": {
+    "hidden_dim": 64,
+    "lr": 0.005,
+    "dropout": 0.2
+  },
+  "hyperparam_search_log": [
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9860579957672744
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.8,
+      "val_f1": 0.9863779899432339
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9863662097320575
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9863763758189952
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9861390918459239
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9862962928646214
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.8,
+      "val_f1": 0.9863847717337838
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.8,
+      "val_f1": 0.9864498644986449
+    }
+  ],
+  "notes": {
+    "loss_weighting": "per_sample_subtype_balanced",
+    "node_feature_dim": 4,
+    "edge_attr_dim": 224,
+    "epochs_per_combo": 300,
+    "test_eval_mode": "fixed_topology",
+    "condition_definition": "Learnable per-node embedding table (no graph convolution, no neighborhood aggregation) + real content features. See EndpointOnlyEdgeClassifier docstring in src/models/gnn.py for why a learnable embedding rather than a plain MLP is used here \u2014 the repo's node features are constant, so an MLP endpoint encoder would carry zero endpoint-identity signal and collapse into Condition A.",
+    "split_meta": {
+      "protocol": "track_b",
+      "single_ip_attack_types": [
+        "vuln_scan",
+        "insider_threat",
+        "icmp_flood",
+        "sql_injection",
+        "os_scan",
+        "tcp_ack_flood",
+        "modbus_fdi",
+        "udp_flood",
+        "http_flood",
+        "port_scan",
+        "modbus_abuse",
+        "apt_exfil"
+      ],
+      "multi_ip_attack_types_excluded": [
+        "tcp_syn_flood"
+      ],
+      "test_ratio": 0.2
+    },
+    "conv_type": "graphsage"
+  },
+  "accuracy": 0.9755938649177551,
+  "precision": 0.9761218744825302,
+  "recall": 0.9953061155573566,
+  "f1": 0.9856206527554843,
+  "auprc": 0.9985985999665914,
+  "auroc": 0.9929710234257312,
+  "fpr": 0.12820056899004267,
+  "confusion_matrix": {
+    "tp": 88422,
+    "fp": 2163,
+    "fn": 417,
+    "tn": 14709
+  },
+  "condition": "F_no_message_passing",
+  "split_protocol": "track_b",
+  "git_commit": null,
+  "library_versions": {
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "sklearn": "1.6.1",
+    "networkx": "3.6.1"
+  }
+}

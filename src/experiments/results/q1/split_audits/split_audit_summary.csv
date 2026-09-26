@@ -1,0 +1,6 @@
+protocol,train_size,test_size,host_overlap_pct,pair_overlap_pct,attack_types_covered,pct_test_nodes_unseen,pct_test_edges_unseen,temporal_overlap,n_warnings
+scadanet_track_a,523901,10940,0.003105590062111801,0.0,3/14,0.9968944099378882,1.0,N/A,11
+scadanet_track_b,422844,105711,1.0,0.9956709956709957,13/13,0.0,0.0043290043290042934,N/A,11
+scadanet_temporal,374389,160452,0.002491103202846975,0.00504874651810585,12/14,0.997508896797153,0.9949512534818942,False,11
+batadal_static_cv,554,139,,,2/2,,,1.0,1
+batadal_temporal,485,208,,,2/2,,,0.014423076923076924,1

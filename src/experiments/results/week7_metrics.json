@@ -1,0 +1,405 @@
+{
+  "generated_at": "2026-07-26T08:07:58.953592+00:00",
+  "ics_flow": {
+    "task": "edge-level (flow) binary classification",
+    "split": {
+      "test_ratio": 0.2,
+      "n_train_edges": 35317,
+      "n_test_edges": 8829
+    },
+    "train_class_counts": {
+      "normal": 29149,
+      "anomalous": 6168
+    },
+    "test_class_counts": {
+      "normal": 7328,
+      "anomalous": 1501
+    },
+    "confusion_matrix": {
+      "tp": 1501,
+      "fp": 7328,
+      "fn": 0,
+      "tn": 0
+    },
+    "test_accuracy": 0.17000792920589447,
+    "precision": 0.17000792841771434,
+    "recall": 1.0,
+    "f1": 0.2906098741529526
+  },
+  "batadal": {
+    "task": "window-level (24h sliding window, 6h stride) graph classification",
+    "n_windows_total": 693,
+    "n_positive_windows": 56,
+    "n_folds": 5,
+    "folds": [
+      {
+        "fold": 1,
+        "confusion_matrix": {
+          "tp": 10,
+          "fp": 0,
+          "fn": 1,
+          "tn": 128
+        },
+        "test_class_counts": {
+          "normal": 128,
+          "anomalous": 11
+        },
+        "accuracy": 0.9928057789802551,
+        "precision": 1.0,
+        "recall": 0.9090909090909091,
+        "f1": 0.9523809523809523
+      },
+      {
+        "fold": 2,
+        "confusion_matrix": {
+          "tp": 11,
+          "fp": 6,
+          "fn": 0,
+          "tn": 122
+        },
+        "test_class_counts": {
+          "normal": 128,
+          "anomalous": 11
+        },
+        "accuracy": 0.9568345546722412,
+        "precision": 0.6470588235294118,
+        "recall": 1.0,
+        "f1": 0.7857142857142858
+      },
+      {
+        "fold": 3,
+        "confusion_matrix": {
+          "tp": 11,
+          "fp": 3,
+          "fn": 1,
+          "tn": 124
+        },
+        "test_class_counts": {
+          "normal": 127,
+          "anomalous": 12
+        },
+        "accuracy": 0.971222996711731,
+        "precision": 0.7857142857142857,
+        "recall": 0.9166666666666666,
+        "f1": 0.8461538461538461
+      },
+      {
+        "fold": 4,
+        "confusion_matrix": {
+          "tp": 11,
+          "fp": 4,
+          "fn": 0,
+          "tn": 123
+        },
+        "test_class_counts": {
+          "normal": 127,
+          "anomalous": 11
+        },
+        "accuracy": 0.9710144996643066,
+        "precision": 0.7333333333333333,
+        "recall": 1.0,
+        "f1": 0.846153846153846
+      },
+      {
+        "fold": 5,
+        "confusion_matrix": {
+          "tp": 11,
+          "fp": 3,
+          "fn": 0,
+          "tn": 124
+        },
+        "test_class_counts": {
+          "normal": 127,
+          "anomalous": 11
+        },
+        "accuracy": 0.97826087474823,
+        "precision": 0.7857142857142857,
+        "recall": 1.0,
+        "f1": 0.88
+      }
+    ],
+    "summary": {
+      "accuracy_mean": 0.9740277409553528,
+      "accuracy_std": 0.011688336080803361,
+      "precision_mean": 0.7903641456582633,
+      "precision_std": 0.11642968927681836,
+      "recall_mean": 0.9651515151515152,
+      "recall_std": 0.04274768478686633,
+      "f1_mean": 0.8620805860805861,
+      "f1_std": 0.054432335004516615
+    }
+  },
+  "scadanet": {
+    "column_audit": {
+      "total_raw_columns": 60,
+      "dead_or_constant_dropped": 9,
+      "leak_columns_dropped": 2,
+      "id_or_free_text_dropped": 24,
+      "high_cardinality_held_out": [
+        "Http_request_uri",
+        "Http_file_data"
+      ],
+      "numeric_features_used": [
+        "ip_ttl",
+        "frame_len",
+        "ip_len",
+        "Tcp_window_size",
+        "Udp_length",
+        "Tcp_len",
+        "Tcp_hdr_len",
+        "Http_content_length",
+        "Http_time",
+        "Frame_time_delta"
+      ],
+      "categorical_features_used": [
+        "Protocol",
+        "Http_request_method",
+        "Http_response_code",
+        "Tcp_flags_reset",
+        "http_accept",
+        "Icmp_type",
+        "Icmp_code",
+        "Http_user_agent",
+        "Tls_record",
+        "tls_handshake",
+        "Http_request_uri_query",
+        "Time_response",
+        "Tcp_analysis_flags"
+      ]
+    },
+    "baseline": {
+      "task": "edge-level (flow) binary classification, IP-held-out split",
+      "raw_columns_used": [
+        "Source",
+        "Destination",
+        "Attack_Type"
+      ],
+      "n_feature_dims": 4,
+      "split": {
+        "n_train_edges": 523901,
+        "n_test_edges": 10940,
+        "n_test_ips": 1282,
+        "n_total_ips": 6414
+      },
+      "test_class_counts": {
+        "normal": 9663,
+        "attack": 1277
+      },
+      "confusion_matrix": {
+        "tp": 1277,
+        "fp": 20,
+        "fn": 0,
+        "tn": 9643
+      },
+      "test_accuracy": 0.998171865940094,
+      "precision": 0.9845797995373939,
+      "recall": 1.0,
+      "f1": 0.9922299922299922
+    },
+    "enriched": {
+      "task": "edge-level (flow) binary classification, IP-held-out split",
+      "n_raw_columns_used": 23,
+      "n_feature_dims_after_encoding": 224,
+      "split": {
+        "n_train_edges": 523901,
+        "n_test_edges": 10940,
+        "n_test_ips": 1282,
+        "n_total_ips": 6414
+      },
+      "test_class_counts": {
+        "normal": 9663,
+        "attack": 1277
+      },
+      "confusion_matrix": {
+        "tp": 1277,
+        "fp": 19,
+        "fn": 0,
+        "tn": 9644
+      },
+      "test_accuracy": 0.9982632398605347,
+      "precision": 0.9853395061728395,
+      "recall": 1.0,
+      "f1": 0.9926156237854645
+    },
+    "track_a": {
+      "description": "IP-held-out split; tests generalization to unseen attacker infrastructure. Only valid for multi-IP attack types.",
+      "attack_types_covered": [
+        "tcp_syn_flood"
+      ],
+      "n_feature_dims": 224,
+      "n_test_edges": 10940,
+      "test_class_counts": {
+        "normal": 9663,
+        "attack": 1277
+      },
+      "confusion_matrix": {
+        "tp": 1277,
+        "fp": 19,
+        "fn": 0,
+        "tn": 9644
+      },
+      "test_accuracy": 0.9982632398605347,
+      "precision": 0.9853395061728395,
+      "recall": 1.0,
+      "f1": 0.9926156237854645,
+      "per_attack_type": {
+        "udp_flood": {
+          "n": 14,
+          "recall": 1.0
+        },
+        "tcp_syn_flood": {
+          "n": 1263,
+          "recall": 1.0
+        },
+        "normal_traffic": {
+          "n": 9663,
+          "fpr": 0.0019662630653006314
+        }
+      },
+      "caveat": "udp_flood test n=14; recall largely reflects IP-degree separability of spoofed sources, not content-feature learning."
+    },
+    "track_b": {
+      "description": "Flow-level, subtype-balanced split; tests recognition of known attacker behavior. Same attacker IP may appear in both train and test by design -- not a generalization test.",
+      "attack_types_covered": [
+        "vuln_scan",
+        "insider_threat",
+        "icmp_flood",
+        "sql_injection",
+        "os_scan",
+        "tcp_ack_flood",
+        "modbus_fdi",
+        "udp_flood",
+        "http_flood",
+        "port_scan",
+        "modbus_abuse",
+        "apt_exfil"
+      ],
+      "n_feature_dims": 224,
+      "n_test_edges": 105711,
+      "test_class_counts": {
+        "normal": 16872,
+        "attack": 88839
+      },
+      "confusion_matrix": {
+        "tp": 88815,
+        "fp": 4594,
+        "fn": 24,
+        "tn": 12278
+      },
+      "test_accuracy": 0.9563148617744446,
+      "precision": 0.9508184436189232,
+      "recall": 0.9997298483774019,
+      "f1": 0.9746609016285501,
+      "per_attack_type": {
+        "udp_flood": {
+          "n": 67700,
+          "recall": 1.0
+        },
+        "http_flood": {
+          "n": 5736,
+          "recall": 1.0
+        },
+        "normal_traffic": {
+          "n": 16872,
+          "fpr": 0.2722854433380749
+        },
+        "vuln_scan": {
+          "n": 8122,
+          "recall": 0.9972913075597144
+        },
+        "apt_exfil": {
+          "n": 481,
+          "recall": 1.0
+        },
+        "icmp_flood": {
+          "n": 3768,
+          "recall": 1.0
+        },
+        "os_scan": {
+          "n": 409,
+          "recall": 0.9975550122249389
+        },
+        "modbus_fdi": {
+          "n": 584,
+          "recall": 1.0
+        },
+        "tcp_ack_flood": {
+          "n": 1230,
+          "recall": 1.0
+        },
+        "insider_threat": {
+          "n": 286,
+          "recall": 0.9965034965034965
+        },
+        "modbus_abuse": {
+          "n": 125,
+          "recall": 1.0
+        },
+        "sql_injection": {
+          "n": 87,
+          "recall": 1.0
+        },
+        "port_scan": {
+          "n": 311,
+          "recall": 1.0
+        }
+      },
+      "known_limitation": "27.2% false-positive rate on held-out normal traffic (precision 0.9508) -- not yet root-caused."
+    }
+  },
+  "model_benchmarks": {
+    "device": "cuda",
+    "ics_flow": {
+      "model_stats": {
+        "n_params": 1298,
+        "n_trainable_params": 1298,
+        "size_mb": 0.0093
+      },
+      "latency": {
+        "mean_ms": 6.129805759974261,
+        "std_ms": 0.5911559658380813,
+        "n_edges": 44146,
+        "ms_per_edge": 0.00013885302768029404
+      }
+    },
+    "batadal": {
+      "model_stats": {
+        "n_params": 706,
+        "n_trainable_params": 706,
+        "size_mb": 0.0063
+      },
+      "latency": {
+        "mean_ms": 2.0718930999828444,
+        "std_ms": 0.07926975639645507,
+        "n_graphs": 138,
+        "ms_per_graph": 0.015013718115817714
+      }
+    },
+    "scadanet_baseline": {
+      "model_stats": {
+        "n_params": 1234,
+        "n_trainable_params": 1234,
+        "size_mb": 0.0093
+      },
+      "latency": {
+        "mean_ms": 76.26115811999625,
+        "std_ms": 2.798834451176255,
+        "n_edges": 534841,
+        "ms_per_edge": 0.00014258659698863075
+      }
+    },
+    "scadanet_enriched": {
+      "model_stats": {
+        "n_params": 5090,
+        "n_trainable_params": 5090,
+        "size_mb": 0.0246
+      },
+      "latency": {
+        "mean_ms": 313.6694231400543,
+        "std_ms": 44.934552500367644,
+        "n_edges": 534841,
+        "ms_per_edge": 0.0005864722845482195
+      }
+    }
+  }
+}
