@@ -1,6 +1,5 @@
-"""
-Issue #2 — run the split audit on all 5 protocols named in the issue and
-write the required artifacts:
+"""Run the split audit on all 5 protocols named in the issue and write the required
+artifacts:
 
     experiments/results/q1/split_audits/scadanet_track_a_audit.json
     experiments/results/q1/split_audits/scadanet_track_b_audit.json
@@ -10,9 +9,7 @@ write the required artifacts:
     experiments/results/q1/split_audits/split_audit_summary.csv
 
 Usage:
-    python -m experiments.run_split_audits \
-        --scadanet-path /path/to/scadanet.csv \
-        --batadal-path BATADAL_dataset04.csv
+    python -m experiments.run_split_audits         --scadanet-path /path/to/scadanet.csv         --batadal-path BATADAL_dataset04.csv
 """
 import argparse
 import json
@@ -24,6 +21,8 @@ import pandas as pd
 from src.data.batadal import load_batadal_df, build_windowed_graphs
 from src.data.scadanet import load_scadanet_df, build_graph_tensors, LABEL_COL, SRC_IP_COL, DST_IP_COL
 from src.evaluation.audit import audit_split
+from src.evaluation.temporal_protocol import batadal_purged_split, scadanet_topology_audit
+from src.data.scadanet import NUMERIC_FEATURE_COLS
 from src.evaluation.splits import (
     scadanet_track_a_split, scadanet_track_b_split, batadal_static_cv_folds,
 )
@@ -44,7 +43,7 @@ def audit_scadanet(csv_path: str) -> dict:
     results["track_a"] = audit_split(
         train_df, test_df, protocol_name="scadanet_track_a",
         src_col=SRC_IP_COL, dst_col=DST_IP_COL, label_col=LABEL_COL,
-        positive_label_check=IS_NOT_NORMAL,
+        positive_label_check=IS_NOT_NORMAL, full_taxonomy=df[LABEL_COL].unique(), numeric_cols=NUMERIC_FEATURE_COLS,
     )
 
     # --- Track B (single-fixed-IP subtypes vs multi-IP subtypes) ---
@@ -53,19 +52,32 @@ def audit_scadanet(csv_path: str) -> dict:
     results["track_b"] = audit_split(
         train_df, test_df, protocol_name="scadanet_track_b",
         src_col=SRC_IP_COL, dst_col=DST_IP_COL, label_col=LABEL_COL,
-        positive_label_check=IS_NOT_NORMAL,
+        positive_label_check=IS_NOT_NORMAL, full_taxonomy=df[LABEL_COL].unique(), numeric_cols=NUMERIC_FEATURE_COLS,
     )
 
     # --- Temporal (equal-count windows, chronological) ---
-    df_t, _ = add_temporal_windows(df, gt.ip_index, n_windows=20)
-    train_pos, test_pos, _ = temporal_split_positions(df_t)
+    df_t, snapshots = add_temporal_windows(df, gt.ip_index, n_windows=20)
+    train_pos, test_pos, split_window = temporal_split_positions(df_t)
     train_df, test_df = df_t.iloc[train_pos], df_t.iloc[test_pos]
     results["temporal"] = audit_split(
         train_df, test_df, protocol_name="scadanet_temporal",
         src_col=SRC_IP_COL, dst_col=DST_IP_COL, label_col=LABEL_COL,
-        time_col="Time", positive_label_check=IS_NOT_NORMAL,
+        time_col="Time", positive_label_check=IS_NOT_NORMAL, full_taxonomy=df[LABEL_COL].unique(), numeric_cols=NUMERIC_FEATURE_COLS,
     )
 
+    for name,mode in [("strict_causal","causal"),("fixed_training","fixed")]:
+        import copy
+        rec=copy.deepcopy(results["temporal"])
+        rec["protocol_name"]="scadanet_"+name
+        rec["topology_audit"]=scadanet_topology_audit(df_t,snapshots,split_window,20,gt.ip_index,mode)
+        rec["preprocessing_requirement"]="fit on training rows only"
+        results[name]=rec
+    for rec in results.values():
+        for attack,entry in rec["attack_coverage"]["per_label"].items():
+            original=df[df[LABEL_COL]==attack]
+            entry["unique_src_ips_overall"]=int(original[SRC_IP_COL].nunique())
+            entry["unique_dst_ips_overall"]=int(original[DST_IP_COL].nunique())
+            entry["diversity_scope"]="full original dataset before Track-B filtering"
     return results
 
 
@@ -85,20 +97,14 @@ def audit_batadal(csv_path: str) -> dict:
     window_df = _batadal_window_df(window_labels, extra)
     results = {}
 
-    # --- Static 5-fold CV: audit fold 0 as representative (issue asks for
-    # "the" static setup, not every fold — a per-fold audit is cheap to
-    # add later if a reviewer wants it, see notes field) ---
     folds = batadal_static_cv_folds(window_labels, n_folds=5, seed=42)
-    train_idx0, test_idx0 = folds[0]
-    train_df = window_df.iloc[train_idx0]
-    test_df = window_df.iloc[test_idx0]
-    static_audit = audit_split(
-        train_df, test_df, protocol_name="batadal_static_cv",
-        window_start_col="window_start", window_end_col="window_end",
-        label_col="label",
-    )
-    static_audit["notes"] = "audited fold 0/5 as representative; other 4 folds not individually audited"
-    results["static_cv"] = static_audit
+    for fold,(train_idx,test_idx) in enumerate(folds):
+        results[f"static_fold{fold}"]=audit_split(window_df.iloc[train_idx],window_df.iloc[test_idx],
+            protocol_name=f"batadal_static_cv_fold{fold}",window_start_col="window_start",window_end_col="window_end",
+            label_col="label",positive_label_check=lambda x: x==1,full_taxonomy=[1])
+    results["static_cv"] = dict(results["static_fold0"])
+    results["static_cv"]["all_folds"]=[results[f"static_fold{i}"] for i in range(5)]
+    results["static_cv"]["notes"]="All five folds audited; representative fields are fold 0. See all_folds and summary rows."
 
     # --- Temporal 70/30 chronological ---
     split_idx = int(len(window_graphs) * 0.7)
@@ -110,18 +116,22 @@ def audit_batadal(csv_path: str) -> dict:
         label_col="label",
     )
 
+    for frac in (0.6,0.7,0.8):
+        tr,te,purged,meta=batadal_purged_split(len(df),extra["starts"],extra["window_size"],frac)
+        key=f"purged_{round(frac*100)}_{round((1-frac)*100)}"
+        rec=audit_split(window_df.iloc[tr],window_df.iloc[te],protocol_name="batadal_"+key,
+            window_start_col="window_start",window_end_col="window_end",label_col="label",
+            positive_label_check=lambda x:x==1,full_taxonomy=[1])
+        rec["purge_meta"]=meta
+        assert rec["temporal_leakage_windows"]["n_test_windows_sharing_raw_rows_with_train"]==0
+        results[key]=rec
     return results
 
 
 def build_summary_csv(scadanet_results: dict, batadal_results: dict, out_path: Path):
     rows = []
-    combined = {
-        "scadanet_track_a": scadanet_results["track_a"],
-        "scadanet_track_b": scadanet_results["track_b"],
-        "scadanet_temporal": scadanet_results["temporal"],
-        "batadal_static_cv": batadal_results["static_cv"],
-        "batadal_temporal": batadal_results["temporal"],
-    }
+    combined = {**{"scadanet_"+k:v for k,v in scadanet_results.items()},
+                **{"batadal_"+k:v for k,v in batadal_results.items()}}
     for name, audit in combined.items():
         identity = audit["identity_topology_overlap"]
         coverage = audit["attack_coverage"]
@@ -158,7 +168,14 @@ def build_summary_csv(scadanet_results: dict, batadal_results: dict, out_path: P
             "n_warnings": len(audit["warnings"]),
         })
 
-    pd.DataFrame(rows).to_csv(out_path, index=False)
+    for name,rec in combined.items():
+        (out_path.parent/f"{name}_audit.json").write_text(json.dumps(rec,indent=2,default=str))
+    table=pd.DataFrame(rows)
+    table.to_csv(out_path,index=False)
+    table.to_csv(out_path.parent/"table_a1_protocol_audit.csv",index=False)
+    (out_path.parent/"table_a1_protocol_audit.md").write_text(table.to_markdown(index=False))
+    drift=[{"protocol":name,"feature":feature,**entry} for name,rec in combined.items() for feature,entry in rec["distribution_shift"].get("numeric_feature_drift",{}).items()]
+    pd.DataFrame(drift).to_csv(out_path.parent/"numeric_feature_drift.csv",index=False)
     print(f"wrote {out_path}")
 
 

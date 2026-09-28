@@ -7,6 +7,7 @@ copied exactly — if you change them, change them here AND note it in
 docs/weekly-progress.md, since they define what "reproduces the paper"
 means.
 """
+from src.utils.reproducibility import replayable_split
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
 
@@ -20,7 +21,7 @@ SRC_IP_COL = "Source"
 DST_IP_COL = "Destination"
 LABEL_COL = "Attack_Type"
 
-# Real per-flow signal -> the feature set (Week 7 Part G.2, Cell 116)
+# Real per-flow signal -> the feature set
 NUMERIC_FEATURE_COLS = [
     "ip_ttl", "frame_len", "ip_len", "Tcp_window_size", "Udp_length",
     "Tcp_len", "Tcp_hdr_len", "Http_content_length", "Http_time",
@@ -39,9 +40,7 @@ CATEGORICAL_FEATURE_COLS = [
 
 
 def load_scadanet_df(csv_path: str = None) -> pd.DataFrame:
-    """Week 6 Part G data-loading cell (Cell 106) + label cell (Cell 107).
-    If csv_path is None, downloads via kagglehub exactly as the notebook did.
-    """
+    """If csv_path is None, downloads via kagglehub exactly as the notebook did."""
     if csv_path is None:
         path = kagglehub.dataset_download("ealgul/scada-dataset-v01")
         import glob
@@ -68,12 +67,14 @@ class GraphTensors:
     ip_index: Dict[str, int]
     all_ips: List[str]
     data: Data                        # PyG Data(x, edge_index) for convenience
+    feature_names: List[str] = None   # column names for edge_attr, in order
 
 
 def _normalize_mixed_type_categorical(series: pd.Series) -> pd.Series:
-    """Cell 117 — collapse numeric-like values written in different forms
-    (200.0 / '200' / '200.0') into one consistent string before one-hot."""
-    numeric = pd.to_numeric(series, errors="coerce")
+    """Collapse numeric-like values written in different forms (200.0 / '200' / '200.0')
+    into one consistent string before one-hot.
+    """
+    numeric = pd.to_numeric(series, errors="coerce").replace([np.inf, -np.inf], np.nan)
     is_numeric_like = numeric.notna()
     normalized = series.astype(str)
     normalized[is_numeric_like] = numeric[is_numeric_like].astype(int).astype(str)
@@ -82,10 +83,13 @@ def _normalize_mixed_type_categorical(series: pd.Series) -> pd.Series:
 
 
 def _build_edge_attr(df: pd.DataFrame, numeric_cols: List[str],
-                      categorical_cols: List[str]) -> Tuple[torch.Tensor, List[str]]:
-    """Cell 117 — median-impute + z-score numeric, one-hot categorical."""
+                      categorical_cols: List[str], fit_idx=None) -> Tuple[torch.Tensor, List[str]]:
+    """Median-impute + z-score numeric, one-hot categorical."""
     numeric_cols = [c for c in numeric_cols if c in df.columns]
     categorical_cols = [c for c in categorical_cols if c in df.columns]
+
+    if fit_idx is not None:
+        return _fit_transform_edge_attr(df, numeric_cols, categorical_cols, fit_idx)
 
     num_block = df[numeric_cols].apply(pd.to_numeric, errors="coerce")
     num_block = num_block.fillna(num_block.median(numeric_only=True))
@@ -103,10 +107,12 @@ def _build_edge_attr(df: pd.DataFrame, numeric_cols: List[str],
     return torch.tensor(edge_attr, dtype=torch.float32), feature_names
 
 
-def build_graph_tensors(df: pd.DataFrame) -> GraphTensors:
-    """Cell 109 (topology + query edges) + Cell 117 (edge_attr).
-    Constant, non-identifying node feature vector — see Cell 109 comment:
-    raw flow-count degree is deliberately excluded (shortcut-learning risk)."""
+def build_graph_tensors(df: pd.DataFrame, fit_idx=None) -> GraphTensors:
+    """Build the IP-pair topology, query edges and edge attributes.
+
+    Node features are a constant, non-identifying vector; raw flow-count degree is
+    deliberately excluded to avoid shortcut learning.
+    """
     all_ips = sorted(set(df[SRC_IP_COL].astype(str)) | set(df[DST_IP_COL].astype(str)))
     ip_index = {ip: i for i, ip in enumerate(all_ips)}
 
@@ -122,35 +128,25 @@ def build_graph_tensors(df: pd.DataFrame) -> GraphTensors:
     query_edges = torch.stack([q_src, q_dst])
     y = torch.tensor(df["is_attack"].to_numpy(), dtype=torch.long)
 
-    edge_attr, _feature_names = _build_edge_attr(df, NUMERIC_FEATURE_COLS, CATEGORICAL_FEATURE_COLS)
+    edge_attr, feature_names = _build_edge_attr(df, NUMERIC_FEATURE_COLS, CATEGORICAL_FEATURE_COLS, fit_idx=fit_idx)
 
     data = Data(x=x, edge_index=edge_index)
     return GraphTensors(x=x, edge_index=edge_index, query_edges=query_edges,
                          edge_attr=edge_attr, y=y, ip_index=ip_index,
-                         all_ips=all_ips, data=data)
+                         all_ips=all_ips, data=data, feature_names=feature_names)
 
 
 def add_temporal_windows(df: pd.DataFrame, ip_index: Dict[str, int],
                           n_windows: int = 20) -> Tuple[pd.DataFrame, List[Dict]]:
-    """Cell 156 (equal-COUNT windowing) + Cell 157 (streaming/cumulative
-    topology snapshots). Returns (df sorted+windowed, list of snapshot dicts
-    with cumulative 'edge_index' per window) — snapshot[w] is the topology
-    visible using only windows 0..w, so no test-period edges leak into the
-    training-period topology.
+    """Assign equal-count time windows and build cumulative topology snapshots.
 
-    Tie-breaking on duplicate `Time` values: the original notebook cell
-    used an unspecified sort (quicksort), whose tie order isn't guaranteed
-    identical across pandas versions. An earlier fix used `kind="stable"`,
-    which fixes tie order *relative to input row order* — but that still
-    depends on what order kagglehub's download/cache handed the CSV rows
-    in, which isn't guaranteed identical across separate downloads. A
-    ~3–10 flow boundary discrepancy (out of ~160k test flows) was observed
-    across two separate Colab runs of otherwise identical code, consistent
-    with this: the fix below removes the dependency on file/download order
-    entirely by using a secondary sort key derived from each row's own
-    content (a hash over several columns unlikely to collide for two
-    genuinely different flows), so tie-breaking is now a function of what
-    the data IS, not what order it arrived in.
+    Returns (df sorted+windowed, list of snapshot dicts with cumulative 'edge_index' per
+    window). snapshot[w] is the topology visible using only windows 0..w, so no test-
+    period edges leak into the training-period topology.
+
+    Ties on duplicate `Time` values are broken with a secondary sort key derived from
+    each row's own content (a hash over several columns), so the order does not depend
+    on the CSV row order or on how the file was downloaded.
     """
     tie_break_cols = [c for c in [
         SRC_IP_COL, DST_IP_COL, "Protocol", "Length", "frame_len", "ip_ttl",
@@ -178,8 +174,8 @@ def add_temporal_windows(df: pd.DataFrame, ip_index: Dict[str, int],
         seen_pairs |= set(zip(pairs[SRC_IP_COL], pairs[DST_IP_COL]))
 
         if seen_pairs:
-            src = [ip_index[a] for a, b in seen_pairs]
-            dst = [ip_index[b] for a, b in seen_pairs]
+            src = [ip_index[a] for a, b in sorted(seen_pairs)]
+            dst = [ip_index[b] for a, b in sorted(seen_pairs)]
             edge_index_w = torch.tensor(np.stack([src, dst]), dtype=torch.long)
         else:
             edge_index_w = torch.zeros((2, 0), dtype=torch.long)
@@ -189,13 +185,29 @@ def add_temporal_windows(df: pd.DataFrame, ip_index: Dict[str, int],
     return df_t, snapshots
 
 
+@replayable_split
 def temporal_split_positions(df_t: pd.DataFrame, train_fraction: float = 0.7
                               ) -> Tuple[np.ndarray, np.ndarray, int]:
-    """Cell 159 — SPLIT_WINDOW boundary and train/test row positions
-    (positions into df_t, which is already sorted+windowed — use these to
-    index query_edges/edge_attr/y built on the SAME row order)."""
+    """SPLIT_WINDOW boundary and train/test row positions (positions into df_t, which is
+    already sorted+windowed — use these to index query_edges/edge_attr/y built on the
+    SAME row order).
+    """
     n_windows = int(df_t["window"].max()) + 1
     split_window = int(n_windows * train_fraction)
     train_mask = (df_t["window"] < split_window).to_numpy()
     test_mask = (df_t["window"] >= split_window).to_numpy()
     return np.nonzero(train_mask)[0], np.nonzero(test_mask)[0], split_window
+
+
+def _fit_transform_edge_attr(df, numeric_cols, categorical_cols, fit_idx):
+    idx = np.asarray(fit_idx, dtype=int)
+    if not len(idx): raise ValueError("Feature fit requires training rows")
+    numeric = df[numeric_cols].apply(pd.to_numeric, errors="coerce").replace([np.inf,-np.inf],np.nan)
+    med = numeric.iloc[idx].median().fillna(0)
+    numeric = numeric.fillna(med)
+    mu = numeric.iloc[idx].mean(); sd = numeric.iloc[idx].std(ddof=0).replace(0,1).fillna(1)
+    num = ((numeric-mu)/sd).to_numpy(dtype=np.float32)
+    cats = df[categorical_cols].apply(_normalize_mixed_type_categorical)
+    train_cats = pd.get_dummies(cats.iloc[idx], columns=categorical_cols, dtype=float)
+    cat = pd.get_dummies(cats, columns=categorical_cols, dtype=float).reindex(columns=train_cats.columns,fill_value=0)
+    return torch.tensor(np.concatenate([num,cat.to_numpy(dtype=np.float32)],axis=1),dtype=torch.float32), numeric_cols+list(cat.columns)

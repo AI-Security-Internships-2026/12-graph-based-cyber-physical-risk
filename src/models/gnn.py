@@ -1,23 +1,21 @@
-"""
-Model definitions, moved verbatim (architecture unchanged) from the
-Week 4/6/10 notebook cells. Do not redesign architecture here — this
-issue is refactor-only (see "Do Not Do In This Issue").
+"""Model definitions: node/edge/window classifiers built on GraphSAGE, GCN and GAT
+embedders.
 """
 import torch
 import torch.nn.functional as F
-from torch_geometric.nn import SAGEConv, global_mean_pool
+from torch_geometric.nn import GATConv, GCNConv, SAGEConv, global_mean_pool
 
 
 class SAGEEmbedder(torch.nn.Module):
-    """Node embedder using GraphSAGE aggregation. Inductive -> generalises
-    to unseen nodes (used for BATADAL cross-dataset transfer, Week 5).
-    Reference: Hamilton et al., NeurIPS 2017, arxiv.org/abs/1706.02216"""
+    """Node embedder using GraphSAGE aggregation. Inductive -> generalises to unseen nodes.
+    Reference: Hamilton et al., NeurIPS 2017, arxiv.org/abs/1706.02216
+    """
 
-    def __init__(self, in_dim, hidden_dim=16, out_dim=16):
+    def __init__(self, in_dim, hidden_dim=16, out_dim=16, dropout=0.3):
         super().__init__()
         self.conv1 = SAGEConv(in_dim, hidden_dim)
         self.conv2 = SAGEConv(hidden_dim, out_dim)
-        self.dropout = torch.nn.Dropout(p=0.3)
+        self.dropout = torch.nn.Dropout(p=dropout)
 
     def forward(self, x, edge_index):
         x = F.relu(self.conv1(x, edge_index))
@@ -30,12 +28,7 @@ class SAGEEmbedder(torch.nn.Module):
 
 
 class NodeClassifier(torch.nn.Module):
-    """Node-level risk classifier. Notebook Cell 77 docstring says "9 nodes
-    — no meaningful test split possible"; per week12_metricsnew.json the
-    corrected ICS-Flow device count is 8 (Asset+Attacker nodes; 7,669
-    Alert nodes are separate and need a table footnote). Fix the printed
-    node count here if you wire up ICS-Flow, but the "too few to split"
-    architectural point holds either way."""
+    """Node-level risk classifier."""
 
     def __init__(self, in_dim, hidden_dim=16):
         super().__init__()
@@ -47,9 +40,7 @@ class NodeClassifier(torch.nn.Module):
 
 
 class EdgeClassifier(torch.nn.Module):
-    """Flow-level classifier, topology only (no edge attributes).
-    Used for the ICS-Flow flow-level model and the SCADANet Week 6
-    baseline (Track A/B topology-only comparison)."""
+    """Flow-level classifier, topology only (no edge attributes)."""
 
     def __init__(self, in_dim, hidden_dim=16):
         super().__init__()
@@ -67,9 +58,10 @@ class EdgeClassifier(torch.nn.Module):
 
 
 class EdgeClassifierWithAttr(torch.nn.Module):
-    """Flow-level classifier with per-flow edge attributes concatenated
-    onto the endpoint embeddings. This is the SCADANet Track B / enriched
-    model (Week 7 Part G.2) and the BATADAL temporal edge model (Part X)."""
+    """Flow-level classifier with per-flow edge attributes concatenated onto the endpoint
+    embeddings. This is the SCADANet Track B / enriched model and the BATADAL temporal
+    edge model.
+    """
 
     def __init__(self, in_dim, edge_attr_dim, hidden_dim=16, edge_proj_dim=16):
         super().__init__()
@@ -94,11 +86,146 @@ class EdgeClassifierWithAttr(torch.nn.Module):
         return self.head(combined)
 
 
+class GCNEmbedder(torch.nn.Module):
+    """GCN counterpart to SAGEEmbedder, with the same depth, hidden_dim and dropout."""
+
+    def __init__(self, in_dim, hidden_dim=16, out_dim=16, dropout=0.3):
+        super().__init__()
+        self.conv1 = GCNConv(in_dim, hidden_dim)
+        self.conv2 = GCNConv(hidden_dim, out_dim)
+        self.dropout = torch.nn.Dropout(p=dropout)
+
+    def forward(self, x, edge_index):
+        x = F.relu(self.conv1(x, edge_index))
+        x = self.dropout(x)
+        x = self.conv2(x, edge_index)
+        return x
+
+
+class GATEmbedder(torch.nn.Module):
+    """GAT counterpart to SAGEEmbedder. heads=4/concat=False (mean over heads) keeps the
+    output width equal to hidden_dim/out_dim, so this drops into the exact same
+    EdgeClassifierWithAttr-style head as the SAGE and GCN variants with no downstream
+    dimension changes — the fairness requirement is same classifier capacity where
+    architecturally possible, not just same data/splits.
+    """
+
+    def __init__(self, in_dim, hidden_dim=16, out_dim=16, heads=4, dropout=0.3):
+        super().__init__()
+        self.conv1 = GATConv(in_dim, hidden_dim, heads=heads, concat=False)
+        self.conv2 = GATConv(hidden_dim, out_dim, heads=heads, concat=False)
+        self.dropout = torch.nn.Dropout(p=dropout)
+
+    def forward(self, x, edge_index):
+        x = F.elu(self.conv1(x, edge_index))
+        x = self.dropout(x)
+        x = self.conv2(x, edge_index)
+        return x
+
+
+_EMBEDDER_REGISTRY = {
+    "graphsage": SAGEEmbedder,
+    "gcn": GCNEmbedder,
+    "gat": GATEmbedder,
+}
+
+
+class GNNEdgeClassifierWithAttr(torch.nn.Module):
+    """Same architecture as EdgeClassifierWithAttr, parameterized over the conv type that
+    builds the node embedder. `gnn_edge_classifier(conv_type="graphsage", ...)` is
+    architecturally identical to EdgeClassifierWithAttr.
+    """
+
+    def __init__(self, conv_type, in_dim, edge_attr_dim, hidden_dim=16,
+                 edge_proj_dim=16, dropout=0.3):
+        super().__init__()
+        if conv_type not in _EMBEDDER_REGISTRY:
+            raise ValueError(f"Unknown conv_type {conv_type!r}, expected one of {list(_EMBEDDER_REGISTRY)}")
+        self.conv_type = conv_type
+        embedder_cls = _EMBEDDER_REGISTRY[conv_type]
+        self.embedder = embedder_cls(in_dim, hidden_dim, out_dim=hidden_dim, dropout=dropout)
+        self.edge_proj = torch.nn.Sequential(
+            torch.nn.Linear(edge_attr_dim, edge_proj_dim),
+            torch.nn.ReLU(),
+        )
+        self.head = torch.nn.Sequential(
+            torch.nn.Linear(hidden_dim * 2 + edge_proj_dim, hidden_dim),
+            torch.nn.ReLU(),
+            torch.nn.Dropout(p=dropout),
+            torch.nn.Linear(hidden_dim, 2),
+        )
+
+    def forward(self, x, edge_index, query_edges, query_edge_attr):
+        h = self.embedder(x, edge_index)
+        edge_repr = self.edge_proj(query_edge_attr)
+        combined = torch.cat(
+            [h[query_edges[0]], h[query_edges[1]], edge_repr], dim=1
+        )
+        return self.head(combined)
+
+
+class EndpointOnlyEdgeClassifier(torch.nn.Module):
+    """Keeps a per-node representation but disables neighborhood aggregation entirely.
+    `x`/`edge_index` are accepted (same call signature as GNNEdgeClassifierWithAttr) but
+    never used to pass information between nodes.
+
+    A per-node MLP over a constant input would give every node an identical vector,
+    collapsing this condition into content-only. To keep "endpoint identity without
+    aggregation" distinct, this class uses a learnable per-node embedding table
+    (nn.Embedding): each node gets its own trainable vector, updated only by gradients
+    from edges touching that node. This tests whether knowing which node is on each end
+    helps, without any message passing.
+    """
+
+    def __init__(self, num_nodes, edge_attr_dim, hidden_dim=16, edge_proj_dim=16, dropout=0.3):
+        super().__init__()
+        self.node_embedding = torch.nn.Embedding(num_nodes, hidden_dim)
+        self.edge_proj = torch.nn.Sequential(
+            torch.nn.Linear(edge_attr_dim, edge_proj_dim),
+            torch.nn.ReLU(),
+        )
+        self.head = torch.nn.Sequential(
+            torch.nn.Linear(hidden_dim * 2 + edge_proj_dim, hidden_dim),
+            torch.nn.ReLU(),
+            torch.nn.Dropout(p=dropout),
+            torch.nn.Linear(hidden_dim, 2),
+        )
+
+    def forward(self, x, edge_index, query_edges, query_edge_attr):
+        # x, edge_index accepted but unused — no aggregation, by design.
+        h = self.node_embedding.weight
+        edge_repr = self.edge_proj(query_edge_attr)
+        combined = torch.cat(
+            [h[query_edges[0]], h[query_edges[1]], edge_repr], dim=1
+        )
+        return self.head(combined)
+
+
+class GNNWindowClassifier(torch.nn.Module):
+    """Same architecture as WindowGraphClassifier, parameterized over
+    conv type — the BATADAL counterpart to GNNEdgeClassifierWithAttr
+    above, needed for Experiment B3's "GCN or GAT" requirement."""
+
+    def __init__(self, conv_type, in_dim, hidden_dim=16, dropout=0.3):
+        super().__init__()
+        if conv_type not in _EMBEDDER_REGISTRY:
+            raise ValueError(f"Unknown conv_type {conv_type!r}, expected one of {list(_EMBEDDER_REGISTRY)}")
+        self.conv_type = conv_type
+        embedder_cls = _EMBEDDER_REGISTRY[conv_type]
+        self.embedder = embedder_cls(in_dim, hidden_dim, out_dim=hidden_dim, dropout=dropout)
+        self.head = torch.nn.Linear(hidden_dim, 2)
+
+    def forward(self, x, edge_index, batch):
+        h = self.embedder(x, edge_index)
+        h = global_mean_pool(h, batch)
+        return self.head(h)
+
+
 class WindowGraphClassifier(torch.nn.Module):
-    """GraphSAGE embedder + mean pooling + linear head -> per-window
-    (graph-level) anomaly classification. Used for the BATADAL windowed
-    cross-dataset validation (Week 5 Part D) and the BATADAL temporal
-    split (Part Q/T)."""
+    """GraphSAGE embedder + mean pooling + linear head -> per-window (graph-level) anomaly
+    classification. Used for the BATADAL windowed cross-dataset validation and the
+    BATADAL temporal split.
+    """
 
     def __init__(self, in_dim, hidden_dim=16):
         super().__init__()
@@ -125,14 +252,14 @@ def build_class_weights(train_y: torch.Tensor) -> torch.Tensor:
 
 
 def compute_subtype_balanced_weights(df, label_col: str, idx: torch.Tensor) -> dict:
-    """SCADANet Track B ONLY (Week 8 Cell 123) — every individual label
-    (each attack subtype + normal) weighted inversely to its own frequency
-    in the training set, not just attack-vs-normal. This is deliberately
-    different from build_class_weights(): Track B covers several
-    single-fixed-IP attack subtypes at very different volumes (scans vs.
-    floods), and a plain binary weight would let the dominant subtype
-    drown out the rest. Do not substitute build_class_weights() here —
-    it changes the experiment, not just refactors it."""
+    """SCADANet Track B ONLY — every individual label (each attack subtype + normal)
+    weighted inversely to its own frequency in the training set, not just attack-vs-
+    normal. This is deliberately different from build_class_weights(): Track B covers
+    several single-fixed-IP attack subtypes at very different volumes (scans vs.
+    floods), and a plain binary weight would let the dominant subtype drown out the
+    rest. Do not substitute build_class_weights() here — it changes the experiment, not
+    just refactors it.
+    """
     labels_subset = df.iloc[idx.numpy()][label_col]
     counts = labels_subset.value_counts()
     n = len(labels_subset)
