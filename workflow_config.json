@@ -1,0 +1,14 @@
+{
+  "scadanet_path": "datasets/scada_dataset_V01.csv",
+  "batadal_path": "datasets/BATADAL_dataset04.csv",
+  "seeds": [42, 7, 123, 1, 2024, 13, 21, 99, 2025, 314],
+  "epochs": 300,
+  "batadal_epochs": 100,
+  "host_epochs": 400,
+  "threshold": "validation",
+  "cpu_threads": 4,
+  "explanation_samples": 150,
+  "topology_examples": 5,
+  "resume": true,
+  "profile": "full_data"
+}

@@ -9,7 +9,7 @@ scikit-learn>=1.4
 scipy>=1.11
 networkx>=3.2
 xgboost>=2.0
-matplotlib>=3.8
+matplotlib>=3.8,<3.11  # build_table_s_and_figures.py calls boxplot(labels=...), removed in 3.11
 captum>=0.7
 kagglehub
 tabulate
