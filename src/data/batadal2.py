@@ -60,6 +60,12 @@ def discover_runs(root: str) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def load(root: str) -> Tuple[pd.DataFrame, Dict[str, pd.DataFrame]]:
+    """(runs, frames) for the window runner."""
+    runs = discover_runs(root)
+    return runs, {r.run: load_run(r.path) for r in runs.itertuples()}
+
+
 def _read_config(run_path: str) -> dict:
     with open(os.path.join(run_path, "configuration", "config.yaml")) as f:
         return yaml.safe_load(f)
@@ -156,14 +162,26 @@ def build_dataset(root: str, runs: pd.DataFrame, fit_runs: Sequence[str], topolo
     edges += [(v, u) for u, v in edges]
     edge_index = torch.tensor(edges, dtype=torch.long).T if edges else torch.empty((2, 0), dtype=torch.long)
 
+    type_codes = {t: i for i, t in enumerate(sorted(set(types.values())))}
+    plc_codes = {p: i for i, p in enumerate(sorted(set(owner.values())))}
+    static = np.array([[type_codes[types[c]], plc_codes.get(owner.get(c), -1)] for c in components], float)
+    graphs, info = window_graphs(runs, frames, components, fit, normal, static, edge_index, window_size, stride)
+    info.update({"n_edges": len(pairs), "topology": topology})
+    return graphs, info
+
+
+def window_graphs(runs: pd.DataFrame, frames: Dict[str, pd.DataFrame], components: Sequence[str],
+                  fit: pd.DataFrame, normal: pd.DataFrame, static: np.ndarray, edge_index: torch.Tensor,
+                  window_size: int, stride: int) -> Tuple[List[Data], Dict]:
+    """Sliding-window graphs within each run (windows never cross runs).
+
+    Node features: window mean and std scaled by the training range, the window mean's
+    z-score against the training-normal baseline (clipped to +-5), then the `static`
+    per-node columns. A window is an attack window if any row in it is."""
     vmin = fit[components].min().to_numpy(np.float64)
     span = fit[components].max().to_numpy(np.float64) - vmin + 1e-9
     base_mean = normal.mean().to_numpy(np.float64)
     base_std = normal.std().replace(0, 1e-9).fillna(1).to_numpy(np.float64)
-    type_codes = {t: i for i, t in enumerate(sorted(set(types.values())))}
-    plc_codes = {p: i for i, p in enumerate(sorted(set(owner.values())))}
-    static = np.array([[type_codes[types[c]], plc_codes.get(owner.get(c), -1)] for c in components], float)
-
     graphs, meta = [], []
     for r in runs.itertuples():
         values = frames[r.run][components].to_numpy(np.float64)
@@ -180,12 +198,12 @@ def build_dataset(root: str, runs: pd.DataFrame, fit_runs: Sequence[str], topolo
         labels = ((ca[ends] - ca[starts]) > 0).astype(int)
         feats = np.stack([(w_mean - vmin) / span, w_std / span,
                           np.clip((w_mean - base_mean) / base_std, -5, 5)], axis=-1)
-        feats = np.concatenate([feats, np.broadcast_to(static, feats.shape[:2] + (2,))], axis=-1)
+        feats = np.concatenate([feats, np.broadcast_to(static, feats.shape[:2] + (static.shape[1],))], axis=-1)
         x = torch.tensor(feats, dtype=torch.float32)
         for i in range(len(starts)):
             graphs.append(Data(x=x[i], edge_index=edge_index, y=torch.tensor([int(labels[i])])))
             meta.append((r.run, int(starts[i])))
-    info = {"components": components, "n_edges": len(pairs), "topology": topology,
+    info = {"components": list(components),
             "window_runs": np.array([m[0] for m in meta]), "window_starts": np.array([m[1] for m in meta])}
     return graphs, info
 

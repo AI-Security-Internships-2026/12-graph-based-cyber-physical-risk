@@ -1,7 +1,8 @@
-"""BATADAL 2.0 on GPU: graph topology vs. no-graph baselines under scenario-held-out CV.
+"""Window-graph detectors on GPU: graph topology vs. no-graph baselines under grouped CV.
 
 For every seed and fold: one grouped fold of runs is the test set, one more grouped fold is
-held out of training for threshold selection, and the rest train. Models:
+held out of training for threshold selection, and the rest train. Models (BATADAL 2.0 names;
+WaDi uses graphsage_stage for the process-stage graph instead of graphsage_plc):
   graphsage_plc          WindowGraphClassifier on the PLC + control-loop graph
   graphsage_correlation  WindowGraphClassifier on BATADAL v1's correlation graph
   graphsage_none         WindowGraphClassifier with no edges (topology ablation)
@@ -9,6 +10,7 @@ held out of training for threshold selection, and the rest train. Models:
 Results go to <out>/results.csv (one row per seed/fold/model/test slice) and summary.csv.
 
     python -m experiments.batadal2_runner --root ~/datasets/batadal2/extracted --out experiments/results/batadal2
+    python -m experiments.batadal2_runner --dataset wadi --root "~/datasets/itrust/WaDi.A2_19 Nov 2019" --out experiments/results/wadi
 """
 import argparse
 import json
@@ -22,13 +24,15 @@ import torch.nn.functional as F
 from sklearn.metrics import average_precision_score, f1_score, precision_score, recall_score
 from torch_geometric.loader import DataLoader
 
-from src.data import batadal2
+from src.data import batadal2, wadi
 from src.models.gnn import WindowGraphClassifier, build_class_weights
 from src.utils.seed import set_seed
 
 SEEDS = [42, 7, 123, 1, 2024, 13, 21, 99, 2025, 314]
-MODELS = {"graphsage_plc": "plc", "graphsage_correlation": "correlation",
-          "graphsage_none": "none", "mlp": "plc"}  # the MLP ignores edges
+# dataset -> (loader module, model name -> topology); the MLP ignores edges
+DATASETS = {"batadal2": (batadal2, {"graphsage_plc": "plc", "graphsage_correlation": "correlation",
+                                    "graphsage_none": "none", "mlp": "plc"}),
+            "wadi": (wadi, wadi.TOPOLOGIES)}
 
 
 class FlatMLP(torch.nn.Module):
@@ -85,24 +89,27 @@ def metrics(y, p, t):
 
 def main():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--dataset", default="batadal2", choices=sorted(DATASETS))
     parser.add_argument("--root", required=True)
     parser.add_argument("--out", default="experiments/results/batadal2")
     parser.add_argument("--seeds", default=",".join(map(str, SEEDS)))
     parser.add_argument("--folds", type=int, default=5)
     parser.add_argument("--epochs", type=int, default=50)
-    parser.add_argument("--models", default=",".join(MODELS))
+    parser.add_argument("--models", default=None, help="comma-separated; default: all of the dataset's models")
     args = parser.parse_args()
     if not torch.cuda.is_available():
         raise SystemExit("CUDA is not available; this runner is GPU-only")
     device = torch.device("cuda")
     os.makedirs(args.out, exist_ok=True)
+    ds, MODELS = DATASETS[args.dataset]
+    args.models = args.models or ",".join(MODELS)
+    args.root = os.path.expanduser(args.root)
 
-    runs = batadal2.discover_runs(args.root)
-    runs["fold"] = batadal2.grouped_folds(runs, args.folds, seed=0)  # fixed across seeds: paired
+    runs, frames = ds.load(args.root)
+    runs["fold"] = ds.grouped_folds(runs, args.folds, seed=0)  # fixed across seeds: paired
     runs.drop(columns="path").to_csv(os.path.join(args.out, "runs_and_folds.csv"), index=False)
     print(f"{len(runs)} runs ({(runs.kind == 'attack').sum()} attack, "
           f"{runs.loc[runs.kind == 'attack', 'signature'].nunique()} attack signatures), {args.folds} folds", flush=True)
-    frames = {r.run: batadal2.load_run(r.path) for r in runs.itertuples()}
     kind = dict(zip(runs.run, runs.kind))
     conceal = dict(zip(runs.run, runs.concealment))
     targets = dict(zip(runs.run, runs.targets))
@@ -124,8 +131,8 @@ def main():
                     continue
                 topology = MODELS[model_name]
                 if topology not in datasets:
-                    datasets[topology] = batadal2.build_dataset(args.root, runs, train_runs.run.tolist(),
-                                                                topology=topology, frames=frames, seed=seed)
+                    datasets[topology] = ds.build_dataset(args.root, runs, train_runs.run.tolist(),
+                                                          topology=topology, frames=frames, seed=seed)
                 graphs, info = datasets[topology]
                 wr = info["window_runs"]
                 y_all = np.array([int(g.y) for g in graphs])
