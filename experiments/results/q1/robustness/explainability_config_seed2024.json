@@ -1,0 +1,9 @@
+{
+  "seed": 2024,
+  "top3_features": [
+    "Protocol_Modbus/TCP",
+    "Tcp_flags_reset_Not set",
+    "ip_len"
+  ],
+  "epochs": 300
+}

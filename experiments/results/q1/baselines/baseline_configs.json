@@ -1,0 +1,962 @@
+{
+  "run_experiment_b1_seed42": {
+    "seed": 42,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b2_seed42": {
+    "seed": 42,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b3_seed42": {
+    "seed": 42,
+    "epochs": 100,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b1_seed7": {
+    "seed": 7,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b2_seed7": {
+    "seed": 7,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b3_seed7": {
+    "seed": 7,
+    "epochs": 100,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b1_seed123": {
+    "seed": 123,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b2_seed123": {
+    "seed": 123,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b3_seed123": {
+    "seed": 123,
+    "epochs": 100,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b1_seed1": {
+    "seed": 1,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b2_seed1": {
+    "seed": 1,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b3_seed1": {
+    "seed": 1,
+    "epochs": 100,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b1_seed2024": {
+    "seed": 2024,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b2_seed2024": {
+    "seed": 2024,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b3_seed2024": {
+    "seed": 2024,
+    "epochs": 100,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b1_seed13": {
+    "seed": 13,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b2_seed13": {
+    "seed": 13,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b3_seed13": {
+    "seed": 13,
+    "epochs": 100,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b1_seed21": {
+    "seed": 21,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b2_seed21": {
+    "seed": 21,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b3_seed21": {
+    "seed": 21,
+    "epochs": 100,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b1_seed99": {
+    "seed": 99,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b2_seed99": {
+    "seed": 99,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b3_seed99": {
+    "seed": 99,
+    "epochs": 100,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b1_seed2025": {
+    "seed": 2025,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b2_seed2025": {
+    "seed": 2025,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b3_seed2025": {
+    "seed": 2025,
+    "epochs": 100,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b1_seed314": {
+    "seed": 314,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b2_seed314": {
+    "seed": 314,
+    "epochs": 300,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  },
+  "run_experiment_b3_seed314": {
+    "seed": 314,
+    "epochs": 100,
+    "grid": {
+      "hidden_dimension": [
+        32,
+        64
+      ],
+      "learning_rate": [
+        0.001,
+        0.005
+      ],
+      "dropout": [
+        0.0,
+        0.2
+      ],
+      "tree_max_depth": [
+        4,
+        6
+      ],
+      "tree_n_estimators": [
+        100,
+        200
+      ],
+      "logistic_regression_C": [
+        0.1,
+        1.0
+      ]
+    },
+    "threshold_policy": "validation",
+    "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+  }
+}

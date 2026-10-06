@@ -1,0 +1,4 @@
+dataset,protocol,seed,leakage_condition,precision,recall,f1,auprc,fpr,n_test,split_window,n_windows,config_id,threshold,model
+scadanet,T1_previous_temporal,99,future test topology possible,0.9739097850016394,0.49896808255339575,0.6598644853139529,0.9311701885635848,0.014446519348480133,160452,14,20,418f8dc9a7bbb3a2d7e2e200dc7acf651ce430667ae2b4ec253bbefa73b8ea22,0.5,graphsage_edge_attr_reference
+scadanet,T2_strict_causal_topology,99,none identified,0.972996372996373,0.49893208543316536,0.6596232401348403,0.8696771534844441,0.014965245357402221,160452,14,20,418f8dc9a7bbb3a2d7e2e200dc7acf651ce430667ae2b4ec253bbefa73b8ea22,0.5,graphsage_edge_attr_reference
+scadanet,T3_fixed_training_topology,99,none identified (no topology update),0.9720233918128655,0.4986081113510919,0.659116504084384,0.8601717995067748,0.015509907666770411,160452,14,20,418f8dc9a7bbb3a2d7e2e200dc7acf651ce430667ae2b4ec253bbefa73b8ea22,0.5,graphsage_edge_attr_reference

@@ -1,0 +1,31 @@
+{
+  "scadanet_path": "datasets/scada_dataset_V01.csv",
+  "batadal_path": "datasets/BATADAL_dataset04.csv",
+  "seeds": [
+    42,
+    7,
+    123,
+    1,
+    2024,
+    13,
+    21,
+    99,
+    2025,
+    314
+  ],
+  "epochs": 300,
+  "batadal_epochs": 100,
+  "host_epochs": 400,
+  "threshold": "validation",
+  "cpu_threads": 4,
+  "explanation_samples": 150,
+  "topology_examples": 5,
+  "resume": true,
+  "profile": "full_data",
+  "data_sha256": {
+    "scadanet_path": "e09c80a90e654998df1eeae5c46761012d9457336f3569e896dce36854591b1e",
+    "batadal_path": "4746beab2cfcdb5e68c7fa197a7522aecb70189d61dcc3eb1f870d2ce387068b"
+  },
+  "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665",
+  "source_sha256": "3634732abccc661d05dbb35936696cfa0d266c2eca55b3b00d2e3e6ee5a5ea29"
+}

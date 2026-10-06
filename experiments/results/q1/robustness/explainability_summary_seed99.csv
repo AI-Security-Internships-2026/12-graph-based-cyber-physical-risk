@@ -1,0 +1,5 @@
+prediction_group,n,top_feature_1,top_feature_2,top_feature_3,rank_stability,seed
+TP,150,Protocol_Modbus/TCP,Protocol_TCP,Http_response_code_missing,0.9666666666666668,99
+FP,150,Protocol_TCP,Tcp_window_size,Tcp_analysis_flags_missing,1.0,99
+TN,150,ip_ttl,Protocol_TCP,Udp_length,1.0,99
+FN,150,Protocol_TCP,Tcp_window_size,Tcp_flags_reset_Set,1.0,99

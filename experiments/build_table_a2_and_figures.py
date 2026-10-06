@@ -1,7 +1,5 @@
-"""
-Issue #2 — Table A2 and Figures A1-A3, built directly from the saved
-audit JSONs (never manually typed values, per the issue's own acceptance
-criteria).
+"""Table A2 and Figures A1-A3, built directly from the saved audit JSONs (never manually
+typed values, per the issue's own acceptance criteria).
 
 Requires the 5 audit JSONs to already exist (run
 `python -m experiments.run_split_audits` first).
@@ -29,6 +27,8 @@ SCADANET_PROTOCOLS = [
     ("Track A", "scadanet_track_a_audit.json"),
     ("Track B", "scadanet_track_b_audit.json"),
     ("Temporal", "scadanet_temporal_audit.json"),
+    ("Strict causal", "scadanet_strict_causal_audit.json"),
+    ("Fixed training", "scadanet_fixed_training_audit.json"),
 ]
 ALL_PROTOCOLS = SCADANET_PROTOCOLS + [
     ("BATADAL Static", "batadal_static_audit.json"),
@@ -59,6 +59,7 @@ def build_table_a2():
     for label in all_labels:
         row = {"attack_type": label}
         unique_src = None
+        unique_dst = None
         train_samples_seen = None
         for name, _ in SCADANET_PROTOCOLS:
             cov = audits[name]["attack_coverage"]
@@ -67,11 +68,14 @@ def build_table_a2():
             row[f"test_{name.lower().replace(' ', '_')}"] = entry.get("test_count", 0)
             if entry.get("unique_src_ips_overall") is not None:
                 unique_src = entry["unique_src_ips_overall"]
+            if entry.get("unique_dst_ips_overall") is not None:
+                unique_dst = entry["unique_dst_ips_overall"]
         row["unique_source_ips"] = unique_src
+        row["unique_destination_ips"] = unique_dst
         rows.append(row)
 
     df = pd.DataFrame(rows)
-    ordered_cols = ["attack_type", "unique_source_ips"]
+    ordered_cols = ["attack_type", "unique_source_ips", "unique_destination_ips"]
     for name, _ in SCADANET_PROTOCOLS:
         key = name.lower().replace(" ", "_")
         ordered_cols += [f"train_{key}", f"test_{key}"]

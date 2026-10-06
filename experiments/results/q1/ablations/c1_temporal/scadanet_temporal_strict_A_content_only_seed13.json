@@ -1,0 +1,149 @@
+{
+  "dataset": "scadanet",
+  "model": "mlp",
+  "model_family": "mlp",
+  "seed": 13,
+  "train_size": 318231,
+  "validation_size": 56158,
+  "test_size": 160452,
+  "feature_set": "enriched_edge_attr_content_only",
+  "graph_mode": "n/a_non_graph",
+  "threshold": 0.05,
+  "runtime": 528.0602100878023,
+  "n_trainable_params": 7714,
+  "inference_latency_ms": {
+    "mean_ms": 13.021093793213367,
+    "std_ms": 2.0178112686454006,
+    "n_repeats": 10
+  },
+  "per_attack_recall": {
+    "apt_exfil": 1.0,
+    "http_flood": 1.0,
+    "icmp_flood": 1.0,
+    "insider_threat": 0.9737206085753803,
+    "modbus_abuse": 0.0,
+    "modbus_fdi": 0.9829286798179059,
+    "port_scan": 0.9920692141312184,
+    "sql_injection": 1.0,
+    "tcp_ack_flood": 1.0,
+    "tcp_syn_flood": 0.9910941475826972,
+    "vuln_scan": 0.013341451147523626
+  },
+  "best_hyperparams": {
+    "hidden_dim": 32,
+    "lr": 0.005,
+    "dropout": 0.0
+  },
+  "hyperparam_search_log": [
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.1,
+      "val_f1": 0.9928131135564585
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.05,
+      "val_f1": 0.9927315229103129
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.05,
+      "val_f1": 0.9928407057018666
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.05,
+      "val_f1": 0.9928136385634582
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.1,
+      "val_f1": 0.9928315084880418
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.1,
+      "val_f1": 0.99278551989918
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.05,
+      "val_f1": 0.9928316394086332
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.05,
+      "val_f1": 0.9928407057018666
+    }
+  ],
+  "notes": {
+    "loss_weighting": "binary_class_weighted",
+    "reason_no_topology": "non-GNN model; receives same per-flow content features as the GraphSAGE edge classifier (Issue #3 section 3), no graph structure.",
+    "input_dim": 205,
+    "mlp_epochs": 300,
+    "condition_definition": "MLP, real content features, no graph structure at all.",
+    "n_windows": 20,
+    "split_window": 14,
+    "conv_type": "graphsage"
+  },
+  "accuracy": 0.7410627603530884,
+  "precision": 0.9259463095456492,
+  "recall": 0.5450683945284377,
+  "f1": 0.6861985362427209,
+  "auprc": 0.8335445188367262,
+  "auroc": 0.8531428459890654,
+  "fpr": 0.047113289760348585,
+  "confusion_matrix": {
+    "tp": 45426,
+    "fp": 3633,
+    "fn": 37914,
+    "tn": 73479
+  },
+  "ece": 0.252489245387585,
+  "brier_score": 0.25180453954324783,
+  "false_alarms_per_hour": null,
+  "event_recall": null,
+  "time_to_detect_mean_s": null,
+  "false_alarms_per_hour_note": "N/A: continuous exposure and timestamp units not explicitly validated",
+  "event_metrics_note": "N/A: verified event IDs/onsets not supplied; heuristic grouping is not ground truth",
+  "model_size_bytes": 30856,
+  "model_size_definition": "parameters and buffers; excludes framework/runtime overhead",
+  "condition": "A_content_only",
+  "split_protocol": "temporal_strict",
+  "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665",
+  "source_sha256": "3634732abccc661d05dbb35936696cfa0d266c2eca55b3b00d2e3e6ee5a5ea29",
+  "split_manifests": [
+    "experiments/results/q1/splits/carve_validation_1699e36ea49cf20dbeacc15ff83042d1e175c5acfb9beacbd76ba4e3a6f7aebf.json",
+    "experiments/results/q1/splits/carve_validation_2a96ae54ed0c575199aa59982a053a2325cb2bfccbaeec06b4141e73bf349869.json",
+    "experiments/results/q1/splits/carve_validation_7597c114a9ce752c4c259990cdd8accabb44c5649c907f7129dd45f20c575468.json",
+    "experiments/results/q1/splits/carve_validation_ca1f81743f81cf3eb51cc347f2cbd5cb4e6285cf16e36038f7deb8e6d21c88f6.json",
+    "experiments/results/q1/splits/scadanet_track_b_split_0b288e4e83d436a2ea43ecb62667f0b6521241dc2a5277b5de8638d20db82da0.json",
+    "experiments/results/q1/splits/scadanet_track_b_split_813d11c34cfde62f8e15a6be95e3c164ff700adb0dc3cd76bae69c52556b18e0.json",
+    "experiments/results/q1/splits/temporal_split_positions_e91596ca232406e5eaba3757451ef227cd20081b3f6cb97b9a1e090f4ac74248.json"
+  ],
+  "library_versions": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1",
+    "networkx": "3.6.1"
+  }
+}

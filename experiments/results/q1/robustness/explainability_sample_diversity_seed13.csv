@@ -1,0 +1,5 @@
+prediction_group,n,n_distinct_hosts,n_distinct_attack_types,seed
+TP,150,3,12,13
+FP,150,7,1,13
+TN,150,111,1,13
+FN,150,2,3,13
