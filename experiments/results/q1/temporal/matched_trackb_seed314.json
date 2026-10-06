@@ -1,0 +1,43 @@
+{
+  "model": "graphsage_edge_attr_reference",
+  "seed": 314,
+  "epochs": 300,
+  "lr": 0.003,
+  "threshold": 0.5,
+  "threshold_rule": "fixed_0.5_no_test_selection",
+  "weighting": "binary_class_weighted",
+  "n_windows": 20,
+  "preprocessing": "training_only",
+  "data_sha256": "93409148354fc286bd5e02fdf6c2b7ef63bd3cdb1a6245af016a6db705a67a52",
+  "config_id": "418f8dc9a7bbb3a2d7e2e200dc7acf651ce430667ae2b4ec253bbefa73b8ea22",
+  "per_attack_recall": {
+    "apt_exfil": 1.0,
+    "http_flood": 1.0,
+    "icmp_flood": 1.0,
+    "insider_threat": 0.9732441471571907,
+    "modbus_abuse": 0.0,
+    "modbus_fdi": 0.964765100671141,
+    "os_scan": 0.011961722488038277,
+    "port_scan": 0.9966216216216216,
+    "sql_injection": 1.0,
+    "tcp_ack_flood": 1.0,
+    "udp_flood": 1.0,
+    "vuln_scan": 0.010440694427582858
+  },
+  "metrics": {
+    "accuracy": 0.9172271490097046,
+    "precision": 0.9995889694342724,
+    "recall": 0.9020231538720918,
+    "f1": 0.948303162074018,
+    "auprc": 0.9986836016390175,
+    "auroc": 0.9931518831653179,
+    "fpr": 0.001971208410489218,
+    "confusion_matrix": {
+      "tp": 80253,
+      "fp": 33,
+      "fn": 8717,
+      "tn": 16708
+    }
+  },
+  "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665"
+}

@@ -1,0 +1,9 @@
+{
+  "seed": 42,
+  "top3_features": [
+    "Protocol_Modbus/TCP",
+    "Tcp_analysis_flags_missing",
+    "Protocol_TCP"
+  ],
+  "epochs": 300
+}

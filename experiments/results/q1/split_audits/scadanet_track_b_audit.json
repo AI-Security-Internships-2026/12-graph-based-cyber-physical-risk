@@ -29,96 +29,122 @@
         "test_count": 481,
         "evaluable": true,
         "unique_src_ips_overall": 1,
-        "single_fixed_source_ip": true
+        "single_fixed_source_ip": true,
+        "unique_dst_ips_overall": 1,
+        "diversity_scope": "full original dataset before Track-B filtering"
       },
       "http_flood": {
         "train_count": 23355,
         "test_count": 5736,
         "evaluable": true,
         "unique_src_ips_overall": 1,
-        "single_fixed_source_ip": true
+        "single_fixed_source_ip": true,
+        "unique_dst_ips_overall": 1,
+        "diversity_scope": "full original dataset before Track-B filtering"
       },
       "icmp_flood": {
         "train_count": 14817,
         "test_count": 3768,
         "evaluable": true,
         "unique_src_ips_overall": 1,
-        "single_fixed_source_ip": true
+        "single_fixed_source_ip": true,
+        "unique_dst_ips_overall": 1,
+        "diversity_scope": "full original dataset before Track-B filtering"
       },
       "insider_threat": {
         "train_count": 1216,
         "test_count": 286,
         "evaluable": true,
         "unique_src_ips_overall": 1,
-        "single_fixed_source_ip": true
+        "single_fixed_source_ip": true,
+        "unique_dst_ips_overall": 1,
+        "diversity_scope": "full original dataset before Track-B filtering"
       },
       "modbus_abuse": {
         "train_count": 471,
         "test_count": 125,
         "evaluable": true,
         "unique_src_ips_overall": 1,
-        "single_fixed_source_ip": true
+        "single_fixed_source_ip": true,
+        "unique_dst_ips_overall": 1,
+        "diversity_scope": "full original dataset before Track-B filtering"
       },
       "modbus_fdi": {
         "train_count": 2350,
         "test_count": 584,
         "evaluable": true,
         "unique_src_ips_overall": 1,
-        "single_fixed_source_ip": true
-      },
-      "normal_traffic": {
-        "train_count": 66870,
-        "test_count": 16872,
-        "evaluable": true,
-        "unique_src_ips_overall": 114,
-        "single_fixed_source_ip": false
+        "single_fixed_source_ip": true,
+        "unique_dst_ips_overall": 1,
+        "diversity_scope": "full original dataset before Track-B filtering"
       },
       "os_scan": {
         "train_count": 1635,
         "test_count": 409,
         "evaluable": true,
         "unique_src_ips_overall": 2,
-        "single_fixed_source_ip": false
+        "single_fixed_source_ip": false,
+        "unique_dst_ips_overall": 2,
+        "diversity_scope": "full original dataset before Track-B filtering"
       },
       "port_scan": {
         "train_count": 1250,
         "test_count": 311,
         "evaluable": true,
         "unique_src_ips_overall": 1,
-        "single_fixed_source_ip": true
+        "single_fixed_source_ip": true,
+        "unique_dst_ips_overall": 1,
+        "diversity_scope": "full original dataset before Track-B filtering"
       },
       "sql_injection": {
         "train_count": 296,
         "test_count": 87,
         "evaluable": true,
         "unique_src_ips_overall": 1,
-        "single_fixed_source_ip": true
+        "single_fixed_source_ip": true,
+        "unique_dst_ips_overall": 1,
+        "diversity_scope": "full original dataset before Track-B filtering"
       },
       "tcp_ack_flood": {
         "train_count": 4936,
         "test_count": 1230,
         "evaluable": true,
         "unique_src_ips_overall": 1,
-        "single_fixed_source_ip": true
+        "single_fixed_source_ip": true,
+        "unique_dst_ips_overall": 1,
+        "diversity_scope": "full original dataset before Track-B filtering"
+      },
+      "tcp_syn_flood": {
+        "train_count": 0,
+        "test_count": 0,
+        "evaluable": false,
+        "unique_src_ips_overall": 6286,
+        "single_fixed_source_ip": false,
+        "unique_dst_ips_overall": 2,
+        "diversity_scope": "full original dataset before Track-B filtering"
       },
       "udp_flood": {
         "train_count": 270956,
         "test_count": 67700,
         "evaluable": true,
         "unique_src_ips_overall": 6,
-        "single_fixed_source_ip": false
+        "single_fixed_source_ip": false,
+        "unique_dst_ips_overall": 6,
+        "diversity_scope": "full original dataset before Track-B filtering"
       },
       "vuln_scan": {
         "train_count": 32748,
         "test_count": 8122,
         "evaluable": true,
         "unique_src_ips_overall": 1,
-        "single_fixed_source_ip": true
+        "single_fixed_source_ip": true,
+        "unique_dst_ips_overall": 4,
+        "diversity_scope": "full original dataset before Track-B filtering"
       }
     },
     "n_labels_total": 13,
-    "n_labels_evaluable_in_test": 13,
-    "pct_taxonomy_covered": 1.0
+    "n_labels_evaluable_in_test": 12,
+    "pct_taxonomy_covered": 0.9230769230769231
   },
   "temporal_leakage_flow": {
     "applicable": false,
@@ -134,84 +160,177 @@
     "test_base_rate": 0.8403950393052757,
     "relative_base_rate_change": -0.0017360818486743062,
     "per_label_base_rates": {
-      "sql_injection": {
-        "train_rate": 0.0007000217574330013,
-        "test_rate": 0.0008229985526577178,
-        "relative_change": 0.17567567567567574
-      },
-      "modbus_abuse": {
-        "train_rate": 0.0011138859721315662,
-        "test_rate": 0.0011824691848530428,
-        "relative_change": 0.06157112526539289
-      },
-      "apt_exfil": {
-        "train_rate": 0.00459744019070863,
-        "test_rate": 0.004550141423314508,
-        "relative_change": -0.010288065843621385
-      },
-      "tcp_ack_flood": {
-        "train_rate": 0.011673335792869237,
-        "test_rate": 0.01163549677895394,
-        "relative_change": -0.0032414910858995093
-      },
-      "os_scan": {
-        "train_rate": 0.0038666742344694496,
-        "test_rate": 0.0038690391728391556,
-        "relative_change": 0.0006116207951070328
-      },
-      "insider_threat": {
-        "train_rate": 0.0028757650575626,
-        "test_rate": 0.002705489494943762,
-        "relative_change": -0.059210526315789394
-      },
-      "http_flood": {
-        "train_rate": 0.055233135624485626,
-        "test_rate": 0.054261145954536426,
-        "relative_change": -0.0175979447655748
+      "port_scan": {
+        "train_rate": 0.0029561729621326066,
+        "test_rate": 0.00294198333191437,
+        "relative_change": -0.0047999999999999935
       },
       "icmp_flood": {
         "train_rate": 0.03504129182393507,
         "test_rate": 0.03564435110821012,
         "relative_change": 0.017209961530674202
       },
-      "vuln_scan": {
-        "train_rate": 0.07744700173113489,
-        "test_rate": 0.07683211775501131,
-        "relative_change": -0.007939416147550985
-      },
       "normal_traffic": {
         "train_rate": 0.15814342878224594,
         "test_rate": 0.1596049606947243,
         "relative_change": 0.009241812471960507
       },
-      "modbus_fdi": {
-        "train_rate": 0.005557605168809301,
-        "test_rate": 0.005524496031633416,
-        "relative_change": -0.00595744680851063
+      "modbus_abuse": {
+        "train_rate": 0.0011138859721315662,
+        "test_rate": 0.0011824691848530428,
+        "relative_change": 0.06157112526539289
       },
       "udp_flood": {
         "train_rate": 0.6407942409020821,
         "test_rate": 0.6404253105164079,
         "relative_change": -0.0005757392344145295
       },
-      "port_scan": {
-        "train_rate": 0.0029561729621326066,
-        "test_rate": 0.00294198333191437,
-        "relative_change": -0.0047999999999999935
+      "vuln_scan": {
+        "train_rate": 0.07744700173113489,
+        "test_rate": 0.07683211775501131,
+        "relative_change": -0.007939416147550985
+      },
+      "os_scan": {
+        "train_rate": 0.0038666742344694496,
+        "test_rate": 0.0038690391728391556,
+        "relative_change": 0.0006116207951070328
+      },
+      "tcp_ack_flood": {
+        "train_rate": 0.011673335792869237,
+        "test_rate": 0.01163549677895394,
+        "relative_change": -0.0032414910858995093
+      },
+      "apt_exfil": {
+        "train_rate": 0.00459744019070863,
+        "test_rate": 0.004550141423314508,
+        "relative_change": -0.010288065843621385
+      },
+      "http_flood": {
+        "train_rate": 0.055233135624485626,
+        "test_rate": 0.054261145954536426,
+        "relative_change": -0.0175979447655748
+      },
+      "insider_threat": {
+        "train_rate": 0.0028757650575626,
+        "test_rate": 0.002705489494943762,
+        "relative_change": -0.059210526315789394
+      },
+      "sql_injection": {
+        "train_rate": 0.0007000217574330013,
+        "test_rate": 0.0008229985526577178,
+        "relative_change": 0.17567567567567574
+      },
+      "modbus_fdi": {
+        "train_rate": 0.005557605168809301,
+        "test_rate": 0.005524496031633416,
+        "relative_change": -0.00595744680851063
+      }
+    },
+    "numeric_feature_drift": {
+      "ip_ttl": {
+        "applicable": true,
+        "train_mean": 66.90667795864393,
+        "test_mean": 66.96240537471613,
+        "train_std": 17.446513911163944,
+        "standardized_mean_shift": 0.00319418632031365,
+        "ks_statistic": 0.0009437233434962389,
+        "ks_p_value": 0.9999992526621868
+      },
+      "frame_len": {
+        "applicable": true,
+        "train_mean": 825.7435224338054,
+        "test_mean": 826.4846326304737,
+        "train_std": 840.8136935382091,
+        "standardized_mean_shift": 0.0008814202270536586,
+        "ks_statistic": 0.0014024084532356929,
+        "ks_p_value": 0.9962356826183257
+      },
+      "ip_len": {
+        "applicable": true,
+        "train_mean": 810.7295815896612,
+        "test_mean": 811.4416067373202,
+        "train_std": 841.9557693043001,
+        "standardized_mean_shift": 0.0008456799912985275,
+        "ks_statistic": 0.001428203055394206,
+        "ks_p_value": 0.9951942292151715
+      },
+      "Tcp_window_size": {
+        "applicable": true,
+        "train_mean": 44981.51945401099,
+        "test_mean": 36256.03137267317,
+        "train_std": 3015781.5410971264,
+        "standardized_mean_shift": -0.002893275909555282,
+        "ks_statistic": 0.003294434089099907,
+        "ks_p_value": 0.9456950209532466
+      },
+      "Udp_length": {
+        "applicable": true,
+        "train_mean": 1019.6021693255376,
+        "test_mean": 1019.1478642930269,
+        "train_std": 136.22951956922734,
+        "standardized_mean_shift": -0.0033348501407567377,
+        "ks_statistic": 0.0009075306199541992,
+        "ks_p_value": 0.9999999999624836
+      },
+      "Tcp_len": {
+        "applicable": true,
+        "train_mean": 351.0184807193689,
+        "test_mean": 353.69472584525766,
+        "train_std": 1400.8962000692547,
+        "standardized_mean_shift": 0.0019103807446665074,
+        "ks_statistic": 0.004222438452364585,
+        "ks_p_value": 0.756296295201081
+      },
+      "Tcp_hdr_len": {
+        "applicable": true,
+        "train_mean": 24.59091016557779,
+        "test_mean": 24.577307838419653,
+        "train_std": 4.9828948370338475,
+        "standardized_mean_shift": -0.0027298041807024814,
+        "ks_statistic": 0.0025216679122411767,
+        "ks_p_value": 0.9969761884146301
+      },
+      "Http_content_length": {
+        "applicable": true,
+        "train_mean": 5731.798837209302,
+        "test_mean": 3995.9694189602446,
+        "train_std": 108607.8823959656,
+        "standardized_mean_shift": -0.01598253625754826,
+        "ks_statistic": 0.03578692838347208,
+        "ks_p_value": 0.5026006978866724
+      },
+      "Http_time": {
+        "applicable": true,
+        "train_mean": 0.06197883514606742,
+        "test_mean": 0.04920188130120481,
+        "train_std": 0.1636396326108063,
+        "standardized_mean_shift": -0.0780798248016774,
+        "ks_statistic": 0.11213392897432428,
+        "ks_p_value": 0.37027935432602055
+      },
+      "Frame_time_delta": {
+        "applicable": true,
+        "train_mean": 0.006971020512309504,
+        "test_mean": 0.007169690097426001,
+        "train_std": 0.07704968255047556,
+        "standardized_mean_shift": 0.0025784607871206615,
+        "ks_statistic": 0.002421696890579028,
+        "ks_p_value": 0.703197404262852
       }
     }
   },
   "warnings": [
-    "WARNING: attack subtype 'apt_exfil' is associated with one fixed source IP (structurally near-impossible to miss once that IP's degree pattern is learned).",
-    "WARNING: attack subtype 'http_flood' is associated with one fixed source IP (structurally near-impossible to miss once that IP's degree pattern is learned).",
-    "WARNING: attack subtype 'icmp_flood' is associated with one fixed source IP (structurally near-impossible to miss once that IP's degree pattern is learned).",
-    "WARNING: attack subtype 'insider_threat' is associated with one fixed source IP (structurally near-impossible to miss once that IP's degree pattern is learned).",
-    "WARNING: attack subtype 'modbus_abuse' is associated with one fixed source IP (structurally near-impossible to miss once that IP's degree pattern is learned).",
-    "WARNING: attack subtype 'modbus_fdi' is associated with one fixed source IP (structurally near-impossible to miss once that IP's degree pattern is learned).",
-    "WARNING: attack subtype 'port_scan' is associated with one fixed source IP (structurally near-impossible to miss once that IP's degree pattern is learned).",
-    "WARNING: attack subtype 'sql_injection' is associated with one fixed source IP (structurally near-impossible to miss once that IP's degree pattern is learned).",
-    "WARNING: attack subtype 'tcp_ack_flood' is associated with one fixed source IP (structurally near-impossible to miss once that IP's degree pattern is learned).",
-    "WARNING: attack subtype 'vuln_scan' is associated with one fixed source IP (structurally near-impossible to miss once that IP's degree pattern is learned).",
+    "WARNING: 1/13 attack classes absent from test set under 'scadanet_track_b'.",
+    "WARNING: attack subtype 'apt_exfil' is associated with one fixed source IP (possible identity/topology shortcut; requires investigation).",
+    "WARNING: attack subtype 'http_flood' is associated with one fixed source IP (possible identity/topology shortcut; requires investigation).",
+    "WARNING: attack subtype 'icmp_flood' is associated with one fixed source IP (possible identity/topology shortcut; requires investigation).",
+    "WARNING: attack subtype 'insider_threat' is associated with one fixed source IP (possible identity/topology shortcut; requires investigation).",
+    "WARNING: attack subtype 'modbus_abuse' is associated with one fixed source IP (possible identity/topology shortcut; requires investigation).",
+    "WARNING: attack subtype 'modbus_fdi' is associated with one fixed source IP (possible identity/topology shortcut; requires investigation).",
+    "WARNING: attack subtype 'port_scan' is associated with one fixed source IP (possible identity/topology shortcut; requires investigation).",
+    "WARNING: attack subtype 'sql_injection' is associated with one fixed source IP (possible identity/topology shortcut; requires investigation).",
+    "WARNING: attack subtype 'tcp_ack_flood' is associated with one fixed source IP (possible identity/topology shortcut; requires investigation).",
+    "WARNING: attack subtype 'vuln_scan' is associated with one fixed source IP (possible identity/topology shortcut; requires investigation).",
     "WARNING: 100% of test hosts were seen in training under 'scadanet_track_b'."
   ]
 }

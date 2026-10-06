@@ -1,0 +1,63 @@
+{
+  "protocol_name": "batadal_purged_70_30",
+  "train_size": 484,
+  "test_size": 205,
+  "identity_topology_overlap": {
+    "applicable": false,
+    "reason": "no per-record host identity in this split granularity (e.g. BATADAL's topology is a single fixed sensor correlation graph shared by every window, not per-window host identity)",
+    "node_overlap": 1.0
+  },
+  "attack_coverage": {
+    "applicable": true,
+    "per_label": {
+      "1": {
+        "train_count": 35,
+        "test_count": 21,
+        "evaluable": true
+      }
+    },
+    "n_labels_total": 1,
+    "n_labels_evaluable_in_test": 1,
+    "pct_taxonomy_covered": 1.0
+  },
+  "temporal_leakage_flow": {
+    "applicable": false,
+    "reason": "no time column provided (non-temporal split)"
+  },
+  "temporal_leakage_windows": {
+    "applicable": true,
+    "n_test_windows": 205,
+    "n_test_windows_sharing_raw_rows_with_train": 0,
+    "pct_test_windows_overlapping_train": 0.0
+  },
+  "distribution_shift": {
+    "applicable": true,
+    "train_base_rate": 0.07231404958677685,
+    "test_base_rate": 0.1024390243902439,
+    "relative_base_rate_change": 0.4165853658536586,
+    "per_label_base_rates": {
+      "0": {
+        "train_rate": 0.9276859504132231,
+        "test_rate": 0.8975609756097561,
+        "relative_change": -0.03247324678146553
+      },
+      "1": {
+        "train_rate": 0.07231404958677685,
+        "test_rate": 0.1024390243902439,
+        "relative_change": 0.4165853658536586
+      }
+    },
+    "numeric_feature_drift": {}
+  },
+  "warnings": [],
+  "purge_meta": {
+    "protocol": "purged_70_30",
+    "split_frac": 0.7,
+    "n_rows": 4177,
+    "train_end_row": 2923,
+    "window_size": 24,
+    "n_train_windows": 484,
+    "n_test_windows": 205,
+    "n_purged_windows": 4
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "dataset": "scadanet",
+  "model": "graphsage_edge_attr",
+  "model_family": "graphsage",
+  "seed": 314,
+  "train_size": 359418,
+  "validation_size": 63426,
+  "test_size": 105711,
+  "feature_set": "enriched_edge_attr",
+  "graph_mode": "static",
+  "threshold": 0.8,
+  "runtime": 5127.830960477935,
+  "n_trainable_params": 35074,
+  "inference_latency_ms": {
+    "mean_ms": 73.03006229922175,
+    "std_ms": 6.953881491317994,
+    "n_repeats": 10
+  },
+  "per_attack_recall": {
+    "apt_exfil": 1.0,
+    "http_flood": 1.0,
+    "icmp_flood": 1.0,
+    "insider_threat": 1.0,
+    "modbus_abuse": 1.0,
+    "modbus_fdi": 1.0,
+    "os_scan": 0.4354066985645933,
+    "port_scan": 1.0,
+    "sql_injection": 1.0,
+    "tcp_ack_flood": 1.0,
+    "udp_flood": 0.9998967597303954,
+    "vuln_scan": 0.9627291489620007
+  },
+  "best_hyperparams": {
+    "hidden_dim": 64,
+    "lr": 0.005,
+    "dropout": 0.2
+  },
+  "hyperparam_search_log": [
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.9000000000000001,
+      "val_f1": 0.9851904943638242
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9845794349192808
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.985273583676205
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.9000000000000001,
+      "val_f1": 0.9852418439320343
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9853216303508103
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.9000000000000001,
+      "val_f1": 0.9852874119431597
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.9000000000000001,
+      "val_f1": 0.9853008257230895
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.8,
+      "val_f1": 0.9853227232537578
+    }
+  ],
+  "notes": {
+    "loss_weighting": "per_sample_subtype_balanced",
+    "node_feature_dim": 4,
+    "edge_attr_dim": 214,
+    "epochs_per_combo": 300,
+    "test_eval_mode": "fixed_topology",
+    "condition_definition": "Same as Condition D, but the rewired graph preserves the true topology's (undirected) degree sequence exactly (src/graph/rewiring.py degree_preserving_rewire) \u2014 isolates degree/topological-statistics effects from genuine specific-relationship effects.",
+    "rewiring_metadata": {
+      "method": "degree_preserving_rewire (undirected double-edge-swap)",
+      "seed": 314,
+      "n_swap_requested": 64160,
+      "swap_status": "ok",
+      "original": {
+        "n_nodes": 6414,
+        "n_edges": 6416,
+        "mean_degree": 2.000623635796695,
+        "degree_std": 78.51665020124902,
+        "degree_min": 1,
+        "degree_max": 6289,
+        "connected_components": 6
+      },
+      "rewired": {
+        "n_nodes": 6414,
+        "n_edges": 6416,
+        "mean_degree": 2.000623635796695,
+        "degree_std": 78.51665020124902,
+        "degree_min": 1,
+        "degree_max": 6289,
+        "connected_components": 13
+      },
+      "note": "both 'original' and 'rewired' here describe the SAME representation (the deduplicated, self-loop-free undirected graph the swap actually operates on, re-emitted as a directed edge_index with one arbitrary direction per undirected edge) \u2014 NOT the raw multi/duplicate directed edge_index from build_graph_tensors, so the two degree sequences are an apples-to-apples comparison and (barring an incomplete swap_status) should match exactly."
+    },
+    "split_meta": {
+      "protocol": "track_b",
+      "single_ip_attack_types": [
+        "vuln_scan",
+        "insider_threat",
+        "icmp_flood",
+        "sql_injection",
+        "os_scan",
+        "tcp_ack_flood",
+        "modbus_fdi",
+        "udp_flood",
+        "http_flood",
+        "port_scan",
+        "modbus_abuse",
+        "apt_exfil"
+      ],
+      "multi_ip_attack_types_excluded": [
+        "tcp_syn_flood"
+      ],
+      "test_ratio": 0.2
+    },
+    "conv_type": "graphsage"
+  },
+  "accuracy": 0.9751208424568176,
+  "precision": 0.9770165745856354,
+  "recall": 0.9938181409463864,
+  "f1": 0.9853457402351369,
+  "auprc": 0.9983919940133642,
+  "auroc": 0.9924570100615278,
+  "fpr": 0.12424586344901738,
+  "confusion_matrix": {
+    "tp": 88420,
+    "fp": 2080,
+    "fn": 550,
+    "tn": 14661
+  },
+  "ece": 0.029470675806778465,
+  "brier_score": 0.032213940996242516,
+  "false_alarms_per_hour": null,
+  "event_recall": null,
+  "time_to_detect_mean_s": null,
+  "false_alarms_per_hour_note": "N/A: continuous exposure and timestamp units not explicitly validated",
+  "event_metrics_note": "N/A: verified event IDs/onsets not supplied; heuristic grouping is not ground truth",
+  "model_size_bytes": 140296,
+  "model_size_definition": "parameters and buffers; excludes framework/runtime overhead",
+  "condition": "E_degree_preserving_rewiring",
+  "split_protocol": "track_b",
+  "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665",
+  "source_sha256": "3634732abccc661d05dbb35936696cfa0d266c2eca55b3b00d2e3e6ee5a5ea29",
+  "split_manifests": [
+    "experiments/results/q1/splits/carve_validation_06626c74fb31182347e5b0109d9efd3fdd5bdc5dc2e99a4919e02aa4c7633c89.json",
+    "experiments/results/q1/splits/carve_validation_404b23c9720abb422bee4a0941499b700ab237b0a7a91bc40e2f4cd49c2a246c.json",
+    "experiments/results/q1/splits/carve_validation_8beb30e1c70743ee0171c0405ab8c68be165ab60f84fc6e1a7b3c6c289536bde.json",
+    "experiments/results/q1/splits/scadanet_track_b_split_1f47ae86ea80e40d437b5aa77446613fa66512cc8104703edf9d06ac53352a5f.json",
+    "experiments/results/q1/splits/scadanet_track_b_split_57c116ae551136e0a168b1d90abd1464b62e50cb7f80c07fb577911613e1f673.json",
+    "experiments/results/q1/splits/temporal_split_positions_e91596ca232406e5eaba3757451ef227cd20081b3f6cb97b9a1e090f4ac74248.json"
+  ],
+  "library_versions": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1",
+    "networkx": "3.6.1"
+  }
+}

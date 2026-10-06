@@ -1,0 +1,1267 @@
+{
+  "checks": [
+    {
+      "check": "scadanet_trackb_baselines has every model for every seed",
+      "passed": true
+    },
+    {
+      "check": "scadanet_temporal_baselines has every model for every seed",
+      "passed": true
+    },
+    {
+      "check": "batadal_temporal_baselines has every model for every seed",
+      "passed": true
+    },
+    {
+      "check": "A-F paired: trackb",
+      "passed": true
+    },
+    {
+      "check": "H1-H4 aggregate: trackb",
+      "passed": true
+    },
+    {
+      "check": "A-F paired: temporal",
+      "passed": true
+    },
+    {
+      "check": "H1-H4 aggregate: temporal",
+      "passed": true
+    },
+    {
+      "check": "T1/T2/T3 matched config seed 42",
+      "passed": true
+    },
+    {
+      "check": "causal topology audit seed 42",
+      "passed": true
+    },
+    {
+      "check": "matched recall and deltas seed 42",
+      "passed": true
+    },
+    {
+      "check": "3 zero-overlap BATADAL audits seed 42",
+      "passed": true
+    },
+    {
+      "check": "T1/T2/T3 matched config seed 7",
+      "passed": true
+    },
+    {
+      "check": "causal topology audit seed 7",
+      "passed": true
+    },
+    {
+      "check": "matched recall and deltas seed 7",
+      "passed": true
+    },
+    {
+      "check": "3 zero-overlap BATADAL audits seed 7",
+      "passed": true
+    },
+    {
+      "check": "T1/T2/T3 matched config seed 123",
+      "passed": true
+    },
+    {
+      "check": "causal topology audit seed 123",
+      "passed": true
+    },
+    {
+      "check": "matched recall and deltas seed 123",
+      "passed": true
+    },
+    {
+      "check": "3 zero-overlap BATADAL audits seed 123",
+      "passed": true
+    },
+    {
+      "check": "T1/T2/T3 matched config seed 1",
+      "passed": true
+    },
+    {
+      "check": "causal topology audit seed 1",
+      "passed": true
+    },
+    {
+      "check": "matched recall and deltas seed 1",
+      "passed": true
+    },
+    {
+      "check": "3 zero-overlap BATADAL audits seed 1",
+      "passed": true
+    },
+    {
+      "check": "T1/T2/T3 matched config seed 2024",
+      "passed": true
+    },
+    {
+      "check": "causal topology audit seed 2024",
+      "passed": true
+    },
+    {
+      "check": "matched recall and deltas seed 2024",
+      "passed": true
+    },
+    {
+      "check": "3 zero-overlap BATADAL audits seed 2024",
+      "passed": true
+    },
+    {
+      "check": "T1/T2/T3 matched config seed 13",
+      "passed": true
+    },
+    {
+      "check": "causal topology audit seed 13",
+      "passed": true
+    },
+    {
+      "check": "matched recall and deltas seed 13",
+      "passed": true
+    },
+    {
+      "check": "3 zero-overlap BATADAL audits seed 13",
+      "passed": true
+    },
+    {
+      "check": "T1/T2/T3 matched config seed 21",
+      "passed": true
+    },
+    {
+      "check": "causal topology audit seed 21",
+      "passed": true
+    },
+    {
+      "check": "matched recall and deltas seed 21",
+      "passed": true
+    },
+    {
+      "check": "3 zero-overlap BATADAL audits seed 21",
+      "passed": true
+    },
+    {
+      "check": "T1/T2/T3 matched config seed 99",
+      "passed": true
+    },
+    {
+      "check": "causal topology audit seed 99",
+      "passed": true
+    },
+    {
+      "check": "matched recall and deltas seed 99",
+      "passed": true
+    },
+    {
+      "check": "3 zero-overlap BATADAL audits seed 99",
+      "passed": true
+    },
+    {
+      "check": "T1/T2/T3 matched config seed 2025",
+      "passed": true
+    },
+    {
+      "check": "causal topology audit seed 2025",
+      "passed": true
+    },
+    {
+      "check": "matched recall and deltas seed 2025",
+      "passed": true
+    },
+    {
+      "check": "3 zero-overlap BATADAL audits seed 2025",
+      "passed": true
+    },
+    {
+      "check": "T1/T2/T3 matched config seed 314",
+      "passed": true
+    },
+    {
+      "check": "causal topology audit seed 314",
+      "passed": true
+    },
+    {
+      "check": "matched recall and deltas seed 314",
+      "passed": true
+    },
+    {
+      "check": "3 zero-overlap BATADAL audits seed 314",
+      "passed": true
+    },
+    {
+      "check": "tables a",
+      "passed": true
+    },
+    {
+      "check": "figures a",
+      "passed": true
+    },
+    {
+      "check": "tables b",
+      "passed": true
+    },
+    {
+      "check": "figures b",
+      "passed": true
+    },
+    {
+      "check": "tables c",
+      "passed": true
+    },
+    {
+      "check": "figures c",
+      "passed": true
+    },
+    {
+      "check": "tables t",
+      "passed": true
+    },
+    {
+      "check": "figures t",
+      "passed": true
+    },
+    {
+      "check": "tables h",
+      "passed": true
+    },
+    {
+      "check": "figures h",
+      "passed": true
+    },
+    {
+      "check": "tables s",
+      "passed": true
+    },
+    {
+      "check": "figures s",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_mlp_flattened_window_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_gcn_window_classifier_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_gcn_window_classifier_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_mlp_flattened_window_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_mlp_flattened_window_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_gcn_window_classifier_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_graphsage_window_classifier_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_mlp_flattened_window_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_gcn_window_classifier_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_mlp_flattened_window_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_gcn_window_classifier_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_gcn_window_classifier_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_mlp_flattened_window_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_graphsage_window_classifier_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_gcn_window_classifier_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_graphsage_window_classifier_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_graphsage_window_classifier_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_gcn_window_classifier_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_graphsage_window_classifier_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_mlp_flattened_window_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_mlp_flattened_window_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_gcn_window_classifier_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_graphsage_window_classifier_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_graphsage_window_classifier_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_mlp_flattened_window_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_graphsage_window_classifier_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_gcn_window_classifier_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_mlp_flattened_window_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_graphsage_window_classifier_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance batadal_temporal_purged_graphsage_window_classifier_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_gcn_edge_attr_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_gcn_edge_attr_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_tree_xgboost_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_gcn_edge_attr_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_tree_xgboost_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_graphsage_edge_attr_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_graphsage_edge_attr_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_graphsage_edge_attr_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_tree_xgboost_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_mlp_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_tree_xgboost_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_gcn_edge_attr_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_tree_xgboost_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_mlp_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_gcn_edge_attr_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_mlp_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_graphsage_edge_attr_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_graphsage_edge_attr_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_mlp_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_graphsage_edge_attr_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_tree_xgboost_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_mlp_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_mlp_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_graphsage_edge_attr_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_graphsage_edge_attr_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_mlp_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_gcn_edge_attr_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_gcn_edge_attr_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_gcn_edge_attr_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_mlp_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_graphsage_edge_attr_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_tree_xgboost_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_mlp_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_mlp_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_tree_xgboost_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_tree_xgboost_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_graphsage_edge_attr_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_gcn_edge_attr_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_tree_xgboost_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_gcn_edge_attr_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gcn_edge_attr_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_mlp_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_tree_xgboost_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_mlp_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_tree_xgboost_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_logistic_regression_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_tree_xgboost_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_graphsage_edge_attr_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_logistic_regression_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_mlp_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_tree_xgboost_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gat_edge_attr_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_tree_xgboost_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_logistic_regression_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gat_edge_attr_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_mlp_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_logistic_regression_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gcn_edge_attr_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_mlp_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_logistic_regression_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_graphsage_edge_attr_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gcn_edge_attr_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gat_edge_attr_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_logistic_regression_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_graphsage_edge_attr_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_tree_xgboost_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gcn_edge_attr_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gat_edge_attr_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gcn_edge_attr_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gcn_edge_attr_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_mlp_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gat_edge_attr_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gat_edge_attr_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_graphsage_edge_attr_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_mlp_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_logistic_regression_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_graphsage_edge_attr_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gcn_edge_attr_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_mlp_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_mlp_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_graphsage_edge_attr_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_tree_xgboost_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_logistic_regression_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_graphsage_edge_attr_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_tree_xgboost_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_logistic_regression_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gat_edge_attr_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_graphsage_edge_attr_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gcn_edge_attr_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_mlp_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_tree_xgboost_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_graphsage_edge_attr_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gcn_edge_attr_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_graphsage_edge_attr_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_tree_xgboost_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gat_edge_attr_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_logistic_regression_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gat_edge_attr_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gat_edge_attr_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_gcn_edge_attr_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_D_random_topology_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_F_no_message_passing_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_C_full_model_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_A_content_only_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_C_full_model_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_A_content_only_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_B_topology_only_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_F_no_message_passing_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_D_random_topology_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_C_full_model_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_D_random_topology_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_F_no_message_passing_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_F_no_message_passing_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_E_degree_preserving_rewiring_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_D_random_topology_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_F_no_message_passing_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_D_random_topology_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_A_content_only_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_A_content_only_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_C_full_model_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_E_degree_preserving_rewiring_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_E_degree_preserving_rewiring_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_C_full_model_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_E_degree_preserving_rewiring_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_B_topology_only_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_A_content_only_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_E_degree_preserving_rewiring_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_D_random_topology_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_A_content_only_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_A_content_only_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_F_no_message_passing_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_B_topology_only_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_B_topology_only_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_E_degree_preserving_rewiring_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_D_random_topology_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_B_topology_only_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_A_content_only_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_A_content_only_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_C_full_model_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_C_full_model_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_E_degree_preserving_rewiring_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_E_degree_preserving_rewiring_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_F_no_message_passing_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_F_no_message_passing_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_D_random_topology_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_E_degree_preserving_rewiring_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_B_topology_only_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_F_no_message_passing_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_A_content_only_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_B_topology_only_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_C_full_model_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_B_topology_only_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_C_full_model_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_C_full_model_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_F_no_message_passing_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_D_random_topology_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_D_random_topology_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_B_topology_only_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_B_topology_only_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_temporal_strict_E_degree_preserving_rewiring_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_A_content_only_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_B_topology_only_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_D_random_topology_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_F_no_message_passing_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_D_random_topology_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_C_full_model_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_F_no_message_passing_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_C_full_model_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_D_random_topology_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_B_topology_only_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_F_no_message_passing_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_B_topology_only_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_D_random_topology_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_B_topology_only_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_F_no_message_passing_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_D_random_topology_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_F_no_message_passing_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_B_topology_only_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_C_full_model_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_D_random_topology_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_E_degree_preserving_rewiring_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_F_no_message_passing_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_F_no_message_passing_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_C_full_model_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_A_content_only_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_B_topology_only_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_A_content_only_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_E_degree_preserving_rewiring_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_E_degree_preserving_rewiring_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_C_full_model_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_E_degree_preserving_rewiring_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_E_degree_preserving_rewiring_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_E_degree_preserving_rewiring_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_C_full_model_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_E_degree_preserving_rewiring_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_A_content_only_seed2024.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_E_degree_preserving_rewiring_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_F_no_message_passing_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_A_content_only_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_B_topology_only_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_A_content_only_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_A_content_only_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_F_no_message_passing_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_D_random_topology_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_D_random_topology_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_C_full_model_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_C_full_model_seed1.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_B_topology_only_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_F_no_message_passing_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_C_full_model_seed7.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_A_content_only_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_E_degree_preserving_rewiring_seed314.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_A_content_only_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_B_topology_only_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_C_full_model_seed2025.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_E_degree_preserving_rewiring_seed123.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_A_content_only_seed13.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_B_topology_only_seed21.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_D_random_topology_seed99.json",
+      "passed": true
+    },
+    {
+      "check": "provenance scadanet_track_b_D_random_topology_seed42.json",
+      "passed": true
+    },
+    {
+      "check": "all BATADAL folds audited",
+      "passed": true
+    },
+    {
+      "check": "all principal comparisons have every seed",
+      "passed": true
+    },
+    {
+      "check": "cross-seed explanation pairs",
+      "passed": true
+    }
+  ],
+  "n_checks": 312,
+  "n_tables": 21,
+  "n_figures": 26,
+  "seeds": [
+    42,
+    7,
+    123,
+    1,
+    2024,
+    13,
+    21,
+    99,
+    2025,
+    314
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "dataset": "scadanet",
+  "model": "graphsage_edge_attr",
+  "model_family": "graphsage",
+  "seed": 42,
+  "train_size": 359418,
+  "validation_size": 63426,
+  "test_size": 105711,
+  "feature_set": "enriched_edge_attr",
+  "graph_mode": "static",
+  "threshold": 0.8500000000000001,
+  "runtime": 5221.459476741031,
+  "n_trainable_params": 35330,
+  "inference_latency_ms": {
+    "mean_ms": 58.65568658336997,
+    "std_ms": 0.46906293494340373,
+    "n_repeats": 10
+  },
+  "per_attack_recall": {
+    "apt_exfil": 1.0,
+    "http_flood": 1.0,
+    "icmp_flood": 1.0,
+    "insider_threat": 0.9965034965034965,
+    "modbus_abuse": 1.0,
+    "modbus_fdi": 1.0,
+    "os_scan": 0.49877750611246946,
+    "port_scan": 0.9646302250803859,
+    "sql_injection": 1.0,
+    "tcp_ack_flood": 1.0,
+    "udp_flood": 0.9999409158050222,
+    "vuln_scan": 0.9686037921694164
+  },
+  "best_hyperparams": {
+    "hidden_dim": 64,
+    "lr": 0.005,
+    "dropout": 0.0
+  },
+  "hyperparam_search_log": [
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.8,
+      "val_f1": 0.9854646052497664
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.8,
+      "val_f1": 0.9831608018312743
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.9000000000000001,
+      "val_f1": 0.9854695937795758
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.8,
+      "val_f1": 0.9853710090110136
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9853593364383664
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9854637982882258
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9859288273403999
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.985347203533746
+    }
+  ],
+  "notes": {
+    "loss_weighting": "per_sample_subtype_balanced",
+    "node_feature_dim": 4,
+    "edge_attr_dim": 218,
+    "epochs_per_combo": 300,
+    "test_eval_mode": "fixed_topology",
+    "condition_definition": "Same samples/content features/query edges as Condition C, but message passing runs over a FULLY RANDOM graph of the same size (src/graph/rewiring.py random_rewire).",
+    "rewiring_metadata": {
+      "method": "random_rewire",
+      "seed": 42,
+      "original": {
+        "n_nodes": 6414,
+        "n_edges": 6535,
+        "mean_degree": 2.037729965700031,
+        "degree_std": 78.59317365803521,
+        "degree_min": 1,
+        "degree_max": 6293,
+        "connected_components": 6
+      },
+      "rewired": {
+        "n_nodes": 6414,
+        "n_edges": 6535,
+        "mean_degree": 2.037729965700031,
+        "degree_std": 1.4453385901611464,
+        "degree_min": 0,
+        "degree_max": 9,
+        "connected_components": 1014
+      }
+    },
+    "split_meta": {
+      "protocol": "track_b",
+      "single_ip_attack_types": [
+        "vuln_scan",
+        "insider_threat",
+        "icmp_flood",
+        "sql_injection",
+        "os_scan",
+        "tcp_ack_flood",
+        "modbus_fdi",
+        "udp_flood",
+        "http_flood",
+        "port_scan",
+        "modbus_abuse",
+        "apt_exfil"
+      ],
+      "multi_ip_attack_types_excluded": [
+        "tcp_syn_flood"
+      ],
+      "test_ratio": 0.2
+    },
+    "conv_type": "graphsage"
+  },
+  "accuracy": 0.974837064743042,
+  "precision": 0.975879929760235,
+  "recall": 0.9946419928184693,
+  "f1": 0.9851716410422218,
+  "auprc": 0.9985986700051017,
+  "auroc": 0.9928599146576848,
+  "fpr": 0.12944523470839261,
+  "confusion_matrix": {
+    "tp": 88363,
+    "fp": 2184,
+    "fn": 476,
+    "tn": 14688
+  },
+  "ece": 0.03607735419576824,
+  "brier_score": 0.0350807532204489,
+  "false_alarms_per_hour": null,
+  "event_recall": null,
+  "time_to_detect_mean_s": null,
+  "false_alarms_per_hour_note": "N/A: continuous exposure and timestamp units not explicitly validated",
+  "event_metrics_note": "N/A: verified event IDs/onsets not supplied; heuristic grouping is not ground truth",
+  "model_size_bytes": 141320,
+  "model_size_definition": "parameters and buffers; excludes framework/runtime overhead",
+  "condition": "D_random_topology",
+  "split_protocol": "track_b",
+  "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665",
+  "source_sha256": "3634732abccc661d05dbb35936696cfa0d266c2eca55b3b00d2e3e6ee5a5ea29",
+  "split_manifests": [
+    "experiments/results/q1/splits/carve_validation_5392482e651c8cd48085c3a3e96a9f892a010835bc4114355b04f0b85d393a7d.json",
+    "experiments/results/q1/splits/scadanet_track_b_split_9b2577667b537cb326c86dd7dd2cf26fcffd6f1a468cd65ffb034b191000024c.json"
+  ],
+  "library_versions": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1",
+    "networkx": "3.6.1"
+  }
+}
