@@ -1,0 +1,914 @@
+[
+  {
+    "prediction_group": "TP",
+    "query_pos": 23566,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 1,
+        "src": 2655,
+        "dst": 188,
+        "prob_with_edge": 0.9986088871955872,
+        "prob_without_edge": 0.9986479878425598,
+        "prob_change": 3.910064697265625e-05
+      },
+      {
+        "topology_edge_position": 2,
+        "src": 2655,
+        "dst": 189,
+        "prob_with_edge": 0.9986088871955872,
+        "prob_without_edge": 0.9986479878425598,
+        "prob_change": 3.910064697265625e-05
+      },
+      {
+        "topology_edge_position": 9,
+        "src": 2655,
+        "dst": 2141,
+        "prob_with_edge": 0.9986088871955872,
+        "prob_without_edge": 0.9986479878425598,
+        "prob_change": 3.910064697265625e-05
+      },
+      {
+        "topology_edge_position": 6320,
+        "src": 2655,
+        "dst": 4629,
+        "prob_with_edge": 0.9986088871955872,
+        "prob_without_edge": 0.9986479878425598,
+        "prob_change": 3.910064697265625e-05
+      },
+      {
+        "topology_edge_position": 6322,
+        "src": 2655,
+        "dst": 4588,
+        "prob_with_edge": 0.9986088871955872,
+        "prob_without_edge": 0.9986479878425598,
+        "prob_change": 3.910064697265625e-05
+      }
+    ]
+  },
+  {
+    "prediction_group": "TP",
+    "query_pos": 435330,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 6320,
+        "src": 2655,
+        "dst": 4629,
+        "prob_with_edge": 0.916396975517273,
+        "prob_without_edge": 0.9187406301498413,
+        "prob_change": 0.0023436546325683594
+      },
+      {
+        "topology_edge_position": 6332,
+        "src": 2655,
+        "dst": 4625,
+        "prob_with_edge": 0.916396975517273,
+        "prob_without_edge": 0.9187406301498413,
+        "prob_change": 0.0023436546325683594
+      },
+      {
+        "topology_edge_position": 6370,
+        "src": 2655,
+        "dst": 2140,
+        "prob_with_edge": 0.916396975517273,
+        "prob_without_edge": 0.9187406301498413,
+        "prob_change": 0.0023436546325683594
+      },
+      {
+        "topology_edge_position": 6433,
+        "src": 2655,
+        "dst": 3324,
+        "prob_with_edge": 0.916396975517273,
+        "prob_without_edge": 0.9187406301498413,
+        "prob_change": 0.0023436546325683594
+      },
+      {
+        "topology_edge_position": 6338,
+        "src": 2655,
+        "dst": 4582,
+        "prob_with_edge": 0.916396975517273,
+        "prob_without_edge": 0.9187406301498413,
+        "prob_change": 0.0023436546325683594
+      }
+    ]
+  },
+  {
+    "prediction_group": "TP",
+    "query_pos": 388597,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 6320,
+        "src": 2655,
+        "dst": 4629,
+        "prob_with_edge": 0.9989643096923828,
+        "prob_without_edge": 0.998995840549469,
+        "prob_change": 3.153085708618164e-05
+      },
+      {
+        "topology_edge_position": 6332,
+        "src": 2655,
+        "dst": 4625,
+        "prob_with_edge": 0.9989643096923828,
+        "prob_without_edge": 0.998995840549469,
+        "prob_change": 3.153085708618164e-05
+      },
+      {
+        "topology_edge_position": 6370,
+        "src": 2655,
+        "dst": 2140,
+        "prob_with_edge": 0.9989643096923828,
+        "prob_without_edge": 0.998995840549469,
+        "prob_change": 3.153085708618164e-05
+      },
+      {
+        "topology_edge_position": 6433,
+        "src": 2655,
+        "dst": 3324,
+        "prob_with_edge": 0.9989643096923828,
+        "prob_without_edge": 0.998995840549469,
+        "prob_change": 3.153085708618164e-05
+      },
+      {
+        "topology_edge_position": 6338,
+        "src": 2655,
+        "dst": 4582,
+        "prob_with_edge": 0.9989643096923828,
+        "prob_without_edge": 0.998995840549469,
+        "prob_change": 3.153085708618164e-05
+      }
+    ]
+  },
+  {
+    "prediction_group": "TP",
+    "query_pos": 16169,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 6320,
+        "src": 2655,
+        "dst": 4629,
+        "prob_with_edge": 0.9987596273422241,
+        "prob_without_edge": 0.9987974166870117,
+        "prob_change": 3.7789344787597656e-05
+      },
+      {
+        "topology_edge_position": 6332,
+        "src": 2655,
+        "dst": 4625,
+        "prob_with_edge": 0.9987596273422241,
+        "prob_without_edge": 0.9987974166870117,
+        "prob_change": 3.7789344787597656e-05
+      },
+      {
+        "topology_edge_position": 6370,
+        "src": 2655,
+        "dst": 2140,
+        "prob_with_edge": 0.9987596273422241,
+        "prob_without_edge": 0.9987974166870117,
+        "prob_change": 3.7789344787597656e-05
+      },
+      {
+        "topology_edge_position": 6433,
+        "src": 2655,
+        "dst": 3324,
+        "prob_with_edge": 0.9987596273422241,
+        "prob_without_edge": 0.9987974166870117,
+        "prob_change": 3.7789344787597656e-05
+      },
+      {
+        "topology_edge_position": 6338,
+        "src": 2655,
+        "dst": 4582,
+        "prob_with_edge": 0.9987596273422241,
+        "prob_without_edge": 0.9987974166870117,
+        "prob_change": 3.7789344787597656e-05
+      }
+    ]
+  },
+  {
+    "prediction_group": "TP",
+    "query_pos": 369443,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 6320,
+        "src": 2655,
+        "dst": 4629,
+        "prob_with_edge": 0.9996225833892822,
+        "prob_without_edge": 0.9996256828308105,
+        "prob_change": 3.0994415283203125e-06
+      },
+      {
+        "topology_edge_position": 6332,
+        "src": 2655,
+        "dst": 4625,
+        "prob_with_edge": 0.9996225833892822,
+        "prob_without_edge": 0.9996256828308105,
+        "prob_change": 3.0994415283203125e-06
+      },
+      {
+        "topology_edge_position": 6370,
+        "src": 2655,
+        "dst": 2140,
+        "prob_with_edge": 0.9996225833892822,
+        "prob_without_edge": 0.9996256828308105,
+        "prob_change": 3.0994415283203125e-06
+      },
+      {
+        "topology_edge_position": 6433,
+        "src": 2655,
+        "dst": 3324,
+        "prob_with_edge": 0.9996225833892822,
+        "prob_without_edge": 0.9996256828308105,
+        "prob_change": 3.0994415283203125e-06
+      },
+      {
+        "topology_edge_position": 6338,
+        "src": 2655,
+        "dst": 4582,
+        "prob_with_edge": 0.9996225833892822,
+        "prob_without_edge": 0.9996256828308105,
+        "prob_change": 3.0994415283203125e-06
+      }
+    ]
+  },
+  {
+    "prediction_group": "FP",
+    "query_pos": 532591,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 6307,
+        "src": 6408,
+        "dst": 6413,
+        "prob_with_edge": 0.995935320854187,
+        "prob_without_edge": 0.995935320854187,
+        "prob_change": 0.0
+      },
+      {
+        "topology_edge_position": 6314,
+        "src": 6408,
+        "dst": 6410,
+        "prob_with_edge": 0.995935320854187,
+        "prob_without_edge": 0.995935320854187,
+        "prob_change": 0.0
+      },
+      {
+        "topology_edge_position": 6402,
+        "src": 6409,
+        "dst": 6410,
+        "prob_with_edge": 0.995935320854187,
+        "prob_without_edge": 0.995935320854187,
+        "prob_change": 0.0
+      },
+      {
+        "topology_edge_position": 6531,
+        "src": 6408,
+        "dst": 6411,
+        "prob_with_edge": 0.995935320854187,
+        "prob_without_edge": 0.995935320854187,
+        "prob_change": 0.0
+      }
+    ]
+  },
+  {
+    "prediction_group": "FP",
+    "query_pos": 452227,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 6304,
+        "src": 2658,
+        "dst": 6112,
+        "prob_with_edge": 0.9873595833778381,
+        "prob_without_edge": 0.9932898879051208,
+        "prob_change": 0.005930304527282715
+      },
+      {
+        "topology_edge_position": 3,
+        "src": 2655,
+        "dst": 2657,
+        "prob_with_edge": 0.9873595833778381,
+        "prob_without_edge": 0.9873595833778381,
+        "prob_change": 0.0
+      },
+      {
+        "topology_edge_position": 6298,
+        "src": 2658,
+        "dst": 2657,
+        "prob_with_edge": 0.9873595833778381,
+        "prob_without_edge": 0.9873595833778381,
+        "prob_change": 0.0
+      },
+      {
+        "topology_edge_position": 6299,
+        "src": 2657,
+        "dst": 2658,
+        "prob_with_edge": 0.9873595833778381,
+        "prob_without_edge": 0.9873595833778381,
+        "prob_change": 0.0
+      },
+      {
+        "topology_edge_position": 6300,
+        "src": 2657,
+        "dst": 97,
+        "prob_with_edge": 0.9873595833778381,
+        "prob_without_edge": 0.9873595833778381,
+        "prob_change": 0.0
+      }
+    ]
+  },
+  {
+    "prediction_group": "FP",
+    "query_pos": 532406,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 6304,
+        "src": 2658,
+        "dst": 6112,
+        "prob_with_edge": 0.9869638085365295,
+        "prob_without_edge": 0.9964742064476013,
+        "prob_change": 0.009510397911071777
+      },
+      {
+        "topology_edge_position": 3,
+        "src": 2655,
+        "dst": 2657,
+        "prob_with_edge": 0.9869638085365295,
+        "prob_without_edge": 0.9869638085365295,
+        "prob_change": 0.0
+      },
+      {
+        "topology_edge_position": 6298,
+        "src": 2658,
+        "dst": 2657,
+        "prob_with_edge": 0.9869638085365295,
+        "prob_without_edge": 0.9869638085365295,
+        "prob_change": 0.0
+      },
+      {
+        "topology_edge_position": 6299,
+        "src": 2657,
+        "dst": 2658,
+        "prob_with_edge": 0.9869638085365295,
+        "prob_without_edge": 0.9869638085365295,
+        "prob_change": 0.0
+      },
+      {
+        "topology_edge_position": 6300,
+        "src": 2657,
+        "dst": 97,
+        "prob_with_edge": 0.9869638085365295,
+        "prob_without_edge": 0.9869638085365295,
+        "prob_change": 0.0
+      }
+    ]
+  },
+  {
+    "prediction_group": "FP",
+    "query_pos": 451252,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 6370,
+        "src": 2655,
+        "dst": 2140,
+        "prob_with_edge": 0.9246701002120972,
+        "prob_without_edge": 0.9290381669998169,
+        "prob_change": 0.0043680667877197266
+      },
+      {
+        "topology_edge_position": 6433,
+        "src": 2655,
+        "dst": 3324,
+        "prob_with_edge": 0.9246701002120972,
+        "prob_without_edge": 0.9290381669998169,
+        "prob_change": 0.0043680667877197266
+      },
+      {
+        "topology_edge_position": 6338,
+        "src": 2655,
+        "dst": 4582,
+        "prob_with_edge": 0.9246701002120972,
+        "prob_without_edge": 0.9290381669998169,
+        "prob_change": 0.0043680667877197266
+      },
+      {
+        "topology_edge_position": 6320,
+        "src": 2655,
+        "dst": 4629,
+        "prob_with_edge": 0.9246701002120972,
+        "prob_without_edge": 0.9290380477905273,
+        "prob_change": 0.004367947578430176
+      },
+      {
+        "topology_edge_position": 6332,
+        "src": 2655,
+        "dst": 4625,
+        "prob_with_edge": 0.9246701002120972,
+        "prob_without_edge": 0.9290380477905273,
+        "prob_change": 0.004367947578430176
+      }
+    ]
+  },
+  {
+    "prediction_group": "FP",
+    "query_pos": 515265,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 6320,
+        "src": 2655,
+        "dst": 4629,
+        "prob_with_edge": 0.9245907068252563,
+        "prob_without_edge": 0.926723062992096,
+        "prob_change": 0.0021323561668395996
+      },
+      {
+        "topology_edge_position": 6332,
+        "src": 2655,
+        "dst": 4625,
+        "prob_with_edge": 0.9245907068252563,
+        "prob_without_edge": 0.926723062992096,
+        "prob_change": 0.0021323561668395996
+      },
+      {
+        "topology_edge_position": 6370,
+        "src": 2655,
+        "dst": 2140,
+        "prob_with_edge": 0.9245907068252563,
+        "prob_without_edge": 0.926723062992096,
+        "prob_change": 0.0021323561668395996
+      },
+      {
+        "topology_edge_position": 6433,
+        "src": 2655,
+        "dst": 3324,
+        "prob_with_edge": 0.9245907068252563,
+        "prob_without_edge": 0.926723062992096,
+        "prob_change": 0.0021323561668395996
+      },
+      {
+        "topology_edge_position": 6338,
+        "src": 2655,
+        "dst": 4582,
+        "prob_with_edge": 0.9245907068252563,
+        "prob_without_edge": 0.926723062992096,
+        "prob_change": 0.0021323561668395996
+      }
+    ]
+  },
+  {
+    "prediction_group": "TN",
+    "query_pos": 452603,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 6304,
+        "src": 2658,
+        "dst": 6112,
+        "prob_with_edge": 0.006826230324804783,
+        "prob_without_edge": 0.012857840396463871,
+        "prob_change": 0.006031610071659088
+      },
+      {
+        "topology_edge_position": 3,
+        "src": 2655,
+        "dst": 2657,
+        "prob_with_edge": 0.006826230324804783,
+        "prob_without_edge": 0.006826230324804783,
+        "prob_change": 0.0
+      },
+      {
+        "topology_edge_position": 6298,
+        "src": 2658,
+        "dst": 2657,
+        "prob_with_edge": 0.006826230324804783,
+        "prob_without_edge": 0.006826230324804783,
+        "prob_change": 0.0
+      },
+      {
+        "topology_edge_position": 6299,
+        "src": 2657,
+        "dst": 2658,
+        "prob_with_edge": 0.006826230324804783,
+        "prob_without_edge": 0.006826230324804783,
+        "prob_change": 0.0
+      },
+      {
+        "topology_edge_position": 6300,
+        "src": 2657,
+        "dst": 97,
+        "prob_with_edge": 0.006826230324804783,
+        "prob_without_edge": 0.006826230324804783,
+        "prob_change": 0.0
+      }
+    ]
+  },
+  {
+    "prediction_group": "TN",
+    "query_pos": 475378,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 1,
+        "src": 2655,
+        "dst": 188,
+        "prob_with_edge": 0.001029282109811902,
+        "prob_without_edge": 0.0011054639471694827,
+        "prob_change": 7.618183735758066e-05
+      },
+      {
+        "topology_edge_position": 2,
+        "src": 2655,
+        "dst": 189,
+        "prob_with_edge": 0.001029282109811902,
+        "prob_without_edge": 0.0011054639471694827,
+        "prob_change": 7.618183735758066e-05
+      },
+      {
+        "topology_edge_position": 9,
+        "src": 2655,
+        "dst": 2141,
+        "prob_with_edge": 0.001029282109811902,
+        "prob_without_edge": 0.0011054639471694827,
+        "prob_change": 7.618183735758066e-05
+      },
+      {
+        "topology_edge_position": 6320,
+        "src": 2655,
+        "dst": 4629,
+        "prob_with_edge": 0.001029282109811902,
+        "prob_without_edge": 0.0011054639471694827,
+        "prob_change": 7.618183735758066e-05
+      },
+      {
+        "topology_edge_position": 6322,
+        "src": 2655,
+        "dst": 4588,
+        "prob_with_edge": 0.001029282109811902,
+        "prob_without_edge": 0.0011054639471694827,
+        "prob_change": 7.618183735758066e-05
+      }
+    ]
+  },
+  {
+    "prediction_group": "TN",
+    "query_pos": 469897,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 1,
+        "src": 2655,
+        "dst": 188,
+        "prob_with_edge": 0.001029282109811902,
+        "prob_without_edge": 0.0011054649949073792,
+        "prob_change": 7.61828850954771e-05
+      },
+      {
+        "topology_edge_position": 2,
+        "src": 2655,
+        "dst": 189,
+        "prob_with_edge": 0.001029282109811902,
+        "prob_without_edge": 0.0011054649949073792,
+        "prob_change": 7.61828850954771e-05
+      },
+      {
+        "topology_edge_position": 9,
+        "src": 2655,
+        "dst": 2141,
+        "prob_with_edge": 0.001029282109811902,
+        "prob_without_edge": 0.0011054649949073792,
+        "prob_change": 7.61828850954771e-05
+      },
+      {
+        "topology_edge_position": 6320,
+        "src": 2655,
+        "dst": 4629,
+        "prob_with_edge": 0.001029282109811902,
+        "prob_without_edge": 0.0011054649949073792,
+        "prob_change": 7.61828850954771e-05
+      },
+      {
+        "topology_edge_position": 6322,
+        "src": 2655,
+        "dst": 4588,
+        "prob_with_edge": 0.001029282109811902,
+        "prob_without_edge": 0.0011054649949073792,
+        "prob_change": 7.61828850954771e-05
+      }
+    ]
+  },
+  {
+    "prediction_group": "TN",
+    "query_pos": 463596,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 6366,
+        "src": 2655,
+        "dst": 1188,
+        "prob_with_edge": 0.0010293008526787162,
+        "prob_without_edge": 0.001105485949665308,
+        "prob_change": 7.618509698659182e-05
+      },
+      {
+        "topology_edge_position": 6437,
+        "src": 2655,
+        "dst": 2646,
+        "prob_with_edge": 0.0010293008526787162,
+        "prob_without_edge": 0.001105485949665308,
+        "prob_change": 7.618509698659182e-05
+      },
+      {
+        "topology_edge_position": 6444,
+        "src": 2655,
+        "dst": 3677,
+        "prob_with_edge": 0.0010293008526787162,
+        "prob_without_edge": 0.001105485949665308,
+        "prob_change": 7.618509698659182e-05
+      },
+      {
+        "topology_edge_position": 6457,
+        "src": 2655,
+        "dst": 2126,
+        "prob_with_edge": 0.0010293008526787162,
+        "prob_without_edge": 0.001105485949665308,
+        "prob_change": 7.618509698659182e-05
+      },
+      {
+        "topology_edge_position": 6490,
+        "src": 2655,
+        "dst": 4857,
+        "prob_with_edge": 0.0010293008526787162,
+        "prob_without_edge": 0.001105485949665308,
+        "prob_change": 7.618509698659182e-05
+      }
+    ]
+  },
+  {
+    "prediction_group": "TN",
+    "query_pos": 492797,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 1,
+        "src": 2655,
+        "dst": 188,
+        "prob_with_edge": 0.001029284088872373,
+        "prob_without_edge": 0.0011054660426452756,
+        "prob_change": 7.618195377290249e-05
+      },
+      {
+        "topology_edge_position": 2,
+        "src": 2655,
+        "dst": 189,
+        "prob_with_edge": 0.001029284088872373,
+        "prob_without_edge": 0.0011054660426452756,
+        "prob_change": 7.618195377290249e-05
+      },
+      {
+        "topology_edge_position": 9,
+        "src": 2655,
+        "dst": 2141,
+        "prob_with_edge": 0.001029284088872373,
+        "prob_without_edge": 0.0011054660426452756,
+        "prob_change": 7.618195377290249e-05
+      },
+      {
+        "topology_edge_position": 6320,
+        "src": 2655,
+        "dst": 4629,
+        "prob_with_edge": 0.001029284088872373,
+        "prob_without_edge": 0.0011054660426452756,
+        "prob_change": 7.618195377290249e-05
+      },
+      {
+        "topology_edge_position": 6322,
+        "src": 2655,
+        "dst": 4588,
+        "prob_with_edge": 0.001029284088872373,
+        "prob_without_edge": 0.0011054660426452756,
+        "prob_change": 7.618195377290249e-05
+      }
+    ]
+  },
+  {
+    "prediction_group": "FN",
+    "query_pos": 30,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 1,
+        "src": 2655,
+        "dst": 188,
+        "prob_with_edge": 0.7029826045036316,
+        "prob_without_edge": 0.7095848917961121,
+        "prob_change": 0.006602287292480469
+      },
+      {
+        "topology_edge_position": 2,
+        "src": 2655,
+        "dst": 189,
+        "prob_with_edge": 0.7029826045036316,
+        "prob_without_edge": 0.7095848917961121,
+        "prob_change": 0.006602287292480469
+      },
+      {
+        "topology_edge_position": 9,
+        "src": 2655,
+        "dst": 2141,
+        "prob_with_edge": 0.7029826045036316,
+        "prob_without_edge": 0.7095848917961121,
+        "prob_change": 0.006602287292480469
+      },
+      {
+        "topology_edge_position": 6320,
+        "src": 2655,
+        "dst": 4629,
+        "prob_with_edge": 0.7029826045036316,
+        "prob_without_edge": 0.7095848917961121,
+        "prob_change": 0.006602287292480469
+      },
+      {
+        "topology_edge_position": 6322,
+        "src": 2655,
+        "dst": 4588,
+        "prob_with_edge": 0.7029826045036316,
+        "prob_without_edge": 0.7095848917961121,
+        "prob_change": 0.006602287292480469
+      }
+    ]
+  },
+  {
+    "prediction_group": "FN",
+    "query_pos": 399322,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 1,
+        "src": 2655,
+        "dst": 188,
+        "prob_with_edge": 0.13745425641536713,
+        "prob_without_edge": 0.44011011719703674,
+        "prob_change": 0.3026558607816696
+      },
+      {
+        "topology_edge_position": 6324,
+        "src": 2655,
+        "dst": 4604,
+        "prob_with_edge": 0.13745425641536713,
+        "prob_without_edge": 0.1415357142686844,
+        "prob_change": 0.004081457853317261
+      },
+      {
+        "topology_edge_position": 6330,
+        "src": 2655,
+        "dst": 4607,
+        "prob_with_edge": 0.13745425641536713,
+        "prob_without_edge": 0.1415357142686844,
+        "prob_change": 0.004081457853317261
+      },
+      {
+        "topology_edge_position": 6360,
+        "src": 2655,
+        "dst": 1245,
+        "prob_with_edge": 0.13745425641536713,
+        "prob_without_edge": 0.1415357142686844,
+        "prob_change": 0.004081457853317261
+      },
+      {
+        "topology_edge_position": 6384,
+        "src": 2655,
+        "dst": 4634,
+        "prob_with_edge": 0.13745425641536713,
+        "prob_without_edge": 0.1415357142686844,
+        "prob_change": 0.004081457853317261
+      }
+    ]
+  },
+  {
+    "prediction_group": "FN",
+    "query_pos": 13991,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 6320,
+        "src": 2655,
+        "dst": 4629,
+        "prob_with_edge": 0.7937891483306885,
+        "prob_without_edge": 0.8052440881729126,
+        "prob_change": 0.011454939842224121
+      },
+      {
+        "topology_edge_position": 6332,
+        "src": 2655,
+        "dst": 4625,
+        "prob_with_edge": 0.7937891483306885,
+        "prob_without_edge": 0.8052440881729126,
+        "prob_change": 0.011454939842224121
+      },
+      {
+        "topology_edge_position": 6370,
+        "src": 2655,
+        "dst": 2140,
+        "prob_with_edge": 0.7937891483306885,
+        "prob_without_edge": 0.8052440881729126,
+        "prob_change": 0.011454939842224121
+      },
+      {
+        "topology_edge_position": 6433,
+        "src": 2655,
+        "dst": 3324,
+        "prob_with_edge": 0.7937891483306885,
+        "prob_without_edge": 0.8052440881729126,
+        "prob_change": 0.011454939842224121
+      },
+      {
+        "topology_edge_position": 6338,
+        "src": 2655,
+        "dst": 4582,
+        "prob_with_edge": 0.7937891483306885,
+        "prob_without_edge": 0.8052440881729126,
+        "prob_change": 0.011454939842224121
+      }
+    ]
+  },
+  {
+    "prediction_group": "FN",
+    "query_pos": 32,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 1,
+        "src": 2655,
+        "dst": 188,
+        "prob_with_edge": 0.7053852677345276,
+        "prob_without_edge": 0.7119560837745667,
+        "prob_change": 0.0065708160400390625
+      },
+      {
+        "topology_edge_position": 2,
+        "src": 2655,
+        "dst": 189,
+        "prob_with_edge": 0.7053852677345276,
+        "prob_without_edge": 0.7119560837745667,
+        "prob_change": 0.0065708160400390625
+      },
+      {
+        "topology_edge_position": 9,
+        "src": 2655,
+        "dst": 2141,
+        "prob_with_edge": 0.7053852677345276,
+        "prob_without_edge": 0.7119560837745667,
+        "prob_change": 0.0065708160400390625
+      },
+      {
+        "topology_edge_position": 6320,
+        "src": 2655,
+        "dst": 4629,
+        "prob_with_edge": 0.7053852677345276,
+        "prob_without_edge": 0.7119560837745667,
+        "prob_change": 0.0065708160400390625
+      },
+      {
+        "topology_edge_position": 6322,
+        "src": 2655,
+        "dst": 4588,
+        "prob_with_edge": 0.7053852677345276,
+        "prob_without_edge": 0.7119560837745667,
+        "prob_change": 0.0065708160400390625
+      }
+    ]
+  },
+  {
+    "prediction_group": "FN",
+    "query_pos": 399420,
+    "top_5_edges_by_abs_prob_change": [
+      {
+        "topology_edge_position": 2,
+        "src": 2655,
+        "dst": 189,
+        "prob_with_edge": 0.16218943893909454,
+        "prob_without_edge": 0.4884657561779022,
+        "prob_change": 0.3262763172388077
+      },
+      {
+        "topology_edge_position": 6324,
+        "src": 2655,
+        "dst": 4604,
+        "prob_with_edge": 0.16218943893909454,
+        "prob_without_edge": 0.16686326265335083,
+        "prob_change": 0.004673823714256287
+      },
+      {
+        "topology_edge_position": 6340,
+        "src": 2655,
+        "dst": 4578,
+        "prob_with_edge": 0.16218943893909454,
+        "prob_without_edge": 0.16686326265335083,
+        "prob_change": 0.004673823714256287
+      },
+      {
+        "topology_edge_position": 6342,
+        "src": 2655,
+        "dst": 4577,
+        "prob_with_edge": 0.16218943893909454,
+        "prob_without_edge": 0.16686326265335083,
+        "prob_change": 0.004673823714256287
+      },
+      {
+        "topology_edge_position": 6346,
+        "src": 2655,
+        "dst": 183,
+        "prob_with_edge": 0.16218943893909454,
+        "prob_without_edge": 0.16686326265335083,
+        "prob_change": 0.004673823714256287
+      }
+    ]
+  }
+]

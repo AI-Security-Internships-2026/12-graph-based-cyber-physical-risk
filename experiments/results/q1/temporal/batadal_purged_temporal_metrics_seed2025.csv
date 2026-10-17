@@ -1,0 +1,5 @@
+dataset,protocol,seed,split,n_train_windows,n_purged_windows,n_test_windows,n_anomalous_train_windows,n_anomalous_test_windows,precision,recall,f1,auprc,fpr,threshold,threshold_rule,config_id,n_anomalous_purged_windows
+batadal,T4_overlapping_temporal,2025,70/30,485,0,208,35,21,0.6,1.0,0.7499999999999999,0.8463756740154256,0.0748663101604278,0.5,fixed_0.5_no_test_selection,791e5c83c8ed715e4b5b121a010eefa3297fa7fad7eeffefed6e4efb71031d63,
+batadal,T6_purged_60_40,2025,60/40,414,4,275,25,31,0.6744186046511628,0.9354838709677419,0.7837837837837838,0.7500273860734803,0.05737704918032787,0.5,fixed_0.5_no_test_selection,791e5c83c8ed715e4b5b121a010eefa3297fa7fad7eeffefed6e4efb71031d63,0.0
+batadal,T5_purged_70_30,2025,70/30,484,4,205,35,21,0.5384615384615384,1.0,0.7000000000000001,0.6745181708351909,0.09782608695652174,0.5,fixed_0.5_no_test_selection,791e5c83c8ed715e4b5b121a010eefa3297fa7fad7eeffefed6e4efb71031d63,0.0
+batadal,T6_purged_80_20,2025,80/20,553,4,136,35,21,0.65625,1.0,0.7924528301886793,0.7544751731756969,0.09565217391304348,0.5,fixed_0.5_no_test_selection,791e5c83c8ed715e4b5b121a010eefa3297fa7fad7eeffefed6e4efb71031d63,0.0

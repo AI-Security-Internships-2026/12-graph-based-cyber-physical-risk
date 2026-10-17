@@ -1,0 +1,170 @@
+{
+  "dataset": "scadanet",
+  "model": "graphsage_edge_attr",
+  "model_family": "graphsage",
+  "seed": 42,
+  "train_size": 318231,
+  "validation_size": 56158,
+  "test_size": 160452,
+  "feature_set": "enriched_edge_attr",
+  "graph_mode": "static",
+  "threshold": 0.1,
+  "runtime": 5327.2375748660415,
+  "n_trainable_params": 12098,
+  "inference_latency_ms": {
+    "mean_ms": 34.19967710506171,
+    "std_ms": 4.1071277364158405,
+    "n_repeats": 10
+  },
+  "per_attack_recall": {
+    "apt_exfil": 1.0,
+    "http_flood": 1.0,
+    "icmp_flood": 1.0,
+    "insider_threat": 0.9937759336099585,
+    "modbus_abuse": 1.0,
+    "modbus_fdi": 1.0,
+    "port_scan": 0.9978370583994232,
+    "sql_injection": 1.0,
+    "tcp_ack_flood": 1.0,
+    "tcp_syn_flood": 0.9958197019265722,
+    "vuln_scan": 0.013023797548773064
+  },
+  "best_hyperparams": {
+    "hidden_dim": 32,
+    "lr": 0.005,
+    "dropout": 0.0
+  },
+  "hyperparam_search_log": [
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.05,
+      "val_f1": 0.9932846715328467
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.05,
+      "val_f1": 0.9930911115370223
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.1,
+      "val_f1": 0.993338929848894
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.1,
+      "val_f1": 0.993164374435308
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.05,
+      "val_f1": 0.9932937344318836
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.05,
+      "val_f1": 0.9932846715328467
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.05,
+      "val_f1": 0.9933118607261148
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.05,
+      "val_f1": 0.9931648734725911
+    }
+  ],
+  "notes": {
+    "loss_weighting": "binary_class_weighted",
+    "node_feature_dim": 4,
+    "edge_attr_dim": 204,
+    "epochs_per_combo": 300,
+    "test_eval_mode": "fixed_topology",
+    "condition_definition": "Same samples/content features/query edges as Condition C, but message passing runs over a FULLY RANDOM graph of the same size (src/graph/rewiring.py random_rewire).",
+    "rewiring_metadata": {
+      "method": "random_rewire",
+      "seed": 42,
+      "original": {
+        "n_nodes": 6414,
+        "n_edges": 820,
+        "mean_degree": 0.2556906766448394,
+        "degree_std": 9.87003688961784,
+        "degree_min": 0,
+        "degree_max": 790,
+        "connected_components": 5612
+      },
+      "rewired": {
+        "n_nodes": 6414,
+        "n_edges": 820,
+        "mean_degree": 0.2556906766448394,
+        "degree_std": 0.5085283416485423,
+        "degree_min": 0,
+        "degree_max": 4,
+        "connected_components": 5594
+      }
+    },
+    "temporal_scoping_limitation": "scored once against the rewired train-boundary graph for every test flow, not walked per-window like Conditions B/C \u2014 see run_condition_matrix_temporal docstring",
+    "n_windows": 20,
+    "split_window": 14,
+    "conv_type": "graphsage"
+  },
+  "accuracy": 0.747856080532074,
+  "precision": 0.9361840633073621,
+  "recall": 0.5521958243340532,
+  "f1": 0.694657237522359,
+  "auprc": 0.8631933543087081,
+  "auroc": 0.8875059039005483,
+  "fpr": 0.0406810872497147,
+  "confusion_matrix": {
+    "tp": 46020,
+    "fp": 3137,
+    "fn": 37320,
+    "tn": 73975
+  },
+  "ece": 0.23482594889552313,
+  "brier_score": 0.24263334599616226,
+  "false_alarms_per_hour": null,
+  "event_recall": null,
+  "time_to_detect_mean_s": null,
+  "false_alarms_per_hour_note": "N/A: continuous exposure and timestamp units not explicitly validated",
+  "event_metrics_note": "N/A: verified event IDs/onsets not supplied; heuristic grouping is not ground truth",
+  "model_size_bytes": 48392,
+  "model_size_definition": "parameters and buffers; excludes framework/runtime overhead",
+  "condition": "D_random_topology",
+  "split_protocol": "temporal_strict",
+  "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665",
+  "source_sha256": "3634732abccc661d05dbb35936696cfa0d266c2eca55b3b00d2e3e6ee5a5ea29",
+  "split_manifests": [
+    "experiments/results/q1/splits/carve_validation_5392482e651c8cd48085c3a3e96a9f892a010835bc4114355b04f0b85d393a7d.json",
+    "experiments/results/q1/splits/carve_validation_ac1fb7dc093f3d9f03fc9f81b9c307142a6fd7a722a427c5d1ceab968dbd1b25.json",
+    "experiments/results/q1/splits/scadanet_track_b_split_9b2577667b537cb326c86dd7dd2cf26fcffd6f1a468cd65ffb034b191000024c.json",
+    "experiments/results/q1/splits/temporal_split_positions_e91596ca232406e5eaba3757451ef227cd20081b3f6cb97b9a1e090f4ac74248.json"
+  ],
+  "library_versions": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1",
+    "networkx": "3.6.1"
+  }
+}

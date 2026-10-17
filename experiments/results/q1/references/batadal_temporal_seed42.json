@@ -1,0 +1,47 @@
+{
+  "dataset": "batadal",
+  "model": "graphsage_window_classifier",
+  "split_protocol": "temporal",
+  "seed": 42,
+  "train_size": 485,
+  "validation_size": null,
+  "test_size": 208,
+  "feature_set": "sensor_window_stats",
+  "graph_mode": "windowed",
+  "threshold": 0.5,
+  "runtime": 15.851744130020961,
+  "notes": {
+    "window_size": 24,
+    "stride": 6,
+    "role": "historical_reference; strict results are Issue 5"
+  },
+  "accuracy": 0.942307710647583,
+  "precision": 0.6363636363636364,
+  "recall": 1.0,
+  "f1": 0.7777777777777778,
+  "auprc": 0.8813849197307844,
+  "auroc": 0.9913419913419913,
+  "fpr": 0.06417112299465241,
+  "confusion_matrix": {
+    "tp": 21,
+    "fp": 12,
+    "fn": 0,
+    "tn": 175
+  },
+  "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665",
+  "source_sha256": "3634732abccc661d05dbb35936696cfa0d266c2eca55b3b00d2e3e6ee5a5ea29",
+  "split_manifests": [
+    "experiments/results/q1/splits/reference_window_positions_f694ebab29656ab3db8d3166b5c9c7e9c933003e60bb63a26af63e83933932f7.json",
+    "experiments/results/q1/splits/scadanet_track_b_split_9b2577667b537cb326c86dd7dd2cf26fcffd6f1a468cd65ffb034b191000024c.json",
+    "experiments/results/q1/splits/temporal_split_positions_e91596ca232406e5eaba3757451ef227cd20081b3f6cb97b9a1e090f4ac74248.json"
+  ],
+  "library_versions": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1",
+    "networkx": "3.6.1"
+  }
+}

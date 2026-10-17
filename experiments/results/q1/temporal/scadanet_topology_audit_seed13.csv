@@ -1,0 +1,13 @@
+test_window,mode,topology_through_window,n_used_edges,n_unobserved_edges,uses_only_prior_windows,exact_observed_topology,time_semantics
+14,causal,13,820,0,True,True,ordered equal-count windows; equal timestamps may span windows
+15,causal,14,2479,0,True,True,ordered equal-count windows; equal timestamps may span windows
+16,causal,15,4772,0,True,True,ordered equal-count windows; equal timestamps may span windows
+17,causal,16,6346,0,True,True,ordered equal-count windows; equal timestamps may span windows
+18,causal,17,6404,0,True,True,ordered equal-count windows; equal timestamps may span windows
+19,causal,18,6482,0,True,True,ordered equal-count windows; equal timestamps may span windows
+14,fixed,13,820,0,True,True,ordered equal-count windows; equal timestamps may span windows
+15,fixed,13,820,0,True,True,ordered equal-count windows; equal timestamps may span windows
+16,fixed,13,820,0,True,True,ordered equal-count windows; equal timestamps may span windows
+17,fixed,13,820,0,True,True,ordered equal-count windows; equal timestamps may span windows
+18,fixed,13,820,0,True,True,ordered equal-count windows; equal timestamps may span windows
+19,fixed,13,820,0,True,True,ordered equal-count windows; equal timestamps may span windows

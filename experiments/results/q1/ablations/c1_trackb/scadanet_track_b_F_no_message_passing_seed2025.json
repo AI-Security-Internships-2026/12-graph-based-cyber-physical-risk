@@ -1,0 +1,165 @@
+{
+  "dataset": "scadanet",
+  "model": "endpoint_only_edge_attr",
+  "model_family": "endpoint_only",
+  "seed": 2025,
+  "train_size": 359418,
+  "validation_size": 63426,
+  "test_size": 105711,
+  "feature_set": "enriched_edge_attr",
+  "graph_mode": "static",
+  "threshold": 0.8,
+  "runtime": 5144.325719326036,
+  "n_trainable_params": 436930,
+  "inference_latency_ms": {
+    "mean_ms": 65.61042303219438,
+    "std_ms": 5.15129808348069,
+    "n_repeats": 10
+  },
+  "per_attack_recall": {
+    "apt_exfil": 1.0,
+    "http_flood": 1.0,
+    "icmp_flood": 1.0,
+    "insider_threat": 0.9969604863221885,
+    "modbus_abuse": 1.0,
+    "modbus_fdi": 1.0,
+    "os_scan": 0.5204819277108433,
+    "port_scan": 1.0,
+    "sql_injection": 1.0,
+    "tcp_ack_flood": 1.0,
+    "udp_flood": 0.9998524899693179,
+    "vuln_scan": 0.997867803837953
+  },
+  "best_hyperparams": {
+    "hidden_dim": 64,
+    "lr": 0.001,
+    "dropout": 0.2
+  },
+  "hyperparam_search_log": [
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.8,
+      "val_f1": 0.9860228010010195
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.8,
+      "val_f1": 0.9860228010010195
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.8,
+      "val_f1": 0.98601515489191
+    },
+    {
+      "hidden_dim": 32,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.8,
+      "val_f1": 0.9859787917618438
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.0,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.985968333565492
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.001,
+      "dropout": 0.2,
+      "threshold": 0.8,
+      "val_f1": 0.9860867791959809
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.0,
+      "threshold": 0.8,
+      "val_f1": 0.9859958024553779
+    },
+    {
+      "hidden_dim": 64,
+      "lr": 0.005,
+      "dropout": 0.2,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9859764478621048
+    }
+  ],
+  "notes": {
+    "loss_weighting": "per_sample_subtype_balanced",
+    "node_feature_dim": 4,
+    "edge_attr_dim": 217,
+    "epochs_per_combo": 300,
+    "test_eval_mode": "fixed_topology",
+    "condition_definition": "Learnable per-node embedding table (no graph convolution, no neighborhood aggregation) + real content features. See EndpointOnlyEdgeClassifier docstring in src/models/gnn.py for why a learnable embedding rather than a plain MLP is used here \u2014 the repo's node features are constant, so an MLP endpoint encoder would carry zero endpoint-identity signal and collapse into Condition A.",
+    "split_meta": {
+      "protocol": "track_b",
+      "single_ip_attack_types": [
+        "vuln_scan",
+        "insider_threat",
+        "icmp_flood",
+        "sql_injection",
+        "os_scan",
+        "tcp_ack_flood",
+        "modbus_fdi",
+        "udp_flood",
+        "http_flood",
+        "port_scan",
+        "modbus_abuse",
+        "apt_exfil"
+      ],
+      "multi_ip_attack_types_excluded": [
+        "tcp_syn_flood"
+      ],
+      "test_ratio": 0.2
+    },
+    "conv_type": "graphsage"
+  },
+  "accuracy": 0.9763506054878235,
+  "precision": 0.9750414511754565,
+  "recall": 0.9974501544509969,
+  "f1": 0.9861185145700071,
+  "auprc": 0.9983913999862216,
+  "auroc": 0.9929215868648811,
+  "fpr": 0.13622198250029965,
+  "confusion_matrix": {
+    "tp": 88798,
+    "fp": 2273,
+    "fn": 227,
+    "tn": 14413
+  },
+  "ece": 0.02957155825583265,
+  "brier_score": 0.03175223710723408,
+  "false_alarms_per_hour": null,
+  "event_recall": null,
+  "time_to_detect_mean_s": null,
+  "false_alarms_per_hour_note": "N/A: continuous exposure and timestamp units not explicitly validated",
+  "event_metrics_note": "N/A: verified event IDs/onsets not supplied; heuristic grouping is not ground truth",
+  "model_size_bytes": 1747720,
+  "model_size_definition": "parameters and buffers; excludes framework/runtime overhead",
+  "condition": "F_no_message_passing",
+  "split_protocol": "track_b",
+  "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665",
+  "source_sha256": "3634732abccc661d05dbb35936696cfa0d266c2eca55b3b00d2e3e6ee5a5ea29",
+  "split_manifests": [
+    "experiments/results/q1/splits/carve_validation_404b23c9720abb422bee4a0941499b700ab237b0a7a91bc40e2f4cd49c2a246c.json",
+    "experiments/results/q1/splits/scadanet_track_b_split_57c116ae551136e0a168b1d90abd1464b62e50cb7f80c07fb577911613e1f673.json"
+  ],
+  "library_versions": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1",
+    "networkx": "3.6.1"
+  }
+}

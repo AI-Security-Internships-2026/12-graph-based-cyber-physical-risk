@@ -1,0 +1,9 @@
+Comparison,Metric,Mean difference,95% CI,Effect size (Cohen's d),p-value,Test used
+GraphSAGE_trackb vs MLP_trackb,f1,0.0006725200229546,"[0.0006, 0.0007]",6.337601583213159,8.91598565933465e-09,paired_t_test
+GraphSAGE_trackb vs Tree_trackb,f1,-0.0011873628668045,"[-0.0015, -0.0009]",-2.6256794949415645,1.642518438702793e-05,paired_t_test
+GraphSAGE_trackb vs RandomTopology_trackb,f1,-0.0006094630557532,"[-0.0009, -0.0003]",-1.3193838223042955,0.0024035468565005,paired_t_test
+GraphSAGE_trackb vs DegreePreservedTopology_trackb,f1,-0.0006088223778153,"[-0.0009, -0.0003]",-1.3253180384491237,0.0023375684749327,paired_t_test
+Original_H1_trackb vs HostNormalized_H4_trackb,fpr,0.1418343775309648,"[0.1375, 0.1461]",23.62207915497597,6.9846469271215e-14,paired_t_test
+MatchedGraphSAGE_trackb vs GraphSAGE_strict_temporal,recall,0.4350662029480003,"[0.4022, 0.4679]",9.476738033784784,2.5074014412384795e-10,paired_t_test
+GraphSAGE_trackb vs ContentOnly_trackb,f1,0.0006725200229546,"[0.0006, 0.0007]",6.337601583213159,8.91598565933465e-09,paired_t_test
+Original_H1_temporal vs HostNormalized_H4_temporal,fpr,-0.0491570702355015,"[-0.1040, 0.0057]",-0.6407784194353214,0.0733694094490883,paired_t_test

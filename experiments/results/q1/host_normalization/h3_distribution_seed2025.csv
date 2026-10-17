@@ -1,0 +1,577 @@
+seed,stage,group,bin_left,bin_right,count,n_group,outside_bins
+2025,Raw,Normal: problematic hosts,-12.0,-11.75,0,38214,0
+2025,Raw,Normal: problematic hosts,-11.75,-11.5,0,38214,0
+2025,Raw,Normal: problematic hosts,-11.5,-11.25,0,38214,0
+2025,Raw,Normal: problematic hosts,-11.25,-11.0,0,38214,0
+2025,Raw,Normal: problematic hosts,-11.0,-10.75,0,38214,0
+2025,Raw,Normal: problematic hosts,-10.75,-10.5,0,38214,0
+2025,Raw,Normal: problematic hosts,-10.5,-10.25,0,38214,0
+2025,Raw,Normal: problematic hosts,-10.25,-10.0,0,38214,0
+2025,Raw,Normal: problematic hosts,-10.0,-9.75,0,38214,0
+2025,Raw,Normal: problematic hosts,-9.75,-9.5,0,38214,0
+2025,Raw,Normal: problematic hosts,-9.5,-9.25,0,38214,0
+2025,Raw,Normal: problematic hosts,-9.25,-9.0,0,38214,0
+2025,Raw,Normal: problematic hosts,-9.0,-8.75,0,38214,0
+2025,Raw,Normal: problematic hosts,-8.75,-8.5,0,38214,0
+2025,Raw,Normal: problematic hosts,-8.5,-8.25,0,38214,0
+2025,Raw,Normal: problematic hosts,-8.25,-8.0,0,38214,0
+2025,Raw,Normal: problematic hosts,-8.0,-7.75,0,38214,0
+2025,Raw,Normal: problematic hosts,-7.75,-7.5,0,38214,0
+2025,Raw,Normal: problematic hosts,-7.5,-7.25,0,38214,0
+2025,Raw,Normal: problematic hosts,-7.25,-7.0,0,38214,0
+2025,Raw,Normal: problematic hosts,-7.0,-6.75,0,38214,0
+2025,Raw,Normal: problematic hosts,-6.75,-6.5,0,38214,0
+2025,Raw,Normal: problematic hosts,-6.5,-6.25,0,38214,0
+2025,Raw,Normal: problematic hosts,-6.25,-6.0,0,38214,0
+2025,Raw,Normal: problematic hosts,-6.0,-5.75,0,38214,0
+2025,Raw,Normal: problematic hosts,-5.75,-5.5,0,38214,0
+2025,Raw,Normal: problematic hosts,-5.5,-5.25,0,38214,0
+2025,Raw,Normal: problematic hosts,-5.25,-5.0,0,38214,0
+2025,Raw,Normal: problematic hosts,-5.0,-4.75,0,38214,0
+2025,Raw,Normal: problematic hosts,-4.75,-4.5,0,38214,0
+2025,Raw,Normal: problematic hosts,-4.5,-4.25,0,38214,0
+2025,Raw,Normal: problematic hosts,-4.25,-4.0,0,38214,0
+2025,Raw,Normal: problematic hosts,-4.0,-3.75,0,38214,0
+2025,Raw,Normal: problematic hosts,-3.75,-3.5,0,38214,0
+2025,Raw,Normal: problematic hosts,-3.5,-3.25,0,38214,0
+2025,Raw,Normal: problematic hosts,-3.25,-3.0,0,38214,0
+2025,Raw,Normal: problematic hosts,-3.0,-2.75,0,38214,0
+2025,Raw,Normal: problematic hosts,-2.75,-2.5,0,38214,0
+2025,Raw,Normal: problematic hosts,-2.5,-2.25,0,38214,0
+2025,Raw,Normal: problematic hosts,-2.25,-2.0,0,38214,0
+2025,Raw,Normal: problematic hosts,-2.0,-1.75,0,38214,0
+2025,Raw,Normal: problematic hosts,-1.75,-1.5,0,38214,0
+2025,Raw,Normal: problematic hosts,-1.5,-1.25,0,38214,0
+2025,Raw,Normal: problematic hosts,-1.25,-1.0,0,38214,0
+2025,Raw,Normal: problematic hosts,-1.0,-0.75,0,38214,0
+2025,Raw,Normal: problematic hosts,-0.75,-0.5,0,38214,0
+2025,Raw,Normal: problematic hosts,-0.5,-0.25,0,38214,0
+2025,Raw,Normal: problematic hosts,-0.25,0.0,0,38214,0
+2025,Raw,Normal: problematic hosts,0.0,0.25,0,38214,0
+2025,Raw,Normal: problematic hosts,0.25,0.5,0,38214,0
+2025,Raw,Normal: problematic hosts,0.5,0.75,0,38214,0
+2025,Raw,Normal: problematic hosts,0.75,1.0,0,38214,0
+2025,Raw,Normal: problematic hosts,1.0,1.25,0,38214,0
+2025,Raw,Normal: problematic hosts,1.25,1.5,0,38214,0
+2025,Raw,Normal: problematic hosts,1.5,1.75,0,38214,0
+2025,Raw,Normal: problematic hosts,1.75,2.0,34980,38214,0
+2025,Raw,Normal: problematic hosts,2.0,2.25,1501,38214,0
+2025,Raw,Normal: problematic hosts,2.25,2.5,700,38214,0
+2025,Raw,Normal: problematic hosts,2.5,2.75,429,38214,0
+2025,Raw,Normal: problematic hosts,2.75,3.0,275,38214,0
+2025,Raw,Normal: problematic hosts,3.0,3.25,319,38214,0
+2025,Raw,Normal: problematic hosts,3.25,3.5,6,38214,0
+2025,Raw,Normal: problematic hosts,3.5,3.75,4,38214,0
+2025,Raw,Normal: problematic hosts,3.75,4.0,0,38214,0
+2025,Raw,Normal: problematic hosts,4.0,4.25,0,38214,0
+2025,Raw,Normal: problematic hosts,4.25,4.5,0,38214,0
+2025,Raw,Normal: problematic hosts,4.5,4.75,0,38214,0
+2025,Raw,Normal: problematic hosts,4.75,5.0,0,38214,0
+2025,Raw,Normal: problematic hosts,5.0,5.25,0,38214,0
+2025,Raw,Normal: problematic hosts,5.25,5.5,0,38214,0
+2025,Raw,Normal: problematic hosts,5.5,5.75,0,38214,0
+2025,Raw,Normal: problematic hosts,5.75,6.0,0,38214,0
+2025,Raw,Normal: problematic hosts,6.0,6.25,0,38214,0
+2025,Raw,Normal: problematic hosts,6.25,6.5,0,38214,0
+2025,Raw,Normal: problematic hosts,6.5,6.75,0,38214,0
+2025,Raw,Normal: problematic hosts,6.75,7.0,0,38214,0
+2025,Raw,Normal: problematic hosts,7.0,7.25,0,38214,0
+2025,Raw,Normal: problematic hosts,7.25,7.5,0,38214,0
+2025,Raw,Normal: problematic hosts,7.5,7.75,0,38214,0
+2025,Raw,Normal: problematic hosts,7.75,8.0,0,38214,0
+2025,Raw,Normal: problematic hosts,8.0,8.25,0,38214,0
+2025,Raw,Normal: problematic hosts,8.25,8.5,0,38214,0
+2025,Raw,Normal: problematic hosts,8.5,8.75,0,38214,0
+2025,Raw,Normal: problematic hosts,8.75,9.0,0,38214,0
+2025,Raw,Normal: problematic hosts,9.0,9.25,0,38214,0
+2025,Raw,Normal: problematic hosts,9.25,9.5,0,38214,0
+2025,Raw,Normal: problematic hosts,9.5,9.75,0,38214,0
+2025,Raw,Normal: problematic hosts,9.75,10.0,0,38214,0
+2025,Raw,Normal: problematic hosts,10.0,10.25,0,38214,0
+2025,Raw,Normal: problematic hosts,10.25,10.5,0,38214,0
+2025,Raw,Normal: problematic hosts,10.5,10.75,0,38214,0
+2025,Raw,Normal: problematic hosts,10.75,11.0,0,38214,0
+2025,Raw,Normal: problematic hosts,11.0,11.25,0,38214,0
+2025,Raw,Normal: problematic hosts,11.25,11.5,0,38214,0
+2025,Raw,Normal: problematic hosts,11.5,11.75,0,38214,0
+2025,Raw,Normal: problematic hosts,11.75,12.0,0,38214,0
+2025,Raw,Normal: other hosts,-12.0,-11.75,0,45528,0
+2025,Raw,Normal: other hosts,-11.75,-11.5,0,45528,0
+2025,Raw,Normal: other hosts,-11.5,-11.25,0,45528,0
+2025,Raw,Normal: other hosts,-11.25,-11.0,0,45528,0
+2025,Raw,Normal: other hosts,-11.0,-10.75,0,45528,0
+2025,Raw,Normal: other hosts,-10.75,-10.5,0,45528,0
+2025,Raw,Normal: other hosts,-10.5,-10.25,0,45528,0
+2025,Raw,Normal: other hosts,-10.25,-10.0,0,45528,0
+2025,Raw,Normal: other hosts,-10.0,-9.75,0,45528,0
+2025,Raw,Normal: other hosts,-9.75,-9.5,0,45528,0
+2025,Raw,Normal: other hosts,-9.5,-9.25,0,45528,0
+2025,Raw,Normal: other hosts,-9.25,-9.0,0,45528,0
+2025,Raw,Normal: other hosts,-9.0,-8.75,0,45528,0
+2025,Raw,Normal: other hosts,-8.75,-8.5,0,45528,0
+2025,Raw,Normal: other hosts,-8.5,-8.25,0,45528,0
+2025,Raw,Normal: other hosts,-8.25,-8.0,0,45528,0
+2025,Raw,Normal: other hosts,-8.0,-7.75,0,45528,0
+2025,Raw,Normal: other hosts,-7.75,-7.5,0,45528,0
+2025,Raw,Normal: other hosts,-7.5,-7.25,0,45528,0
+2025,Raw,Normal: other hosts,-7.25,-7.0,0,45528,0
+2025,Raw,Normal: other hosts,-7.0,-6.75,0,45528,0
+2025,Raw,Normal: other hosts,-6.75,-6.5,0,45528,0
+2025,Raw,Normal: other hosts,-6.5,-6.25,0,45528,0
+2025,Raw,Normal: other hosts,-6.25,-6.0,0,45528,0
+2025,Raw,Normal: other hosts,-6.0,-5.75,0,45528,0
+2025,Raw,Normal: other hosts,-5.75,-5.5,0,45528,0
+2025,Raw,Normal: other hosts,-5.5,-5.25,0,45528,0
+2025,Raw,Normal: other hosts,-5.25,-5.0,0,45528,0
+2025,Raw,Normal: other hosts,-5.0,-4.75,0,45528,0
+2025,Raw,Normal: other hosts,-4.75,-4.5,0,45528,0
+2025,Raw,Normal: other hosts,-4.5,-4.25,0,45528,0
+2025,Raw,Normal: other hosts,-4.25,-4.0,0,45528,0
+2025,Raw,Normal: other hosts,-4.0,-3.75,0,45528,0
+2025,Raw,Normal: other hosts,-3.75,-3.5,0,45528,0
+2025,Raw,Normal: other hosts,-3.5,-3.25,0,45528,0
+2025,Raw,Normal: other hosts,-3.25,-3.0,0,45528,0
+2025,Raw,Normal: other hosts,-3.0,-2.75,0,45528,0
+2025,Raw,Normal: other hosts,-2.75,-2.5,0,45528,0
+2025,Raw,Normal: other hosts,-2.5,-2.25,0,45528,0
+2025,Raw,Normal: other hosts,-2.25,-2.0,0,45528,0
+2025,Raw,Normal: other hosts,-2.0,-1.75,0,45528,0
+2025,Raw,Normal: other hosts,-1.75,-1.5,0,45528,0
+2025,Raw,Normal: other hosts,-1.5,-1.25,0,45528,0
+2025,Raw,Normal: other hosts,-1.25,-1.0,0,45528,0
+2025,Raw,Normal: other hosts,-1.0,-0.75,0,45528,0
+2025,Raw,Normal: other hosts,-0.75,-0.5,0,45528,0
+2025,Raw,Normal: other hosts,-0.5,-0.25,0,45528,0
+2025,Raw,Normal: other hosts,-0.25,0.0,0,45528,0
+2025,Raw,Normal: other hosts,0.0,0.25,0,45528,0
+2025,Raw,Normal: other hosts,0.25,0.5,0,45528,0
+2025,Raw,Normal: other hosts,0.5,0.75,0,45528,0
+2025,Raw,Normal: other hosts,0.75,1.0,0,45528,0
+2025,Raw,Normal: other hosts,1.0,1.25,0,45528,0
+2025,Raw,Normal: other hosts,1.25,1.5,0,45528,0
+2025,Raw,Normal: other hosts,1.5,1.75,6459,45528,0
+2025,Raw,Normal: other hosts,1.75,2.0,6942,45528,0
+2025,Raw,Normal: other hosts,2.0,2.25,601,45528,0
+2025,Raw,Normal: other hosts,2.25,2.5,447,45528,0
+2025,Raw,Normal: other hosts,2.5,2.75,396,45528,0
+2025,Raw,Normal: other hosts,2.75,3.0,693,45528,0
+2025,Raw,Normal: other hosts,3.0,3.25,25428,45528,0
+2025,Raw,Normal: other hosts,3.25,3.5,3189,45528,0
+2025,Raw,Normal: other hosts,3.5,3.75,959,45528,0
+2025,Raw,Normal: other hosts,3.75,4.0,317,45528,0
+2025,Raw,Normal: other hosts,4.0,4.25,15,45528,0
+2025,Raw,Normal: other hosts,4.25,4.5,17,45528,0
+2025,Raw,Normal: other hosts,4.5,4.75,19,45528,0
+2025,Raw,Normal: other hosts,4.75,5.0,46,45528,0
+2025,Raw,Normal: other hosts,5.0,5.25,0,45528,0
+2025,Raw,Normal: other hosts,5.25,5.5,0,45528,0
+2025,Raw,Normal: other hosts,5.5,5.75,0,45528,0
+2025,Raw,Normal: other hosts,5.75,6.0,0,45528,0
+2025,Raw,Normal: other hosts,6.0,6.25,0,45528,0
+2025,Raw,Normal: other hosts,6.25,6.5,0,45528,0
+2025,Raw,Normal: other hosts,6.5,6.75,0,45528,0
+2025,Raw,Normal: other hosts,6.75,7.0,0,45528,0
+2025,Raw,Normal: other hosts,7.0,7.25,0,45528,0
+2025,Raw,Normal: other hosts,7.25,7.5,0,45528,0
+2025,Raw,Normal: other hosts,7.5,7.75,0,45528,0
+2025,Raw,Normal: other hosts,7.75,8.0,0,45528,0
+2025,Raw,Normal: other hosts,8.0,8.25,0,45528,0
+2025,Raw,Normal: other hosts,8.25,8.5,0,45528,0
+2025,Raw,Normal: other hosts,8.5,8.75,0,45528,0
+2025,Raw,Normal: other hosts,8.75,9.0,0,45528,0
+2025,Raw,Normal: other hosts,9.0,9.25,0,45528,0
+2025,Raw,Normal: other hosts,9.25,9.5,0,45528,0
+2025,Raw,Normal: other hosts,9.5,9.75,0,45528,0
+2025,Raw,Normal: other hosts,9.75,10.0,0,45528,0
+2025,Raw,Normal: other hosts,10.0,10.25,0,45528,0
+2025,Raw,Normal: other hosts,10.25,10.5,0,45528,0
+2025,Raw,Normal: other hosts,10.5,10.75,0,45528,0
+2025,Raw,Normal: other hosts,10.75,11.0,0,45528,0
+2025,Raw,Normal: other hosts,11.0,11.25,0,45528,0
+2025,Raw,Normal: other hosts,11.25,11.5,0,45528,0
+2025,Raw,Normal: other hosts,11.5,11.75,0,45528,0
+2025,Raw,Normal: other hosts,11.75,12.0,0,45528,0
+2025,Raw,Attack,-12.0,-11.75,0,451099,0
+2025,Raw,Attack,-11.75,-11.5,0,451099,0
+2025,Raw,Attack,-11.5,-11.25,0,451099,0
+2025,Raw,Attack,-11.25,-11.0,0,451099,0
+2025,Raw,Attack,-11.0,-10.75,0,451099,0
+2025,Raw,Attack,-10.75,-10.5,0,451099,0
+2025,Raw,Attack,-10.5,-10.25,0,451099,0
+2025,Raw,Attack,-10.25,-10.0,0,451099,0
+2025,Raw,Attack,-10.0,-9.75,0,451099,0
+2025,Raw,Attack,-9.75,-9.5,0,451099,0
+2025,Raw,Attack,-9.5,-9.25,0,451099,0
+2025,Raw,Attack,-9.25,-9.0,0,451099,0
+2025,Raw,Attack,-9.0,-8.75,0,451099,0
+2025,Raw,Attack,-8.75,-8.5,0,451099,0
+2025,Raw,Attack,-8.5,-8.25,0,451099,0
+2025,Raw,Attack,-8.25,-8.0,0,451099,0
+2025,Raw,Attack,-8.0,-7.75,0,451099,0
+2025,Raw,Attack,-7.75,-7.5,0,451099,0
+2025,Raw,Attack,-7.5,-7.25,0,451099,0
+2025,Raw,Attack,-7.25,-7.0,0,451099,0
+2025,Raw,Attack,-7.0,-6.75,0,451099,0
+2025,Raw,Attack,-6.75,-6.5,0,451099,0
+2025,Raw,Attack,-6.5,-6.25,0,451099,0
+2025,Raw,Attack,-6.25,-6.0,0,451099,0
+2025,Raw,Attack,-6.0,-5.75,0,451099,0
+2025,Raw,Attack,-5.75,-5.5,0,451099,0
+2025,Raw,Attack,-5.5,-5.25,0,451099,0
+2025,Raw,Attack,-5.25,-5.0,0,451099,0
+2025,Raw,Attack,-5.0,-4.75,0,451099,0
+2025,Raw,Attack,-4.75,-4.5,0,451099,0
+2025,Raw,Attack,-4.5,-4.25,0,451099,0
+2025,Raw,Attack,-4.25,-4.0,0,451099,0
+2025,Raw,Attack,-4.0,-3.75,0,451099,0
+2025,Raw,Attack,-3.75,-3.5,0,451099,0
+2025,Raw,Attack,-3.5,-3.25,0,451099,0
+2025,Raw,Attack,-3.25,-3.0,0,451099,0
+2025,Raw,Attack,-3.0,-2.75,0,451099,0
+2025,Raw,Attack,-2.75,-2.5,0,451099,0
+2025,Raw,Attack,-2.5,-2.25,0,451099,0
+2025,Raw,Attack,-2.25,-2.0,0,451099,0
+2025,Raw,Attack,-2.0,-1.75,0,451099,0
+2025,Raw,Attack,-1.75,-1.5,0,451099,0
+2025,Raw,Attack,-1.5,-1.25,0,451099,0
+2025,Raw,Attack,-1.25,-1.0,0,451099,0
+2025,Raw,Attack,-1.0,-0.75,0,451099,0
+2025,Raw,Attack,-0.75,-0.5,0,451099,0
+2025,Raw,Attack,-0.5,-0.25,0,451099,0
+2025,Raw,Attack,-0.25,0.0,0,451099,0
+2025,Raw,Attack,0.0,0.25,0,451099,0
+2025,Raw,Attack,0.25,0.5,0,451099,0
+2025,Raw,Attack,0.5,0.75,0,451099,0
+2025,Raw,Attack,0.75,1.0,0,451099,0
+2025,Raw,Attack,1.0,1.25,0,451099,0
+2025,Raw,Attack,1.25,1.5,0,451099,0
+2025,Raw,Attack,1.5,1.75,0,451099,0
+2025,Raw,Attack,1.75,2.0,80208,451099,0
+2025,Raw,Attack,2.0,2.25,2888,451099,0
+2025,Raw,Attack,2.25,2.5,29267,451099,0
+2025,Raw,Attack,2.5,2.75,2,451099,0
+2025,Raw,Attack,2.75,3.0,121,451099,0
+2025,Raw,Attack,3.0,3.25,338613,451099,0
+2025,Raw,Attack,3.25,3.5,0,451099,0
+2025,Raw,Attack,3.5,3.75,0,451099,0
+2025,Raw,Attack,3.75,4.0,0,451099,0
+2025,Raw,Attack,4.0,4.25,0,451099,0
+2025,Raw,Attack,4.25,4.5,0,451099,0
+2025,Raw,Attack,4.5,4.75,0,451099,0
+2025,Raw,Attack,4.75,5.0,0,451099,0
+2025,Raw,Attack,5.0,5.25,0,451099,0
+2025,Raw,Attack,5.25,5.5,0,451099,0
+2025,Raw,Attack,5.5,5.75,0,451099,0
+2025,Raw,Attack,5.75,6.0,0,451099,0
+2025,Raw,Attack,6.0,6.25,0,451099,0
+2025,Raw,Attack,6.25,6.5,0,451099,0
+2025,Raw,Attack,6.5,6.75,0,451099,0
+2025,Raw,Attack,6.75,7.0,0,451099,0
+2025,Raw,Attack,7.0,7.25,0,451099,0
+2025,Raw,Attack,7.25,7.5,0,451099,0
+2025,Raw,Attack,7.5,7.75,0,451099,0
+2025,Raw,Attack,7.75,8.0,0,451099,0
+2025,Raw,Attack,8.0,8.25,0,451099,0
+2025,Raw,Attack,8.25,8.5,0,451099,0
+2025,Raw,Attack,8.5,8.75,0,451099,0
+2025,Raw,Attack,8.75,9.0,0,451099,0
+2025,Raw,Attack,9.0,9.25,0,451099,0
+2025,Raw,Attack,9.25,9.5,0,451099,0
+2025,Raw,Attack,9.5,9.75,0,451099,0
+2025,Raw,Attack,9.75,10.0,0,451099,0
+2025,Raw,Attack,10.0,10.25,0,451099,0
+2025,Raw,Attack,10.25,10.5,0,451099,0
+2025,Raw,Attack,10.5,10.75,0,451099,0
+2025,Raw,Attack,10.75,11.0,0,451099,0
+2025,Raw,Attack,11.0,11.25,0,451099,0
+2025,Raw,Attack,11.25,11.5,0,451099,0
+2025,Raw,Attack,11.5,11.75,0,451099,0
+2025,Raw,Attack,11.75,12.0,0,451099,0
+2025,Host normalized,Normal: problematic hosts,-12.0,-11.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-11.75,-11.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-11.5,-11.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-11.25,-11.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-11.0,-10.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-10.75,-10.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-10.5,-10.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-10.25,-10.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-10.0,-9.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-9.75,-9.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-9.5,-9.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-9.25,-9.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-9.0,-8.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-8.75,-8.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-8.5,-8.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-8.25,-8.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-8.0,-7.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-7.75,-7.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-7.5,-7.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-7.25,-7.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-7.0,-6.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-6.75,-6.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-6.5,-6.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-6.25,-6.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-6.0,-5.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-5.75,-5.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-5.5,-5.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-5.25,-5.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-5.0,-4.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-4.75,-4.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-4.5,-4.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-4.25,-4.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-4.0,-3.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-3.75,-3.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-3.5,-3.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-3.25,-3.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-3.0,-2.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-2.75,-2.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-2.5,-2.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-2.25,-2.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-2.0,-1.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-1.75,-1.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-1.5,-1.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-1.25,-1.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-1.0,-0.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-0.75,-0.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,-0.5,-0.25,26057,38214,0
+2025,Host normalized,Normal: problematic hosts,-0.25,0.0,11107,38214,0
+2025,Host normalized,Normal: problematic hosts,0.0,0.25,315,38214,0
+2025,Host normalized,Normal: problematic hosts,0.25,0.5,348,38214,0
+2025,Host normalized,Normal: problematic hosts,0.5,0.75,341,38214,0
+2025,Host normalized,Normal: problematic hosts,0.75,1.0,46,38214,0
+2025,Host normalized,Normal: problematic hosts,1.0,1.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,1.25,1.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,1.5,1.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,1.75,2.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,2.0,2.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,2.25,2.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,2.5,2.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,2.75,3.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,3.0,3.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,3.25,3.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,3.5,3.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,3.75,4.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,4.0,4.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,4.25,4.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,4.5,4.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,4.75,5.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,5.0,5.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,5.25,5.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,5.5,5.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,5.75,6.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,6.0,6.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,6.25,6.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,6.5,6.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,6.75,7.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,7.0,7.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,7.25,7.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,7.5,7.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,7.75,8.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,8.0,8.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,8.25,8.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,8.5,8.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,8.75,9.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,9.0,9.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,9.25,9.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,9.5,9.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,9.75,10.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,10.0,10.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,10.25,10.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,10.5,10.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,10.75,11.0,0,38214,0
+2025,Host normalized,Normal: problematic hosts,11.0,11.25,0,38214,0
+2025,Host normalized,Normal: problematic hosts,11.25,11.5,0,38214,0
+2025,Host normalized,Normal: problematic hosts,11.5,11.75,0,38214,0
+2025,Host normalized,Normal: problematic hosts,11.75,12.0,0,38214,0
+2025,Host normalized,Normal: other hosts,-12.0,-11.75,0,45528,0
+2025,Host normalized,Normal: other hosts,-11.75,-11.5,0,45528,0
+2025,Host normalized,Normal: other hosts,-11.5,-11.25,0,45528,0
+2025,Host normalized,Normal: other hosts,-11.25,-11.0,0,45528,0
+2025,Host normalized,Normal: other hosts,-11.0,-10.75,0,45528,0
+2025,Host normalized,Normal: other hosts,-10.75,-10.5,0,45528,0
+2025,Host normalized,Normal: other hosts,-10.5,-10.25,0,45528,0
+2025,Host normalized,Normal: other hosts,-10.25,-10.0,0,45528,0
+2025,Host normalized,Normal: other hosts,-10.0,-9.75,0,45528,0
+2025,Host normalized,Normal: other hosts,-9.75,-9.5,0,45528,0
+2025,Host normalized,Normal: other hosts,-9.5,-9.25,0,45528,0
+2025,Host normalized,Normal: other hosts,-9.25,-9.0,0,45528,0
+2025,Host normalized,Normal: other hosts,-9.0,-8.75,0,45528,0
+2025,Host normalized,Normal: other hosts,-8.75,-8.5,0,45528,0
+2025,Host normalized,Normal: other hosts,-8.5,-8.25,0,45528,0
+2025,Host normalized,Normal: other hosts,-8.25,-8.0,0,45528,0
+2025,Host normalized,Normal: other hosts,-8.0,-7.75,0,45528,0
+2025,Host normalized,Normal: other hosts,-7.75,-7.5,0,45528,0
+2025,Host normalized,Normal: other hosts,-7.5,-7.25,0,45528,0
+2025,Host normalized,Normal: other hosts,-7.25,-7.0,0,45528,0
+2025,Host normalized,Normal: other hosts,-7.0,-6.75,0,45528,0
+2025,Host normalized,Normal: other hosts,-6.75,-6.5,0,45528,0
+2025,Host normalized,Normal: other hosts,-6.5,-6.25,0,45528,0
+2025,Host normalized,Normal: other hosts,-6.25,-6.0,0,45528,0
+2025,Host normalized,Normal: other hosts,-6.0,-5.75,0,45528,0
+2025,Host normalized,Normal: other hosts,-5.75,-5.5,0,45528,0
+2025,Host normalized,Normal: other hosts,-5.5,-5.25,0,45528,0
+2025,Host normalized,Normal: other hosts,-5.25,-5.0,0,45528,0
+2025,Host normalized,Normal: other hosts,-5.0,-4.75,0,45528,0
+2025,Host normalized,Normal: other hosts,-4.75,-4.5,0,45528,0
+2025,Host normalized,Normal: other hosts,-4.5,-4.25,0,45528,0
+2025,Host normalized,Normal: other hosts,-4.25,-4.0,0,45528,0
+2025,Host normalized,Normal: other hosts,-4.0,-3.75,0,45528,0
+2025,Host normalized,Normal: other hosts,-3.75,-3.5,0,45528,0
+2025,Host normalized,Normal: other hosts,-3.5,-3.25,0,45528,0
+2025,Host normalized,Normal: other hosts,-3.25,-3.0,0,45528,0
+2025,Host normalized,Normal: other hosts,-3.0,-2.75,0,45528,0
+2025,Host normalized,Normal: other hosts,-2.75,-2.5,0,45528,0
+2025,Host normalized,Normal: other hosts,-2.5,-2.25,0,45528,0
+2025,Host normalized,Normal: other hosts,-2.25,-2.0,0,45528,0
+2025,Host normalized,Normal: other hosts,-2.0,-1.75,0,45528,0
+2025,Host normalized,Normal: other hosts,-1.75,-1.5,0,45528,0
+2025,Host normalized,Normal: other hosts,-1.5,-1.25,0,45528,0
+2025,Host normalized,Normal: other hosts,-1.25,-1.0,0,45528,0
+2025,Host normalized,Normal: other hosts,-1.0,-0.75,0,45528,0
+2025,Host normalized,Normal: other hosts,-0.75,-0.5,87,45528,0
+2025,Host normalized,Normal: other hosts,-0.5,-0.25,2663,45528,0
+2025,Host normalized,Normal: other hosts,-0.25,0.0,31665,45528,0
+2025,Host normalized,Normal: other hosts,0.0,0.25,8352,45528,0
+2025,Host normalized,Normal: other hosts,0.25,0.5,2093,45528,0
+2025,Host normalized,Normal: other hosts,0.5,0.75,481,45528,0
+2025,Host normalized,Normal: other hosts,0.75,1.0,105,45528,0
+2025,Host normalized,Normal: other hosts,1.0,1.25,64,45528,0
+2025,Host normalized,Normal: other hosts,1.25,1.5,14,45528,0
+2025,Host normalized,Normal: other hosts,1.5,1.75,3,45528,0
+2025,Host normalized,Normal: other hosts,1.75,2.0,1,45528,0
+2025,Host normalized,Normal: other hosts,2.0,2.25,0,45528,0
+2025,Host normalized,Normal: other hosts,2.25,2.5,0,45528,0
+2025,Host normalized,Normal: other hosts,2.5,2.75,0,45528,0
+2025,Host normalized,Normal: other hosts,2.75,3.0,0,45528,0
+2025,Host normalized,Normal: other hosts,3.0,3.25,0,45528,0
+2025,Host normalized,Normal: other hosts,3.25,3.5,0,45528,0
+2025,Host normalized,Normal: other hosts,3.5,3.75,0,45528,0
+2025,Host normalized,Normal: other hosts,3.75,4.0,0,45528,0
+2025,Host normalized,Normal: other hosts,4.0,4.25,0,45528,0
+2025,Host normalized,Normal: other hosts,4.25,4.5,0,45528,0
+2025,Host normalized,Normal: other hosts,4.5,4.75,0,45528,0
+2025,Host normalized,Normal: other hosts,4.75,5.0,0,45528,0
+2025,Host normalized,Normal: other hosts,5.0,5.25,0,45528,0
+2025,Host normalized,Normal: other hosts,5.25,5.5,0,45528,0
+2025,Host normalized,Normal: other hosts,5.5,5.75,0,45528,0
+2025,Host normalized,Normal: other hosts,5.75,6.0,0,45528,0
+2025,Host normalized,Normal: other hosts,6.0,6.25,0,45528,0
+2025,Host normalized,Normal: other hosts,6.25,6.5,0,45528,0
+2025,Host normalized,Normal: other hosts,6.5,6.75,0,45528,0
+2025,Host normalized,Normal: other hosts,6.75,7.0,0,45528,0
+2025,Host normalized,Normal: other hosts,7.0,7.25,0,45528,0
+2025,Host normalized,Normal: other hosts,7.25,7.5,0,45528,0
+2025,Host normalized,Normal: other hosts,7.5,7.75,0,45528,0
+2025,Host normalized,Normal: other hosts,7.75,8.0,0,45528,0
+2025,Host normalized,Normal: other hosts,8.0,8.25,0,45528,0
+2025,Host normalized,Normal: other hosts,8.25,8.5,0,45528,0
+2025,Host normalized,Normal: other hosts,8.5,8.75,0,45528,0
+2025,Host normalized,Normal: other hosts,8.75,9.0,0,45528,0
+2025,Host normalized,Normal: other hosts,9.0,9.25,0,45528,0
+2025,Host normalized,Normal: other hosts,9.25,9.5,0,45528,0
+2025,Host normalized,Normal: other hosts,9.5,9.75,0,45528,0
+2025,Host normalized,Normal: other hosts,9.75,10.0,0,45528,0
+2025,Host normalized,Normal: other hosts,10.0,10.25,0,45528,0
+2025,Host normalized,Normal: other hosts,10.25,10.5,0,45528,0
+2025,Host normalized,Normal: other hosts,10.5,10.75,0,45528,0
+2025,Host normalized,Normal: other hosts,10.75,11.0,0,45528,0
+2025,Host normalized,Normal: other hosts,11.0,11.25,0,45528,0
+2025,Host normalized,Normal: other hosts,11.25,11.5,0,45528,0
+2025,Host normalized,Normal: other hosts,11.5,11.75,0,45528,0
+2025,Host normalized,Normal: other hosts,11.75,12.0,0,45528,0
+2025,Host normalized,Attack,-12.0,-11.75,0,451099,0
+2025,Host normalized,Attack,-11.75,-11.5,0,451099,0
+2025,Host normalized,Attack,-11.5,-11.25,0,451099,0
+2025,Host normalized,Attack,-11.25,-11.0,0,451099,0
+2025,Host normalized,Attack,-11.0,-10.75,0,451099,0
+2025,Host normalized,Attack,-10.75,-10.5,0,451099,0
+2025,Host normalized,Attack,-10.5,-10.25,0,451099,0
+2025,Host normalized,Attack,-10.25,-10.0,0,451099,0
+2025,Host normalized,Attack,-10.0,-9.75,0,451099,0
+2025,Host normalized,Attack,-9.75,-9.5,0,451099,0
+2025,Host normalized,Attack,-9.5,-9.25,0,451099,0
+2025,Host normalized,Attack,-9.25,-9.0,0,451099,0
+2025,Host normalized,Attack,-9.0,-8.75,0,451099,0
+2025,Host normalized,Attack,-8.75,-8.5,0,451099,0
+2025,Host normalized,Attack,-8.5,-8.25,0,451099,0
+2025,Host normalized,Attack,-8.25,-8.0,0,451099,0
+2025,Host normalized,Attack,-8.0,-7.75,0,451099,0
+2025,Host normalized,Attack,-7.75,-7.5,0,451099,0
+2025,Host normalized,Attack,-7.5,-7.25,0,451099,0
+2025,Host normalized,Attack,-7.25,-7.0,0,451099,0
+2025,Host normalized,Attack,-7.0,-6.75,0,451099,0
+2025,Host normalized,Attack,-6.75,-6.5,0,451099,0
+2025,Host normalized,Attack,-6.5,-6.25,0,451099,0
+2025,Host normalized,Attack,-6.25,-6.0,0,451099,0
+2025,Host normalized,Attack,-6.0,-5.75,0,451099,0
+2025,Host normalized,Attack,-5.75,-5.5,0,451099,0
+2025,Host normalized,Attack,-5.5,-5.25,0,451099,0
+2025,Host normalized,Attack,-5.25,-5.0,0,451099,0
+2025,Host normalized,Attack,-5.0,-4.75,0,451099,0
+2025,Host normalized,Attack,-4.75,-4.5,0,451099,0
+2025,Host normalized,Attack,-4.5,-4.25,0,451099,0
+2025,Host normalized,Attack,-4.25,-4.0,0,451099,0
+2025,Host normalized,Attack,-4.0,-3.75,0,451099,0
+2025,Host normalized,Attack,-3.75,-3.5,0,451099,0
+2025,Host normalized,Attack,-3.5,-3.25,0,451099,0
+2025,Host normalized,Attack,-3.25,-3.0,0,451099,0
+2025,Host normalized,Attack,-3.0,-2.75,0,451099,0
+2025,Host normalized,Attack,-2.75,-2.5,0,451099,0
+2025,Host normalized,Attack,-2.5,-2.25,0,451099,0
+2025,Host normalized,Attack,-2.25,-2.0,0,451099,0
+2025,Host normalized,Attack,-2.0,-1.75,0,451099,0
+2025,Host normalized,Attack,-1.75,-1.5,0,451099,0
+2025,Host normalized,Attack,-1.5,-1.25,0,451099,0
+2025,Host normalized,Attack,-1.25,-1.0,0,451099,0
+2025,Host normalized,Attack,-1.0,-0.75,0,451099,0
+2025,Host normalized,Attack,-0.75,-0.5,0,451099,0
+2025,Host normalized,Attack,-0.5,-0.25,111350,451099,0
+2025,Host normalized,Attack,-0.25,0.0,1083,451099,0
+2025,Host normalized,Attack,0.0,0.25,338620,451099,0
+2025,Host normalized,Attack,0.25,0.5,1,451099,0
+2025,Host normalized,Attack,0.5,0.75,1,451099,0
+2025,Host normalized,Attack,0.75,1.0,1,451099,0
+2025,Host normalized,Attack,1.0,1.25,43,451099,0
+2025,Host normalized,Attack,1.25,1.5,0,451099,0
+2025,Host normalized,Attack,1.5,1.75,0,451099,0
+2025,Host normalized,Attack,1.75,2.0,0,451099,0
+2025,Host normalized,Attack,2.0,2.25,0,451099,0
+2025,Host normalized,Attack,2.25,2.5,0,451099,0
+2025,Host normalized,Attack,2.5,2.75,0,451099,0
+2025,Host normalized,Attack,2.75,3.0,0,451099,0
+2025,Host normalized,Attack,3.0,3.25,0,451099,0
+2025,Host normalized,Attack,3.25,3.5,0,451099,0
+2025,Host normalized,Attack,3.5,3.75,0,451099,0
+2025,Host normalized,Attack,3.75,4.0,0,451099,0
+2025,Host normalized,Attack,4.0,4.25,0,451099,0
+2025,Host normalized,Attack,4.25,4.5,0,451099,0
+2025,Host normalized,Attack,4.5,4.75,0,451099,0
+2025,Host normalized,Attack,4.75,5.0,0,451099,0
+2025,Host normalized,Attack,5.0,5.25,0,451099,0
+2025,Host normalized,Attack,5.25,5.5,0,451099,0
+2025,Host normalized,Attack,5.5,5.75,0,451099,0
+2025,Host normalized,Attack,5.75,6.0,0,451099,0
+2025,Host normalized,Attack,6.0,6.25,0,451099,0
+2025,Host normalized,Attack,6.25,6.5,0,451099,0
+2025,Host normalized,Attack,6.5,6.75,0,451099,0
+2025,Host normalized,Attack,6.75,7.0,0,451099,0
+2025,Host normalized,Attack,7.0,7.25,0,451099,0
+2025,Host normalized,Attack,7.25,7.5,0,451099,0
+2025,Host normalized,Attack,7.5,7.75,0,451099,0
+2025,Host normalized,Attack,7.75,8.0,0,451099,0
+2025,Host normalized,Attack,8.0,8.25,0,451099,0
+2025,Host normalized,Attack,8.25,8.5,0,451099,0
+2025,Host normalized,Attack,8.5,8.75,0,451099,0
+2025,Host normalized,Attack,8.75,9.0,0,451099,0
+2025,Host normalized,Attack,9.0,9.25,0,451099,0
+2025,Host normalized,Attack,9.25,9.5,0,451099,0
+2025,Host normalized,Attack,9.5,9.75,0,451099,0
+2025,Host normalized,Attack,9.75,10.0,0,451099,0
+2025,Host normalized,Attack,10.0,10.25,0,451099,0
+2025,Host normalized,Attack,10.25,10.5,0,451099,0
+2025,Host normalized,Attack,10.5,10.75,0,451099,0
+2025,Host normalized,Attack,10.75,11.0,0,451099,0
+2025,Host normalized,Attack,11.0,11.25,0,451099,0
+2025,Host normalized,Attack,11.25,11.5,0,451099,0
+2025,Host normalized,Attack,11.5,11.75,0,451099,0
+2025,Host normalized,Attack,11.75,12.0,0,451099,0

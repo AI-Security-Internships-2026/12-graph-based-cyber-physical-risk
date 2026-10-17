@@ -1,13 +1,10 @@
-"""
-Issue #2 — reusable split audit.
+"""Reusable split audit.
 
-`audit_split()` describes what a train/test protocol actually asks a
-model to generalize to: identity/topology overlap, attack-taxonomy
-coverage, temporal leakage, distribution shift, and a set of descriptive
-warnings. It does NOT judge whether a split is "bad" — a high host-overlap
-number is a fact about the split, not automatically proof of a shortcut
-(see "Do Not Do In This Issue": don't interpret overlap alone as
-causation). It reports; a human (or a later issue) interprets.
+`audit_split()` describes what a train/test protocol actually asks a model to generalize
+to: identity/topology overlap, attack-taxonomy coverage, temporal leakage, distribution
+shift, and a set of descriptive warnings. It does NOT judge whether a split is "bad" — a
+high host-overlap number is a fact about the split, not automatically proof of a
+shortcut. It reports; a human (or a later issue) interprets.
 
 Works for two shapes of split, selected by which optional columns are
 passed:
@@ -71,11 +68,13 @@ def _identity_topology_overlap(train_df: pd.DataFrame, test_df: pd.DataFrame,
 
 
 def _attack_coverage(train_df: pd.DataFrame, test_df: pd.DataFrame,
-                      label_col: Optional[str], src_col: Optional[str]) -> Dict:
+                      label_col: Optional[str], src_col: Optional[str], dst_col=None, full_taxonomy=None, positive_label_check=None) -> Dict:
     if label_col is None:
         return {"applicable": False, "reason": "no label column provided"}
 
-    all_labels = sorted(set(train_df[label_col].unique()) | set(test_df[label_col].unique()))
+    all_labels = sorted(set(full_taxonomy) if full_taxonomy is not None else set(train_df[label_col].unique()) | set(test_df[label_col].unique()))
+    if positive_label_check is not None:
+        all_labels = [label for label in all_labels if positive_label_check(label)]
     per_label = {}
     n_evaluable = 0
     for label in all_labels:
@@ -93,6 +92,8 @@ def _attack_coverage(train_df: pd.DataFrame, test_df: pd.DataFrame,
                 pd.concat([tr_rows[src_col], te_rows[src_col]]).astype(str).nunique()
             )
             entry["single_fixed_source_ip"] = entry["unique_src_ips_overall"] == 1
+        if dst_col is not None:
+            entry["unique_dst_ips_overall"] = int(pd.concat([tr_rows[dst_col], te_rows[dst_col]]).astype(str).nunique())
         per_label[str(label)] = entry
 
     return {
@@ -206,8 +207,8 @@ def _generate_warnings(identity: Dict, coverage: Dict, temporal_flow: Dict,
             if entry.get("single_fixed_source_ip"):
                 warnings.append(
                     f"WARNING: attack subtype '{label}' is associated with "
-                    f"one fixed source IP (structurally near-impossible to "
-                    f"miss once that IP's degree pattern is learned)."
+                    f"one fixed source IP (possible identity/topology shortcut; "
+                    f"requires investigation)."
                 )
 
     if identity.get("applicable"):
@@ -244,18 +245,18 @@ def audit_split(
     time_col: Optional[str] = None,
     window_start_col: Optional[str] = None,
     window_end_col: Optional[str] = None,
-    positive_label_check=None,
+    positive_label_check=None, full_taxonomy=None, numeric_cols=None,
 ) -> Dict:
-    """Run the full Issue #2 audit on one train/test split and return a
-    single JSON-serializable dict. Every section is present even when not
-    applicable (marked applicable=False with a reason) — this issue's own
-    philosophy carried over from Issue #1: never silently omit a required
-    field, always say why it's null."""
+    """Run the full audit on one train/test split and return a JSON-serializable dict.
+    Every section is present even when not applicable (marked applicable=False with a
+    reason), so a null is always explained.
+    """
     identity = _identity_topology_overlap(train_df, test_df, src_col, dst_col)
-    coverage = _attack_coverage(train_df, test_df, label_col, src_col)
+    coverage = _attack_coverage(train_df, test_df, label_col, src_col, dst_col, full_taxonomy, positive_label_check)
     temporal_flow = _temporal_leakage_flow(train_df, test_df, time_col)
     temporal_windows = _temporal_leakage_windows(train_df, test_df, window_start_col, window_end_col)
     distribution = _distribution_shift(train_df, test_df, label_col, positive_label_check)
+    distribution["numeric_feature_drift"] = numeric_feature_drift(train_df,test_df,numeric_cols)
     warnings = _generate_warnings(identity, coverage, temporal_flow, temporal_windows, protocol_name)
 
     return {
@@ -269,3 +270,20 @@ def audit_split(
         "distribution_shift": distribution,
         "warnings": warnings,
     }
+
+
+def numeric_feature_drift(train_df,test_df,columns=None):
+    from scipy.stats import ks_2samp
+    columns = columns if columns is not None else [c for c in train_df.select_dtypes(include="number").columns
+        if c in test_df.columns and c not in {"is_attack","label","window","orig_idx","window_start","window_end"}]
+    rows={}
+    for c in columns:
+        if c not in train_df or c not in test_df: continue
+        a=pd.to_numeric(train_df[c],errors="coerce").dropna(); b=pd.to_numeric(test_df[c],errors="coerce").dropna()
+        a=a[np.isfinite(a)];b=b[np.isfinite(b)]
+        if not len(a) or not len(b): rows[c]={"applicable":False,"reason":"no finite observations"};continue
+        sd=float(a.std(ddof=0));ks=ks_2samp(a,b)
+        rows[c]={"applicable":True,"train_mean":float(a.mean()),"test_mean":float(b.mean()),
+                 "train_std":sd,"standardized_mean_shift":float((b.mean()-a.mean())/sd) if sd else None,
+                 "ks_statistic":float(ks.statistic),"ks_p_value":float(ks.pvalue)}
+    return rows

@@ -1,9 +1,19 @@
-torch
-torch-geometric
-networkx
-neo4j
-pandas
-numpy
-matplotlib
-streamlit
-scikit-learn
+# Python >= 3.11 required (hashlib / typing features used by workflow.py)
+# Lower bounds are the versions the code was reviewed against; for exact
+# reproducibility run `pip freeze > requirements.lock.txt` after a successful run.
+torch>=2.2
+torch_geometric>=2.5
+numpy>=1.26
+pandas>=2.1
+scikit-learn>=1.4
+scipy>=1.11
+networkx>=3.2
+xgboost>=2.0
+matplotlib>=3.8
+captum>=0.7
+kagglehub
+tabulate
+nbformat
+nbclient
+ipykernel
+pytest

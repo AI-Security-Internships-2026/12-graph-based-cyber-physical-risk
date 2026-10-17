@@ -1,0 +1,78 @@
+{
+  "dataset": "scadanet",
+  "model": "graphsage_edge_attr",
+  "split_protocol": "track_b",
+  "seed": 42,
+  "train_size": 422844,
+  "validation_size": null,
+  "test_size": 105711,
+  "feature_set": "enriched_edge_attr",
+  "graph_mode": "static",
+  "threshold": 0.5,
+  "runtime": 210.77801256999373,
+  "notes": {
+    "protocol": "track_b",
+    "single_ip_attack_types": [
+      "vuln_scan",
+      "insider_threat",
+      "icmp_flood",
+      "sql_injection",
+      "os_scan",
+      "tcp_ack_flood",
+      "modbus_fdi",
+      "udp_flood",
+      "http_flood",
+      "port_scan",
+      "modbus_abuse",
+      "apt_exfil"
+    ],
+    "multi_ip_attack_types_excluded": [
+      "tcp_syn_flood"
+    ],
+    "test_ratio": 0.2,
+    "loss_weighting": "per_sample_subtype_balanced",
+    "subtype_weights": {
+      "udp_flood": 0.12004333374592753,
+      "normal_traffic": 0.48641336232184146,
+      "vuln_scan": 0.9932350536967612,
+      "http_flood": 1.392697989229781,
+      "icmp_flood": 2.1952123600230506,
+      "tcp_ack_flood": 6.589639695798529,
+      "modbus_fdi": 13.841047463175123,
+      "apt_exfil": 16.731718898385566,
+      "os_scan": 19.893860268172194,
+      "port_scan": 26.02116923076923,
+      "insider_threat": 26.748734817813766,
+      "modbus_abuse": 69.05830475257227,
+      "sql_injection": 109.88669438669439
+    },
+    "role": "historical_reference; strict results are Issue 5"
+  },
+  "accuracy": 0.956220269203186,
+  "precision": 0.950726313197812,
+  "recall": 0.9997185920597935,
+  "f1": 0.9746071459924502,
+  "auprc": 0.9981565423648796,
+  "auroc": 0.9916190307338087,
+  "fpr": 0.27281887150308204,
+  "confusion_matrix": {
+    "tp": 88814,
+    "fp": 4603,
+    "fn": 25,
+    "tn": 12269
+  },
+  "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665",
+  "source_sha256": "3634732abccc661d05dbb35936696cfa0d266c2eca55b3b00d2e3e6ee5a5ea29",
+  "split_manifests": [
+    "experiments/results/q1/splits/scadanet_track_b_split_9b2577667b537cb326c86dd7dd2cf26fcffd6f1a468cd65ffb034b191000024c.json"
+  ],
+  "library_versions": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1",
+    "networkx": "3.6.1"
+  }
+}

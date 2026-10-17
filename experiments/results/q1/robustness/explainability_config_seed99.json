@@ -1,0 +1,9 @@
+{
+  "seed": 99,
+  "top3_features": [
+    "Protocol_TCP",
+    "Tcp_window_size",
+    "Tcp_analysis_flags_missing"
+  ],
+  "epochs": 300
+}

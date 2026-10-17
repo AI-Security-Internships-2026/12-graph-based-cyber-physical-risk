@@ -1,0 +1,6 @@
+| prediction_group   |   n_seeds |    n | top_feature_1       | top_feature_2       | top_feature_3              |   rank_stability |   top3_jaccard | stability_definition                                    |
+|:-------------------|----------:|-----:|:--------------------|:--------------------|:---------------------------|-----------------:|---------------:|:--------------------------------------------------------|
+| FN                 |        10 | 1500 | Protocol_TCP        | Tcp_flags_reset_Set | Tcp_analysis_flags_missing |         0.953341 |       0.52     | cross-seed Spearman over common features; top-3 Jaccard |
+| FP                 |        10 | 1500 | Protocol_Modbus/TCP | Protocol_TCP        | Tcp_flags_reset_Not set    |         0.918962 |       0.551111 | cross-seed Spearman over common features; top-3 Jaccard |
+| TN                 |        10 | 1500 | ip_ttl              | Protocol_TCP        | Udp_length                 |         0.972519 |       0.9      | cross-seed Spearman over common features; top-3 Jaccard |
+| TP                 |        10 | 1500 | Protocol_Modbus/TCP | Protocol_TCP        | Tcp_flags_reset_Not set    |         0.961768 |       0.688889 | cross-seed Spearman over common features; top-3 Jaccard |

@@ -1,0 +1,120 @@
+{
+  "dataset": "batadal",
+  "model": "graphsage_window_classifier",
+  "split_protocol": "static_cv",
+  "seed": 42,
+  "train_size": null,
+  "validation_size": null,
+  "test_size": 693,
+  "feature_set": "sensor_window_stats",
+  "graph_mode": "windowed",
+  "threshold": 0.5,
+  "runtime": 90.33953313715756,
+  "auprc": null,
+  "fpr": null,
+  "confusion_matrix": null,
+  "notes": {
+    "n_folds": 5,
+    "per_fold": [
+      {
+        "accuracy": 0.9928057789802551,
+        "precision": 1.0,
+        "recall": 0.9090909090909091,
+        "f1": 0.9523809523809523,
+        "auprc": 0.9924242424242424,
+        "auroc": 0.9992897727272727,
+        "fpr": 0.0,
+        "confusion_matrix": {
+          "tp": 10,
+          "fp": 0,
+          "fn": 1,
+          "tn": 128
+        }
+      },
+      {
+        "accuracy": 0.9496402740478516,
+        "precision": 0.6111111111111112,
+        "recall": 1.0,
+        "f1": 0.7586206896551725,
+        "auprc": 0.9722550177095632,
+        "auroc": 0.9971590909090909,
+        "fpr": 0.0546875,
+        "confusion_matrix": {
+          "tp": 11,
+          "fp": 7,
+          "fn": 0,
+          "tn": 121
+        }
+      },
+      {
+        "accuracy": 0.971222996711731,
+        "precision": 0.7857142857142857,
+        "recall": 0.9166666666666666,
+        "f1": 0.8461538461538461,
+        "auprc": 0.9705128205128205,
+        "auroc": 0.996719160104987,
+        "fpr": 0.023622047244094488,
+        "confusion_matrix": {
+          "tp": 11,
+          "fp": 3,
+          "fn": 1,
+          "tn": 124
+        }
+      },
+      {
+        "accuracy": 0.9710144996643066,
+        "precision": 0.7333333333333333,
+        "recall": 1.0,
+        "f1": 0.846153846153846,
+        "auprc": 0.9924242424242424,
+        "auroc": 0.9992841803865427,
+        "fpr": 0.031496062992125984,
+        "confusion_matrix": {
+          "tp": 11,
+          "fp": 4,
+          "fn": 0,
+          "tn": 123
+        }
+      },
+      {
+        "accuracy": 0.97826087474823,
+        "precision": 0.7857142857142857,
+        "recall": 1.0,
+        "f1": 0.88,
+        "auprc": 0.9361517270608181,
+        "auroc": 0.9942734430923408,
+        "fpr": 0.023622047244094488,
+        "confusion_matrix": {
+          "tp": 11,
+          "fp": 3,
+          "fn": 0,
+          "tn": 124
+        }
+      }
+    ],
+    "window_size": 24,
+    "stride": 6,
+    "role": "historical_reference; strict results are Issue 5"
+  },
+  "accuracy": 0.9725888848304749,
+  "precision": 0.7831746031746032,
+  "recall": 0.9651515151515152,
+  "f1": 0.8566618668687633,
+  "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665",
+  "source_sha256": "3634732abccc661d05dbb35936696cfa0d266c2eca55b3b00d2e3e6ee5a5ea29",
+  "split_manifests": [
+    "experiments/results/q1/splits/batadal_static_cv_folds_8abc3523525bb6b269a5a620f1ef46e78a6eb1894ad43cdaa32df4050cb870b4.json",
+    "experiments/results/q1/splits/reference_window_positions_f694ebab29656ab3db8d3166b5c9c7e9c933003e60bb63a26af63e83933932f7.json",
+    "experiments/results/q1/splits/scadanet_track_b_split_9b2577667b537cb326c86dd7dd2cf26fcffd6f1a468cd65ffb034b191000024c.json",
+    "experiments/results/q1/splits/temporal_split_positions_e91596ca232406e5eaba3757451ef227cd20081b3f6cb97b9a1e090f4ac74248.json"
+  ],
+  "library_versions": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1",
+    "networkx": "3.6.1"
+  }
+}

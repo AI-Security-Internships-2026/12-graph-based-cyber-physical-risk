@@ -1,8 +1,6 @@
-"""
-Result-writing helpers. Every experiment produces exactly one JSON file
-matching REQUIRED_FIELDS (Issue #1, section 5). If a field genuinely does
-not apply to an experiment, it is still present in the JSON, set to null,
-with a one-line reason in `notes`.
+"""Result-writing helpers. Every experiment produces exactly one JSON file matching
+REQUIRED_FIELDS. If a field genuinely does not apply to an experiment, it is still
+present in the JSON, set to null, with a one-line reason in `notes`.
 """
 import json
 import subprocess
@@ -20,13 +18,19 @@ REQUIRED_FIELDS = [
 ]
 
 
-def get_git_commit() -> Optional[str]:
+def get_git_commit() -> str:
+    from pathlib import Path
+    from src.utils.reproducibility import source_hashes
+    root = Path(__file__).resolve().parents[2]
     try:
-        return subprocess.check_output(
-            ["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL
-        ).decode().strip()
+        return subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"],
+            stderr=subprocess.DEVNULL).decode().strip()
     except Exception:
-        return None
+        snapshot = root / "SOURCE_PROVENANCE.json"
+        if snapshot.exists():
+            info = json.loads(snapshot.read_text())
+            if info.get("source_hashes") == source_hashes(root): return info["git_commit"]
+        raise RuntimeError("No verifiable Git commit. Commit this source in your repository before running; never write null provenance.")
 
 
 def get_library_versions() -> Dict[str, str]:
@@ -42,7 +46,11 @@ def get_library_versions() -> Dict[str, str]:
 
 def write_result(result: Dict[str, Any], output_path: str) -> None:
     """Fill in environment metadata, validate schema, write JSON."""
-    result.setdefault("git_commit", get_git_commit())
+    result["git_commit"] = result.get("git_commit") or get_git_commit()
+    from src.utils.reproducibility import USED_MANIFESTS, source_hashes, fingerprint
+    from pathlib import Path
+    result["source_sha256"] = fingerprint(source_hashes(Path(__file__).resolve().parents[2]))
+    result["split_manifests"] = sorted(USED_MANIFESTS)
     result.setdefault("library_versions", get_library_versions())
 
     missing = [f for f in REQUIRED_FIELDS if f not in result]

@@ -1,0 +1,22 @@
+{
+  "model": "graphsage_edge_attr_reference",
+  "seed": 314,
+  "epochs": 300,
+  "lr": 0.003,
+  "threshold": 0.5,
+  "threshold_rule": "fixed_0.5_no_test_selection",
+  "weighting": "binary_class_weighted",
+  "n_windows": 20,
+  "preprocessing": "training_only",
+  "data_sha256": "93409148354fc286bd5e02fdf6c2b7ef63bd3cdb1a6245af016a6db705a67a52",
+  "config_id": "418f8dc9a7bbb3a2d7e2e200dc7acf651ce430667ae2b4ec253bbefa73b8ea22",
+  "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665",
+  "split_manifests": [
+    "experiments/results/q1/splits/batadal_purged_split_2ec4b8872ebd0b7a80b11f485f3b3596e9cac6f54539e5c458a31d41976de4ce.json",
+    "experiments/results/q1/splits/batadal_purged_split_60713c80e74b72ee54915cadd1bebe13d07f4844a554521f79922fd8aee61447.json",
+    "experiments/results/q1/splits/batadal_purged_split_d4703f6e0b27e811050904bfca8b8732e1e75449350e043aeb6926ab27cacd3b.json",
+    "experiments/results/q1/splits/scadanet_track_b_split_1f47ae86ea80e40d437b5aa77446613fa66512cc8104703edf9d06ac53352a5f.json",
+    "experiments/results/q1/splits/scadanet_track_b_split_57c116ae551136e0a168b1d90abd1464b62e50cb7f80c07fb577911613e1f673.json",
+    "experiments/results/q1/splits/temporal_split_positions_e91596ca232406e5eaba3757451ef227cd20081b3f6cb97b9a1e090f4ac74248.json"
+  ]
+}

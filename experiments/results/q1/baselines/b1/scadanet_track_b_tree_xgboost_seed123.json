@@ -1,0 +1,141 @@
+{
+  "dataset": "scadanet",
+  "model": "tree_xgboost",
+  "model_family": "tree",
+  "seed": 123,
+  "train_size": 359418,
+  "validation_size": 63426,
+  "test_size": 105711,
+  "feature_set": "enriched_edge_attr_content_only",
+  "graph_mode": "n/a_non_graph",
+  "threshold": 0.8500000000000001,
+  "runtime": 5.51757312216796,
+  "n_trainable_params": null,
+  "inference_latency_ms": {
+    "mean_ms": 9.918892057612538,
+    "std_ms": 0.9225461146125429,
+    "n_repeats": 10
+  },
+  "per_attack_recall": {
+    "apt_exfil": 1.0,
+    "http_flood": 1.0,
+    "icmp_flood": 1.0,
+    "insider_threat": 1.0,
+    "modbus_abuse": 1.0,
+    "modbus_fdi": 1.0,
+    "os_scan": 0.47699757869249393,
+    "port_scan": 1.0,
+    "sql_injection": 1.0,
+    "tcp_ack_flood": 1.0,
+    "udp_flood": 1.0,
+    "vuln_scan": 0.9697671583566988
+  },
+  "best_hyperparams": {
+    "max_depth": 6,
+    "n_estimators": 100
+  },
+  "hyperparam_search_log": [
+    {
+      "max_depth": 4,
+      "n_estimators": 100,
+      "threshold": 0.9000000000000001,
+      "val_f1": 0.9855115536072517
+    },
+    {
+      "max_depth": 4,
+      "n_estimators": 200,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9856617510493666
+    },
+    {
+      "max_depth": 6,
+      "n_estimators": 100,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.9857276838361609
+    },
+    {
+      "max_depth": 6,
+      "n_estimators": 200,
+      "threshold": 0.8500000000000001,
+      "val_f1": 0.985391840219772
+    }
+  ],
+  "notes": {
+    "loss_weighting": "per_sample_subtype_balanced",
+    "reason_no_topology": "non-GNN model; receives same per-flow content features as the GraphSAGE edge classifier (Issue #3 section 3), no graph structure.",
+    "input_dim": 212,
+    "mlp_epochs": null,
+    "split_meta": {
+      "protocol": "track_b",
+      "single_ip_attack_types": [
+        "vuln_scan",
+        "insider_threat",
+        "icmp_flood",
+        "sql_injection",
+        "os_scan",
+        "tcp_ack_flood",
+        "modbus_fdi",
+        "udp_flood",
+        "http_flood",
+        "port_scan",
+        "modbus_abuse",
+        "apt_exfil"
+      ],
+      "multi_ip_attack_types_excluded": [
+        "tcp_syn_flood"
+      ],
+      "test_ratio": 0.2
+    }
+  },
+  "accuracy": 0.9759532809257507,
+  "precision": 0.9770546470412862,
+  "recall": 0.9947835276394338,
+  "f1": 0.9858393867819422,
+  "auprc": 0.9987543329140242,
+  "auroc": 0.9935623438599057,
+  "fpr": 0.12397088652905382,
+  "confusion_matrix": {
+    "tp": 88485,
+    "fp": 2078,
+    "fn": 464,
+    "tn": 14684
+  },
+  "ece": 0.028556149569639692,
+  "brier_score": 0.030922857271786872,
+  "false_alarms_per_hour": null,
+  "event_recall": null,
+  "time_to_detect_mean_s": null,
+  "false_alarms_per_hour_note": "N/A: continuous exposure and timestamp units not explicitly validated",
+  "event_metrics_note": "N/A: verified event IDs/onsets not supplied; heuristic grouping is not ground truth",
+  "model_size_bytes": null,
+  "model_size_definition": "N/A: backend-specific serialized storage not measured",
+  "split_protocol": "track_b",
+  "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665",
+  "source_sha256": "3634732abccc661d05dbb35936696cfa0d266c2eca55b3b00d2e3e6ee5a5ea29",
+  "split_manifests": [
+    "experiments/results/q1/splits/batadal_purged_split_2ec4b8872ebd0b7a80b11f485f3b3596e9cac6f54539e5c458a31d41976de4ce.json",
+    "experiments/results/q1/splits/batadal_purged_split_60713c80e74b72ee54915cadd1bebe13d07f4844a554521f79922fd8aee61447.json",
+    "experiments/results/q1/splits/batadal_purged_split_d4703f6e0b27e811050904bfca8b8732e1e75449350e043aeb6926ab27cacd3b.json",
+    "experiments/results/q1/splits/batadal_static_cv_folds_8abc3523525bb6b269a5a620f1ef46e78a6eb1894ad43cdaa32df4050cb870b4.json",
+    "experiments/results/q1/splits/carve_validation_5392482e651c8cd48085c3a3e96a9f892a010835bc4114355b04f0b85d393a7d.json",
+    "experiments/results/q1/splits/carve_validation_99b2840f92f5e06d68660041fd28876a83550790173ab40dbdaa072123977ba9.json",
+    "experiments/results/q1/splits/carve_validation_ac1fb7dc093f3d9f03fc9f81b9c307142a6fd7a722a427c5d1ceab968dbd1b25.json",
+    "experiments/results/q1/splits/carve_validation_d3fd53b7521c39738338cceade3ba314da0a61a56992cbd214af34820f3f6536.json",
+    "experiments/results/q1/splits/carve_validation_de6cb7dc656b397d26b8e42c06ce08aa7dbc81e082a502d5badc3be0432fa5c2.json",
+    "experiments/results/q1/splits/reference_window_positions_f694ebab29656ab3db8d3166b5c9c7e9c933003e60bb63a26af63e83933932f7.json",
+    "experiments/results/q1/splits/scadanet_track_a_split_bd99c23d9b80e666ffea6a9f3cb75d6f9f8222efefe56913601ed15e17e7a9fa.json",
+    "experiments/results/q1/splits/scadanet_track_b_split_439216df02c7c6ac048e8de9dd8de1d50993beb3972a8fb9fcc959002d14e6a4.json",
+    "experiments/results/q1/splits/scadanet_track_b_split_9b2577667b537cb326c86dd7dd2cf26fcffd6f1a468cd65ffb034b191000024c.json",
+    "experiments/results/q1/splits/scadanet_track_b_split_aed8182d015b1d1fd8fb2f5253a8a54d4630db555ac2e4f8189360b90732c84a.json",
+    "experiments/results/q1/splits/temporal_split_positions_e91596ca232406e5eaba3757451ef227cd20081b3f6cb97b9a1e090f4ac74248.json"
+  ],
+  "library_versions": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1",
+    "networkx": "3.6.1"
+  }
+}

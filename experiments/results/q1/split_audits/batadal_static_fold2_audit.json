@@ -1,0 +1,55 @@
+{
+  "protocol_name": "batadal_static_cv_fold2",
+  "train_size": 554,
+  "test_size": 139,
+  "identity_topology_overlap": {
+    "applicable": false,
+    "reason": "no per-record host identity in this split granularity (e.g. BATADAL's topology is a single fixed sensor correlation graph shared by every window, not per-window host identity)",
+    "node_overlap": 1.0
+  },
+  "attack_coverage": {
+    "applicable": true,
+    "per_label": {
+      "1": {
+        "train_count": 44,
+        "test_count": 12,
+        "evaluable": true
+      }
+    },
+    "n_labels_total": 1,
+    "n_labels_evaluable_in_test": 1,
+    "pct_taxonomy_covered": 1.0
+  },
+  "temporal_leakage_flow": {
+    "applicable": false,
+    "reason": "no time column provided (non-temporal split)"
+  },
+  "temporal_leakage_windows": {
+    "applicable": true,
+    "n_test_windows": 139,
+    "n_test_windows_sharing_raw_rows_with_train": 139,
+    "pct_test_windows_overlapping_train": 1.0
+  },
+  "distribution_shift": {
+    "applicable": true,
+    "train_base_rate": 0.07942238267148015,
+    "test_base_rate": 0.08633093525179857,
+    "relative_base_rate_change": 0.0869849574885546,
+    "per_label_base_rates": {
+      "0": {
+        "train_rate": 0.9205776173285198,
+        "test_rate": 0.9136690647482014,
+        "relative_change": -0.007504584567640006
+      },
+      "1": {
+        "train_rate": 0.07942238267148015,
+        "test_rate": 0.08633093525179857,
+        "relative_change": 0.0869849574885546
+      }
+    },
+    "numeric_feature_drift": {}
+  },
+  "warnings": [
+    "WARNING: 100% of test sliding windows share raw observations with a train window under 'batadal_static_cv_fold2'."
+  ]
+}

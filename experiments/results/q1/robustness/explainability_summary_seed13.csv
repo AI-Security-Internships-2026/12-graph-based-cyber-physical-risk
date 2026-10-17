@@ -1,0 +1,5 @@
+prediction_group,n,top_feature_1,top_feature_2,top_feature_3,rank_stability,seed
+TP,150,Protocol_Modbus/TCP,Protocol_TCP,Tcp_flags_reset_Not set,1.0,13
+FP,150,Protocol_Modbus/TCP,Tcp_flags_reset_Not set,Protocol_TCP,1.0,13
+TN,150,ip_ttl,Udp_length,Protocol_TCP,1.0,13
+FN,150,Protocol_TCP,Tcp_flags_reset_Set,Tcp_analysis_flags_missing,1.0,13

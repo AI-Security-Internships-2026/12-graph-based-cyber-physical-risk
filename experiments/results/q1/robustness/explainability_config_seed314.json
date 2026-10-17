@@ -1,0 +1,9 @@
+{
+  "seed": 314,
+  "top3_features": [
+    "Protocol_Modbus/TCP",
+    "Http_response_code_missing",
+    "Protocol_TCP"
+  ],
+  "epochs": 300
+}

@@ -1,0 +1,90 @@
+{
+  "track_b_seed2025": {
+    "seed": 2025,
+    "method": "zscore",
+    "numeric_cols_host_normalized": [
+      "frame_len",
+      "ip_len",
+      "Tcp_window_size"
+    ],
+    "min_host_train_samples": 20,
+    "unseen_or_small_host_fallback": "global training-period mean/std",
+    "flag_rate_feature_appended": [
+      "host_rate_Tcp_flags_reset_Set"
+    ],
+    "calibrated_threshold_original": 0.8,
+    "calibrated_threshold_host_normalized": 0.8500000000000001,
+    "val_f1_original": 0.9846584795755574,
+    "val_f1_host_normalized": 0.9857684569669661,
+    "n_hosts_seen_in_train": 118
+  },
+  "git_commit": "ef0efd2ccdb046890184f73b272ce111676d8665",
+  "library_versions": {
+    "python": "3.12.3",
+    "torch": "2.14.1+cu130",
+    "torch_geometric": "2.8.0.post1",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1",
+    "networkx": "3.6.1"
+  },
+  "temporal_causal_seed2025": {
+    "seed": 2025,
+    "method": "zscore",
+    "test_mode": "causal (Issue #5 T2)",
+    "numeric_cols_host_normalized": [
+      "frame_len",
+      "ip_len",
+      "Tcp_window_size"
+    ],
+    "min_host_train_samples": 20,
+    "unseen_or_small_host_fallback": "global training-period mean/std",
+    "flag_rate_feature_appended": [
+      "host_rate_Tcp_flags_reset_Set"
+    ],
+    "calibrated_threshold_original": 0.05,
+    "calibrated_threshold_host_normalized": 0.05,
+    "val_f1_original": 0.9929612824890219,
+    "val_f1_host_normalized": 0.9929428949650797,
+    "n_hosts_seen_in_train": 678
+  },
+  "track_b_seed314": {
+    "seed": 314,
+    "method": "zscore",
+    "numeric_cols_host_normalized": [
+      "frame_len",
+      "ip_len",
+      "Tcp_window_size"
+    ],
+    "min_host_train_samples": 20,
+    "unseen_or_small_host_fallback": "global training-period mean/std",
+    "flag_rate_feature_appended": [
+      "host_rate_Tcp_flags_reset_Set"
+    ],
+    "calibrated_threshold_original": 0.9000000000000001,
+    "calibrated_threshold_host_normalized": 0.8500000000000001,
+    "val_f1_original": 0.9841623912558555,
+    "val_f1_host_normalized": 0.9847867730476668,
+    "n_hosts_seen_in_train": 118
+  },
+  "temporal_causal_seed314": {
+    "seed": 314,
+    "method": "zscore",
+    "test_mode": "causal (Issue #5 T2)",
+    "numeric_cols_host_normalized": [
+      "frame_len",
+      "ip_len",
+      "Tcp_window_size"
+    ],
+    "min_host_train_samples": 20,
+    "unseen_or_small_host_fallback": "global training-period mean/std",
+    "flag_rate_feature_appended": [
+      "host_rate_Tcp_flags_reset_Set"
+    ],
+    "calibrated_threshold_original": 0.05,
+    "calibrated_threshold_host_normalized": 0.05,
+    "val_f1_original": 0.9928521219977543,
+    "val_f1_host_normalized": 0.9928705098361404,
+    "n_hosts_seen_in_train": 703
+  }
+}

@@ -1,0 +1,414 @@
+[
+  {
+    "dataset": "scadanet",
+    "split_protocol": "track_b",
+    "seed": 2024,
+    "conv_type": "graphsage",
+    "removed_or_permuted_feature": "none",
+    "columns_found": null,
+    "per_attack_recall": {
+      "apt_exfil": 1.0,
+      "http_flood": 1.0,
+      "icmp_flood": 1.0,
+      "insider_threat": 0.9969512195121951,
+      "modbus_abuse": 1.0,
+      "modbus_fdi": 1.0,
+      "os_scan": 0.5202020202020202,
+      "port_scan": 1.0,
+      "sql_injection": 1.0,
+      "tcp_ack_flood": 1.0,
+      "udp_flood": 1.0,
+      "vuln_scan": 0.996705710102489
+    },
+    "delta_f1": 0.0,
+    "delta_auprc": -5.510424988530715e-07,
+    "delta_fpr": 0.0,
+    "accuracy": 0.973257303237915,
+    "precision": 0.9713658563354003,
+    "recall": 0.9975429421577026,
+    "f1": 0.984280384121353,
+    "auprc": 0.9982705976835681,
+    "auroc": 0.991614551618908,
+    "fpr": 0.15358803791134396,
+    "confusion_matrix": {
+      "tp": 88506,
+      "fp": 2609,
+      "fn": 218,
+      "tn": 14378
+    },
+    "notes": {
+      "split_meta": {
+        "protocol": "track_b",
+        "single_ip_attack_types": [
+          "vuln_scan",
+          "insider_threat",
+          "icmp_flood",
+          "sql_injection",
+          "os_scan",
+          "tcp_ack_flood",
+          "modbus_fdi",
+          "udp_flood",
+          "http_flood",
+          "port_scan",
+          "modbus_abuse",
+          "apt_exfil"
+        ],
+        "multi_ip_attack_types_excluded": [
+          "tcp_syn_flood"
+        ],
+        "test_ratio": 0.2
+      },
+      "reference_condition_c_f1": 0.984280384121353,
+      "reference_condition_c_model_hyperparams": {
+        "hidden_dim": 32,
+        "lr": 0.005,
+        "dropout": 0.2
+      }
+    }
+  },
+  {
+    "dataset": "scadanet",
+    "split_protocol": "track_b",
+    "seed": 2024,
+    "conv_type": "graphsage",
+    "removed_or_permuted_feature": "Protocol_TCP",
+    "columns_found": [
+      "Protocol_TCP"
+    ],
+    "per_attack_recall": {
+      "apt_exfil": 1.0,
+      "http_flood": 1.0,
+      "icmp_flood": 1.0,
+      "insider_threat": 0.9878048780487805,
+      "modbus_abuse": 0.832,
+      "modbus_fdi": 0.99830220713073,
+      "os_scan": 0.9040404040404041,
+      "port_scan": 1.0,
+      "sql_injection": 1.0,
+      "tcp_ack_flood": 1.0,
+      "udp_flood": 0.9999851937399132,
+      "vuln_scan": 0.9965836993655441
+    },
+    "delta_f1": -0.00811967131069602,
+    "delta_auprc": -0.005330166589931351,
+    "delta_fpr": 0.09577912521339849,
+    "accuracy": 0.9590487480163574,
+    "precision": 0.954386380522683,
+    "recall": 0.9989518055993869,
+    "f1": 0.976160712810657,
+    "auprc": 0.9929409821361356,
+    "auroc": 0.9675349390901367,
+    "fpr": 0.24936716312474244,
+    "confusion_matrix": {
+      "tp": 88631,
+      "fp": 4236,
+      "fn": 93,
+      "tn": 12751
+    },
+    "notes": {
+      "split_meta": {
+        "protocol": "track_b",
+        "single_ip_attack_types": [
+          "vuln_scan",
+          "insider_threat",
+          "icmp_flood",
+          "sql_injection",
+          "os_scan",
+          "tcp_ack_flood",
+          "modbus_fdi",
+          "udp_flood",
+          "http_flood",
+          "port_scan",
+          "modbus_abuse",
+          "apt_exfil"
+        ],
+        "multi_ip_attack_types_excluded": [
+          "tcp_syn_flood"
+        ],
+        "test_ratio": 0.2
+      },
+      "reference_condition_c_f1": 0.984280384121353,
+      "reference_condition_c_model_hyperparams": {
+        "hidden_dim": 32,
+        "lr": 0.005,
+        "dropout": 0.2
+      }
+    }
+  },
+  {
+    "dataset": "scadanet",
+    "split_protocol": "track_b",
+    "seed": 2024,
+    "conv_type": "graphsage",
+    "removed_or_permuted_feature": "Tcp_flags_reset_Set",
+    "columns_found": [
+      "Tcp_flags_reset_Set"
+    ],
+    "per_attack_recall": {
+      "apt_exfil": 1.0,
+      "http_flood": 1.0,
+      "icmp_flood": 1.0,
+      "insider_threat": 0.9969512195121951,
+      "modbus_abuse": 1.0,
+      "modbus_fdi": 1.0,
+      "os_scan": 0.5176767676767676,
+      "port_scan": 1.0,
+      "sql_injection": 1.0,
+      "tcp_ack_flood": 1.0,
+      "udp_flood": 1.0,
+      "vuln_scan": 0.996705710102489
+    },
+    "delta_f1": -1.1121058279828233e-05,
+    "delta_auprc": 7.453516477795574e-06,
+    "delta_fpr": 5.886854653561202e-05,
+    "accuracy": 0.9732383489608765,
+    "precision": 0.9713548811940954,
+    "recall": 0.9975316712501691,
+    "f1": 0.9842692630630732,
+    "auprc": 0.9982786022425447,
+    "auroc": 0.9915821279376286,
+    "fpr": 0.15364690645787957,
+    "confusion_matrix": {
+      "tp": 88505,
+      "fp": 2610,
+      "fn": 219,
+      "tn": 14377
+    },
+    "notes": {
+      "split_meta": {
+        "protocol": "track_b",
+        "single_ip_attack_types": [
+          "vuln_scan",
+          "insider_threat",
+          "icmp_flood",
+          "sql_injection",
+          "os_scan",
+          "tcp_ack_flood",
+          "modbus_fdi",
+          "udp_flood",
+          "http_flood",
+          "port_scan",
+          "modbus_abuse",
+          "apt_exfil"
+        ],
+        "multi_ip_attack_types_excluded": [
+          "tcp_syn_flood"
+        ],
+        "test_ratio": 0.2
+      },
+      "reference_condition_c_f1": 0.984280384121353,
+      "reference_condition_c_model_hyperparams": {
+        "hidden_dim": 32,
+        "lr": 0.005,
+        "dropout": 0.2
+      }
+    }
+  },
+  {
+    "dataset": "scadanet",
+    "split_protocol": "track_b",
+    "seed": 2024,
+    "conv_type": "graphsage",
+    "removed_or_permuted_feature": "frame_len",
+    "columns_found": [
+      "frame_len"
+    ],
+    "per_attack_recall": {
+      "apt_exfil": 1.0,
+      "http_flood": 0.9996532593619972,
+      "icmp_flood": 1.0,
+      "insider_threat": 0.9969512195121951,
+      "modbus_abuse": 0.992,
+      "modbus_fdi": 0.9949066213921901,
+      "os_scan": 0.2777777777777778,
+      "port_scan": 0.9964539007092199,
+      "sql_injection": 1.0,
+      "tcp_ack_flood": 0.9976190476190476,
+      "udp_flood": 0.9995261996772236,
+      "vuln_scan": 0.6006588579795022
+    },
+    "delta_f1": -0.01412959942548675,
+    "delta_auprc": -0.00014708249619121982,
+    "delta_fpr": -0.0572790957791252,
+    "accuracy": 0.9504498243331909,
+    "precision": 0.9811429493533738,
+    "recall": 0.9594021910644245,
+    "f1": 0.9701507846958662,
+    "auprc": 0.9981240662298757,
+    "auroc": 0.9902883140743889,
+    "fpr": 0.09630894213221876,
+    "confusion_matrix": {
+      "tp": 85122,
+      "fp": 1636,
+      "fn": 3602,
+      "tn": 15351
+    },
+    "notes": {
+      "split_meta": {
+        "protocol": "track_b",
+        "single_ip_attack_types": [
+          "vuln_scan",
+          "insider_threat",
+          "icmp_flood",
+          "sql_injection",
+          "os_scan",
+          "tcp_ack_flood",
+          "modbus_fdi",
+          "udp_flood",
+          "http_flood",
+          "port_scan",
+          "modbus_abuse",
+          "apt_exfil"
+        ],
+        "multi_ip_attack_types_excluded": [
+          "tcp_syn_flood"
+        ],
+        "test_ratio": 0.2
+      },
+      "reference_condition_c_f1": 0.984280384121353,
+      "reference_condition_c_model_hyperparams": {
+        "hidden_dim": 32,
+        "lr": 0.005,
+        "dropout": 0.2
+      }
+    }
+  },
+  {
+    "dataset": "scadanet",
+    "split_protocol": "track_b",
+    "seed": 2024,
+    "conv_type": "graphsage",
+    "removed_or_permuted_feature": "top-3 jointly",
+    "columns_found": [
+      "frame_len",
+      "Protocol_TCP",
+      "Tcp_flags_reset_Set"
+    ],
+    "per_attack_recall": {
+      "apt_exfil": 1.0,
+      "http_flood": 0.9980929264909847,
+      "icmp_flood": 0.9989180416553962,
+      "insider_threat": 0.9817073170731707,
+      "modbus_abuse": 0.848,
+      "modbus_fdi": 0.9932088285229203,
+      "os_scan": 0.8661616161616161,
+      "port_scan": 1.0,
+      "sql_injection": 1.0,
+      "tcp_ack_flood": 0.9976190476190476,
+      "udp_flood": 0.9981936362694147,
+      "vuln_scan": 0.9605905319668131
+    },
+    "delta_f1": -0.009829886281788935,
+    "delta_auprc": -0.0013631320593439078,
+    "delta_fpr": 0.08653676340731148,
+    "accuracy": 0.9562581181526184,
+    "precision": 0.9557870320189035,
+    "recall": 0.9938573553942563,
+    "f1": 0.9744504978395641,
+    "auprc": 0.996908016666723,
+    "auroc": 0.9846213343445033,
+    "fpr": 0.24012480131865543,
+    "confusion_matrix": {
+      "tp": 88179,
+      "fp": 4079,
+      "fn": 545,
+      "tn": 12908
+    },
+    "notes": {
+      "split_meta": {
+        "protocol": "track_b",
+        "single_ip_attack_types": [
+          "vuln_scan",
+          "insider_threat",
+          "icmp_flood",
+          "sql_injection",
+          "os_scan",
+          "tcp_ack_flood",
+          "modbus_fdi",
+          "udp_flood",
+          "http_flood",
+          "port_scan",
+          "modbus_abuse",
+          "apt_exfil"
+        ],
+        "multi_ip_attack_types_excluded": [
+          "tcp_syn_flood"
+        ],
+        "test_ratio": 0.2
+      },
+      "reference_condition_c_f1": 0.984280384121353,
+      "reference_condition_c_model_hyperparams": {
+        "hidden_dim": 32,
+        "lr": 0.005,
+        "dropout": 0.2
+      }
+    }
+  },
+  {
+    "dataset": "scadanet",
+    "split_protocol": "track_b",
+    "seed": 2024,
+    "conv_type": "graphsage",
+    "removed_or_permuted_feature": "all content shuffled",
+    "columns_found": null,
+    "per_attack_recall": {
+      "apt_exfil": 0.9193205944798302,
+      "http_flood": 0.9337725381414702,
+      "icmp_flood": 0.9334595618068704,
+      "insider_threat": 0.10975609756097561,
+      "modbus_abuse": 0.128,
+      "modbus_fdi": 0.12224108658743633,
+      "os_scan": 0.8333333333333334,
+      "port_scan": 0.9361702127659575,
+      "sql_injection": 0.958904109589041,
+      "tcp_ack_flood": 0.9396825396825397,
+      "udp_flood": 0.9343490427752854,
+      "vuln_scan": 0.9317959980478282
+    },
+    "delta_f1": -0.05238986852619065,
+    "delta_auprc": -0.03839179852933028,
+    "delta_fpr": 0.1551186201212692,
+    "accuracy": 0.8866342902183533,
+    "precision": 0.9398816893658,
+    "recall": 0.9240340832243812,
+    "f1": 0.9318905155951623,
+    "auprc": 0.9598793501967366,
+    "auroc": 0.8576563879325165,
+    "fpr": 0.30870665803261316,
+    "confusion_matrix": {
+      "tp": 81984,
+      "fp": 5244,
+      "fn": 6740,
+      "tn": 11743
+    },
+    "notes": {
+      "split_meta": {
+        "protocol": "track_b",
+        "single_ip_attack_types": [
+          "vuln_scan",
+          "insider_threat",
+          "icmp_flood",
+          "sql_injection",
+          "os_scan",
+          "tcp_ack_flood",
+          "modbus_fdi",
+          "udp_flood",
+          "http_flood",
+          "port_scan",
+          "modbus_abuse",
+          "apt_exfil"
+        ],
+        "multi_ip_attack_types_excluded": [
+          "tcp_syn_flood"
+        ],
+        "test_ratio": 0.2
+      },
+      "reference_condition_c_f1": 0.984280384121353,
+      "reference_condition_c_model_hyperparams": {
+        "hidden_dim": 32,
+        "lr": 0.005,
+        "dropout": 0.2
+      }
+    }
+  }
+]

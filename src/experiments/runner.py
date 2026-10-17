@@ -1,19 +1,14 @@
-"""
-Single entry point for every paper experiment.
+"""Single entry point for every paper experiment.
 
-    python -m src.experiments.runner \
-        --dataset scadanet --split track_b --seed 42 \
-        --output experiments/results/q1/scadanet_graphsage_trackb_seed42.json
+    python -m src.experiments.runner         --dataset scadanet --split track_b --seed 42         --output experiments/results/q1/scadanet_graphsage_trackb_seed42.json
 
 No notebook cells need to be run first — everything below is the notebook
 logic moved into src/, not reinvented. Two architectures are used, matching
 what the notebooks actually did (do not merge them — they answer different
 questions and use different models):
 
-  - SCADANet Track B and SCADANet Temporal: flow/edge-level,
-    EdgeClassifierWithAttr (Week 7 Part G.2 / Week 10 Part M / Week 12 Part X)
-  - BATADAL Temporal and BATADAL Static-CV: window/graph-level,
-    WindowGraphClassifier (Week 5 Part D / Week 11 Part P)
+- SCADANet Track B and SCADANet Temporal: flow/edge-level, EdgeClassifierWithAttr -
+BATADAL Temporal and BATADAL Static-CV: window/graph-level, WindowGraphClassifier
 """
 import argparse
 from typing import Dict
@@ -49,11 +44,10 @@ from src.utils.seed import set_seed
 
 def run_scadanet_track_a(seed: int, csv_path: str = None,
                           epochs: int = 200, lr: float = 0.01, log_every: int = 20) -> Dict:
-    """Week 6 Cell 110 `train_eval_scadanet_ip_split` — Track A / IP-held-out
-    split. Uses plain EdgeClassifier (topology only, no edge attributes —
-    this is the simplest of the three SCADANet models) and plain binary
-    class weighting. Note this is the split Issue #2's audit shows only
-    covers 2/13 real attack types in practice — see split_audits/."""
+    """Track A / IP-held-out split. Uses plain EdgeClassifier (topology only, no edge
+    attributes — this is the simplest of the three SCADANet models) and plain binary
+    class weighting.
+    """
     set_seed(seed)
     df = load_scadanet_df(csv_path)
     gt = build_graph_tensors(df)
@@ -106,10 +100,10 @@ def run_scadanet_track_a(seed: int, csv_path: str = None,
 
 def run_scadanet_track_b(seed: int, csv_path: str = None,
                           epochs: int = 400, lr: float = 0.003, log_every: int = 20) -> Dict:
-    """Week 8 Cell 123 `train_eval_scadanet_flowlevel` — Track B split
-    (Cells 121/122) with PER-SAMPLE subtype-balanced loss weighting, NOT
-    plain binary class weighting. Do not swap in build_class_weights()
-    here — see compute_subtype_balanced_weights() docstring."""
+    """Track B split with PER-SAMPLE subtype-balanced loss weighting, NOT plain binary
+    class weighting. Do not swap in build_class_weights() here — see
+    compute_subtype_balanced_weights() docstring.
+    """
     set_seed(seed)
     df = load_scadanet_df(csv_path)
     gt = build_graph_tensors(df)
@@ -171,11 +165,10 @@ def run_scadanet_track_b(seed: int, csv_path: str = None,
 
 def run_scadanet_temporal(seed: int, csv_path: str = None, n_windows: int = 20,
                            epochs: int = 400, lr: float = 0.003, log_every: int = 20) -> Dict:
-    """Week 10 Part M / Week 12 Part X (Cell 190):
-    train_eval_scadanet_temporal_seeded — trains on the streaming topology
-    snapshot as of the split boundary, evaluates on the final (full)
-    topology snapshot, query_edges/edge_attr/y reordered chronologically
-    to match df_t's row order before indexing by train/test position."""
+    """Train on the streaming topology snapshot as of the split boundary and evaluate on
+    the final (full) topology snapshot. query_edges, edge_attr and y are reordered
+    chronologically to match df_t's row order before indexing by train/test position.
+    """
     set_seed(seed)
     df = load_scadanet_df(csv_path)
     gt = build_graph_tensors(df)  # ip_index/all_ips/x are order-independent
@@ -251,12 +244,10 @@ def run_scadanet_temporal(seed: int, csv_path: str = None, n_windows: int = 20,
 
 def _train_eval_window_classifier(train_graphs, test_graphs, seed, epochs=100, lr=0.01,
                                    log_every: int = 20, fold_label: str = ""):
-    """Week 5 Part D `run_fold` (Cell 92), used identically by both the
-    BATADAL temporal split and the BATADAL static-CV folds. The original
-    notebook only printed a one-line summary per fold at the end (visible
-    in the calling loop, Cell 92) — this adds optional intra-fold epoch
-    printing since 100 epochs over 5 folds can otherwise look silent for
-    a while; set log_every=0 to suppress and match the original exactly."""
+    """Train a window-level graph classifier and evaluate it on test windows. Used by both
+    the BATADAL temporal split and the static-CV folds. Set log_every=0 to suppress per-
+    epoch printing.
+    """
     set_seed(seed)
     train_loader = DataLoader(train_graphs, batch_size=16, shuffle=True)
     test_loader = DataLoader(test_graphs, batch_size=32, shuffle=False)
@@ -298,7 +289,7 @@ def _train_eval_window_classifier(train_graphs, test_graphs, seed, epochs=100, l
 
 def run_batadal_temporal(seed: int, csv_path: str = "BATADAL_dataset04.csv",
                           epochs: int = 100, lr: float = 0.01) -> Dict:
-    """Week 11 Part P (Cell 171): chronological 70/30 split on windows."""
+    """Chronological 70/30 split on windows."""
     df = load_batadal_df(csv_path)
     window_graphs, window_labels, extra = build_windowed_graphs(df)
     train_graphs, test_graphs = temporal_split_windows(window_graphs)
@@ -318,7 +309,7 @@ def run_batadal_temporal(seed: int, csv_path: str = "BATADAL_dataset04.csv",
 
 def run_batadal_static_cv(seed: int, csv_path: str = "BATADAL_dataset04.csv",
                            n_folds: int = 5, epochs: int = 100, lr: float = 0.01) -> Dict:
-    """Week 5 Part D (Cell 92): StratifiedKFold(5, shuffle=True, random_state=seed)."""
+    """StratifiedKFold(5, shuffle=True, random_state=seed)."""
     df = load_batadal_df(csv_path)
     window_graphs, window_labels, extra = build_windowed_graphs(df)
     folds = batadal_static_cv_folds(window_labels, n_folds=n_folds, seed=seed)
@@ -368,7 +359,22 @@ def main():
                          help="CSV path (SCADANet defaults to kagglehub download; "
                               "BATADAL defaults to ./BATADAL_dataset04.csv)")
     parser.add_argument("--output", required=True)
+    parser.add_argument("--model",default=None,choices=["logistic_regression","mlp","tree","graphsage","gcn","gat"])
+    parser.add_argument("--threshold",default=None)
+    parser.add_argument("--config",default=None)
+    parser.add_argument("--epochs",type=int,default=None)
     args = parser.parse_args()
+    if args.model or args.config:
+        import json
+        from pathlib import Path
+        from src.experiments.workflow import run_configured_experiment
+        config=json.loads(Path(args.config).read_text()) if args.config else {}
+        config.update({"dataset":args.dataset,"split":args.split,"seed":args.seed,"data_path":args.data_path or config.get("data_path"),
+                       "model":args.model or config.get("model","graphsage"),"threshold":args.threshold if args.threshold is not None else config.get("threshold","validation"),"epochs":args.epochs or config.get("epochs",300)})
+        results=run_configured_experiment(config)
+        if not results:raise ValueError("Selected model is unsupported for this dataset")
+        write_result(results[0],args.output)
+        return
 
     key = (args.dataset, args.split)
     if key not in REGISTRY:
